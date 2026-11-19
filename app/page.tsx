@@ -1,9 +1,10 @@
+import ScreensCarousel from "./components/ScreensCarousel";
 import Image from "next/image";
 import AccessibilityBar from "./components/AccessibilityBar";
 import MobileMenu from "./components/MobileMenu";
 import FaqAccordion from "./components/FaqAccordion";
 import NewsletterForm from "./components/NewsletterForm";
-import { HomeScreen, ProfileScreen, ToolkitScreen, InsightsScreen, Icon } from "./components/AppScreens";
+import { HomeScreen, InsightsScreen } from "./components/AppScreens";
 
 const photo = {
   hero: "/images/image.png",
@@ -176,7 +177,7 @@ export default function Home() {
           </div>
 
           {/* Mobile/tablet photo: blends up into the mint panel */}
-          <div className="relative h-[360px] sm:h-[440px] lg:hidden">
+          <div className="relative aspect-[4/3] w-full sm:aspect-[16/9] lg:hidden">
             <Image
               src={photo.hero}
               alt="A woman relaxing on a sofa with headphones, eyes closed"
@@ -184,9 +185,13 @@ export default function Home() {
               priority
               sizes="100vw"
               quality={75}
-              className="object-cover object-[78%_center]"
+              className="object-cover object-[92%_center] sm:object-[85%_center]"
             />
-            <div aria-hidden="true" data-dark="hero-mobile-fade" className="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-[#EAF2EA] to-transparent" />
+            <div aria-hidden="true" data-dark="hero-mobile-fade" className="absolute inset-x-0 top-0 h-20 bg-gradient-to-b from-[#EAF2EA] to-transparent" />
+            {/* App home screen (brief: beside the introduction) */}
+            <div aria-hidden="true" className="pointer-events-none absolute bottom-4 left-4 w-[96px] -rotate-[6deg] drop-shadow-[0_14px_24px_rgba(11,54,31,0.35)] sm:bottom-6 sm:left-8 sm:w-[130px]">
+              <HomeScreen />
+            </div>
           </div>
 
           {/* App home screen beside the introduction (brief build note), large screens only */}
@@ -195,14 +200,14 @@ export default function Home() {
           </div>
 
           {/* Floating message card, over the photo (bottom-right) */}
-          <div className="pointer-events-none absolute bottom-6 right-5 sm:bottom-8 sm:right-8 lg:bottom-[clamp(20px,5vh,48px)] lg:right-12">
-            <div className="flex items-center gap-4 rounded-[18px] border border-white/45 bg-[#1C4A33]/55 px-6 py-4 shadow-[0_10px_30px_rgba(11,54,31,0.25)] backdrop-blur-md lg:px-7 lg:py-5">
-              <svg aria-hidden="true" width="36" height="36" viewBox="0 0 32 32" fill="none" stroke="#A8EBC8" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+          <div className="pointer-events-none absolute bottom-4 right-4 sm:bottom-8 sm:right-8 lg:bottom-[clamp(20px,5vh,48px)] lg:right-12">
+            <div className="flex items-center gap-3 rounded-[16px] border border-white/45 bg-[#1C4A33]/60 px-4 py-3 shadow-[0_10px_30px_rgba(11,54,31,0.25)] backdrop-blur-md sm:gap-4 sm:rounded-[18px] sm:px-6 sm:py-4 lg:px-7 lg:py-5">
+              <svg aria-hidden="true" width="36" height="36" viewBox="0 0 32 32" className="h-7 w-7 sm:h-9 sm:w-9" fill="none" stroke="#A8EBC8" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M27 5C15 5 7 10.5 7 19.5c0 2.2.6 4 1.6 5.3C18.5 25 26 18 27 5z" />
                 <path d="M5 27c4-5 9-9.5 15-13" />
                 <path d="M12.5 20.5l-.5-4.5M16.5 17l-.3-4.5M15.5 22.5l4.5-.3" />
               </svg>
-              <p className="m-0 text-[18px] font-normal leading-[1.35] text-white lg:text-[21px]">
+              <p className="m-0 text-[15px] font-normal leading-[1.35] text-white sm:text-[18px] lg:text-[21px]">
                 A calmer mind,<br />a brighter you.
               </p>
             </div>
@@ -338,28 +343,7 @@ export default function Home() {
             <h2 className="text-[28px] font-bold tracking-[-0.02em] text-[#0B361F] sm:text-[32px]">
               Explore the four main screens.
             </h2>
-            <p className="mt-2 flex items-center gap-2 text-[13px] font-medium text-[#53675C] md:hidden">
-              Swipe to see all four
-              <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
-            </p>
-
-            <div className="-mx-6 mt-7 flex snap-x snap-mandatory gap-4 overflow-x-auto px-6 pb-4 [scrollbar-width:none] sm:-mx-8 sm:px-8 md:mx-0 md:grid md:grid-cols-4 md:gap-x-5 md:overflow-visible md:px-0 md:pb-0 [&::-webkit-scrollbar]:hidden">
-              {[
-                { name: "Home", subtitle: "Distraction-free daily navigation.", icon: "home" as const, Screen: HomeScreen },
-                { name: "Profile", subtitle: "Personal sensory preferences.", icon: "profile" as const, Screen: ProfileScreen },
-                { name: "Toolkit", subtitle: "Calming tools within easy reach.", icon: "toolkit" as const, Screen: ToolkitScreen },
-                { name: "Insights", subtitle: "Weekly wellbeing patterns.", icon: "insights" as const, Screen: InsightsScreen },
-              ].map(({ name, subtitle, icon, Screen }) => (
-                <article key={name} className="w-[68%] shrink-0 snap-center text-center min-[480px]:w-[44%] md:w-auto">
-                  <Screen />
-                  <h3 className="mt-5 flex items-center justify-center gap-2 text-[17px] font-bold text-[#0B361F]">
-                    <Icon name={icon} size={18} strokeWidth={2} className="text-[#1E7A4C]" />
-                    {name}
-                  </h3>
-                  <p className="mx-auto mt-1 max-w-[150px] text-[14px] leading-[1.4] text-[#3E5146]">{subtitle}</p>
-                </article>
-              ))}
-            </div>
+            <ScreensCarousel />
           </div>
         </div>
       </section>
@@ -423,7 +407,8 @@ export default function Home() {
                   src={card.image}
                   alt=""
                   fill
-                  sizes="(min-width: 1024px) 14vw, (min-width: 768px) 22vw, 44vw"
+                  sizes="(min-width: 1024px) 320px, (min-width: 768px) 360px, 60vw"
+                  quality={85}
                   className={`object-cover ${card.pos} transition-transform duration-500 group-hover:scale-105 [mask-image:linear-gradient(90deg,#000_62%,transparent_100%)]`}
                 />
               </div>
@@ -575,7 +560,7 @@ export default function Home() {
 
           <span aria-hidden="true" className="hidden bg-white/15 lg:block" />
 
-          <div className="col-span-2 sm:col-span-1">
+          <div className="col-span-2 sm:col-span-1 rounded-2xl bg-white/[0.04] p-5 ring-1 ring-white/10 sm:rounded-none sm:bg-transparent sm:p-0 sm:ring-0">
             <h3 className="text-[15px] font-bold tracking-[0.01em] text-white">Get in touch</h3>
             <ul className="mt-4 space-y-3.5">
               <li>
@@ -597,7 +582,7 @@ export default function Home() {
             </ul>
           </div>
 
-          <div className="col-span-2 sm:col-span-1">
+          <div className="col-span-2 sm:col-span-1 rounded-2xl bg-white/[0.04] p-5 ring-1 ring-white/10 sm:rounded-none sm:bg-transparent sm:p-0 sm:ring-0">
             <h3 className="text-[15px] font-bold tracking-[0.01em] text-white">Follow us</h3>
             <div className="mt-4 flex gap-2.5">
               {[
@@ -620,10 +605,10 @@ export default function Home() {
         </div>
 
         <div className="border-t border-white/12">
-          <div className="mx-auto flex max-w-[1440px] flex-col gap-3 px-6 py-5 text-[13px] sm:px-8 lg:px-12 xl:flex-row xl:items-center xl:justify-between">
-            <p className="m-0 text-[#A9C9B6]">© 2026 NeuroDigital Support. All rights reserved.</p>
+          <div className="mx-auto flex max-w-[1440px] flex-col gap-4 px-6 py-6 text-[13.5px] sm:gap-3 sm:px-8 sm:py-5 sm:text-[13px] lg:px-12 xl:flex-row xl:items-center xl:justify-between">
+            <p className="order-2 m-0 border-t border-white/10 pt-4 text-center text-[#A9C9B6] sm:order-none sm:border-0 sm:pt-0 sm:text-left">© 2026 NeuroDigital Support. All rights reserved.</p>
 
-            <ul className="flex flex-wrap items-center gap-x-5 gap-y-2 text-[#CFE8DA] sm:gap-x-0">
+            <ul className="order-1 grid grid-cols-2 gap-x-6 gap-y-3 text-[#CFE8DA] sm:order-none sm:flex sm:flex-wrap sm:items-center sm:gap-x-0 sm:gap-y-2">
               {[["Cookie settings", "/cookie-policy/#settings"], ["Accessibility Statement", "/accessibility/"], ["Privacy Policy", "/privacy-policy/"], ["Terms of Service", "/terms/"], ["All NuroTok policies", "/policies/"], ["Cookie policy", "/cookie-policy/"]].map(([label, href], i) => (
                 <li key={label} className="flex items-center">
                   {i > 0 && <span aria-hidden="true" className="mx-4 hidden h-3.5 w-px bg-white/25 sm:block" />}

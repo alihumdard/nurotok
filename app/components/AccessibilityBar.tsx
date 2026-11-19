@@ -1,37 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState, type ReactNode } from "react";
-
-/* Settings live on <html> (classes + --nt-zoom) and in localStorage.
-   app/layout.tsx applies them before first paint to avoid a flash. */
-
-const ZOOM_STEPS = [0.9, 1, 1.1, 1.2, 1.3];
-const KEY = "nt-a11y";
-
-type Prefs = { zoom: number; dark: boolean; motion: boolean; links: boolean };
-const DEFAULTS: Prefs = { zoom: 1, dark: false, motion: false, links: false };
-
-function readPrefs(): Prefs {
-  try {
-    const raw = localStorage.getItem(KEY);
-    return raw ? { ...DEFAULTS, ...JSON.parse(raw) } : DEFAULTS;
-  } catch {
-    return DEFAULTS;
-  }
-}
-
-function applyPrefs(p: Prefs) {
-  const el = document.documentElement;
-  el.style.setProperty("--nt-zoom", String(p.zoom));
-  el.classList.toggle("nt-dark", p.dark);
-  el.classList.toggle("nt-reduce-motion", p.motion);
-  el.classList.toggle("nt-links", p.links);
-  try {
-    localStorage.setItem(KEY, JSON.stringify(p));
-  } catch {
-    /* storage unavailable: settings still apply for this visit */
-  }
-}
+import { ZOOM_STEPS, usePrefs } from "./a11yPrefs";
 
 /** Small popover that closes on outside click or Escape. */
 function usePopover() {
@@ -51,7 +21,7 @@ function usePopover() {
   return { open, setOpen, ref };
 }
 
-function Toggle({ label, hint, on, onChange }: { label: string; hint: string; on: boolean; onChange: (v: boolean) => void }) {
+export function Toggle({ label, hint, on, onChange }: { label: string; hint: string; on: boolean; onChange: (v: boolean) => void }) {
   return (
     <button
       type="button"
@@ -84,7 +54,7 @@ function Panel({ children, align = "left", label }: { children: ReactNode; align
   );
 }
 
-function UkFlag() {
+export function UkFlag() {
   return (
     <svg aria-hidden="true" width="20" height="14" viewBox="0 0 60 42" className="rounded-[2px] shadow-[0_0_0_1px_rgba(0,0,0,0.08)]">
       <clipPath id="uk-t"><path d="M30 21h30v21zv21H0zH0V0zV0h30z" /></clipPath>
@@ -98,26 +68,9 @@ function UkFlag() {
 }
 
 export default function AccessibilityBar() {
-  const [prefs, setPrefs] = useState<Prefs>(DEFAULTS);
+  const { prefs, update, reset, step } = usePrefs();
   const a11y = usePopover();
   const region = usePopover();
-
-  // Sync UI with whatever the pre-paint script applied
-  useEffect(() => setPrefs(readPrefs()), []);
-
-  const update = (patch: Partial<Prefs>) => {
-    setPrefs(prev => {
-      const next = { ...prev, ...patch };
-      applyPrefs(next);
-      return next;
-    });
-  };
-
-  const idx = ZOOM_STEPS.indexOf(prefs.zoom);
-  const step = (dir: -1 | 1) => {
-    const i = Math.min(ZOOM_STEPS.length - 1, Math.max(0, (idx === -1 ? 1 : idx) + dir));
-    update({ zoom: ZOOM_STEPS[i] });
-  };
 
   const sizeBtn = (active: boolean) =>
     `flex h-7 min-w-7 items-center justify-center rounded-md px-1 font-semibold transition-colors hover:bg-white hover:text-[#367050] disabled:cursor-not-allowed disabled:opacity-40 ${active ? "bg-white text-[#0B361F] shadow-[0_0_0_1px_#C9D6CD]" : ""}`;
@@ -145,7 +98,7 @@ export default function AccessibilityBar() {
                 <Toggle label="Highlight links" hint="Underline every link on the page" on={prefs.links} onChange={v => update({ links: v })} />
                 <Toggle label="Dark mode" hint="Darker colours, easier on the eyes" on={prefs.dark} onChange={v => update({ dark: v })} />
                 <div className="mt-1 flex items-center justify-between border-t border-[#EDF2EE] px-3 pb-1 pt-2.5">
-                  <button type="button" onClick={() => update(DEFAULTS)} className="text-[13px] font-semibold text-[#367050] hover:text-[#0B361F]">
+                  <button type="button" onClick={reset} className="text-[13px] font-semibold text-[#367050] hover:text-[#0B361F]">
                     Reset all
                   </button>
                   <a href="/accessibility/" className="text-[13px] font-semibold text-[#367050] underline underline-offset-2 hover:text-[#0B361F]">
