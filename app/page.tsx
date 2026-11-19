@@ -559,14 +559,14 @@ export default function Home() {
       <footer data-dark="footer" className="bg-[linear-gradient(180deg,#0B3D26_0%,#062C1B_100%)] text-white">
         {/* Newsletter: first row of the footer */}
         <div className="mx-auto max-w-[1440px] px-6 sm:px-8 lg:px-12">
-          <div className="flex flex-col gap-6 border-b border-white/12 py-8 lg:flex-row lg:items-center lg:justify-between lg:gap-10">
+          <div className="flex flex-col gap-5 border-b border-white/12 py-7 sm:gap-6 sm:py-8 lg:flex-row lg:items-center lg:justify-between lg:gap-10">
             <div className="flex items-start gap-4">
-              <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-white/10 ring-1 ring-white/15">
+              <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-white/10 ring-1 ring-white/15 sm:h-12 sm:w-12 sm:rounded-2xl">
                 <svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#C8F2DC" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="5" width="18" height="14" rx="2.5" /><path d="M3.5 6.5L12 13l8.5-6.5" /></svg>
               </span>
               <div>
-                <h2 className="text-[24px] font-bold tracking-[-0.02em] text-white sm:text-[26px]">Stay in touch</h2>
-                <p className="mt-1 max-w-[420px] text-[15px] leading-[1.55] text-[#CFE8DA]">
+                <h2 className="text-[21px] font-bold tracking-[-0.02em] text-white sm:text-[26px]">Stay in touch</h2>
+                <p className="mt-1 max-w-[420px] text-[14px] leading-[1.5] text-[#CFE8DA] sm:text-[15px]">
                   Get updates on the app, training, research and new resources.
                 </p>
               </div>
@@ -582,9 +582,9 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="mx-auto grid max-w-[1440px] grid-cols-2 gap-x-6 gap-y-8 px-6 pb-8 pt-8 sm:px-8 md:grid-cols-4 lg:grid-cols-[1.35fr_1px_0.8fr_0.8fr_1px_1.15fr_0.9fr] lg:gap-x-10 lg:px-12">
+        <div className="mx-auto grid max-w-[1440px] grid-cols-2 gap-x-6 gap-y-7 px-6 pb-8 pt-8 sm:px-8 md:grid-cols-4 lg:grid-cols-[1.35fr_1px_0.8fr_0.8fr_1px_1.15fr_0.9fr] lg:gap-x-10 lg:px-12">
           {/* Brand */}
-          <div className="col-span-2 flex flex-col items-center text-center sm:items-start sm:text-left md:col-span-4 lg:col-span-1">
+          <div className="col-span-2 md:col-span-4 lg:col-span-1">
             <BrandLogo light />
             <p className="mt-4 max-w-[280px] text-[14.5px] leading-[1.55] text-[#CFE8DA]">
               Creating sensory-aware digital spaces that support neurodivergent wellbeing and reduce overwhelm.
@@ -593,7 +593,7 @@ export default function Home() {
 
           <span aria-hidden="true" className="hidden bg-white/15 lg:block" />
 
-          <nav aria-label="Quick links" className="text-center sm:text-left">
+          <nav aria-label="Quick links">
             <h3 className="text-[15px] font-bold tracking-[0.01em] text-white">Quick links</h3>
             <ul className="mt-4 space-y-2.5">
               {[["Home", "/"], ["Features", "/features/"], ["Research", "/research/"]].map(([label, href]) => (
@@ -602,7 +602,7 @@ export default function Home() {
             </ul>
           </nav>
 
-          <nav aria-label="More" className="text-center sm:text-left">
+          <nav aria-label="More">
             <h3 className="text-[15px] font-bold tracking-[0.01em] text-white">More</h3>
             <ul className="mt-4 space-y-2.5">
               {[["Store", "/store/"], ["About", "/about-us/"], ["Contact", "/contact-us/"]].map(([label, href]) => (
@@ -613,7 +613,7 @@ export default function Home() {
 
           <span aria-hidden="true" className="hidden bg-white/15 lg:block" />
 
-          <div className="col-span-2 sm:col-span-1 rounded-2xl bg-white/[0.04] p-5 ring-1 ring-white/10 sm:rounded-none sm:bg-transparent sm:p-0 sm:ring-0">
+          <div className="col-span-2 sm:col-span-1">
             <h3 className="text-[15px] font-bold tracking-[0.01em] text-white">Get in touch</h3>
             <ul className="mt-4 space-y-3.5">
               <li>
@@ -635,9 +635,9 @@ export default function Home() {
             </ul>
           </div>
 
-          <div className="col-span-2 sm:col-span-1 rounded-2xl bg-white/[0.04] p-5 ring-1 ring-white/10 sm:rounded-none sm:bg-transparent sm:p-0 sm:ring-0">
-            <h3 className="text-center text-[15px] font-bold tracking-[0.01em] text-white sm:text-left">Follow us</h3>
-            <div className="mt-4 flex justify-center gap-2.5 sm:justify-start">
+          <div className="col-span-2 sm:col-span-1">
+            <h3 className="text-[15px] font-bold tracking-[0.01em] text-white">Follow us</h3>
+            <div className="mt-3 flex gap-2.5 sm:mt-4">
               {[
                 { label: "LinkedIn", href: "#", d: "M6.5 9.5v8M6.5 6.5v.01M10.5 17.5v-8M10.5 13a3 3 0 0 1 6 0v4.5" },
                 { label: "YouTube", href: "#", d: "M3.5 8.2c.1-1.4 1.2-2.5 2.6-2.6C8 5.4 10 5.3 12 5.3s4 .1 5.9.3c1.4.1 2.5 1.2 2.6 2.6.2 2.5.2 5.1 0 7.6-.1 1.4-1.2 2.5-2.6 2.6-1.9.2-3.9.3-5.9.3s-4-.1-5.9-.3c-1.4-.1-2.5-1.2-2.6-2.6-.2-2.5-.2-5.1 0-7.6zM10.3 9.3v5.4l4.6-2.7z" },
@@ -659,7 +659,7 @@ export default function Home() {
 
         <div className="border-t border-white/12">
           <div className="mx-auto flex max-w-[1440px] flex-col gap-4 px-6 py-6 text-[13.5px] sm:gap-3 sm:px-8 sm:py-5 sm:text-[13px] lg:px-12 xl:flex-row xl:items-center xl:justify-between">
-            <p className="order-2 m-0 border-t border-white/10 pt-4 text-center text-[#A9C9B6] sm:order-none sm:border-0 sm:pt-0 sm:text-left">© 2026 NeuroDigital Support. All rights reserved.</p>
+            <p className="order-2 m-0 border-t border-white/10 pt-4 text-[#A9C9B6] sm:order-none sm:border-0 sm:pt-0">© 2026 NeuroDigital Support. All rights reserved.</p>
 
             <ul className="order-1 grid grid-cols-2 gap-x-6 gap-y-3 text-[#CFE8DA] sm:order-none sm:flex sm:flex-wrap sm:items-center sm:gap-x-0 sm:gap-y-2">
               {[["Cookie settings", "/cookie-policy/#settings"], ["Accessibility Statement", "/accessibility/"], ["Privacy Policy", "/privacy-policy/"], ["Terms of Service", "/terms/"], ["All NuroTok policies", "/policies/"], ["Cookie policy", "/cookie-policy/"]].map(([label, href], i) => (
