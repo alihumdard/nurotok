@@ -4,13 +4,13 @@ import AccessibilityBar from "./components/AccessibilityBar";
 import MobileMenu from "./components/MobileMenu";
 import FaqAccordion from "./components/FaqAccordion";
 import NewsletterForm from "./components/NewsletterForm";
-import { HomeScreen, InsightsScreen } from "./components/AppScreens";
+import { HomeScreen, InsightsScreen, Icon } from "./components/AppScreens";
 
 const photo = {
   hero: "/images/image.png",
-  research: "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&w=700&q=80",
-  training: "https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=700&q=80",
-  store: "https://images.unsplash.com/photo-1521369909029-2afed882baee?auto=format&fit=crop&w=700&q=80",
+  research: "/images/home/research.jpg",
+  training: "/images/home/training.jpg",
+  store: "/images/home/store.jpg",
 };
 
 // Store links: replace with the live listings when confirmed.
@@ -252,14 +252,14 @@ export default function Home() {
       </section>
 
       {/* DEMO */}
-      <section id="demo" className="bg-[#FAFBF8] py-12 lg:py-16">
-        <div className="reveal mx-auto grid max-w-[1440px] items-center gap-10 px-6 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] lg:gap-16 lg:px-12">
-          <div>
-            <a
-              href="/features/"
-              aria-label="Play the 37-second NuroTok demo"
-              className="group relative block aspect-[16/7.2] overflow-hidden rounded-[20px] shadow-[0_14px_36px_rgba(11,54,31,0.16)]"
-            >
+      <section id="demo" className="scroll-mt-24 bg-[#FAFBF8] py-14 lg:py-20">
+        <div className="reveal mx-auto grid max-w-[1440px] gap-6 px-5 sm:px-8 lg:grid-cols-[minmax(0,1.12fr)_minmax(0,1fr)] lg:items-stretch lg:gap-8 lg:px-12">
+          {/* Video preview: stretches to the height of the copy card */}
+          <a
+            href="#demo"
+            aria-label="Play the 37-second NuroTok demo"
+            className="group relative block aspect-[16/10] overflow-hidden rounded-[22px] shadow-[0_14px_36px_rgba(11,54,31,0.16)] lg:aspect-auto lg:h-full lg:min-h-[400px]"
+          >
               {/* Soft, blurred room backdrop tinted green */}
               <Image src={photo.hero} alt="" fill sizes="(min-width: 1024px) 45vw, 100vw" quality={50} className="scale-110 object-cover object-[48%_center] blur-[5px]" />
               <div className="absolute inset-0 bg-[linear-gradient(110deg,rgba(11,54,31,0.55)_0%,rgba(54,112,80,0.35)_45%,rgba(148,231,188,0.25)_100%)]" />
@@ -290,29 +290,46 @@ export default function Home() {
               <span className="absolute bottom-4 right-4 rounded-md bg-[#0B361F]/90 px-2.5 py-1 text-[13px] font-bold tracking-wide text-white">
                 0:37
               </span>
-            </a>
+          </a>
+
+          {/* Copy card */}
+          <div className="flex flex-col justify-center rounded-[22px] border border-[#E3ECE3] bg-white p-7 shadow-[0_2px_12px_rgba(11,54,31,0.05)] sm:p-9 lg:p-10">
+            <p className="flex items-center gap-2.5 text-[13px] font-bold uppercase tracking-[0.08em] text-[#1E7A4C]">
+              <span aria-hidden="true" className="h-[5px] w-7 rounded-full bg-[#367050]" />
+              Product demo · 0:37
+            </p>
+            <h2 className="mt-4 text-[32px] font-bold leading-[1.12] tracking-[-0.025em] text-[#0B361F] sm:text-[40px]">
+              See NuroTok in action.
+            </h2>
+            <p className="mt-3 text-[17px] leading-[1.6] text-[#3E5146]">
+              A 37-second look at the sensory profile, app protection, the sensory toolkit and Insights.
+            </p>
+
+            <ul className="mt-6 grid grid-cols-2 gap-3">
+              {[
+                { label: "Sensory profile", icon: <Icon name="profile" size={18} strokeWidth={2} /> },
+                { label: "App protection", icon: <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2.8l7.5 3v5.7c0 4.6-3.2 8.3-7.5 9.7-4.3-1.4-7.5-5.1-7.5-9.7V5.8z" /><path d="M8.6 12.2l2.4 2.4 4.5-4.6" /></svg> },
+                { label: "Sensory toolkit", icon: <Icon name="toolkit" size={18} strokeWidth={2} /> },
+                { label: "Insights", icon: <Icon name="insights" size={18} strokeWidth={2} /> },
+              ].map(item => (
+                <li key={item.label} className="flex items-center gap-3 rounded-xl border border-[#E3ECE6] bg-[#F7FAF6] px-3.5 py-3 text-[14.5px] font-semibold text-[#0B361F]">
+                  <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-[#E3F4EA] text-[#1E7A4C]">{item.icon}</span>
+                  {item.label}
+                </li>
+              ))}
+            </ul>
 
             {/* TODO: render captions + transcript here when the content team supplies them */}
-            <div id="transcript" className="mt-5 flex scroll-mt-28 flex-wrap items-center gap-x-5 gap-y-2 whitespace-nowrap text-[14px] font-semibold text-[#0B361F] sm:gap-x-6 sm:text-[15px]">
-              <a href="#demo" className="flex items-center gap-2.5 hover:text-[#367050]">
-                <svg aria-hidden="true" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinejoin="round"><path d="M7 4.5v15l12-7.5z" /></svg>
+            <div id="transcript" className="mt-7 flex scroll-mt-28 flex-wrap gap-3">
+              <a href="#demo" className="inline-flex items-center gap-2.5 whitespace-nowrap rounded-full bg-[#0B361F] px-6 py-3 text-[15px] font-semibold text-white transition-colors hover:bg-[#367050]">
+                <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M7 4.8v14.4c0 .8.9 1.3 1.6.9l11.2-7.2c.6-.4.6-1.4 0-1.8L8.6 3.9C7.9 3.5 7 4 7 4.8z" /></svg>
                 Watch the demo
               </a>
-              <span aria-hidden="true" className="hidden h-5 w-px bg-[#B9C8BC] min-[400px]:block" />
-              <a href="#transcript" className="flex items-center gap-2.5 hover:text-[#367050]">
+              <a href="#transcript" className="inline-flex items-center gap-2.5 whitespace-nowrap rounded-full border-2 border-[#0B361F] px-6 py-2.5 text-[15px] font-semibold text-[#0B361F] transition-colors hover:bg-[#0B361F] hover:text-white">
                 <svg aria-hidden="true" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round"><path d="M6 2.5h8.5L19 7v14.5H6z" /><path d="M14 2.5V7h5M9 12h7M9 15.5h7M9 9h3" /></svg>
                 Read the transcript
               </a>
             </div>
-          </div>
-
-          <div className="border-l-[5px] border-[#2E8A57] py-2 pl-7 lg:pl-9">
-            <h2 className="text-[32px] font-bold leading-[1.15] tracking-[-0.02em] text-[#0B361F] sm:text-[40px]">
-              See NuroTok in action.
-            </h2>
-            <p className="mt-3 max-w-[560px] text-[17px] leading-[1.6] text-[#3E5146]">
-              A 37-second look at the sensory profile, app protection, the sensory toolkit and Insights.
-            </p>
           </div>
         </div>
       </section>
@@ -390,33 +407,52 @@ export default function Home() {
       </section>
 
       {/* RESEARCH TRAINING STORE */}
-      <section className="bg-[#F6F3EC] py-10 lg:py-12">
-        <div className="reveal mx-auto grid max-w-[1440px] gap-5 px-5 sm:px-8 md:grid-cols-2 lg:grid-cols-3 lg:gap-6 lg:px-12">
+      <section className="bg-[#F6F3EC] py-14 lg:py-16">
+        <div className="reveal mx-auto grid max-w-[1440px] gap-6 px-5 sm:px-8 md:grid-cols-3 lg:gap-7 lg:px-12">
           {[
-            { title: "Research", text: "Explore the evidence and propose a study.", image: photo.research, href: "/research/", pos: "object-[40%_center]" },
-            { title: "Training", text: "Workshops and guidance for teams and organisations.", image: photo.training, href: "/training/", pos: "object-[38%_center]" },
-            { title: "Store", text: "Everyday items that support focus, comfort and calm.", image: photo.store, href: "/store/", pos: "object-[42%_center]" },
+            {
+              title: "Research", text: "Explore the evidence and propose a study.", cta: "Read the research",
+              image: photo.research, href: "/research/", pos: "object-center",
+              icon: <><rect x="4.5" y="3" width="15" height="18" rx="2" /><path d="M8 8h8M8 12h8M8 16h5" /></>,
+            },
+            {
+              title: "Training", text: "Workshops and guidance for teams and organisations.", cta: "Ask about a workshop",
+              image: photo.training, href: "/training/", pos: "object-[50%_35%]",
+              icon: <><circle cx="12" cy="7.5" r="2.6" /><circle cx="5.2" cy="9.3" r="2.1" /><circle cx="18.8" cy="9.3" r="2.1" /><path d="M7.2 19.5v-1.2a4.8 4.8 0 0 1 9.6 0v1.2M1.8 18.5v-.6a3.4 3.4 0 0 1 4.6-3.2M22.2 18.5v-.6a3.4 3.4 0 0 0-4.6-3.2" /></>,
+            },
+            {
+              title: "Store", text: "Everyday items that support focus, comfort and calm.", cta: "Shop NuroTok merchandise",
+              image: photo.store, href: "/store/", pos: "object-center",
+              icon: <><path d="M5 8h14l-1 13H6z" /><path d="M9 8V6a3 3 0 0 1 6 0v2" /></>,
+            },
           ].map(card => (
             <a
               key={card.title}
               href={card.href}
-              data-dark="card" className={`group relative flex min-h-[170px] overflow-hidden rounded-[18px] border border-[#ECE5D8] bg-[linear-gradient(120deg,#F3EEE4_0%,#FBF9F4_60%,#FFFFFF_100%)] shadow-[0_2px_10px_rgba(11,54,31,0.05)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_14px_30px_rgba(11,54,31,0.12)] ${card.title === "Store" ? "md:col-span-2 lg:col-span-1" : ""}`}
+              className="group flex flex-col overflow-hidden rounded-[22px] border border-[#ECE5D8] bg-white shadow-[0_2px_12px_rgba(11,54,31,0.06)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_18px_40px_rgba(11,54,31,0.14)]"
             >
-              <div className="relative w-[44%] shrink-0 overflow-hidden">
+              <div className="relative aspect-[16/10] overflow-hidden">
                 <Image
                   src={card.image}
                   alt=""
                   fill
-                  sizes="(min-width: 1024px) 320px, (min-width: 768px) 360px, 60vw"
+                  sizes="(min-width: 1440px) 440px, (min-width: 768px) 33vw, 100vw"
                   quality={85}
-                  className={`object-cover ${card.pos} transition-transform duration-500 group-hover:scale-105 [mask-image:linear-gradient(90deg,#000_62%,transparent_100%)]`}
+                  className={`object-cover ${card.pos} transition-transform duration-700 group-hover:scale-[1.05]`}
                 />
+                <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-t from-[#0B361F]/25 via-transparent to-transparent" />
+                <span data-light className="absolute left-4 top-4 flex h-11 w-11 items-center justify-center rounded-full bg-white/95 text-[#1E7A4C] shadow-[0_6px_16px_rgba(11,54,31,0.18)]">
+                  <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round">{card.icon}</svg>
+                </span>
               </div>
-              <div className="relative flex flex-1 flex-col py-6 pl-2 pr-5">
+              <div className="flex flex-1 flex-col p-6 lg:p-7">
                 <h3 className="text-[22px] font-bold tracking-[-0.02em] text-[#0B361F]">{card.title}</h3>
-                <p className="mt-1.5 text-[14.5px] leading-[1.5] text-[#3E5146]">{card.text}</p>
-                <span className="mt-auto flex h-9 w-9 items-center justify-center self-end rounded-full bg-[#0B361F] text-white transition-colors group-hover:bg-[#367050]">
-                  <svg aria-hidden="true" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.3" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
+                <p className="mb-5 mt-2 text-[15px] leading-[1.55] text-[#3E5146]">{card.text}</p>
+                <span className="mt-auto flex items-center justify-between gap-3 border-t border-[#EDF2EE] pt-4 text-[15px] font-semibold text-[#367050]">
+                  {card.cta}
+                  <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#0B361F] text-white transition-transform duration-300 group-hover:translate-x-1">
+                    <svg aria-hidden="true" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.3" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
+                  </span>
                 </span>
               </div>
             </a>
@@ -426,14 +462,28 @@ export default function Home() {
 
       {/* FAQ */}
       <section data-dark="section-alt" className="bg-[linear-gradient(180deg,#FFFFFF_0%,#F7FAF6_100%)] py-14 lg:py-16">
-        <div className="reveal mx-auto grid max-w-[1440px] gap-8 px-6 sm:px-8 lg:px-12 xl:grid-cols-[minmax(0,0.85fr)_minmax(0,2fr)] xl:gap-0">
-          <div className="xl:border-r xl:border-[#D8E2D9] xl:pr-10">
+        <div className="reveal mx-auto grid max-w-[1440px] gap-8 px-5 sm:px-8 lg:px-12 xl:grid-cols-[minmax(0,0.85fr)_minmax(0,2fr)] xl:gap-0">
+          <div className="flex flex-col xl:border-r xl:border-[#D8E2D9] xl:pr-10">
             <h2 className="text-[34px] font-bold leading-[1.12] tracking-[-0.025em] text-[#0B361F] xl:text-[36px]">
               NuroTok questions,<br className="hidden xl:block" /> answered
             </h2>
             <p className="mt-4 max-w-[300px] text-[16px] leading-[1.55] text-[#3E5146]">
               Quick answers to common questions about NuroTok.
             </p>
+
+            <div className="mt-8 rounded-[18px] border border-[#E3ECE3] bg-white p-6 shadow-[0_2px_12px_rgba(11,54,31,0.05)] xl:mt-auto">
+              <span className="flex h-11 w-11 items-center justify-center rounded-full bg-[#E3F4EA] text-[#1E7A4C]">
+                <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="5" width="18" height="14" rx="2.5" /><path d="M3.5 6.5L12 13l8.5-6.5" /></svg>
+              </span>
+              <h3 className="mt-4 text-[17px] font-bold leading-snug text-[#0B361F]">Get in touch with the NuroTok team</h3>
+              <p className="mt-1.5 text-[14.5px] leading-[1.55] text-[#3E5146]">
+                Email info@nurotok.co.uk. A short message is fine.
+              </p>
+              <a href="mailto:info@nurotok.co.uk" className="mt-4 inline-flex items-center gap-2 rounded-full bg-[#0B361F] px-5 py-2.5 text-[14.5px] font-semibold text-white transition-colors hover:bg-[#367050]">
+                Email the team
+                <svg aria-hidden="true" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.3" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
+              </a>
+            </div>
           </div>
 
           <div className="xl:pl-10">

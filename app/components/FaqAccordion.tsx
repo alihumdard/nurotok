@@ -31,7 +31,7 @@ export default function FaqAccordion({ items }: Props) {
                 aria-expanded={isOpen}
                 aria-controls={panelId}
                 onClick={() => setOpen(isOpen ? null : i)}
-                className="group flex w-full items-center justify-between gap-4 rounded-[12px] px-5 py-3.5 text-left font-semibold text-[#0B361F] outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[#2E7D50]"
+                className="group flex min-h-[76px] w-full items-center justify-between gap-4 rounded-[12px] px-5 py-3.5 text-left font-semibold text-[#0B361F] outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[#2E7D50]"
               >
                 {question}
                 <span
