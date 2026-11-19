@@ -1,3 +1,4 @@
+import FaqAccordion from "./components/FaqAccordion";
 import NewsletterForm from "./components/NewsletterForm";
 import { HomeScreen, ProfileScreen, ToolkitScreen, InsightsScreen, Icon } from "./components/AppScreens";
 
@@ -446,24 +447,8 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid content-start gap-x-6 gap-y-3 md:grid-cols-2 lg:pl-10">
-            {faqs.map(([question, answer]) => (
-              <details
-                key={question}
-                className="group self-start rounded-[12px] border border-[#DCE5DC] bg-white transition-shadow hover:border-[#B9CFBF] hover:shadow-[0_4px_14px_rgba(11,54,31,0.06)] open:border-[#B9CFBF] open:shadow-[0_6px_18px_rgba(11,54,31,0.08)]"
-              >
-                <summary className="flex cursor-pointer list-none items-center justify-between gap-4 rounded-[12px] px-5 py-3.5 text-[15px] font-semibold text-[#0B361F] marker:hidden [&::-webkit-details-marker]:hidden">
-                  {question}
-                  <span aria-hidden="true" className="relative flex h-6 w-6 shrink-0 items-center justify-center rounded-full text-[#0B361F] transition-colors group-hover:bg-[#EEF5EF] group-open:bg-[#0B361F] group-open:text-white">
-                    <span className="absolute h-[1.8px] w-3 rounded-full bg-current" />
-                    <span className="absolute h-3 w-[1.8px] rounded-full bg-current transition-transform duration-300 group-open:scale-y-0" />
-                  </span>
-                </summary>
-                <p className="mx-5 border-t border-[#E8EEE7] pb-4 pt-3 text-[14.5px] leading-[1.6] text-[#3E5146]">
-                  {answer}
-                </p>
-              </details>
-            ))}
+          <div className="lg:pl-10">
+            <FaqAccordion items={faqs as [string, string][]} />
           </div>
         </div>
       </section>
