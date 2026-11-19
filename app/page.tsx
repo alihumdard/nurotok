@@ -1,3 +1,4 @@
+import MobileMenu from "./components/MobileMenu";
 import FaqAccordion from "./components/FaqAccordion";
 import NewsletterForm from "./components/NewsletterForm";
 import { HomeScreen, ProfileScreen, ToolkitScreen, InsightsScreen, Icon } from "./components/AppScreens";
@@ -21,11 +22,11 @@ const faqs = [
 function BrandLogo({ light = false }: { light?: boolean }) {
   return (
     <a href="/" aria-label="NuroTok home" className="flex items-center gap-2.5">
-      <span className={light ? "rounded-full bg-[#F6F3EC] p-1" : ""}>
-        <img src="/images/nurotok-logo.png" alt="" width={56} height={56} className="h-[52px] w-[52px] sm:h-[56px] sm:w-[56px]" />
+      <span className={`shrink-0 ${light ? "rounded-full bg-[#F6F3EC] p-1" : ""}`}>
+        <img src="/images/nurotok-logo.png" alt="" width={56} height={56} className="h-[44px] w-[44px] sm:h-[52px] sm:w-[52px] lg:h-[56px] lg:w-[56px]" />
       </span>
       <span
-        className={`font-heading text-[30px] font-bold leading-none tracking-[-0.03em] sm:text-[34px] ${light ? "text-white" : "text-[#0E4A2E]"}`}
+        className={`font-heading text-[26px] font-bold leading-none tracking-[-0.03em] sm:text-[30px] lg:text-[34px] ${light ? "text-white" : "text-[#0E4A2E]"}`}
       >
         NuroTok
       </span>
@@ -86,10 +87,10 @@ export default function Home() {
 
       {/* NAVIGATION */}
       <header className="relative z-20 border-b border-[#E7EAE2] bg-white">
-        <div className="mx-auto flex h-[78px] max-w-[1440px] items-center justify-between gap-5 px-5 lg:h-[84px] lg:px-12">
+        <div className="mx-auto flex h-[72px] max-w-[1440px] items-center justify-between gap-4 px-5 sm:h-[78px] sm:px-8 lg:h-[84px] lg:px-12">
           <BrandLogo />
 
-          <nav aria-label="Main" className="hidden h-full items-center gap-9 lg:flex">
+          <nav aria-label="Main" className="hidden h-full items-center gap-6 lg:flex xl:gap-9">
             {["Home", "Features", "Research", "Training", "Blogs", "Store", "About"].map((item, i) => (
               <a
                 key={item}
@@ -102,22 +103,18 @@ export default function Home() {
             ))}
           </nav>
 
-          <a
-            href="/contact-us/"
-            className="inline-flex items-center gap-2.5 rounded-full bg-[#0B361F] px-7 py-3.5 text-[15px] font-semibold text-white transition-colors hover:bg-[#367050]"
-          >
-            Contact us
-            <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 12h15M13 6l6 6-6 6" /></svg>
-          </a>
+          <div className="flex items-center gap-3">
+            <a
+              href="/contact-us/"
+              className="hidden items-center gap-2.5 whitespace-nowrap rounded-full bg-[#0B361F] px-6 py-3 text-[15px] font-semibold text-white transition-colors hover:bg-[#367050] sm:inline-flex lg:px-7 lg:py-3.5"
+            >
+              Contact us
+              <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 12h15M13 6l6 6-6 6" /></svg>
+            </a>
+            <MobileMenu />
+          </div>
         </div>
 
-        <nav aria-label="Main mobile" className="flex gap-6 overflow-x-auto border-t border-[#EDF0EA] px-5 py-2 lg:hidden">
-          {["Home", "Features", "Research", "Training", "Blogs", "Store", "About"].map((item, i) => (
-            <a key={item} href={i === 0 ? "/" : `/${item.toLowerCase()}/`} className="shrink-0 text-xs font-semibold">
-              {item}
-            </a>
-          ))}
-        </nav>
       </header>
 
       {/* HERO: one continuous panel; the photo fades into the mint background (no column seam) */}
@@ -147,7 +144,7 @@ export default function Home() {
                 A sensory regulation app
               </div>
 
-              <h1 className="mt-5 text-[40px] font-bold leading-[1.05] tracking-[-0.03em] text-[#0B361F] sm:text-[54px] lg:text-[clamp(40px,7.5vh,64px)]">
+              <h1 className="mt-5 text-[36px] font-bold min-[400px]:text-[40px] leading-[1.05] tracking-[-0.03em] text-[#0B361F] sm:text-[54px] lg:text-[clamp(40px,min(7.5vh,4.6vw),64px)]">
                 When your phone<br className="hidden sm:block" /> feels like{" "}
                 <span className="italic text-[#367050]">too much.</span>
               </h1>
@@ -159,7 +156,7 @@ export default function Home() {
               <div className="mt-8 flex flex-col items-stretch gap-3 sm:items-start lg:mt-[clamp(16px,3.5vh,32px)]">
                 <a
                   href="#download"
-                  className="inline-flex items-center justify-center gap-3 rounded-full bg-[#0B361F] px-8 py-4 text-[16px] font-bold text-white shadow-[0_8px_20px_rgba(11,54,31,0.22)] transition-colors duration-300 hover:bg-[#367050]"
+                  className="inline-flex items-center justify-center gap-2.5 whitespace-nowrap rounded-full bg-[#0B361F] px-5 py-4 text-[15px] font-bold sm:gap-3 sm:px-8 sm:text-[16px] text-white shadow-[0_8px_20px_rgba(11,54,31,0.22)] transition-colors duration-300 hover:bg-[#367050]"
                 >
                   <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="6" y="2" width="12" height="20" rx="2.5" /><path d="M11 18h2" /></svg>
                   <span>Get NuroTok for your device</span>
@@ -169,7 +166,7 @@ export default function Home() {
                 <div className="flex flex-col gap-3 sm:flex-row">
                   <a
                     href="#demo"
-                    className="inline-flex items-center justify-center gap-2.5 rounded-full border-2 border-[#0B361F] bg-transparent px-7 py-3 text-[15px] font-bold text-[#0B361F] transition-colors hover:bg-[#0B361F] hover:text-white"
+                    className="inline-flex items-center justify-center gap-2.5 whitespace-nowrap rounded-full border-2 border-[#0B361F] bg-transparent px-7 py-3 text-[15px] font-bold text-[#0B361F] transition-colors hover:bg-[#0B361F] hover:text-white"
                   >
                     <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinejoin="round"><path d="M7 4.5v15l12-7.5z" /></svg>
                     <span>Watch 37s demo</span>
@@ -177,7 +174,7 @@ export default function Home() {
 
                   <a
                     href="/store/"
-                    className="inline-flex items-center justify-center gap-2.5 rounded-full border-2 border-[#0B361F] bg-transparent px-7 py-3 text-[15px] font-bold text-[#0B361F] transition-colors hover:bg-[#0B361F] hover:text-white"
+                    className="inline-flex items-center justify-center gap-2.5 whitespace-nowrap rounded-full border-2 border-[#0B361F] bg-transparent px-7 py-3 text-[15px] font-bold text-[#0B361F] transition-colors hover:bg-[#0B361F] hover:text-white"
                   >
                     <svg aria-hidden="true" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 8h14l-1 13H6z" /><path d="M9 8V6a3 3 0 0 1 6 0v2" /></svg>
                     <span>Shop merchandise</span>
@@ -217,7 +214,7 @@ export default function Home() {
       {/* THREE BENEFITS */}
       <section className="border-b border-[#E3ECE3] bg-[linear-gradient(180deg,#F4F8F3_0%,#FFFFFF_100%)] py-10 lg:py-12">
         <div className="mx-auto grid max-w-[1440px] gap-8 px-6 md:grid-cols-3 lg:grid-cols-[1.2fr_1fr_1fr_1fr] lg:gap-0 lg:px-12">
-          <h2 className="text-[32px] font-bold leading-[1.15] tracking-[-0.02em] text-[#0B361F] md:col-span-3 lg:col-span-1 lg:pr-6 lg:text-[34px] xl:text-[36px]">
+          <h2 className="text-[32px] font-bold leading-[1.15] tracking-[-0.02em] text-[#0B361F] md:col-span-3 lg:col-span-1 lg:pr-6 lg:text-[28px] xl:text-[36px]">
             What would help<br className="hidden lg:block" /> right now?
           </h2>
 
@@ -238,7 +235,7 @@ export default function Home() {
               icon: <><rect x="6" y="2.5" width="12" height="19" rx="2.5" /><path d="M10.5 18.5h3" /></>,
             },
           ].map(item => (
-            <article key={item.title} className="border-[#CFDDD0] md:border-l md:pl-6 lg:px-8">
+            <article key={item.title} className="border-[#CFDDD0] md:border-l md:pl-6 lg:px-6 xl:px-8">
               <svg aria-hidden="true" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#2E7D50" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
                 {item.icon}
               </svg>
@@ -290,12 +287,12 @@ export default function Home() {
               </span>
             </a>
 
-            <div className="mt-5 flex items-center gap-6 text-[15px] font-semibold text-[#0B361F]">
+            <div className="mt-5 flex flex-wrap items-center gap-x-5 gap-y-2 whitespace-nowrap text-[14px] font-semibold text-[#0B361F] sm:gap-x-6 sm:text-[15px]">
               <a href="/features/" className="flex items-center gap-2.5 hover:text-[#367050]">
                 <svg aria-hidden="true" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinejoin="round"><path d="M7 4.5v15l12-7.5z" /></svg>
                 Watch the demo
               </a>
-              <span aria-hidden="true" className="h-5 w-px bg-[#B9C8BC]" />
+              <span aria-hidden="true" className="hidden h-5 w-px bg-[#B9C8BC] min-[400px]:block" />
               <a href="/blogs/" className="flex items-center gap-2.5 hover:text-[#367050]">
                 <svg aria-hidden="true" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round"><path d="M6 2.5h8.5L19 7v14.5H6z" /><path d="M14 2.5V7h5M9 12h7M9 15.5h7M9 9h3" /></svg>
                 Read the transcript
@@ -316,8 +313,8 @@ export default function Home() {
 
       {/* AUDIENCE + FOUR SCREENS */}
       <section className="bg-[linear-gradient(180deg,#EEF5EE_0%,#F3F8F2_100%)] py-14 lg:py-16">
-        <div className="mx-auto grid max-w-[1440px] gap-12 px-6 lg:grid-cols-[minmax(0,0.78fr)_minmax(0,2fr)] lg:gap-0 lg:px-12">
-          <div className="lg:border-r lg:border-[#C9DACB] lg:pr-10">
+        <div className="mx-auto grid max-w-[1440px] gap-12 px-6 sm:px-8 lg:px-12 xl:grid-cols-[minmax(0,0.78fr)_minmax(0,2fr)] xl:gap-0">
+          <div className="max-w-[720px] xl:max-w-none xl:border-r xl:border-[#C9DACB] xl:pr-10">
             <h2 className="text-[34px] font-bold leading-[1.12] tracking-[-0.025em] text-[#0B361F] xl:text-[40px]">
               Designed with neurodivergent adults in mind.
             </h2>
@@ -336,7 +333,7 @@ export default function Home() {
             </a>
           </div>
 
-          <div className="lg:pl-10">
+          <div className="xl:pl-10">
             <h2 className="text-[28px] font-bold tracking-[-0.02em] text-[#0B361F] sm:text-[32px]">
               Explore the four main screens.
             </h2>
@@ -364,7 +361,7 @@ export default function Home() {
 
       {/* TRUST STRIP */}
       <section className="border-y border-[#E4EAE2] bg-white">
-        <div className="mx-auto grid max-w-[1440px] gap-y-6 px-6 py-7 sm:grid-cols-2 lg:grid-cols-4 lg:px-12">
+        <div className="mx-auto grid max-w-[1440px] gap-x-8 gap-y-6 px-6 py-7 sm:grid-cols-2 sm:px-8 lg:px-12 xl:grid-cols-4 xl:gap-x-0">
           {[
             {
               title: "Works across devices",
@@ -389,7 +386,7 @@ export default function Home() {
           ].map((item, i) => (
             <div
               key={item.title}
-              className={`flex items-start gap-4 lg:px-8 ${i === 0 ? "lg:pl-0" : "lg:border-l lg:border-[#D8E2D9]"}`}
+              className={`flex items-start gap-4 xl:px-8 ${i === 0 ? "xl:pl-0" : "xl:border-l xl:border-[#D8E2D9]"}`}
             >
               <svg aria-hidden="true" width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#2E7D50" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" className="shrink-0">
                 {item.icon}
@@ -405,7 +402,7 @@ export default function Home() {
 
       {/* RESEARCH TRAINING STORE */}
       <section className="bg-[#F6F3EC] py-10 lg:py-12">
-        <div className="mx-auto grid max-w-[1440px] gap-5 px-5 md:grid-cols-3 lg:gap-6 lg:px-12">
+        <div className="mx-auto grid max-w-[1440px] gap-5 px-5 sm:px-8 md:grid-cols-2 lg:grid-cols-3 lg:gap-6 lg:px-12">
           {[
             { title: "Research", text: "Explore the evidence and propose a study.", image: photo.research, href: "/research/", pos: "object-[40%_center]" },
             { title: "Training", text: "Workshops and guidance for teams and organisations.", image: photo.training, href: "/training/", pos: "object-[38%_center]" },
@@ -414,7 +411,7 @@ export default function Home() {
             <a
               key={card.title}
               href={card.href}
-              className="group relative flex min-h-[170px] overflow-hidden rounded-[18px] border border-[#ECE5D8] bg-[linear-gradient(120deg,#F3EEE4_0%,#FBF9F4_60%,#FFFFFF_100%)] shadow-[0_2px_10px_rgba(11,54,31,0.05)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_14px_30px_rgba(11,54,31,0.12)]"
+              className={`group relative flex min-h-[170px] overflow-hidden rounded-[18px] border border-[#ECE5D8] bg-[linear-gradient(120deg,#F3EEE4_0%,#FBF9F4_60%,#FFFFFF_100%)] shadow-[0_2px_10px_rgba(11,54,31,0.05)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_14px_30px_rgba(11,54,31,0.12)] ${card.title === "Store" ? "md:col-span-2 lg:col-span-1" : ""}`}
             >
               <div className="relative w-[44%] shrink-0 overflow-hidden">
                 <img
@@ -437,17 +434,17 @@ export default function Home() {
 
       {/* FAQ */}
       <section className="bg-[linear-gradient(180deg,#FFFFFF_0%,#F7FAF6_100%)] py-14 lg:py-16">
-        <div className="mx-auto grid max-w-[1440px] gap-10 px-6 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,2fr)] lg:gap-0 lg:px-12">
-          <div className="lg:border-r lg:border-[#D8E2D9] lg:pr-10">
+        <div className="mx-auto grid max-w-[1440px] gap-8 px-6 sm:px-8 lg:px-12 xl:grid-cols-[minmax(0,0.85fr)_minmax(0,2fr)] xl:gap-0">
+          <div className="xl:border-r xl:border-[#D8E2D9] xl:pr-10">
             <h2 className="text-[34px] font-bold leading-[1.12] tracking-[-0.025em] text-[#0B361F] xl:text-[36px]">
-              Frequently<br className="hidden lg:block" /> asked questions
+              Frequently<br className="hidden xl:block" /> asked questions
             </h2>
             <p className="mt-4 max-w-[300px] text-[16px] leading-[1.55] text-[#3E5146]">
               Quick answers to common questions about NuroTok.
             </p>
           </div>
 
-          <div className="lg:pl-10">
+          <div className="xl:pl-10">
             <FaqAccordion items={faqs as [string, string][]} />
           </div>
         </div>
@@ -460,7 +457,7 @@ export default function Home() {
           <span aria-hidden="true" className="pointer-events-none absolute -right-16 -top-24 h-64 w-64 rounded-full bg-[#94E7BC]/15 blur-3xl" />
           <span aria-hidden="true" className="pointer-events-none absolute -bottom-28 left-1/3 h-56 w-56 rounded-full bg-[#94E7BC]/10 blur-3xl" />
 
-          <div className="relative flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between lg:gap-10">
+          <div className="relative flex flex-col gap-6 lg:flex-row lg:flex-wrap lg:items-center lg:justify-between lg:gap-x-10 xl:flex-nowrap">
             <div className="flex items-center gap-4">
               <span className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-white/10 ring-1 ring-white/20">
                 <svg aria-hidden="true" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#C8F2DC" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="5" width="18" height="14" rx="2.5" /><path d="M3.5 6.5L12 13l8.5-6.5" /></svg>
@@ -479,9 +476,9 @@ export default function Home() {
 
       {/* FOOTER */}
       <footer className="bg-[linear-gradient(180deg,#0B3D26_0%,#062C1B_100%)] text-white">
-        <div className="mx-auto grid max-w-[1440px] gap-10 px-6 pb-10 pt-12 sm:grid-cols-2 lg:grid-cols-[1.35fr_1px_0.8fr_0.8fr_1px_1.15fr_0.9fr] lg:gap-x-10 lg:px-12">
+        <div className="mx-auto grid max-w-[1440px] grid-cols-2 gap-x-6 gap-y-9 px-6 pb-10 pt-12 sm:px-8 md:grid-cols-4 lg:grid-cols-[1.35fr_1px_0.8fr_0.8fr_1px_1.15fr_0.9fr] lg:gap-x-10 lg:px-12">
           {/* Brand */}
-          <div>
+          <div className="col-span-2 md:col-span-4 lg:col-span-1">
             <BrandLogo light />
             <p className="mt-4 max-w-[260px] text-[14.5px] leading-[1.55] text-[#CFE8DA]">
               A sensory regulation app from NeuroDigital Support.
@@ -510,7 +507,7 @@ export default function Home() {
 
           <span aria-hidden="true" className="hidden bg-white/15 lg:block" />
 
-          <div>
+          <div className="col-span-2 sm:col-span-1">
             <h3 className="text-[15px] font-bold tracking-[0.01em] text-white">Get in touch</h3>
             <ul className="mt-4 space-y-3.5">
               <li>
@@ -526,7 +523,7 @@ export default function Home() {
             </ul>
           </div>
 
-          <div>
+          <div className="col-span-2 sm:col-span-1">
             <h3 className="text-[15px] font-bold tracking-[0.01em] text-white">Follow us</h3>
             <div className="mt-4 flex gap-2.5">
               {[
@@ -552,10 +549,10 @@ export default function Home() {
           <div className="mx-auto flex max-w-[1440px] flex-col gap-3 px-6 py-5 text-[13px] sm:flex-row sm:items-center sm:justify-between lg:px-12">
             <p className="m-0 text-[#A9C9B6]">© 2026 NeuroDigital Support. All rights reserved.</p>
 
-            <ul className="flex flex-wrap items-center text-[#CFE8DA]">
+            <ul className="flex flex-wrap items-center gap-x-5 gap-y-2 text-[#CFE8DA] sm:gap-x-0">
               {[["Privacy Policy", "/privacy-policy/"], ["Terms of Use", "/terms/"], ["Accessibility", "/accessibility/"], ["Cookies", "/cookies/"]].map(([label, href], i) => (
                 <li key={label} className="flex items-center">
-                  {i > 0 && <span aria-hidden="true" className="mx-4 h-3.5 w-px bg-white/25" />}
+                  {i > 0 && <span aria-hidden="true" className="mx-4 hidden h-3.5 w-px bg-white/25 sm:block" />}
                   <a href={href} className="transition-colors hover:text-white">{label}</a>
                 </li>
               ))}
