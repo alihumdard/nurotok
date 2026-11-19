@@ -71,7 +71,7 @@ export default function Home() {
       <AccessibilityBar />
 
       {/* NAVIGATION */}
-      <header className="sticky top-0 z-40 border-b border-[#E7EAE2] bg-white/95 backdrop-blur-md supports-[backdrop-filter]:bg-white/85">
+      <header data-dark="header" className="sticky top-0 z-40 border-b border-[#E7EAE2] bg-white/95 backdrop-blur-md supports-[backdrop-filter]:bg-white/85">
         <div className="mx-auto flex h-[72px] max-w-[1440px] items-center justify-between gap-4 px-5 sm:h-[78px] sm:px-8 lg:h-[84px] lg:px-12">
           <BrandLogo />
 
