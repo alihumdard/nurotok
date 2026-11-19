@@ -41,8 +41,17 @@ export default function RootLayout({
   return (
     <html
       lang="en-GB"
+      suppressHydrationWarning
       className={`${atkinson.variable} ${lexend.variable} h-full antialiased`}
     >
+      <head>
+        {/* Apply saved accessibility prefs before first paint (see components/AccessibilityBar) */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `try{var p=JSON.parse(localStorage.getItem("nt-a11y")||"{}"),e=document.documentElement;if(p.zoom)e.style.setProperty("--nt-zoom",p.zoom);if(p.dark)e.classList.add("nt-dark");if(p.motion)e.classList.add("nt-reduce-motion");if(p.links)e.classList.add("nt-links")}catch(_){}`,
+          }}
+        />
+      </head>
       {/* suppressHydrationWarning: browser extensions (e.g. ColorZilla) inject attributes on <body> */}
       <body className="min-h-full flex flex-col" suppressHydrationWarning>
         {children}

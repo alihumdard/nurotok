@@ -214,3 +214,50 @@
     width: calc(100% - 32px);
   }
 }
+
+/* ========================================
+   ACCESSIBILITY BAR PREFERENCES
+   (toggled on <html> by components/AccessibilityBar)
+======================================== */
+
+/* Text size: scales the whole page proportionally */
+:root {
+  --nt-zoom: 1;
+}
+
+body {
+  zoom: var(--nt-zoom);
+}
+
+/* Dark mode: invert the page, then flip photos back to their real colours */
+html.nt-dark {
+  filter: invert(0.92) hue-rotate(180deg);
+  background: #F6F3EC;
+}
+
+html.nt-dark img,
+html.nt-dark video,
+html.nt-dark [data-keep-colors] {
+  filter: invert(1) hue-rotate(180deg);
+}
+
+html.nt-dark [data-keep-colors] img {
+  filter: none;
+}
+
+/* Reduce motion */
+html.nt-reduce-motion,
+html.nt-reduce-motion *,
+html.nt-reduce-motion *::before,
+html.nt-reduce-motion *::after {
+  scroll-behavior: auto !important;
+  animation: none !important;
+  transition: none !important;
+}
+
+/* Highlight links */
+html.nt-links a {
+  text-decoration: underline !important;
+  text-decoration-thickness: 2px !important;
+  text-underline-offset: 3px !important;
+}

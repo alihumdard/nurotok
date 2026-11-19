@@ -1,3 +1,4 @@
+import AccessibilityBar from "./components/AccessibilityBar";
 import MobileMenu from "./components/MobileMenu";
 import FaqAccordion from "./components/FaqAccordion";
 import NewsletterForm from "./components/NewsletterForm";
@@ -54,56 +55,12 @@ function BrandLogo({ light = false }: { light?: boolean }) {
   );
 }
 
-function UkFlag() {
-  return (
-    <svg aria-hidden="true" width="20" height="14" viewBox="0 0 60 42" className="rounded-[2px] shadow-[0_0_0_1px_rgba(0,0,0,0.08)]">
-      <clipPath id="uk-t"><path d="M30 21h30v21zv21H0zH0V0zV0h30z" /></clipPath>
-      <rect width="60" height="42" fill="#012169" />
-      <path d="M0 0l60 42M60 0L0 42" stroke="#fff" strokeWidth="8.4" />
-      <path d="M0 0l60 42M60 0L0 42" clipPath="url(#uk-t)" stroke="#C8102E" strokeWidth="5.6" />
-      <path d="M30 0v42M0 21h60" stroke="#fff" strokeWidth="14" />
-      <path d="M30 0v42M0 21h60" stroke="#C8102E" strokeWidth="8.4" />
-    </svg>
-  );
-}
-
 export default function Home() {
   return (
     <main className="overflow-hidden bg-[#F6F3EC] text-[#0B361F]">
 
       {/* ACCESSIBILITY BAR */}
-      <div className="hidden border-b border-[#E3EAE3] bg-[#EEF3EE] md:block">
-        <div className="mx-auto flex h-[38px] max-w-[1440px] items-center justify-between px-6 text-[13px] text-[#0B361F] lg:px-12">
-          <div className="flex items-center">
-            <button type="button" className="flex items-center gap-2 font-medium hover:text-[#367050]">
-              <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10" /><circle cx="12" cy="7.2" r="1.3" fill="currentColor" stroke="none" /><path d="M7.5 10l4.5 1 4.5-1M12 11v3.5M12 14.5l-2.5 4M12 14.5l2.5 4" /></svg>
-              Accessibility
-            </button>
-
-            <span aria-hidden="true" className="mx-6 h-4 w-px bg-[#A9B8AD]" />
-
-            <div className="flex items-center gap-4" role="group" aria-label="Text size">
-              <span className="font-medium">Text size:</span>
-              <button type="button" aria-label="Decrease text size" className="font-semibold hover:text-[#367050]">A−</button>
-              <button type="button" aria-label="Default text size" className="font-semibold hover:text-[#367050]">A</button>
-              <button type="button" aria-label="Increase text size" className="font-semibold hover:text-[#367050]">A+</button>
-            </div>
-
-            <span aria-hidden="true" className="mx-6 h-4 w-px bg-[#A9B8AD]" />
-
-            <button type="button" className="flex items-center gap-2 font-medium hover:text-[#367050]">
-              <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.5 14.6A8.5 8.5 0 0 1 9.4 3.5a8.5 8.5 0 1 0 11.1 11.1z" /></svg>
-              Dark mode
-            </button>
-          </div>
-
-          <button type="button" className="flex items-center gap-2 font-semibold hover:text-[#367050]">
-            <UkFlag />
-            UK
-            <svg aria-hidden="true" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round"><path d="M6 9l6 6 6-6" /></svg>
-          </button>
-        </div>
-      </div>
+      <AccessibilityBar />
 
       {/* NAVIGATION */}
       <header className="relative z-20 border-b border-[#E7EAE2] bg-white">
@@ -276,6 +233,7 @@ export default function Home() {
             <a
               href="/features/"
               aria-label="Play the 37-second NuroTok demo"
+              data-keep-colors
               className="group relative block aspect-[16/7.2] overflow-hidden rounded-[20px] shadow-[0_14px_36px_rgba(11,54,31,0.16)]"
             >
               {/* Soft, blurred room backdrop tinted green */}
