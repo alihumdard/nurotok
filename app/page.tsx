@@ -1,3 +1,4 @@
+import DemoVideo from "./components/DemoVideo";
 import ScreensCarousel from "./components/ScreensCarousel";
 import Image from "next/image";
 import AccessibilityBar from "./components/AccessibilityBar";
@@ -263,10 +264,9 @@ export default function Home() {
       <section id="demo" className="scroll-mt-24 bg-[#FAFBF8] py-14 lg:py-20">
         <div className="reveal mx-auto grid max-w-[1440px] gap-6 px-5 sm:px-8 lg:grid-cols-[minmax(0,1.12fr)_minmax(0,1fr)] lg:items-stretch lg:gap-8 lg:px-12">
           {/* Video preview: stretches to the height of the copy card */}
-          <a
-            href="#demo"
-            aria-label="Play the 37-second NuroTok demo"
-            className="group relative block aspect-[16/10] overflow-hidden rounded-[22px] shadow-[0_14px_36px_rgba(11,54,31,0.16)] lg:aspect-auto lg:h-full lg:min-h-[400px]"
+          <DemoVideo
+            src="https://neurodigitalsupport.com/videos/nurotok-demo-1080p.mp4"
+            className="relative block aspect-[16/10] overflow-hidden rounded-[22px] shadow-[0_14px_36px_rgba(11,54,31,0.16)] lg:aspect-auto lg:h-full lg:min-h-[400px]"
           >
             {/* Clear room photo with a light brand tint */}
             <Image src={photo.hero} alt="" fill sizes="(min-width: 1024px) 55vw, 100vw" quality={80} className="object-cover object-[30%_center] transition-transform duration-700 group-hover:scale-[1.03]" />
@@ -298,7 +298,7 @@ export default function Home() {
             <span className="absolute bottom-4 right-4 rounded-md bg-[#0B361F]/90 px-2.5 py-1 text-[13px] font-bold tracking-wide text-white">
               0:37
             </span>
-          </a>
+          </DemoVideo>
 
           {/* Copy card */}
           <div className="flex flex-col justify-center rounded-[22px] border border-[#E3ECE3] bg-white p-7 shadow-[0_2px_12px_rgba(11,54,31,0.05)] sm:p-9 lg:p-10">
@@ -329,7 +329,7 @@ export default function Home() {
 
             {/* TODO: render captions + transcript here when the content team supplies them */}
             <div id="transcript" className="mt-7 flex scroll-mt-28 flex-col gap-3 sm:flex-row sm:flex-wrap">
-              <a href="#demo" className="inline-flex items-center justify-center gap-2.5 whitespace-nowrap rounded-full border-2 border-[#0B361F] bg-[#0B361F] px-6 py-3 text-[15px] font-semibold text-white transition-colors hover:border-[#367050] hover:bg-[#367050]">
+              <a href="#demo-video" data-play-demo className="inline-flex items-center justify-center gap-2.5 whitespace-nowrap rounded-full border-2 border-[#0B361F] bg-[#0B361F] px-6 py-3 text-[15px] font-semibold text-white transition-colors hover:border-[#367050] hover:bg-[#367050]">
                 <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M7 4.8v14.4c0 .8.9 1.3 1.6.9l11.2-7.2c.6-.4.6-1.4 0-1.8L8.6 3.9C7.9 3.5 7 4 7 4.8z" /></svg>
                 Watch the demo
               </a>
