@@ -1,7 +1,6 @@
 
 const photo = {
   hero: "/images/image.png",
-  demo: "https://images.unsplash.com/photo-1512499617640-c74ae3a79d37?auto=format&fit=crop&w=900&q=85",
   research: "https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=700&q=85",
   training: "https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=700&q=85",
   store: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=700&q=85",
@@ -246,57 +245,99 @@ export default function Home() {
       </section>
 
       {/* THREE BENEFITS */}
-      <section className="bg-white py-8">
-        <div className="mx-auto grid max-w-[1440px] gap-7 px-6 lg:grid-cols-[1.1fr_1fr_1fr_1fr] lg:px-12">
-          <h2 className="text-3xl font-extrabold leading-tight">
-            What would help<br />right now?
+      <section className="border-b border-[#E3ECE3] bg-[linear-gradient(180deg,#F4F8F3_0%,#FFFFFF_100%)] py-10 lg:py-12">
+        <div className="mx-auto grid max-w-[1440px] gap-8 px-6 md:grid-cols-3 lg:grid-cols-[1.2fr_1fr_1fr_1fr] lg:gap-0 lg:px-12">
+          <h2 className="text-[32px] font-bold leading-[1.15] tracking-[-0.02em] text-[#0B361F] md:col-span-3 lg:col-span-1 lg:pr-6 lg:text-[34px] xl:text-[36px]">
+            What would help<br className="hidden lg:block" /> right now?
           </h2>
 
           {[
-            ["♧", "A quieter moment.", "Listen to rainfall, follow a short breathing guide or put your phone down while a sound plays in the background."],
-            ["▱", "A break from an app.", "Choose where you want a pause. Take a moment to think before opening certain apps."],
-            ["▯", "A screen that suits you.", "Explore comfort settings for your device. Start with one thing you notice often, such as movement or brightness."],
-          ].map(([icon, title, text]) => (
-            <article key={title} className="border-l-2 border-[#D9E4DA] pl-6">
-              <span className="text-3xl text-[#367050]">{icon}</span>
-              <h3 className="mt-2 text-lg font-extrabold">{title}</h3>
-              <p className="mt-1 text-sm leading-5 text-[#48594E]">{text}</p>
+            {
+              title: "A quieter moment.",
+              text: "Listen to rainfall, follow a short breathing guide or put your phone down while a sound plays in the background.",
+              icon: <><path d="M4 15v-3a8 8 0 0 1 16 0v3" /><rect x="3" y="14" width="4.5" height="7" rx="1.6" /><rect x="16.5" y="14" width="4.5" height="7" rx="1.6" /></>,
+            },
+            {
+              title: "A break from an app.",
+              text: "Choose where you want a pause. Take a moment to think before opening certain apps.",
+              icon: <><path d="M12 3l9 4.5-9 4.5-9-4.5z" /><path d="M3 12l9 4.5 9-4.5" /><path d="M3 16.5L12 21l9-4.5" /></>,
+            },
+            {
+              title: "A screen that suits you.",
+              text: "Explore comfort settings for your device. Start with one thing you notice often, such as movement or brightness, and see how a change feels.",
+              icon: <><rect x="6" y="2.5" width="12" height="19" rx="2.5" /><path d="M10.5 18.5h3" /></>,
+            },
+          ].map(item => (
+            <article key={item.title} className="border-[#CFDDD0] md:border-l md:pl-6 lg:px-8">
+              <svg aria-hidden="true" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#2E7D50" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
+                {item.icon}
+              </svg>
+              <h3 className="mt-3 text-[19px] font-bold leading-snug tracking-[-0.01em] text-[#0B361F]">{item.title}</h3>
+              <p className="mt-1.5 text-[15px] leading-[1.55] text-[#3E5146]">{item.text}</p>
             </article>
           ))}
         </div>
       </section>
 
       {/* DEMO */}
-      <section id="demo" className="bg-[#FBFCF9] py-12">
-        <div className="mx-auto grid max-w-[1320px] items-center gap-10 px-6 lg:grid-cols-2 lg:px-12">
+      <section id="demo" className="bg-[#FAFBF8] py-12 lg:py-16">
+        <div className="mx-auto grid max-w-[1440px] items-center gap-10 px-6 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] lg:gap-16 lg:px-12">
           <div>
-            <a href="/features/" className="group relative block h-[230px] overflow-hidden rounded-2xl">
-              <img
-                src={photo.demo}
-                alt="NuroTok product demonstration preview"
-                className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
-              />
-              <div className="absolute inset-0 flex items-center justify-center bg-[#0B361F]/20">
-                <span className="flex h-16 w-16 items-center justify-center rounded-full border-2 border-white bg-[#0B361F]/70 text-2xl text-white">
-                  ▶
-                </span>
+            <a
+              href="/features/"
+              aria-label="Play the 37-second NuroTok demo"
+              className="group relative block aspect-[16/7.2] overflow-hidden rounded-[20px] shadow-[0_14px_36px_rgba(11,54,31,0.16)]"
+            >
+              {/* Soft, blurred room backdrop tinted green */}
+              <img src={photo.hero} alt="" className="absolute inset-0 h-full w-full scale-110 object-cover object-[48%_center] blur-[5px]" />
+              <div className="absolute inset-0 bg-[linear-gradient(110deg,rgba(11,54,31,0.55)_0%,rgba(54,112,80,0.35)_45%,rgba(148,231,188,0.25)_100%)]" />
+
+              {/* Phone mock */}
+              <div className="absolute left-1/2 top-[7%] w-[25%] max-w-[190px] -translate-x-[5%] rotate-[12deg] transition-transform duration-500 group-hover:rotate-[9deg]">
+                <div className="rounded-[26px] bg-[#0F1F17] p-[5px] shadow-[0_20px_40px_rgba(0,0,0,0.35)]">
+                  <div className="relative aspect-[9/15] overflow-hidden rounded-[22px] bg-[linear-gradient(180deg,#F3FAF5_0%,#DDF3E6_55%,#BFE8D0_100%)]">
+                    <div className="absolute left-1/2 top-[5px] h-[5%] w-[32%] -translate-x-1/2 rounded-full bg-[#0F1F17]" />
+                    <div className="flex flex-col items-center pt-[20%]">
+                      <img src="/images/nurotok-logo.png" alt="" className="w-[34%]" />
+                      <span className="mt-[6%] font-heading text-[clamp(11px,1.3vw,19px)] font-bold tracking-[-0.03em] text-[#0E4A2E]">NuroTok</span>
+                    </div>
+                    <svg aria-hidden="true" viewBox="0 0 100 60" preserveAspectRatio="none" className="absolute inset-x-0 bottom-0 h-[38%] w-full">
+                      <path d="M0 30 C20 14 38 22 52 30 S82 20 100 26 V60 H0Z" fill="#7FCBA6" />
+                      <path d="M0 40 C18 30 34 34 50 40 S80 32 100 38 V60 H0Z" fill="#3E8E64" />
+                      <path d="M0 50 C22 44 40 48 56 52 S84 46 100 50 V60 H0Z" fill="#1E5A3B" />
+                    </svg>
+                  </div>
+                </div>
               </div>
-              <span className="absolute bottom-4 right-4 rounded bg-[#0B361F] px-3 py-1 text-xs font-bold text-white">
+
+              {/* Play button */}
+              <span className="absolute left-[30%] top-1/2 flex h-[68px] w-[68px] -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border-[3px] border-white/90 bg-[#0B361F]/45 shadow-[0_8px_24px_rgba(0,0,0,0.25)] backdrop-blur-sm transition-transform duration-300 group-hover:scale-110">
+                <svg aria-hidden="true" width="26" height="26" viewBox="0 0 24 24" fill="#fff"><path d="M8 5.5v13l11-6.5z" /></svg>
+              </span>
+
+              <span className="absolute bottom-4 right-4 rounded-md bg-[#0B361F]/90 px-2.5 py-1 text-[13px] font-bold tracking-wide text-white">
                 0:37
               </span>
             </a>
 
-            <div className="mt-4 flex gap-8 text-sm font-bold">
-              <a href="/features/">▷ &nbsp; Watch the demo</a>
-              <a href="/blogs/">▤ &nbsp; Read the transcript</a>
+            <div className="mt-5 flex items-center gap-6 text-[15px] font-semibold text-[#0B361F]">
+              <a href="/features/" className="flex items-center gap-2.5 hover:text-[#367050]">
+                <svg aria-hidden="true" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinejoin="round"><path d="M7 4.5v15l12-7.5z" /></svg>
+                Watch the demo
+              </a>
+              <span aria-hidden="true" className="h-5 w-px bg-[#B9C8BC]" />
+              <a href="/blogs/" className="flex items-center gap-2.5 hover:text-[#367050]">
+                <svg aria-hidden="true" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round"><path d="M6 2.5h8.5L19 7v14.5H6z" /><path d="M14 2.5V7h5M9 12h7M9 15.5h7M9 9h3" /></svg>
+                Read the transcript
+              </a>
             </div>
           </div>
 
-          <div className="border-l-4 border-[#367050] pl-7">
-            <h2 className="text-3xl font-extrabold sm:text-4xl">
+          <div className="border-l-[5px] border-[#2E8A57] py-2 pl-7 lg:pl-9">
+            <h2 className="text-[32px] font-bold leading-[1.15] tracking-[-0.02em] text-[#0B361F] sm:text-[40px]">
               See NuroTok in action.
             </h2>
-            <p className="mt-3 max-w-xl leading-7 text-[#46594C]">
+            <p className="mt-3 max-w-[560px] text-[17px] leading-[1.6] text-[#3E5146]">
               A 37-second look at the sensory profile, app protection, the sensory toolkit and Insights.
             </p>
           </div>
