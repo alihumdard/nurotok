@@ -2,9 +2,9 @@ import { HomeScreen, ProfileScreen, ToolkitScreen, InsightsScreen, Icon } from "
 
 const photo = {
   hero: "/images/image.png",
-  research: "https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=700&q=85",
-  training: "https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=700&q=85",
-  store: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=700&q=85",
+  research: "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&w=700&q=80",
+  training: "https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=700&q=80",
+  store: "https://images.unsplash.com/photo-1521369909029-2afed882baee?auto=format&fit=crop&w=700&q=80",
 };
 
 const faqs = [
@@ -261,7 +261,7 @@ export default function Home() {
               <div className="absolute inset-0 bg-[linear-gradient(110deg,rgba(11,54,31,0.55)_0%,rgba(54,112,80,0.35)_45%,rgba(148,231,188,0.25)_100%)]" />
 
               {/* Phone mock */}
-              <div className="absolute left-1/2 top-[7%] w-[25%] max-w-[190px] -translate-x-[5%] rotate-[12deg] transition-transform duration-500 group-hover:rotate-[9deg]">
+              <div className="absolute left-[58%] top-[7%] w-[25%] max-w-[190px] rotate-[12deg] transition-transform duration-500 group-hover:rotate-[9deg]">
                 <div className="rounded-[26px] bg-[#0F1F17] p-[5px] shadow-[0_20px_40px_rgba(0,0,0,0.35)]">
                   <div className="relative aspect-[9/15] overflow-hidden rounded-[22px] bg-[linear-gradient(180deg,#F3FAF5_0%,#DDF3E6_55%,#BFE8D0_100%)]">
                     <div className="absolute left-1/2 top-[5px] h-[5%] w-[32%] -translate-x-1/2 rounded-full bg-[#0F1F17]" />
@@ -279,7 +279,7 @@ export default function Home() {
               </div>
 
               {/* Play button */}
-              <span className="absolute left-[34%] top-1/2 flex h-[64px] w-[64px] -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-white/95 text-[#0B361F] shadow-[0_0_0_10px_rgba(255,255,255,0.22),0_10px_28px_rgba(0,0,0,0.28)] transition-transform duration-300 group-hover:scale-110">
+              <span className="absolute left-1/2 top-1/2 z-10 flex h-[64px] w-[64px] -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-white/95 text-[#0B361F] shadow-[0_0_0_10px_rgba(255,255,255,0.22),0_10px_28px_rgba(0,0,0,0.28)] transition-transform duration-300 group-hover:scale-110">
                 <svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" className="ml-[3px]"><path d="M7 4.8v14.4c0 .8.9 1.3 1.6.9l11.2-7.2c.6-.4.6-1.4 0-1.8L8.6 3.9C7.9 3.5 7 4 7 4.8z" /></svg>
               </span>
 
@@ -361,19 +361,40 @@ export default function Home() {
       </section>
 
       {/* TRUST STRIP */}
-      <section className="border-y border-[#E4EAE2] bg-white py-6">
-        <div className="mx-auto grid max-w-[1440px] gap-6 px-6 sm:grid-cols-2 lg:grid-cols-4 lg:px-12">
+      <section className="border-y border-[#E4EAE2] bg-white">
+        <div className="mx-auto grid max-w-[1440px] gap-y-6 px-6 py-7 sm:grid-cols-2 lg:grid-cols-4 lg:px-12">
           {[
-            ["▯", "Works across devices", "Use on iOS and Android."],
-            ["♧", "Your privacy matters", "Your data stays private."],
-            ["▤", "Backed by research", "Evidence, evaluation and real-world learning."],
-            ["♧", "Training and support", "Workshops and guidance for organisations."],
-          ].map(([icon, title, text]) => (
-            <div key={title} className="flex gap-4 border-r border-[#D8E2D9] last:border-0">
-              <span className="text-3xl text-[#367050]">{icon}</span>
+            {
+              title: "Works across devices",
+              text: "Use on iOS and Android.",
+              icon: <><rect x="6.5" y="2.5" width="11" height="19" rx="2.5" /><path d="M10.5 18.5h3" /></>,
+            },
+            {
+              title: "Your privacy matters",
+              text: "Your data stays private.",
+              icon: <><path d="M12 2.8l7.5 3v5.7c0 4.6-3.2 8.3-7.5 9.7-4.3-1.4-7.5-5.1-7.5-9.7V5.8z" /><path d="M8.6 12.2l2.4 2.4 4.5-4.6" /></>,
+            },
+            {
+              title: "Backed by research",
+              text: "Evidence, evaluation and real-world learning.",
+              icon: <><rect x="4.5" y="3" width="15" height="18" rx="2" /><path d="M8 8h8M8 12h8M8 16h5" /></>,
+            },
+            {
+              title: "Training and support",
+              text: "Workshops and guidance for organisations.",
+              icon: <><circle cx="12" cy="7.5" r="2.6" /><circle cx="5.2" cy="9.3" r="2.1" /><circle cx="18.8" cy="9.3" r="2.1" /><path d="M7.2 19.5v-1.2a4.8 4.8 0 0 1 9.6 0v1.2M1.8 18.5v-.6a3.4 3.4 0 0 1 4.6-3.2M22.2 18.5v-.6a3.4 3.4 0 0 0-4.6-3.2" /></>,
+            },
+          ].map((item, i) => (
+            <div
+              key={item.title}
+              className={`flex items-start gap-4 lg:px-8 ${i === 0 ? "lg:pl-0" : "lg:border-l lg:border-[#D8E2D9]"}`}
+            >
+              <svg aria-hidden="true" width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#2E7D50" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" className="shrink-0">
+                {item.icon}
+              </svg>
               <div>
-                <h3 className="font-extrabold">{title}</h3>
-                <p className="mt-1 text-xs leading-5 text-[#53675C]">{text}</p>
+                <h3 className="text-[17px] font-bold leading-snug tracking-[-0.01em] text-[#0B361F]">{item.title}</h3>
+                <p className="mt-0.5 text-[14px] leading-[1.45] text-[#3E5146]">{item.text}</p>
               </div>
             </div>
           ))}
@@ -381,20 +402,33 @@ export default function Home() {
       </section>
 
       {/* RESEARCH TRAINING STORE */}
-      <section className="bg-[#F6F3EC] py-10">
-        <div className="mx-auto grid max-w-[1440px] gap-5 px-5 md:grid-cols-3 lg:px-12">
+      <section className="bg-[#F6F3EC] py-10 lg:py-12">
+        <div className="mx-auto grid max-w-[1440px] gap-5 px-5 md:grid-cols-3 lg:gap-6 lg:px-12">
           {[
-            ["Research", "Explore the evidence and propose a study.", photo.research, "/research/"],
-            ["Training", "Workshops and guidance for teams and organisations.", photo.training, "/training/"],
-            ["Store", "Everyday items that support focus, comfort and calm.", photo.store, "/store/"],
-          ].map(([title, text, image, link]) => (
-            <a key={title} href={link} className="group flex min-h-[145px] overflow-hidden rounded-2xl bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-lg">
-              <img src={image} alt={title} className="w-[40%] object-cover" />
-              <div className="flex flex-1 flex-col justify-center p-5">
-                <h3 className="text-xl font-extrabold">{title}</h3>
-                <p className="mt-2 text-sm leading-5 text-[#53675C]">{text}</p>
-                <span className="mt-3 flex h-8 w-8 items-center justify-center self-end rounded-full bg-[#0B361F] text-white transition group-hover:bg-[#367050]">
-                  →
+            { title: "Research", text: "Explore the evidence and propose a study.", image: photo.research, href: "/research/", pos: "object-[40%_center]" },
+            { title: "Training", text: "Workshops and guidance for teams and organisations.", image: photo.training, href: "/training/", pos: "object-[38%_center]" },
+            { title: "Store", text: "Everyday items that support focus, comfort and calm.", image: photo.store, href: "/store/", pos: "object-[45%_center]", merch: true },
+          ].map(card => (
+            <a
+              key={card.title}
+              href={card.href}
+              className="group relative flex min-h-[170px] overflow-hidden rounded-[18px] border border-[#ECE5D8] bg-[linear-gradient(120deg,#F3EEE4_0%,#FBF9F4_60%,#FFFFFF_100%)] shadow-[0_2px_10px_rgba(11,54,31,0.05)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_14px_30px_rgba(11,54,31,0.12)]"
+            >
+              <div className="relative w-[44%] shrink-0 overflow-hidden">
+                <img
+                  src={card.image}
+                  alt=""
+                  className={`absolute inset-0 h-full w-full object-cover ${card.pos} transition-transform duration-500 group-hover:scale-105 [mask-image:linear-gradient(90deg,#000_62%,transparent_100%)]`}
+                />
+                {card.merch && (
+                  <img src="/images/nurotok-logo.png" alt="" className="absolute left-[31%] top-[30%] w-[20%] -rotate-[8deg] opacity-95 drop-shadow-[0_1px_1px_rgba(0,0,0,0.25)] transition-transform duration-500 group-hover:scale-105" />
+                )}
+              </div>
+              <div className="relative flex flex-1 flex-col py-6 pl-2 pr-5">
+                <h3 className="text-[22px] font-bold tracking-[-0.02em] text-[#0B361F]">{card.title}</h3>
+                <p className="mt-1.5 text-[14.5px] leading-[1.5] text-[#3E5146]">{card.text}</p>
+                <span className="mt-auto flex h-9 w-9 items-center justify-center self-end rounded-full bg-[#0B361F] text-white transition-colors group-hover:bg-[#367050]">
+                  <svg aria-hidden="true" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.3" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
                 </span>
               </div>
             </a>
