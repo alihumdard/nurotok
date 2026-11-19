@@ -195,7 +195,7 @@ export default function Home() {
           </div>
 
           {/* App home screen beside the introduction (brief build note), large screens only */}
-          <div aria-hidden="true" className="pointer-events-none absolute bottom-[-70px] left-[49%] hidden w-[158px] -rotate-[7deg] drop-shadow-[0_24px_40px_rgba(11,54,31,0.35)] xl:block">
+          <div aria-hidden="true" className="pointer-events-none absolute bottom-[clamp(16px,4vh,40px)] left-[49%] hidden w-[158px] short:w-[128px] [&>div]:max-w-full -rotate-[7deg] drop-shadow-[0_24px_40px_rgba(11,54,31,0.35)] xl:block">
             <HomeScreen />
           </div>
 
