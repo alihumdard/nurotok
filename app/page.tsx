@@ -5,7 +5,7 @@ const photo = {
   hero: "/images/image.png",
   research: "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&w=700&q=80",
   training: "https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=700&q=80",
-  store: "https://images.unsplash.com/photo-1602143407151-7111542de6e8?auto=format&fit=crop&w=700&q=80",
+  store: "https://images.unsplash.com/photo-1521369909029-2afed882baee?auto=format&fit=crop&w=700&q=80",
 };
 
 const faqs = [
@@ -408,7 +408,7 @@ export default function Home() {
           {[
             { title: "Research", text: "Explore the evidence and propose a study.", image: photo.research, href: "/research/", pos: "object-[40%_center]" },
             { title: "Training", text: "Workshops and guidance for teams and organisations.", image: photo.training, href: "/training/", pos: "object-[38%_center]" },
-            { title: "Store", text: "Everyday items that support focus, comfort and calm.", image: photo.store, href: "/store/", pos: "object-[center_40%]" },
+            { title: "Store", text: "Everyday items that support focus, comfort and calm.", image: photo.store, href: "/store/", pos: "object-[42%_center]" },
           ].map(card => (
             <a
               key={card.title}
