@@ -118,80 +118,94 @@ export default function Home() {
         </nav>
       </header>
 
-      {/* HERO */}
-      <section className="grid bg-[#EAF2EA] lg:min-h-[540px] lg:grid-cols-2">
+      {/* HERO: one continuous panel; the photo fades into the mint background (no column seam) */}
+      <section className="relative isolate overflow-hidden bg-[#EAF2EA]">
 
-        {/* Left: copy + CTAs */}
-        <div className="flex items-center bg-[#EAF2EA] px-5 py-12 sm:px-12 sm:py-16 lg:py-16 lg:pl-[max(48px,calc((100vw-1344px)/2))] lg:pr-12">
-          <div className="w-full max-w-[600px]">
+        {/* Background photo (desktop: full-bleed behind everything, anchored right) */}
+        <div aria-hidden="true" className="absolute inset-0 -z-10 hidden lg:block">
+          <img
+            src={photo.hero}
+            alt=""
+            className="absolute inset-0 h-full w-full object-cover object-[right_center]"
+          />
+          {/* Mint wash: solid behind the copy, dissolving into the photo */}
+          <div className="absolute inset-0 bg-[linear-gradient(90deg,#EAF2EA_0%,#EAF2EA_34%,rgba(234,242,234,0.92)_42%,rgba(234,242,234,0.55)_50%,rgba(234,242,234,0)_62%)]" />
+          {/* Gentle top/bottom softening */}
+          <div className="absolute inset-0 bg-gradient-to-t from-[#0B361F]/10 via-transparent to-transparent" />
+        </div>
 
-            <div className="flex items-center gap-3 text-[13px] font-bold uppercase tracking-[0.08em] text-[#0B361F]">
-              <span aria-hidden="true" className="h-[5px] w-7 rounded-full bg-[#367050]" />
-              A sensory regulation app
-            </div>
+        <div className="mx-auto flex max-w-[1440px] flex-col lg:min-h-[500px] lg:flex-row lg:items-center">
 
-            <h1 className="mt-5 text-[40px] font-bold leading-[1.05] tracking-[-0.03em] text-[#0B361F] sm:text-[54px] xl:text-[62px]">
-              When your phone<br className="hidden sm:block" /> feels like{" "}
-              <span className="italic text-[#367050]">too much.</span>
-            </h1>
+          {/* Copy + CTAs */}
+          <div className="px-5 pb-10 pt-12 sm:px-12 sm:pt-16 lg:w-[52%] lg:py-14 lg:pl-12 lg:pr-0">
+            <div className="max-w-[600px]">
 
-            <p className="mt-5 max-w-[520px] text-[17px] leading-[1.6] text-[#1F3A2B]">
-              NuroTok gives you simple ways to adjust what you see or hear, pause an app, or take a moment before you carry on. Choose the tool that feels right for you today.
-            </p>
+              <div className="flex items-center gap-3 text-[13px] font-bold uppercase tracking-[0.08em] text-[#0B361F]">
+                <span aria-hidden="true" className="h-[5px] w-7 rounded-full bg-[#367050]" />
+                A sensory regulation app
+              </div>
 
-            <div className="mt-8 flex flex-col gap-3 sm:max-w-[480px]">
-              <a
-                href="#download"
-                className="inline-flex w-full items-center justify-center gap-3 rounded-full border-2 border-[#0B361F] bg-[#0B361F] px-7 py-3.5 text-[16px] font-bold text-white shadow-[0_6px_16px_rgba(11,54,31,0.18)] transition-colors duration-300 hover:border-[#367050] hover:bg-[#367050] sm:w-auto sm:self-start"
-              >
-                <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="6" y="2" width="12" height="20" rx="2.5" /><path d="M11 18h2" /></svg>
-                <span>Get NuroTok for your device</span>
-                <span aria-hidden="true">→</span>
-              </a>
+              <h1 className="mt-5 text-[40px] font-bold leading-[1.05] tracking-[-0.03em] text-[#0B361F] sm:text-[54px] xl:text-[64px]">
+                When your phone<br className="hidden sm:block" /> feels like{" "}
+                <span className="italic text-[#367050]">too much.</span>
+              </h1>
 
-              <div className="flex flex-col gap-3 sm:flex-row">
+              <p className="mt-5 max-w-[530px] text-[17px] leading-[1.6] text-[#1F3A2B]">
+                NuroTok gives you simple ways to adjust what you see or hear, pause an app, or take a moment before you carry on. Choose the tool that feels right for you today.
+              </p>
+
+              <div className="mt-8 flex flex-col items-stretch gap-3 sm:items-start">
                 <a
-                  href="#demo"
-                  className="inline-flex flex-1 items-center justify-center gap-2.5 rounded-full border-2 border-[#0B361F] bg-white/70 px-6 py-3 text-[15px] font-bold text-[#0B361F] transition-colors hover:bg-white"
+                  href="#download"
+                  className="inline-flex items-center justify-center gap-3 rounded-full bg-[#0B361F] px-8 py-4 text-[16px] font-bold text-white shadow-[0_8px_20px_rgba(11,54,31,0.22)] transition-colors duration-300 hover:bg-[#367050]"
                 >
-                  <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinejoin="round"><path d="M7 4.5v15l12-7.5z" /></svg>
-                  <span>Watch 37s demo</span>
+                  <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="6" y="2" width="12" height="20" rx="2.5" /><path d="M11 18h2" /></svg>
+                  <span>Get NuroTok for your device</span>
+                  <span aria-hidden="true" className="ml-1">→</span>
                 </a>
 
-                <a
-                  href="/store/"
-                  className="inline-flex flex-1 items-center justify-center gap-2.5 rounded-full border-2 border-[#0B361F] bg-white/70 px-6 py-3 text-[15px] font-bold text-[#0B361F] transition-colors hover:bg-white"
-                >
-                  <svg aria-hidden="true" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 8h14l-1 13H6z" /><path d="M9 8V6a3 3 0 0 1 6 0v2" /></svg>
-                  <span>Shop merchandise</span>
-                </a>
+                <div className="flex flex-col gap-3 sm:flex-row">
+                  <a
+                    href="#demo"
+                    className="inline-flex items-center justify-center gap-2.5 rounded-full border-2 border-[#0B361F] bg-transparent px-7 py-3 text-[15px] font-bold text-[#0B361F] transition-colors hover:bg-[#0B361F] hover:text-white"
+                  >
+                    <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinejoin="round"><path d="M7 4.5v15l12-7.5z" /></svg>
+                    <span>Watch 37s demo</span>
+                  </a>
+
+                  <a
+                    href="/store/"
+                    className="inline-flex items-center justify-center gap-2.5 rounded-full border-2 border-[#0B361F] bg-transparent px-7 py-3 text-[15px] font-bold text-[#0B361F] transition-colors hover:bg-[#0B361F] hover:text-white"
+                  >
+                    <svg aria-hidden="true" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 8h14l-1 13H6z" /><path d="M9 8V6a3 3 0 0 1 6 0v2" /></svg>
+                    <span>Shop merchandise</span>
+                  </a>
+                </div>
               </div>
             </div>
           </div>
-        </div>
 
-        {/* Right: hero image fills the whole column */}
-        <div className="relative min-h-[340px] overflow-hidden sm:min-h-[420px] lg:min-h-0">
-          <img
-            src={photo.hero}
-            alt="A woman relaxing on a sofa with headphones, eyes closed"
-            className="absolute inset-0 h-full w-full object-cover object-[72%_center]"
-          />
+          {/* Mobile/tablet photo: blends up into the mint panel */}
+          <div className="relative h-[360px] sm:h-[440px] lg:hidden">
+            <img
+              src={photo.hero}
+              alt="A woman relaxing on a sofa with headphones, eyes closed"
+              className="absolute inset-0 h-full w-full object-cover object-[78%_center]"
+            />
+            <div aria-hidden="true" className="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-[#EAF2EA] to-transparent" />
+          </div>
 
-          {/* Subtle overlay: soft mint blend on the seam + slight darkening at the bottom */}
-          <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-r from-[#EAF2EA]/45 via-[#EAF2EA]/0 to-transparent lg:from-[#EAF2EA]/60 lg:via-[#EAF2EA]/0 lg:via-25%" />
-          <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-t from-[#0B361F]/25 via-transparent to-transparent" />
-
-          <div className="absolute bottom-5 right-5 rounded-2xl border border-white/35 bg-[#174B35]/80 px-5 py-4 text-white shadow-xl backdrop-blur-md sm:bottom-8 sm:right-8 lg:bottom-10 lg:right-10">
-            <div className="flex items-center gap-4">
+          {/* Floating message card, over the photo (bottom-right) */}
+          <div className="pointer-events-none absolute bottom-6 right-5 sm:bottom-8 sm:right-8 lg:bottom-12 lg:right-12">
+            <div className="flex items-center gap-4 rounded-2xl border border-white/35 bg-[#174B35]/75 px-6 py-4 text-white shadow-[0_12px_30px_rgba(11,54,31,0.25)] backdrop-blur-md">
               <svg aria-hidden="true" width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#94E7BC" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><path d="M20 4C11 4 5 9 5 16c0 1.5.3 2.6.8 3.5" /><path d="M20 4c0 9-5 15-12 15" /><path d="M4 20l8-8" /></svg>
-              <p className="m-0 text-[17px] font-medium leading-6 text-white sm:text-lg">
+              <p className="m-0 text-[18px] font-medium leading-6 text-white lg:text-[20px] lg:leading-7">
                 A calmer mind,<br />a brighter you.
               </p>
             </div>
           </div>
         </div>
-
+        <span className="sr-only">Photo: a woman relaxing on a sofa with headphones, eyes closed.</span>
       </section>
 
       {/* THREE BENEFITS */}

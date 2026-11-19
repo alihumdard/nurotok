@@ -43,7 +43,8 @@ export default function RootLayout({
       lang="en-GB"
       className={`${atkinson.variable} ${lexend.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">
+      {/* suppressHydrationWarning: browser extensions (e.g. ColorZilla) inject attributes on <body> */}
+      <body className="min-h-full flex flex-col" suppressHydrationWarning>
         {children}
       </body>
     </html>
