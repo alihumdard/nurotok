@@ -321,3 +321,23 @@ html.nt-dark [data-dark="footer"] { background: linear-gradient(180deg,#0B1410 0
 html.nt-dark [data-dark="newsletter"] { background: linear-gradient(110deg,#123726 0%,#164A33 55%,#1B5A40 100%) !important; }
 html.nt-dark [data-dark="hero-mobile-fade"] { background: linear-gradient(to bottom,#0E1311,transparent) !important; }
 html.nt-dark [data-dark="download"] > span[aria-hidden="true"] { display: none; }
+
+/* ========================================
+   GENTLE REVEAL ON SCROLL
+   CSS scroll-driven animation: no JS, content is always visible in
+   browsers without support, and it is off for reduced motion.
+======================================== */
+@keyframes nt-reveal {
+  from { opacity: 0; transform: translateY(28px); }
+  to { opacity: 1; transform: none; }
+}
+
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    html:not(.nt-reduce-motion) .reveal {
+      animation: nt-reveal linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 40%;
+    }
+  }
+}

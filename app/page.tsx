@@ -1,3 +1,4 @@
+import Image from "next/image";
 import AccessibilityBar from "./components/AccessibilityBar";
 import MobileMenu from "./components/MobileMenu";
 import FaqAccordion from "./components/FaqAccordion";
@@ -57,13 +58,19 @@ function BrandLogo({ light = false }: { light?: boolean }) {
 
 export default function Home() {
   return (
-    <main className="overflow-hidden bg-[#F6F3EC] text-[#0B361F]">
+    <main className="overflow-x-clip bg-[#F6F3EC] text-[#0B361F]">
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-full focus:bg-[#0B361F] focus:px-5 focus:py-3 focus:text-[15px] focus:font-semibold focus:text-white"
+      >
+        Skip to content
+      </a>
 
       {/* ACCESSIBILITY BAR */}
       <AccessibilityBar />
 
       {/* NAVIGATION */}
-      <header className="relative z-20 border-b border-[#E7EAE2] bg-white">
+      <header className="sticky top-0 z-40 border-b border-[#E7EAE2] bg-white/95 backdrop-blur-md supports-[backdrop-filter]:bg-white/85">
         <div className="mx-auto flex h-[72px] max-w-[1440px] items-center justify-between gap-4 px-5 sm:h-[78px] sm:px-8 lg:h-[84px] lg:px-12">
           <BrandLogo />
 
@@ -95,14 +102,18 @@ export default function Home() {
       </header>
 
       {/* HERO: one continuous panel; the photo fades into the mint background (no column seam) */}
-      <section className="relative isolate overflow-hidden bg-[#EAF2EA]">
+      <section id="main-content" className="relative isolate overflow-hidden bg-[#EAF2EA]">
 
         {/* Background photo (desktop: full-bleed behind everything, anchored right) */}
         <div aria-hidden="true" className="absolute inset-0 -z-10 hidden lg:block">
-          <img
+          <Image
             src={photo.hero}
             alt=""
-            className="absolute inset-0 h-full w-full object-cover object-[right_center]"
+            fill
+            priority
+            sizes="100vw"
+            quality={80}
+            className="object-cover object-[right_center]"
           />
           {/* Mint wash: solid behind the copy, dissolving into the photo */}
           <div data-dark="hero-wash" className="absolute inset-0 bg-[linear-gradient(90deg,#EAF2EA_0%,#EAF2EA_34%,rgba(234,242,234,0.92)_42%,rgba(234,242,234,0.55)_50%,rgba(234,242,234,0)_62%)]" />
@@ -166,12 +177,21 @@ export default function Home() {
 
           {/* Mobile/tablet photo: blends up into the mint panel */}
           <div className="relative h-[360px] sm:h-[440px] lg:hidden">
-            <img
+            <Image
               src={photo.hero}
               alt="A woman relaxing on a sofa with headphones, eyes closed"
-              className="absolute inset-0 h-full w-full object-cover object-[78%_center]"
+              fill
+              priority
+              sizes="100vw"
+              quality={75}
+              className="object-cover object-[78%_center]"
             />
             <div aria-hidden="true" data-dark="hero-mobile-fade" className="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-[#EAF2EA] to-transparent" />
+          </div>
+
+          {/* App home screen beside the introduction (brief build note), large screens only */}
+          <div aria-hidden="true" className="pointer-events-none absolute bottom-[-70px] left-[49%] hidden w-[158px] -rotate-[7deg] drop-shadow-[0_24px_40px_rgba(11,54,31,0.35)] xl:block">
+            <HomeScreen />
           </div>
 
           {/* Floating message card, over the photo (bottom-right) */}
@@ -193,7 +213,7 @@ export default function Home() {
 
       {/* THREE BENEFITS */}
       <section data-dark="section" className="border-b border-[#E3ECE3] bg-[linear-gradient(180deg,#F4F8F3_0%,#FFFFFF_100%)] py-10 lg:py-12">
-        <div className="mx-auto grid max-w-[1440px] gap-8 px-6 md:grid-cols-3 lg:grid-cols-[1.2fr_1fr_1fr_1fr] lg:gap-0 lg:px-12">
+        <div className="reveal mx-auto grid max-w-[1440px] gap-8 px-6 md:grid-cols-3 lg:grid-cols-[1.2fr_1fr_1fr_1fr] lg:gap-0 lg:px-12">
           <h2 className="text-[32px] font-bold leading-[1.15] tracking-[-0.02em] text-[#0B361F] md:col-span-3 lg:col-span-1 lg:pr-6 lg:text-[28px] xl:text-[36px]">
             What would help<br className="hidden lg:block" /> right now?
           </h2>
@@ -228,7 +248,7 @@ export default function Home() {
 
       {/* DEMO */}
       <section id="demo" className="bg-[#FAFBF8] py-12 lg:py-16">
-        <div className="mx-auto grid max-w-[1440px] items-center gap-10 px-6 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] lg:gap-16 lg:px-12">
+        <div className="reveal mx-auto grid max-w-[1440px] items-center gap-10 px-6 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] lg:gap-16 lg:px-12">
           <div>
             <a
               href="/features/"
@@ -236,7 +256,7 @@ export default function Home() {
               className="group relative block aspect-[16/7.2] overflow-hidden rounded-[20px] shadow-[0_14px_36px_rgba(11,54,31,0.16)]"
             >
               {/* Soft, blurred room backdrop tinted green */}
-              <img src={photo.hero} alt="" className="absolute inset-0 h-full w-full scale-110 object-cover object-[48%_center] blur-[5px]" />
+              <Image src={photo.hero} alt="" fill sizes="(min-width: 1024px) 45vw, 100vw" quality={50} className="scale-110 object-cover object-[48%_center] blur-[5px]" />
               <div className="absolute inset-0 bg-[linear-gradient(110deg,rgba(11,54,31,0.55)_0%,rgba(54,112,80,0.35)_45%,rgba(148,231,188,0.25)_100%)]" />
 
               {/* Phone mock */}
@@ -294,7 +314,7 @@ export default function Home() {
 
       {/* AUDIENCE + FOUR SCREENS */}
       <section data-dark="section-alt" className="bg-[linear-gradient(180deg,#EEF5EE_0%,#F3F8F2_100%)] py-14 lg:py-16">
-        <div className="mx-auto grid max-w-[1440px] gap-12 px-6 sm:px-8 lg:px-12 xl:grid-cols-[minmax(0,0.78fr)_minmax(0,2fr)] xl:gap-0">
+        <div className="reveal mx-auto grid max-w-[1440px] gap-12 px-6 sm:px-8 [&>*]:min-w-0 lg:px-12 xl:grid-cols-[minmax(0,0.78fr)_minmax(0,2fr)] xl:gap-0">
           <div className="max-w-[720px] xl:max-w-none xl:border-r xl:border-[#C9DACB] xl:pr-10">
             <h2 className="text-[34px] font-bold leading-[1.12] tracking-[-0.025em] text-[#0B361F] xl:text-[40px]">
               Designed with neurodivergent adults in mind.
@@ -318,15 +338,19 @@ export default function Home() {
             <h2 className="text-[28px] font-bold tracking-[-0.02em] text-[#0B361F] sm:text-[32px]">
               Explore the four main screens.
             </h2>
+            <p className="mt-2 flex items-center gap-2 text-[13px] font-medium text-[#53675C] md:hidden">
+              Swipe to see all four
+              <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
+            </p>
 
-            <div className="mt-7 grid grid-cols-2 gap-x-5 gap-y-10 md:grid-cols-4">
+            <div className="-mx-6 mt-7 flex snap-x snap-mandatory gap-4 overflow-x-auto px-6 pb-4 [scrollbar-width:none] sm:-mx-8 sm:px-8 md:mx-0 md:grid md:grid-cols-4 md:gap-x-5 md:overflow-visible md:px-0 md:pb-0 [&::-webkit-scrollbar]:hidden">
               {[
                 { name: "Home", subtitle: "Distraction-free daily navigation.", icon: "home" as const, Screen: HomeScreen },
                 { name: "Profile", subtitle: "Personal sensory preferences.", icon: "profile" as const, Screen: ProfileScreen },
                 { name: "Toolkit", subtitle: "Calming tools within easy reach.", icon: "toolkit" as const, Screen: ToolkitScreen },
                 { name: "Insights", subtitle: "Weekly wellbeing patterns.", icon: "insights" as const, Screen: InsightsScreen },
               ].map(({ name, subtitle, icon, Screen }) => (
-                <article key={name} className="text-center">
+                <article key={name} className="w-[68%] shrink-0 snap-center text-center min-[480px]:w-[44%] md:w-auto">
                   <Screen />
                   <h3 className="mt-5 flex items-center justify-center gap-2 text-[17px] font-bold text-[#0B361F]">
                     <Icon name={icon} size={18} strokeWidth={2} className="text-[#1E7A4C]" />
@@ -342,7 +366,7 @@ export default function Home() {
 
       {/* TRUST STRIP */}
       <section className="border-y border-[#E4EAE2] bg-white">
-        <div className="mx-auto grid max-w-[1440px] gap-x-8 gap-y-6 px-6 py-7 sm:grid-cols-2 sm:px-8 lg:px-12 xl:grid-cols-4 xl:gap-x-0">
+        <div className="reveal mx-auto grid max-w-[1440px] gap-x-8 gap-y-6 px-6 py-7 sm:grid-cols-2 sm:px-8 lg:px-12 xl:grid-cols-4 xl:gap-x-0">
           {[
             {
               title: "Works across devices",
@@ -383,7 +407,7 @@ export default function Home() {
 
       {/* RESEARCH TRAINING STORE */}
       <section className="bg-[#F6F3EC] py-10 lg:py-12">
-        <div className="mx-auto grid max-w-[1440px] gap-5 px-5 sm:px-8 md:grid-cols-2 lg:grid-cols-3 lg:gap-6 lg:px-12">
+        <div className="reveal mx-auto grid max-w-[1440px] gap-5 px-5 sm:px-8 md:grid-cols-2 lg:grid-cols-3 lg:gap-6 lg:px-12">
           {[
             { title: "Research", text: "Explore the evidence and propose a study.", image: photo.research, href: "/research/", pos: "object-[40%_center]" },
             { title: "Training", text: "Workshops and guidance for teams and organisations.", image: photo.training, href: "/training/", pos: "object-[38%_center]" },
@@ -395,10 +419,12 @@ export default function Home() {
               data-dark="card" className={`group relative flex min-h-[170px] overflow-hidden rounded-[18px] border border-[#ECE5D8] bg-[linear-gradient(120deg,#F3EEE4_0%,#FBF9F4_60%,#FFFFFF_100%)] shadow-[0_2px_10px_rgba(11,54,31,0.05)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_14px_30px_rgba(11,54,31,0.12)] ${card.title === "Store" ? "md:col-span-2 lg:col-span-1" : ""}`}
             >
               <div className="relative w-[44%] shrink-0 overflow-hidden">
-                <img
+                <Image
                   src={card.image}
                   alt=""
-                  className={`absolute inset-0 h-full w-full object-cover ${card.pos} transition-transform duration-500 group-hover:scale-105 [mask-image:linear-gradient(90deg,#000_62%,transparent_100%)]`}
+                  fill
+                  sizes="(min-width: 1024px) 14vw, (min-width: 768px) 22vw, 44vw"
+                  className={`object-cover ${card.pos} transition-transform duration-500 group-hover:scale-105 [mask-image:linear-gradient(90deg,#000_62%,transparent_100%)]`}
                 />
               </div>
               <div className="relative flex flex-1 flex-col py-6 pl-2 pr-5">
@@ -415,7 +441,7 @@ export default function Home() {
 
       {/* FAQ */}
       <section data-dark="section-alt" className="bg-[linear-gradient(180deg,#FFFFFF_0%,#F7FAF6_100%)] py-14 lg:py-16">
-        <div className="mx-auto grid max-w-[1440px] gap-8 px-6 sm:px-8 lg:px-12 xl:grid-cols-[minmax(0,0.85fr)_minmax(0,2fr)] xl:gap-0">
+        <div className="reveal mx-auto grid max-w-[1440px] gap-8 px-6 sm:px-8 lg:px-12 xl:grid-cols-[minmax(0,0.85fr)_minmax(0,2fr)] xl:gap-0">
           <div className="xl:border-r xl:border-[#D8E2D9] xl:pr-10">
             <h2 className="text-[34px] font-bold leading-[1.12] tracking-[-0.025em] text-[#0B361F] xl:text-[36px]">
               NuroTok questions,<br className="hidden xl:block" /> answered
@@ -433,7 +459,7 @@ export default function Home() {
 
       {/* DOWNLOAD (#download) */}
       <section id="download" className="scroll-mt-24 bg-[#F7FAF6] px-5 pb-6 pt-2 sm:px-8 lg:px-12">
-        <div data-dark="download" className="relative mx-auto grid max-w-[1344px] items-center overflow-hidden rounded-[24px] border border-[#D6E6DA] bg-[linear-gradient(120deg,#E3F3E8_0%,#EEF7F0_45%,#F8FBF7_100%)] px-6 pt-10 sm:px-10 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)] lg:px-14 lg:pt-0 lg:items-center">
+        <div data-dark="download" className="reveal relative mx-auto grid max-w-[1344px] items-center overflow-hidden rounded-[24px] border border-[#D6E6DA] bg-[linear-gradient(120deg,#E3F3E8_0%,#EEF7F0_45%,#F8FBF7_100%)] px-6 pt-10 sm:px-10 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)] lg:px-14 lg:pt-0 lg:items-center">
           <span aria-hidden="true" className="pointer-events-none absolute -right-24 -top-24 h-80 w-80 rounded-full bg-[#94E7BC]/30 blur-3xl" />
           <span aria-hidden="true" className="pointer-events-none absolute -bottom-32 left-10 h-72 w-72 rounded-full bg-[#BDEED7]/40 blur-3xl" />
 
@@ -488,7 +514,7 @@ export default function Home() {
 
       {/* NEWSLETTER */}
       <section className="bg-[#F6F3EC] px-5 py-8 lg:px-12">
-        <div data-dark="newsletter" className="relative mx-auto max-w-[1344px] overflow-hidden rounded-[22px] bg-[linear-gradient(110deg,#0E3F27_0%,#14513A_55%,#1C6447_100%)] px-6 py-8 text-white shadow-[0_16px_40px_rgba(11,54,31,0.22)] sm:px-10 lg:px-12 lg:py-7">
+        <div data-dark="newsletter" className="reveal relative mx-auto max-w-[1344px] overflow-hidden rounded-[22px] bg-[linear-gradient(110deg,#0E3F27_0%,#14513A_55%,#1C6447_100%)] px-6 py-8 text-white shadow-[0_16px_40px_rgba(11,54,31,0.22)] sm:px-10 lg:px-12 lg:py-7">
           {/* decorative soft glows */}
           <span aria-hidden="true" className="pointer-events-none absolute -right-16 -top-24 h-64 w-64 rounded-full bg-[#94E7BC]/15 blur-3xl" />
           <span aria-hidden="true" className="pointer-events-none absolute -bottom-28 left-1/3 h-56 w-56 rounded-full bg-[#94E7BC]/10 blur-3xl" />
