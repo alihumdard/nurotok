@@ -1,26 +1,209 @@
+
 @import "tailwindcss";
 
+/* ========================================
+   NUROTOK - BRAND DESIGN SYSTEM
+======================================== */
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Brand Colors */
+  --forest: #0B361F;
+  --evergreen: #367050;
+  --signature-mint: #94E7BC;
+  --pale-mint: #BDEED7;
+  --warm-ivory: #F6F3EC;
+  --white: #FFFFFF;
+
+  /* Website Colors */
+  --background: #F6F3EC;
+  --foreground: #0B361F;
+  --text-muted: #53675C;
+  --border: #DCE5DC;
+
+  /* UI */
+  --card-background: #FFFFFF;
+  --button-primary: #0B361F;
+  --button-hover: #367050;
+
+  /* Layout */
+  --container-width: 1280px;
+  --section-spacing: 100px;
 }
+
+/* ========================================
+   TAILWIND THEME
+======================================== */
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-forest: var(--forest);
+  --color-evergreen: var(--evergreen);
+  --color-mint: var(--signature-mint);
+  --color-pale-mint: var(--pale-mint);
+  --color-ivory: var(--warm-ivory);
+
+  --font-sans: var(--font-atkinson);
+  --font-heading: var(--font-lexend);
+  --font-mono: monospace;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* Base element styles live in @layer base so Tailwind utility classes
+   (h-full, text-white, text-[..], etc.) can override them. Unlayered
+   rules would otherwise beat every utility in Tailwind v4. */
+@layer base {
+  /* ========================================
+     GLOBAL RESET
+  ======================================== */
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 100px;
+  }
+
+  body {
+    margin: 0;
+    padding: 0;
+    background: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-atkinson), Arial, sans-serif;
+    font-size: 17px;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  /* ========================================
+     TYPOGRAPHY
+  ======================================== */
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin-top: 0;
+    color: var(--forest);
+    font-family: var(--font-lexend), sans-serif;
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: -0.025em;
+  }
+
+  h1 {
+    font-size: clamp(2.5rem, 5vw, 4.5rem);
+  }
+
+  h2 {
+    font-size: clamp(2rem, 3.5vw, 3.25rem);
+  }
+
+  h3 {
+    font-size: clamp(1.35rem, 2vw, 1.75rem);
+  }
+
+  p {
+    margin-top: 0;
+    color: var(--text-muted);
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  button,
+  input,
+  textarea,
+  select {
+    font: inherit;
+  }
+
+  button {
+    cursor: pointer;
+  }
+
+  /* ========================================
+     ACCESSIBILITY
+  ======================================== */
+
+  :focus-visible {
+    outline: 3px solid var(--evergreen);
+    outline-offset: 4px;
+  }
+
+  ::selection {
+    background: var(--pale-mint);
+    color: var(--forest);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      scroll-behavior: auto !important;
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+
+  /* ========================================
+     REUSABLE LAYOUT
+  ======================================== */
+
+  .container {
+    width: min(100% - 48px, var(--container-width));
+    margin-inline: auto;
+  }
+
+  .section {
+    padding-block: var(--section-spacing);
+  }
+
+  img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+  }
+
+  button,
+  a {
+    -webkit-tap-highlight-color: transparent;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* ========================================
+   RESPONSIVE
+======================================== */
+
+@media (max-width: 768px) {
+  :root {
+    --section-spacing: 64px;
+  }
+
+  body {
+    font-size: 16px;
+  }
+
+  .container {
+    width: min(100% - 36px, var(--container-width));
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --section-spacing: 52px;
+  }
+
+  .container {
+    width: calc(100% - 32px);
+  }
 }
