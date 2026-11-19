@@ -5,7 +5,7 @@ const photo = {
   hero: "/images/image.png",
   research: "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&w=700&q=80",
   training: "https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=700&q=80",
-  store: "https://images.unsplash.com/photo-1521369909029-2afed882baee?auto=format&fit=crop&w=700&q=80",
+  store: "https://images.unsplash.com/photo-1602143407151-7111542de6e8?auto=format&fit=crop&w=700&q=80",
 };
 
 const faqs = [
@@ -408,7 +408,7 @@ export default function Home() {
           {[
             { title: "Research", text: "Explore the evidence and propose a study.", image: photo.research, href: "/research/", pos: "object-[40%_center]" },
             { title: "Training", text: "Workshops and guidance for teams and organisations.", image: photo.training, href: "/training/", pos: "object-[38%_center]" },
-            { title: "Store", text: "Everyday items that support focus, comfort and calm.", image: photo.store, href: "/store/", pos: "object-[45%_center]", merch: true },
+            { title: "Store", text: "Everyday items that support focus, comfort and calm.", image: photo.store, href: "/store/", pos: "object-[center_40%]" },
           ].map(card => (
             <a
               key={card.title}
@@ -421,9 +421,6 @@ export default function Home() {
                   alt=""
                   className={`absolute inset-0 h-full w-full object-cover ${card.pos} transition-transform duration-500 group-hover:scale-105 [mask-image:linear-gradient(90deg,#000_62%,transparent_100%)]`}
                 />
-                {card.merch && (
-                  <img src="/images/nurotok-logo.png" alt="" className="absolute left-[31%] top-[30%] w-[20%] -rotate-[8deg] opacity-95 drop-shadow-[0_1px_1px_rgba(0,0,0,0.25)] transition-transform duration-500 group-hover:scale-105" />
-                )}
               </div>
               <div className="relative flex flex-1 flex-col py-6 pl-2 pr-5">
                 <h3 className="text-[22px] font-bold tracking-[-0.02em] text-[#0B361F]">{card.title}</h3>
@@ -496,64 +493,88 @@ export default function Home() {
       </section>
 
       {/* FOOTER */}
-      <footer className="bg-[#062C1B] text-white">
-        <div className="mx-auto grid max-w-[1440px] gap-10 px-6 py-12 sm:grid-cols-2 lg:grid-cols-[1.5fr_1fr_1fr_1.4fr_1fr] lg:px-12">
+      <footer className="bg-[linear-gradient(180deg,#0B3D26_0%,#062C1B_100%)] text-white">
+        <div className="mx-auto grid max-w-[1440px] gap-10 px-6 pb-10 pt-12 sm:grid-cols-2 lg:grid-cols-[1.35fr_1px_0.8fr_0.8fr_1px_1.15fr_0.9fr] lg:gap-x-10 lg:px-12">
+          {/* Brand */}
           <div>
             <BrandLogo light />
-            <p className="mt-4 max-w-[240px] text-sm leading-6 text-[#BDEED7]">
+            <p className="mt-4 max-w-[260px] text-[14.5px] leading-[1.55] text-[#CFE8DA]">
               A sensory regulation app from NeuroDigital Support.
             </p>
           </div>
 
+          <span aria-hidden="true" className="hidden bg-white/15 lg:block" />
+
+          <nav aria-label="Quick links">
+            <h3 className="text-[15px] font-bold tracking-[0.01em] text-white">Quick links</h3>
+            <ul className="mt-4 space-y-2.5">
+              {[["Home", "/"], ["Features", "/features/"], ["Research", "/research/"], ["Training", "/training/"]].map(([label, href]) => (
+                <li key={label}><a href={href} className="text-[14.5px] text-[#CFE8DA] transition-colors hover:text-white">{label}</a></li>
+              ))}
+            </ul>
+          </nav>
+
+          <nav aria-label="More">
+            <h3 className="text-[15px] font-bold tracking-[0.01em] text-white">More</h3>
+            <ul className="mt-4 space-y-2.5">
+              {[["Blogs", "/blogs/"], ["Store", "/store/"], ["About", "/about-us/"], ["Contact", "/contact-us/"]].map(([label, href]) => (
+                <li key={label}><a href={href} className="text-[14.5px] text-[#CFE8DA] transition-colors hover:text-white">{label}</a></li>
+              ))}
+            </ul>
+          </nav>
+
+          <span aria-hidden="true" className="hidden bg-white/15 lg:block" />
+
           <div>
-            <h3 className="font-extrabold text-white">Quick links</h3>
-            <div className="mt-4 flex flex-col gap-3 text-sm text-[#BDEED7]">
-              <a href="/">Home</a>
-              <a href="/features/">Features</a>
-              <a href="/research/">Research</a>
-              <a href="/training/">Training</a>
-            </div>
+            <h3 className="text-[15px] font-bold tracking-[0.01em] text-white">Get in touch</h3>
+            <ul className="mt-4 space-y-3.5">
+              <li>
+                <a href="mailto:info@nurotok.co.uk" className="group flex items-center gap-3 text-[14.5px] text-[#CFE8DA] transition-colors hover:text-white">
+                  <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" className="shrink-0 text-[#94E7BC]"><rect x="3" y="5" width="18" height="14" rx="2.5" /><path d="M3.5 6.5L12 13l8.5-6.5" /></svg>
+                  info@nurotok.co.uk
+                </a>
+              </li>
+              <li className="flex items-center gap-3 text-[14.5px] text-[#CFE8DA]">
+                <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" className="shrink-0 text-[#94E7BC]"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z" /><circle cx="12" cy="9.5" r="2.5" /></svg>
+                United Kingdom
+              </li>
+            </ul>
           </div>
 
           <div>
-            <h3 className="font-extrabold text-white">More</h3>
-            <div className="mt-4 flex flex-col gap-3 text-sm text-[#BDEED7]">
-              <a href="/blogs/">Blogs</a>
-              <a href="/store/">Store</a>
-              <a href="/about-us/">About</a>
-              <a href="/contact-us/">Contact</a>
-            </div>
-          </div>
-
-          <div>
-            <h3 className="font-extrabold text-white">Get in touch</h3>
-            <div className="mt-4 flex flex-col gap-3 text-sm text-[#BDEED7]">
-              <a href="mailto:info@nurotok.co.uk">✉ &nbsp; info@nurotok.co.uk</a>
-              <span>⌖ &nbsp; United Kingdom</span>
-            </div>
-          </div>
-
-          <div>
-            <h3 className="font-extrabold text-white">Follow us</h3>
-            <div className="mt-5 flex gap-4 text-xl font-bold">
-              <a href="#" aria-label="LinkedIn">in</a>
-              <a href="#" aria-label="YouTube">▶</a>
-              <a href="#" aria-label="Instagram">◎</a>
-              <a href="#" aria-label="X">𝕏</a>
+            <h3 className="text-[15px] font-bold tracking-[0.01em] text-white">Follow us</h3>
+            <div className="mt-4 flex gap-2.5">
+              {[
+                { label: "LinkedIn", href: "#", d: "M6.5 9.5v8M6.5 6.5v.01M10.5 17.5v-8M10.5 13a3 3 0 0 1 6 0v4.5" },
+                { label: "YouTube", href: "#", d: "M3.5 8.2c.1-1.4 1.2-2.5 2.6-2.6C8 5.4 10 5.3 12 5.3s4 .1 5.9.3c1.4.1 2.5 1.2 2.6 2.6.2 2.5.2 5.1 0 7.6-.1 1.4-1.2 2.5-2.6 2.6-1.9.2-3.9.3-5.9.3s-4-.1-5.9-.3c-1.4-.1-2.5-1.2-2.6-2.6-.2-2.5-.2-5.1 0-7.6zM10.3 9.3v5.4l4.6-2.7z" },
+                { label: "Instagram", href: "#", d: "M7.5 3.5h9a4 4 0 0 1 4 4v9a4 4 0 0 1-4 4h-9a4 4 0 0 1-4-4v-9a4 4 0 0 1 4-4zM12 8.3a3.7 3.7 0 1 0 0 7.4 3.7 3.7 0 0 0 0-7.4zM17.2 6.8v.01" },
+                { label: "X", href: "#", d: "M4.5 4.5l15 15M19.5 4.5l-6.2 6.6M10.7 12.9L4.5 19.5" },
+              ].map(sn => (
+                <a
+                  key={sn.label}
+                  href={sn.href}
+                  aria-label={`NuroTok on ${sn.label}`}
+                  className="flex h-10 w-10 items-center justify-center rounded-full text-white ring-1 ring-white/25 transition-colors hover:bg-[#94E7BC] hover:text-[#0B361F] hover:ring-[#94E7BC]"
+                >
+                  <svg aria-hidden="true" width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round"><path d={sn.d} /></svg>
+                </a>
+              ))}
             </div>
           </div>
         </div>
 
-        <div className="border-t border-white/15">
-          <div className="mx-auto flex max-w-[1440px] flex-col justify-between gap-4 px-6 py-5 text-xs text-[#BDEED7] sm:flex-row lg:px-12">
-            <p>© 2026 NeuroDigital Support. All rights reserved.</p>
+        <div className="border-t border-white/12">
+          <div className="mx-auto flex max-w-[1440px] flex-col gap-3 px-6 py-5 text-[13px] sm:flex-row sm:items-center sm:justify-between lg:px-12">
+            <p className="m-0 text-[#A9C9B6]">© 2026 NeuroDigital Support. All rights reserved.</p>
 
-            <div className="flex flex-wrap gap-5">
-              <a href="/privacy-policy/">Privacy Policy</a>
-              <a href="/terms/">Terms of Use</a>
-              <a href="/accessibility/">Accessibility</a>
-              <a href="/cookies/">Cookies</a>
-            </div>
+            <ul className="flex flex-wrap items-center text-[#CFE8DA]">
+              {[["Privacy Policy", "/privacy-policy/"], ["Terms of Use", "/terms/"], ["Accessibility", "/accessibility/"], ["Cookies", "/cookies/"]].map(([label, href], i) => (
+                <li key={label} className="flex items-center">
+                  {i > 0 && <span aria-hidden="true" className="mx-4 h-3.5 w-px bg-white/25" />}
+                  <a href={href} className="transition-colors hover:text-white">{label}</a>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
       </footer>
