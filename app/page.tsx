@@ -245,7 +245,7 @@ export default function Home() {
           ].map(item => (
             <article
               key={item.title}
-              className="flex h-full flex-col rounded-[20px] border border-[#E3ECE3] bg-white p-6 shadow-[0_2px_12px_rgba(11,54,31,0.05)] transition duration-300 hover:-translate-y-1 hover:border-[#B9CFBF] hover:shadow-[0_16px_34px_rgba(11,54,31,0.10)] lg:p-7"
+              className="flex h-full flex-col rounded-[20px] border border-[#D5E2D8] bg-white p-6 shadow-[0_2px_12px_rgba(11,54,31,0.05)] transition duration-300 hover:-translate-y-1 hover:border-[#B9CFBF] hover:shadow-[0_16px_34px_rgba(11,54,31,0.10)] lg:p-7"
             >
               <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#E3F4EA] text-[#1E7A4C]">
                 <svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
@@ -262,38 +262,40 @@ export default function Home() {
       {/* DEMO */}
       <section id="demo" className="scroll-mt-24 bg-[#FAFBF8] py-14 lg:py-20">
         <div className="reveal mx-auto grid max-w-[1440px] gap-6 px-5 sm:px-8 lg:grid-cols-[minmax(0,1.12fr)_minmax(0,1fr)] lg:items-stretch lg:gap-8 lg:px-12">
-          {/* Video preview: clean brand visual, stretches to the height of the copy card */}
+          {/* Video preview: stretches to the height of the copy card */}
           <a
             href="#demo"
             aria-label="Play the 37-second NuroTok demo"
-            className="group relative block aspect-[16/10] overflow-hidden rounded-[22px] bg-[linear-gradient(135deg,#0B361F_0%,#164A33_45%,#2C7A54_100%)] shadow-[0_14px_36px_rgba(11,54,31,0.20)] lg:aspect-auto lg:h-full lg:min-h-[400px]"
+            className="group relative block aspect-[16/10] overflow-hidden rounded-[22px] shadow-[0_14px_36px_rgba(11,54,31,0.16)] lg:aspect-auto lg:h-full lg:min-h-[400px]"
           >
-            {/* soft glows + rings */}
-            <span aria-hidden="true" className="absolute -left-20 -top-20 h-72 w-72 rounded-full bg-[#94E7BC]/20 blur-3xl" />
-            <span aria-hidden="true" className="absolute -bottom-24 right-0 h-80 w-80 rounded-full bg-[#94E7BC]/15 blur-3xl" />
-            <svg aria-hidden="true" viewBox="0 0 400 400" className="absolute -right-[12%] top-1/2 h-[150%] -translate-y-1/2 text-[#94E7BC] opacity-[0.14]">
-              <circle cx="200" cy="200" r="90" fill="none" stroke="currentColor" strokeWidth="1.5" />
-              <circle cx="200" cy="200" r="140" fill="none" stroke="currentColor" strokeWidth="1.5" />
-              <circle cx="200" cy="200" r="190" fill="none" stroke="currentColor" strokeWidth="1.5" />
-            </svg>
+            {/* Clear room photo with a light brand tint */}
+            <Image src={photo.hero} alt="" fill sizes="(min-width: 1024px) 55vw, 100vw" quality={80} className="object-cover object-[30%_center] transition-transform duration-700 group-hover:scale-[1.03]" />
+            <div className="absolute inset-0 bg-[linear-gradient(110deg,rgba(11,54,31,0.38)_0%,rgba(11,54,31,0.12)_50%,rgba(11,54,31,0.32)_100%)]" />
 
-            {/* App home screen */}
-            <div aria-hidden="true" className="absolute right-[10%] top-1/2 w-[30%] max-w-[200px] -translate-y-1/2 rotate-[6deg] drop-shadow-[0_24px_40px_rgba(0,0,0,0.35)] transition-transform duration-500 group-hover:rotate-[3deg] [&>div]:max-w-full">
-              <HomeScreen />
+            {/* Phone mock */}
+            <div data-light className="absolute left-[58%] top-1/2 w-[25%] max-w-[190px] -translate-y-1/2 rotate-[12deg] transition-transform duration-500 group-hover:rotate-[9deg]">
+              <div className="rounded-[26px] bg-[#0F1F17] p-[5px] shadow-[0_20px_40px_rgba(0,0,0,0.35)]">
+                <div className="relative aspect-[9/15] overflow-hidden rounded-[22px] bg-[linear-gradient(180deg,#F3FAF5_0%,#DDF3E6_55%,#BFE8D0_100%)]">
+                  <div className="absolute left-1/2 top-[5px] h-[5%] w-[32%] -translate-x-1/2 rounded-full bg-[#0F1F17]" />
+                  <div className="flex flex-col items-center pt-[20%]">
+                    <img src="/images/nurotok-logo.png" alt="" className="w-[34%]" />
+                    <span className="mt-[6%] font-heading text-[clamp(11px,1.3vw,19px)] font-bold tracking-[-0.03em] text-[#0E4A2E]">NuroTok</span>
+                  </div>
+                  <svg aria-hidden="true" viewBox="0 0 100 60" preserveAspectRatio="none" className="absolute inset-x-0 bottom-0 h-[38%] w-full">
+                    <path d="M0 30 C20 14 38 22 52 30 S82 20 100 26 V60 H0Z" fill="#7FCBA6" />
+                    <path d="M0 40 C18 30 34 34 50 40 S80 32 100 38 V60 H0Z" fill="#3E8E64" />
+                    <path d="M0 50 C22 44 40 48 56 52 S84 46 100 50 V60 H0Z" fill="#1E5A3B" />
+                  </svg>
+                </div>
+              </div>
             </div>
 
-            {/* Play */}
-            <div className="absolute left-[8%] top-1/2 flex -translate-y-1/2 flex-col items-start gap-4 text-white">
-              <span data-light className="flex h-[72px] w-[72px] items-center justify-center rounded-full bg-white text-[#0B361F] shadow-[0_0_0_10px_rgba(255,255,255,0.16),0_12px_30px_rgba(0,0,0,0.30)] transition-transform duration-300 group-hover:scale-110 sm:h-20 sm:w-20">
-                <svg aria-hidden="true" width="28" height="28" viewBox="0 0 24 24" fill="currentColor" className="ml-1"><path d="M7 4.8v14.4c0 .8.9 1.3 1.6.9l11.2-7.2c.6-.4.6-1.4 0-1.8L8.6 3.9C7.9 3.5 7 4 7 4.8z" /></svg>
-              </span>
-              <span className="leading-tight">
-                <span className="block text-[18px] font-bold sm:text-[20px]">Watch the demo</span>
-                <span className="mt-1 block text-[14px] font-medium text-[#BFE8D0]">37 seconds</span>
-              </span>
-            </div>
+            {/* Play button (centre) */}
+            <span data-light className="absolute left-1/2 top-1/2 z-10 flex h-[68px] w-[68px] -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-white/95 text-[#0B361F] shadow-[0_0_0_10px_rgba(255,255,255,0.22),0_10px_28px_rgba(0,0,0,0.28)] transition-transform duration-300 group-hover:scale-110 sm:h-[76px] sm:w-[76px]">
+              <svg aria-hidden="true" width="26" height="26" viewBox="0 0 24 24" fill="currentColor" className="ml-[3px]"><path d="M7 4.8v14.4c0 .8.9 1.3 1.6.9l11.2-7.2c.6-.4.6-1.4 0-1.8L8.6 3.9C7.9 3.5 7 4 7 4.8z" /></svg>
+            </span>
 
-            <span className="absolute bottom-4 right-4 rounded-md bg-black/35 px-2.5 py-1 text-[13px] font-bold tracking-wide text-white backdrop-blur-sm">
+            <span className="absolute bottom-4 right-4 rounded-md bg-[#0B361F]/90 px-2.5 py-1 text-[13px] font-bold tracking-wide text-white">
               0:37
             </span>
           </a>
@@ -326,12 +328,12 @@ export default function Home() {
             </ul>
 
             {/* TODO: render captions + transcript here when the content team supplies them */}
-            <div id="transcript" className="mt-7 flex scroll-mt-28 flex-wrap gap-3">
-              <a href="#demo" className="inline-flex items-center gap-2.5 whitespace-nowrap rounded-full bg-[#0B361F] px-6 py-3 text-[15px] font-semibold text-white transition-colors hover:bg-[#367050]">
+            <div id="transcript" className="mt-7 flex scroll-mt-28 flex-col gap-3 sm:flex-row sm:flex-wrap">
+              <a href="#demo" className="inline-flex items-center justify-center gap-2.5 whitespace-nowrap rounded-full border-2 border-[#0B361F] bg-[#0B361F] px-6 py-3 text-[15px] font-semibold text-white transition-colors hover:border-[#367050] hover:bg-[#367050]">
                 <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M7 4.8v14.4c0 .8.9 1.3 1.6.9l11.2-7.2c.6-.4.6-1.4 0-1.8L8.6 3.9C7.9 3.5 7 4 7 4.8z" /></svg>
                 Watch the demo
               </a>
-              <a href="#transcript" className="inline-flex items-center gap-2.5 whitespace-nowrap rounded-full border-2 border-[#0B361F] px-6 py-2.5 text-[15px] font-semibold text-[#0B361F] transition-colors hover:bg-[#0B361F] hover:text-white">
+              <a href="#transcript" className="inline-flex items-center justify-center gap-2.5 whitespace-nowrap rounded-full border-2 border-[#0B361F] px-6 py-3 text-[15px] font-semibold text-[#0B361F] transition-colors hover:bg-[#0B361F] hover:text-white">
                 <svg aria-hidden="true" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round"><path d="M6 2.5h8.5L19 7v14.5H6z" /><path d="M14 2.5V7h5M9 12h7M9 15.5h7M9 9h3" /></svg>
                 Read the transcript
               </a>
@@ -485,7 +487,7 @@ export default function Home() {
               <p className="mt-1.5 text-[14.5px] leading-[1.55] text-[#3E5146]">
                 Email info@nurotok.co.uk. A short message is fine.
               </p>
-              <a href="mailto:info@nurotok.co.uk" className="mt-4 inline-flex items-center gap-2 text-[15px] font-semibold text-[#367050] transition-[gap,color] duration-300 hover:text-[#0B361F] group-hover:gap-3">
+              <a href="mailto:info@nurotok.co.uk" className="mt-4 inline-flex items-center gap-2 rounded-full bg-[#E3F4EA] px-5 py-2.5 text-[15px] font-semibold text-[#1E5A3B] transition-all duration-300 hover:bg-[#0B361F] hover:text-white group-hover:gap-3">
                 Email the team
                 <svg aria-hidden="true" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.3" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
               </a>
