@@ -43,8 +43,8 @@ const faqs = [
 function BrandLogo({ light = false }: { light?: boolean }) {
   return (
     <a href="/" aria-label="NuroTok home" className="flex items-center gap-2.5">
-      <span className={`shrink-0 ${light ? "rounded-full bg-[#F6F3EC] p-1" : ""}`}>
-        <img src="/images/nurotok-logo.png" alt="" width={56} height={56} className="h-[44px] w-[44px] sm:h-[52px] sm:w-[52px] lg:h-[56px] lg:w-[56px]" />
+      <span {...(light ? { "data-light": true } : {})} className={`shrink-0 ${light ? "rounded-full bg-[#F6F3EC] p-1" : ""}`}>
+        <img src="/images/nurotok-logo.png" alt="" width={56} height={56} className={`${light ? "" : "nt-logo-img "}h-[44px] w-[44px] sm:h-[52px] sm:w-[52px] lg:h-[56px] lg:w-[56px]`} />
       </span>
       <span
         className={`font-heading text-[26px] font-bold leading-none tracking-[-0.03em] sm:text-[30px] lg:text-[34px] ${light ? "text-white" : "text-[#0E4A2E]"}`}
@@ -105,7 +105,7 @@ export default function Home() {
             className="absolute inset-0 h-full w-full object-cover object-[right_center]"
           />
           {/* Mint wash: solid behind the copy, dissolving into the photo */}
-          <div className="absolute inset-0 bg-[linear-gradient(90deg,#EAF2EA_0%,#EAF2EA_34%,rgba(234,242,234,0.92)_42%,rgba(234,242,234,0.55)_50%,rgba(234,242,234,0)_62%)]" />
+          <div data-dark="hero-wash" className="absolute inset-0 bg-[linear-gradient(90deg,#EAF2EA_0%,#EAF2EA_34%,rgba(234,242,234,0.92)_42%,rgba(234,242,234,0.55)_50%,rgba(234,242,234,0)_62%)]" />
           {/* Gentle top/bottom softening */}
           <div className="absolute inset-0 bg-gradient-to-t from-[#0B361F]/10 via-transparent to-transparent" />
         </div>
@@ -171,7 +171,7 @@ export default function Home() {
               alt="A woman relaxing on a sofa with headphones, eyes closed"
               className="absolute inset-0 h-full w-full object-cover object-[78%_center]"
             />
-            <div aria-hidden="true" className="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-[#EAF2EA] to-transparent" />
+            <div aria-hidden="true" data-dark="hero-mobile-fade" className="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-[#EAF2EA] to-transparent" />
           </div>
 
           {/* Floating message card, over the photo (bottom-right) */}
@@ -192,7 +192,7 @@ export default function Home() {
       </section>
 
       {/* THREE BENEFITS */}
-      <section className="border-b border-[#E3ECE3] bg-[linear-gradient(180deg,#F4F8F3_0%,#FFFFFF_100%)] py-10 lg:py-12">
+      <section data-dark="section" className="border-b border-[#E3ECE3] bg-[linear-gradient(180deg,#F4F8F3_0%,#FFFFFF_100%)] py-10 lg:py-12">
         <div className="mx-auto grid max-w-[1440px] gap-8 px-6 md:grid-cols-3 lg:grid-cols-[1.2fr_1fr_1fr_1fr] lg:gap-0 lg:px-12">
           <h2 className="text-[32px] font-bold leading-[1.15] tracking-[-0.02em] text-[#0B361F] md:col-span-3 lg:col-span-1 lg:pr-6 lg:text-[28px] xl:text-[36px]">
             What would help<br className="hidden lg:block" /> right now?
@@ -233,7 +233,6 @@ export default function Home() {
             <a
               href="/features/"
               aria-label="Play the 37-second NuroTok demo"
-              data-keep-colors
               className="group relative block aspect-[16/7.2] overflow-hidden rounded-[20px] shadow-[0_14px_36px_rgba(11,54,31,0.16)]"
             >
               {/* Soft, blurred room backdrop tinted green */}
@@ -241,7 +240,7 @@ export default function Home() {
               <div className="absolute inset-0 bg-[linear-gradient(110deg,rgba(11,54,31,0.55)_0%,rgba(54,112,80,0.35)_45%,rgba(148,231,188,0.25)_100%)]" />
 
               {/* Phone mock */}
-              <div className="absolute left-[58%] top-[7%] w-[25%] max-w-[190px] rotate-[12deg] transition-transform duration-500 group-hover:rotate-[9deg]">
+              <div data-light className="absolute left-[58%] top-[7%] w-[25%] max-w-[190px] rotate-[12deg] transition-transform duration-500 group-hover:rotate-[9deg]">
                 <div className="rounded-[26px] bg-[#0F1F17] p-[5px] shadow-[0_20px_40px_rgba(0,0,0,0.35)]">
                   <div className="relative aspect-[9/15] overflow-hidden rounded-[22px] bg-[linear-gradient(180deg,#F3FAF5_0%,#DDF3E6_55%,#BFE8D0_100%)]">
                     <div className="absolute left-1/2 top-[5px] h-[5%] w-[32%] -translate-x-1/2 rounded-full bg-[#0F1F17]" />
@@ -259,7 +258,7 @@ export default function Home() {
               </div>
 
               {/* Play button */}
-              <span className="absolute left-1/2 top-1/2 z-10 flex h-[64px] w-[64px] -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-white/95 text-[#0B361F] shadow-[0_0_0_10px_rgba(255,255,255,0.22),0_10px_28px_rgba(0,0,0,0.28)] transition-transform duration-300 group-hover:scale-110">
+              <span data-light className="absolute left-1/2 top-1/2 z-10 flex h-[64px] w-[64px] -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-white/95 text-[#0B361F] shadow-[0_0_0_10px_rgba(255,255,255,0.22),0_10px_28px_rgba(0,0,0,0.28)] transition-transform duration-300 group-hover:scale-110">
                 <svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" className="ml-[3px]"><path d="M7 4.8v14.4c0 .8.9 1.3 1.6.9l11.2-7.2c.6-.4.6-1.4 0-1.8L8.6 3.9C7.9 3.5 7 4 7 4.8z" /></svg>
               </span>
 
@@ -294,7 +293,7 @@ export default function Home() {
       </section>
 
       {/* AUDIENCE + FOUR SCREENS */}
-      <section className="bg-[linear-gradient(180deg,#EEF5EE_0%,#F3F8F2_100%)] py-14 lg:py-16">
+      <section data-dark="section-alt" className="bg-[linear-gradient(180deg,#EEF5EE_0%,#F3F8F2_100%)] py-14 lg:py-16">
         <div className="mx-auto grid max-w-[1440px] gap-12 px-6 sm:px-8 lg:px-12 xl:grid-cols-[minmax(0,0.78fr)_minmax(0,2fr)] xl:gap-0">
           <div className="max-w-[720px] xl:max-w-none xl:border-r xl:border-[#C9DACB] xl:pr-10">
             <h2 className="text-[34px] font-bold leading-[1.12] tracking-[-0.025em] text-[#0B361F] xl:text-[40px]">
@@ -393,7 +392,7 @@ export default function Home() {
             <a
               key={card.title}
               href={card.href}
-              className={`group relative flex min-h-[170px] overflow-hidden rounded-[18px] border border-[#ECE5D8] bg-[linear-gradient(120deg,#F3EEE4_0%,#FBF9F4_60%,#FFFFFF_100%)] shadow-[0_2px_10px_rgba(11,54,31,0.05)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_14px_30px_rgba(11,54,31,0.12)] ${card.title === "Store" ? "md:col-span-2 lg:col-span-1" : ""}`}
+              data-dark="card" className={`group relative flex min-h-[170px] overflow-hidden rounded-[18px] border border-[#ECE5D8] bg-[linear-gradient(120deg,#F3EEE4_0%,#FBF9F4_60%,#FFFFFF_100%)] shadow-[0_2px_10px_rgba(11,54,31,0.05)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_14px_30px_rgba(11,54,31,0.12)] ${card.title === "Store" ? "md:col-span-2 lg:col-span-1" : ""}`}
             >
               <div className="relative w-[44%] shrink-0 overflow-hidden">
                 <img
@@ -415,7 +414,7 @@ export default function Home() {
       </section>
 
       {/* FAQ */}
-      <section className="bg-[linear-gradient(180deg,#FFFFFF_0%,#F7FAF6_100%)] py-14 lg:py-16">
+      <section data-dark="section-alt" className="bg-[linear-gradient(180deg,#FFFFFF_0%,#F7FAF6_100%)] py-14 lg:py-16">
         <div className="mx-auto grid max-w-[1440px] gap-8 px-6 sm:px-8 lg:px-12 xl:grid-cols-[minmax(0,0.85fr)_minmax(0,2fr)] xl:gap-0">
           <div className="xl:border-r xl:border-[#D8E2D9] xl:pr-10">
             <h2 className="text-[34px] font-bold leading-[1.12] tracking-[-0.025em] text-[#0B361F] xl:text-[36px]">
@@ -434,7 +433,7 @@ export default function Home() {
 
       {/* DOWNLOAD (#download) */}
       <section id="download" className="scroll-mt-24 bg-[#F7FAF6] px-5 pb-6 pt-2 sm:px-8 lg:px-12">
-        <div className="relative mx-auto grid max-w-[1344px] items-center overflow-hidden rounded-[24px] border border-[#D6E6DA] bg-[linear-gradient(120deg,#E3F3E8_0%,#EEF7F0_45%,#F8FBF7_100%)] px-6 pt-10 sm:px-10 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)] lg:px-14 lg:pt-0 lg:items-center">
+        <div data-dark="download" className="relative mx-auto grid max-w-[1344px] items-center overflow-hidden rounded-[24px] border border-[#D6E6DA] bg-[linear-gradient(120deg,#E3F3E8_0%,#EEF7F0_45%,#F8FBF7_100%)] px-6 pt-10 sm:px-10 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)] lg:px-14 lg:pt-0 lg:items-center">
           <span aria-hidden="true" className="pointer-events-none absolute -right-24 -top-24 h-80 w-80 rounded-full bg-[#94E7BC]/30 blur-3xl" />
           <span aria-hidden="true" className="pointer-events-none absolute -bottom-32 left-10 h-72 w-72 rounded-full bg-[#BDEED7]/40 blur-3xl" />
 
@@ -489,7 +488,7 @@ export default function Home() {
 
       {/* NEWSLETTER */}
       <section className="bg-[#F6F3EC] px-5 py-8 lg:px-12">
-        <div className="relative mx-auto max-w-[1344px] overflow-hidden rounded-[22px] bg-[linear-gradient(110deg,#0E3F27_0%,#14513A_55%,#1C6447_100%)] px-6 py-8 text-white shadow-[0_16px_40px_rgba(11,54,31,0.22)] sm:px-10 lg:px-12 lg:py-7">
+        <div data-dark="newsletter" className="relative mx-auto max-w-[1344px] overflow-hidden rounded-[22px] bg-[linear-gradient(110deg,#0E3F27_0%,#14513A_55%,#1C6447_100%)] px-6 py-8 text-white shadow-[0_16px_40px_rgba(11,54,31,0.22)] sm:px-10 lg:px-12 lg:py-7">
           {/* decorative soft glows */}
           <span aria-hidden="true" className="pointer-events-none absolute -right-16 -top-24 h-64 w-64 rounded-full bg-[#94E7BC]/15 blur-3xl" />
           <span aria-hidden="true" className="pointer-events-none absolute -bottom-28 left-1/3 h-56 w-56 rounded-full bg-[#94E7BC]/10 blur-3xl" />
@@ -518,7 +517,7 @@ export default function Home() {
       </section>
 
       {/* FOOTER */}
-      <footer className="bg-[linear-gradient(180deg,#0B3D26_0%,#062C1B_100%)] text-white">
+      <footer data-dark="footer" className="bg-[linear-gradient(180deg,#0B3D26_0%,#062C1B_100%)] text-white">
         <div className="mx-auto grid max-w-[1440px] grid-cols-2 gap-x-6 gap-y-9 px-6 pb-10 pt-12 sm:px-8 md:grid-cols-4 lg:grid-cols-[1.35fr_1px_0.8fr_0.8fr_1px_1.15fr_0.9fr] lg:gap-x-10 lg:px-12">
           {/* Brand */}
           <div className="col-span-2 md:col-span-4 lg:col-span-1">

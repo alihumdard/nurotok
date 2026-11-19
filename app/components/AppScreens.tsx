@@ -42,7 +42,7 @@ const NAV: { icon: IconName; label: string }[] = [
 
 function PhoneFrame({ active, dark = false, children }: { active: number; dark?: boolean; children: ReactNode }) {
   return (
-    <div className="mx-auto w-full max-w-[176px] rounded-[30px] bg-[#1C4A33] p-[6px] shadow-[0_18px_36px_rgba(11,54,31,0.22)]">
+    <div data-light className="mx-auto w-full max-w-[176px] rounded-[30px] bg-[#1C4A33] p-[6px] shadow-[0_18px_36px_rgba(11,54,31,0.22)]">
       <div className="relative flex aspect-[9/17] flex-col overflow-hidden rounded-[24px] bg-white text-left">
         {/* status bar */}
         <div className={`relative flex h-[22px] shrink-0 items-center justify-between px-3.5 text-[7px] font-bold ${dark ? "bg-[#1E5A3B] text-white" : "text-[#0B361F]"}`}>

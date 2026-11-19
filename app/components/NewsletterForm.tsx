@@ -31,7 +31,7 @@ export default function NewsletterForm() {
   }
 
   return (
-    <form onSubmit={onSubmit} noValidate className="w-full xl:max-w-[500px]">
+    <form data-light onSubmit={onSubmit} noValidate className="w-full xl:max-w-[500px]">
       <label htmlFor="newsletter-email" className="sr-only">Email address</label>
       <div className={`flex flex-col gap-2.5 transition sm:flex-row sm:items-center sm:gap-2 sm:rounded-full sm:bg-white sm:p-1.5 sm:pl-5 sm:shadow-[0_8px_24px_rgba(0,0,0,0.18)] sm:ring-2 sm:focus-within:ring-[#94E7BC] ${status === "error" ? "sm:ring-[#F2A7A7]" : "sm:ring-white/0"}`}>
       <div
