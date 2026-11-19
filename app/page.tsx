@@ -1,3 +1,4 @@
+import NewsletterForm from "./components/NewsletterForm";
 import { HomeScreen, ProfileScreen, ToolkitScreen, InsightsScreen, Icon } from "./components/AppScreens";
 
 const photo = {
@@ -437,25 +438,31 @@ export default function Home() {
       </section>
 
       {/* FAQ */}
-      <section className="bg-white py-16">
-        <div className="mx-auto grid max-w-[1440px] gap-10 px-6 lg:grid-cols-[.75fr_2fr] lg:px-12">
-          <div className="border-r border-[#D8E2D9] pr-8">
-            <h2 className="text-3xl font-extrabold leading-tight sm:text-4xl">
-              Frequently asked questions
+      <section className="bg-[linear-gradient(180deg,#FFFFFF_0%,#F7FAF6_100%)] py-14 lg:py-16">
+        <div className="mx-auto grid max-w-[1440px] gap-10 px-6 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,2fr)] lg:gap-0 lg:px-12">
+          <div className="lg:border-r lg:border-[#D8E2D9] lg:pr-10">
+            <h2 className="text-[34px] font-bold leading-[1.12] tracking-[-0.025em] text-[#0B361F] xl:text-[36px]">
+              Frequently<br className="hidden lg:block" /> asked questions
             </h2>
-            <p className="mt-4 leading-6 text-[#53675C]">
+            <p className="mt-4 max-w-[300px] text-[16px] leading-[1.55] text-[#3E5146]">
               Quick answers to common questions about NuroTok.
             </p>
           </div>
 
-          <div className="grid gap-x-7 gap-y-3 md:grid-cols-2">
+          <div className="grid content-start gap-x-6 gap-y-3 md:grid-cols-2 lg:pl-10">
             {faqs.map(([question, answer]) => (
-              <details key={question} className="group self-start rounded-xl border border-[#DCE5DC] bg-white shadow-sm">
-                <summary className="flex cursor-pointer list-none items-center justify-between gap-3 p-4 text-sm font-bold">
+              <details
+                key={question}
+                className="group self-start rounded-[12px] border border-[#DCE5DC] bg-white transition-shadow hover:border-[#B9CFBF] hover:shadow-[0_4px_14px_rgba(11,54,31,0.06)] open:border-[#B9CFBF] open:shadow-[0_6px_18px_rgba(11,54,31,0.08)]"
+              >
+                <summary className="flex cursor-pointer list-none items-center justify-between gap-4 rounded-[12px] px-5 py-3.5 text-[15px] font-semibold text-[#0B361F] marker:hidden [&::-webkit-details-marker]:hidden">
                   {question}
-                  <span className="text-xl transition group-open:rotate-45">+</span>
+                  <span aria-hidden="true" className="relative flex h-6 w-6 shrink-0 items-center justify-center rounded-full text-[#0B361F] transition-colors group-hover:bg-[#EEF5EF] group-open:bg-[#0B361F] group-open:text-white">
+                    <span className="absolute h-[1.8px] w-3 rounded-full bg-current" />
+                    <span className="absolute h-3 w-[1.8px] rounded-full bg-current transition-transform duration-300 group-open:scale-y-0" />
+                  </span>
                 </summary>
-                <p className="border-t border-[#E8EEE7] px-4 py-4 text-sm leading-6 text-[#53675C]">
+                <p className="mx-5 border-t border-[#E8EEE7] pb-4 pt-3 text-[14.5px] leading-[1.6] text-[#3E5146]">
                   {answer}
                 </p>
               </details>
@@ -465,27 +472,26 @@ export default function Home() {
       </section>
 
       {/* NEWSLETTER */}
-      <section className="bg-[#F6F3EC] px-5 py-6">
-        <div className="mx-auto flex max-w-[1440px] flex-col gap-5 rounded-2xl bg-[#12462E] p-7 text-white lg:flex-row lg:items-center lg:justify-between lg:px-12">
-          <div className="flex items-center gap-5">
-            <span className="text-4xl">✉</span>
-            <h2 className="text-2xl font-extrabold text-white">Stay in touch</h2>
+      <section className="bg-[#F6F3EC] px-5 py-8 lg:px-12">
+        <div className="relative mx-auto max-w-[1344px] overflow-hidden rounded-[22px] bg-[linear-gradient(110deg,#0E3F27_0%,#14513A_55%,#1C6447_100%)] px-6 py-8 text-white shadow-[0_16px_40px_rgba(11,54,31,0.22)] sm:px-10 lg:px-12 lg:py-7">
+          {/* decorative soft glows */}
+          <span aria-hidden="true" className="pointer-events-none absolute -right-16 -top-24 h-64 w-64 rounded-full bg-[#94E7BC]/15 blur-3xl" />
+          <span aria-hidden="true" className="pointer-events-none absolute -bottom-28 left-1/3 h-56 w-56 rounded-full bg-[#94E7BC]/10 blur-3xl" />
+
+          <div className="relative flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between lg:gap-10">
+            <div className="flex items-center gap-4">
+              <span className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-white/10 ring-1 ring-white/20">
+                <svg aria-hidden="true" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#C8F2DC" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="5" width="18" height="14" rx="2.5" /><path d="M3.5 6.5L12 13l8.5-6.5" /></svg>
+              </span>
+              <h2 className="whitespace-nowrap text-[28px] font-bold tracking-[-0.02em] text-white lg:text-[30px]">Stay in touch</h2>
+            </div>
+
+            <p className="max-w-[340px] text-[15.5px] leading-[1.55] text-[#D7EBDF]">
+              Get updates on the app, training, research and new resources.
+            </p>
+
+            <NewsletterForm />
           </div>
-
-          <p className="max-w-xs text-sm leading-6 text-[#D7E9DD]">
-            Get updates on the app, training, research and new resources.
-          </p>
-
-          <form className="flex w-full max-w-[480px] overflow-hidden rounded-xl bg-white p-1">
-            <input
-              type="email"
-              placeholder="Enter your email address"
-              className="min-w-0 flex-1 px-3 text-sm text-[#0B361F] outline-none"
-            />
-            <button type="button" className="rounded-lg bg-[#0B361F] px-5 py-3 text-sm font-bold text-white transition hover:bg-[#367050]">
-              Subscribe →
-            </button>
-          </form>
         </div>
       </section>
 
