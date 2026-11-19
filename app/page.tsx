@@ -1,3 +1,4 @@
+import { HomeScreen, ProfileScreen, ToolkitScreen, InsightsScreen, Icon } from "./components/AppScreens";
 
 const photo = {
   hero: "/images/image.png",
@@ -5,13 +6,6 @@ const photo = {
   training: "https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=700&q=85",
   store: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=700&q=85",
 };
-
-const screens = [
-  { name: "Home", subtitle: "Distraction-free daily navigation.", icon: "⌂", title: "A calmer mind,\na brighter you." },
-  { name: "Profile", subtitle: "Personal sensory preferences.", icon: "♙", title: "My Sensory\nProfile" },
-  { name: "Toolkit", subtitle: "Calming tools within easy reach.", icon: "◈", title: "Sensory Toolkit" },
-  { name: "Insights", subtitle: "Weekly wellbeing patterns.", icon: "▥", title: "My Insights" },
-];
 
 const faqs = [
   ["What is NuroTok?", "NuroTok is a sensory regulation app from NeuroDigital Support. It offers tools to help you adjust your digital environment and take a moment when you need one."],
@@ -47,32 +41,6 @@ function UkFlag() {
       <path d="M30 0v42M0 21h60" stroke="#fff" strokeWidth="14" />
       <path d="M30 0v42M0 21h60" stroke="#C8102E" strokeWidth="8.4" />
     </svg>
-  );
-}
-
-function Phone({ index }: { index: number }) {
-  const screen = screens[index];
-
-  return (
-    <div className="mx-auto w-full max-w-[145px] rounded-[25px] border-[5px] border-[#143D2A] bg-white p-2 shadow-[0_12px_30px_rgba(11,54,31,0.15)]">
-      <div className="mx-auto mb-3 h-2 w-10 rounded-full bg-[#143D2A]" />
-      <div className="text-center">
-        <span className="text-[10px] font-extrabold text-[#0B361F]">◉ NuroTok</span>
-      </div>
-      <div className="mt-4 min-h-[135px] rounded-xl bg-[#E8F4EC] p-2">
-        <p className="text-[7px] font-bold text-[#367050]">{screen.title.split("\n")[0]}</p>
-        <p className="mt-2 whitespace-pre-line text-[11px] font-extrabold leading-4 text-[#0B361F]">{screen.title}</p>
-        <div className="mt-3 flex h-12 items-center justify-center rounded-lg bg-[#0B361F] text-2xl text-[#94E7BC]">
-          {screen.icon}
-        </div>
-        <div className="mt-2 rounded-full bg-[#94E7BC] py-1 text-center text-[7px] font-bold text-[#0B361F]">
-          Explore tools
-        </div>
-      </div>
-      <div className="mt-3 flex justify-around text-[9px] text-[#367050]">
-        <span>⌂</span><span>◈</span><span>♙</span><span>▥</span>
-      </div>
-    </div>
   );
 }
 
@@ -311,8 +279,8 @@ export default function Home() {
               </div>
 
               {/* Play button */}
-              <span className="absolute left-[30%] top-1/2 flex h-[68px] w-[68px] -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border-[3px] border-white/90 bg-[#0B361F]/45 shadow-[0_8px_24px_rgba(0,0,0,0.25)] backdrop-blur-sm transition-transform duration-300 group-hover:scale-110">
-                <svg aria-hidden="true" width="26" height="26" viewBox="0 0 24 24" fill="#fff"><path d="M8 5.5v13l11-6.5z" /></svg>
+              <span className="absolute left-[34%] top-1/2 flex h-[64px] w-[64px] -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-white/95 text-[#0B361F] shadow-[0_0_0_10px_rgba(255,255,255,0.22),0_10px_28px_rgba(0,0,0,0.28)] transition-transform duration-300 group-hover:scale-110">
+                <svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" className="ml-[3px]"><path d="M7 4.8v14.4c0 .8.9 1.3 1.6.9l11.2-7.2c.6-.4.6-1.4 0-1.8L8.6 3.9C7.9 3.5 7 4 7 4.8z" /></svg>
               </span>
 
               <span className="absolute bottom-4 right-4 rounded-md bg-[#0B361F]/90 px-2.5 py-1 text-[13px] font-bold tracking-wide text-white">
@@ -345,42 +313,46 @@ export default function Home() {
       </section>
 
       {/* AUDIENCE + FOUR SCREENS */}
-      <section className="bg-[#F0F6EF] py-16">
-        <div className="mx-auto grid max-w-[1440px] gap-10 px-6 lg:grid-cols-[.75fr_1.65fr] lg:px-12">
-          <div className="border-r border-[#C8D9CC] pr-8">
-            <h2 className="text-3xl font-extrabold leading-tight sm:text-4xl">
+      <section className="bg-[linear-gradient(180deg,#EEF5EE_0%,#F3F8F2_100%)] py-14 lg:py-16">
+        <div className="mx-auto grid max-w-[1440px] gap-12 px-6 lg:grid-cols-[minmax(0,0.78fr)_minmax(0,2fr)] lg:gap-0 lg:px-12">
+          <div className="lg:border-r lg:border-[#C9DACB] lg:pr-10">
+            <h2 className="text-[34px] font-bold leading-[1.12] tracking-[-0.025em] text-[#0B361F] xl:text-[40px]">
               Designed with neurodivergent adults in mind.
             </h2>
 
-            <p className="mt-5 leading-6 text-[#46594C]">
-              People experience the same screen differently. A sound one person enjoys can make it difficult for someone else to concentrate. Our starting point is simple. You decide what feels comfortable, and you can change your mind.
+            <p className="mt-5 text-[16px] leading-[1.6] text-[#2F4538]">
+              People experience the same screen differently. A sound one person enjoys can make it difficult for someone else to{" "}
+              <strong className="font-bold text-[#0B361F]">concentrate</strong>. Our starting point is simple. You decide what feels comfortable, and you can change your mind.
             </p>
 
-            <a href="/about-us/" className="mt-6 inline-flex rounded-full border border-[#367050] px-6 py-3 text-sm font-bold hover:bg-[#DDEDE0]">
-              Why we built NuroTok →
+            <a
+              href="/about-us/"
+              className="mt-7 inline-flex items-center gap-2.5 rounded-full border-[1.5px] border-[#0B361F] px-6 py-3 text-[15px] font-semibold text-[#0B361F] transition-colors hover:bg-[#0B361F] hover:text-white"
+            >
+              Why we built NuroTok
+              <svg aria-hidden="true" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 12h15M13 6l6 6-6 6" /></svg>
             </a>
           </div>
 
-          <div>
-            <h2 className="mb-7 text-2xl font-extrabold sm:text-3xl">
+          <div className="lg:pl-10">
+            <h2 className="text-[28px] font-bold tracking-[-0.02em] text-[#0B361F] sm:text-[32px]">
               Explore the four main screens.
             </h2>
 
-            <div className="grid grid-cols-2 gap-4 lg:grid-cols-4">
-              {screens.map((screen, i) => (
-                <article key={screen.name}>
-                  <div className="rounded-[22px] bg-white p-3 shadow-sm">
-                    <Phone index={i} />
-                  </div>
-
-                  <div className="mt-3 flex items-center justify-center gap-2 text-base font-extrabold">
-                    <span className="text-[#367050]">{screen.icon}</span>
-                    {screen.name}
-                  </div>
-
-                  <p className="mt-1 text-center text-xs leading-5 text-[#53675C]">
-                    {screen.subtitle}
-                  </p>
+            <div className="mt-7 grid grid-cols-2 gap-x-5 gap-y-10 md:grid-cols-4">
+              {[
+                { name: "Home", subtitle: "Distraction-free daily navigation.", icon: "home" as const, Screen: HomeScreen },
+                { name: "Profile", subtitle: "Personal sensory preferences.", icon: "profile" as const, Screen: ProfileScreen },
+                { name: "Toolkit", subtitle: "Calming tools within easy reach.", icon: "toolkit" as const, Screen: ToolkitScreen },
+                { name: "Insights", subtitle: "Weekly wellbeing patterns.", icon: "insights" as const, Screen: InsightsScreen },
+              ].map(({ name, subtitle, icon, Screen }) => (
+                <article key={name} className="text-center">
+                  <Screen />
+                  <h3 className="mt-5 flex items-center justify-center gap-2 text-[17px] font-bold text-[#0B361F]">
+                    <Icon name={icon} size={18} strokeWidth={2} className="text-[#1E7A4C]" />
+                    {name}
+                  </h3>
+                  <p className="mx-auto mt-1 max-w-[150px] text-[14px] leading-[1.4] text-[#3E5146]">{subtitle}</p>
                 </article>
               ))}
             </div>
