@@ -1,8 +1,8 @@
 "use client";
 
-import { useId, useState } from "react";
+import { useId, useState, type ReactNode } from "react";
 
-type Props = { items: [question: string, answer: string][] };
+type Props = { items: { q: string; a: ReactNode }[] };
 
 /** Two-column FAQ accordion with a smooth height (grid-rows) slide. */
 export default function FaqAccordion({ items }: Props) {
@@ -11,7 +11,7 @@ export default function FaqAccordion({ items }: Props) {
 
   return (
     <div className="grid content-start items-start gap-x-6 gap-y-3 md:grid-cols-2">
-      {items.map(([question, answer], i) => {
+      {items.map(({ q: question, a: answer }, i) => {
         const isOpen = open === i;
         const btnId = `${uid}-q${i}`;
         const panelId = `${uid}-a${i}`;

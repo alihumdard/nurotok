@@ -9,7 +9,7 @@ const LINKS: [string, string][] = [
   ["Training", "/training/"],
   ["Blogs", "/blogs/"],
   ["Store", "/store/"],
-  ["About", "/about/"],
+  ["About", "/about-us/"],
 ];
 
 /** Hamburger menu shown below the lg breakpoint. */
