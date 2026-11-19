@@ -1,4 +1,3 @@
-import NuroTokMark from "./components/NuroTokMark";
 
 const photo = {
   hero: "/images/image.png",
@@ -26,14 +25,29 @@ const faqs = [
 
 function BrandLogo({ light = false }: { light?: boolean }) {
   return (
-    <a
-      href="/"
-      aria-label="NuroTok home"
-      className={`flex items-center gap-2.5 font-heading font-bold tracking-[-0.02em] ${light ? "text-white" : "text-[#0B361F]"}`}
-    >
-      <NuroTokMark size={54} light={light} title="" />
-      <span className="text-[30px] leading-none">NuroTok</span>
+    <a href="/" aria-label="NuroTok home" className="flex items-center gap-2.5">
+      <span className={light ? "rounded-full bg-[#F6F3EC] p-1" : ""}>
+        <img src="/images/nurotok-logo.png" alt="" width={56} height={56} className="h-[52px] w-[52px] sm:h-[56px] sm:w-[56px]" />
+      </span>
+      <span
+        className={`font-heading text-[30px] font-bold leading-none tracking-[-0.03em] sm:text-[34px] ${light ? "text-white" : "text-[#0E4A2E]"}`}
+      >
+        NuroTok
+      </span>
     </a>
+  );
+}
+
+function UkFlag() {
+  return (
+    <svg aria-hidden="true" width="20" height="14" viewBox="0 0 60 42" className="rounded-[2px] shadow-[0_0_0_1px_rgba(0,0,0,0.08)]">
+      <clipPath id="uk-t"><path d="M30 21h30v21zv21H0zH0V0zV0h30z" /></clipPath>
+      <rect width="60" height="42" fill="#012169" />
+      <path d="M0 0l60 42M60 0L0 42" stroke="#fff" strokeWidth="8.4" />
+      <path d="M0 0l60 42M60 0L0 42" clipPath="url(#uk-t)" stroke="#C8102E" strokeWidth="5.6" />
+      <path d="M30 0v42M0 21h60" stroke="#fff" strokeWidth="14" />
+      <path d="M30 0v42M0 21h60" stroke="#C8102E" strokeWidth="8.4" />
+    </svg>
   );
 }
 
@@ -68,33 +82,51 @@ export default function Home() {
     <main className="overflow-hidden bg-[#F6F3EC] text-[#0B361F]">
 
       {/* ACCESSIBILITY BAR */}
-      <div className="hidden border-b border-[#DFE7DD] bg-[#F2F5EF] md:block">
-        <div className="mx-auto flex max-w-[1440px] items-center justify-between px-6 py-2 text-xs font-semibold lg:px-12">
-          <div className="flex items-center gap-6">
-            <button className="flex items-center gap-2">◎ Accessibility</button>
-            <span className="text-[#A6B5A9]">|</span>
-            <span>Text size:</span>
-            <button>A−</button>
-            <button>A</button>
-            <button>A+</button>
-            <span className="text-[#A6B5A9]">|</span>
-            <button>☾ Dark mode</button>
+      <div className="hidden border-b border-[#E3EAE3] bg-[#EEF3EE] md:block">
+        <div className="mx-auto flex h-[38px] max-w-[1440px] items-center justify-between px-6 text-[13px] text-[#0B361F] lg:px-12">
+          <div className="flex items-center">
+            <button type="button" className="flex items-center gap-2 font-medium hover:text-[#367050]">
+              <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10" /><circle cx="12" cy="7.2" r="1.3" fill="currentColor" stroke="none" /><path d="M7.5 10l4.5 1 4.5-1M12 11v3.5M12 14.5l-2.5 4M12 14.5l2.5 4" /></svg>
+              Accessibility
+            </button>
+
+            <span aria-hidden="true" className="mx-6 h-4 w-px bg-[#A9B8AD]" />
+
+            <div className="flex items-center gap-4" role="group" aria-label="Text size">
+              <span className="font-medium">Text size:</span>
+              <button type="button" aria-label="Decrease text size" className="font-semibold hover:text-[#367050]">A−</button>
+              <button type="button" aria-label="Default text size" className="font-semibold hover:text-[#367050]">A</button>
+              <button type="button" aria-label="Increase text size" className="font-semibold hover:text-[#367050]">A+</button>
+            </div>
+
+            <span aria-hidden="true" className="mx-6 h-4 w-px bg-[#A9B8AD]" />
+
+            <button type="button" className="flex items-center gap-2 font-medium hover:text-[#367050]">
+              <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.5 14.6A8.5 8.5 0 0 1 9.4 3.5a8.5 8.5 0 1 0 11.1 11.1z" /></svg>
+              Dark mode
+            </button>
           </div>
-          <button>🇬🇧 UK⌄</button>
+
+          <button type="button" className="flex items-center gap-2 font-semibold hover:text-[#367050]">
+            <UkFlag />
+            UK
+            <svg aria-hidden="true" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round"><path d="M6 9l6 6 6-6" /></svg>
+          </button>
         </div>
       </div>
 
       {/* NAVIGATION */}
       <header className="relative z-20 border-b border-[#E7EAE2] bg-white">
-        <div className="mx-auto flex max-w-[1440px] items-center justify-between gap-5 px-5 py-3 lg:px-12">
+        <div className="mx-auto flex h-[78px] max-w-[1440px] items-center justify-between gap-5 px-5 lg:h-[84px] lg:px-12">
           <BrandLogo />
 
-          <nav className="hidden items-center gap-7 lg:flex">
+          <nav aria-label="Main" className="hidden h-full items-center gap-9 lg:flex">
             {["Home", "Features", "Research", "Training", "Blogs", "Store", "About"].map((item, i) => (
               <a
                 key={item}
                 href={i === 0 ? "/" : `/${item.toLowerCase()}/`}
-                className={`border-b-2 py-2 text-sm font-semibold transition hover:border-[#367050] hover:text-[#367050] ${i === 0 ? "border-[#367050] text-[#0B361F]" : "border-transparent text-[#37473D]"}`}
+                aria-current={i === 0 ? "page" : undefined}
+                className={`relative flex h-full items-center text-[15px] font-medium transition-colors hover:text-[#367050] ${i === 0 ? "text-[#0E4A2E] after:absolute after:inset-x-0 after:bottom-[22px] after:h-[2.5px] after:rounded-full after:bg-[#2E8A57]" : "text-[#1F2E25]"}`}
               >
                 {item}
               </a>
@@ -103,15 +135,16 @@ export default function Home() {
 
           <a
             href="/contact-us/"
-            className="rounded-full bg-[#0B361F] px-6 py-3 text-sm font-bold text-white transition hover:bg-[#367050]"
+            className="inline-flex items-center gap-2.5 rounded-full bg-[#0B361F] px-7 py-3.5 text-[15px] font-semibold text-white transition-colors hover:bg-[#367050]"
           >
-            Contact us <span className="ml-2">→</span>
+            Contact us
+            <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 12h15M13 6l6 6-6 6" /></svg>
           </a>
         </div>
 
-        <nav className="flex gap-6 overflow-x-auto border-t border-[#EDF0EA] px-5 py-2 lg:hidden">
-          {["Home", "Features", "Research", "Training", "Blogs", "Store", "About"].map(item => (
-            <a key={item} href={`/${item.toLowerCase()}/`} className="shrink-0 text-xs font-semibold">
+        <nav aria-label="Main mobile" className="flex gap-6 overflow-x-auto border-t border-[#EDF0EA] px-5 py-2 lg:hidden">
+          {["Home", "Features", "Research", "Training", "Blogs", "Store", "About"].map((item, i) => (
+            <a key={item} href={i === 0 ? "/" : `/${item.toLowerCase()}/`} className="shrink-0 text-xs font-semibold">
               {item}
             </a>
           ))}
@@ -197,9 +230,13 @@ export default function Home() {
 
           {/* Floating message card, over the photo (bottom-right) */}
           <div className="pointer-events-none absolute bottom-6 right-5 sm:bottom-8 sm:right-8 lg:bottom-12 lg:right-12">
-            <div className="flex items-center gap-4 rounded-2xl border border-white/35 bg-[#174B35]/75 px-6 py-4 text-white shadow-[0_12px_30px_rgba(11,54,31,0.25)] backdrop-blur-md">
-              <svg aria-hidden="true" width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#94E7BC" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><path d="M20 4C11 4 5 9 5 16c0 1.5.3 2.6.8 3.5" /><path d="M20 4c0 9-5 15-12 15" /><path d="M4 20l8-8" /></svg>
-              <p className="m-0 text-[18px] font-medium leading-6 text-white lg:text-[20px] lg:leading-7">
+            <div className="flex items-center gap-4 rounded-[18px] border border-white/45 bg-[#1C4A33]/55 px-6 py-4 shadow-[0_10px_30px_rgba(11,54,31,0.25)] backdrop-blur-md lg:px-7 lg:py-5">
+              <svg aria-hidden="true" width="36" height="36" viewBox="0 0 32 32" fill="none" stroke="#A8EBC8" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M27 5C15 5 7 10.5 7 19.5c0 2.2.6 4 1.6 5.3C18.5 25 26 18 27 5z" />
+                <path d="M5 27c4-5 9-9.5 15-13" />
+                <path d="M12.5 20.5l-.5-4.5M16.5 17l-.3-4.5M15.5 22.5l4.5-.3" />
+              </svg>
+              <p className="m-0 text-[18px] font-normal leading-[1.35] text-white lg:text-[21px]">
                 A calmer mind,<br />a brighter you.
               </p>
             </div>
