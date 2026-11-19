@@ -218,7 +218,7 @@ export default function Home() {
       </section>
 
       {/* THREE BENEFITS */}
-      <section data-dark="section" className="border-b border-[#E3ECE3] bg-[linear-gradient(180deg,#F4F8F3_0%,#FFFFFF_100%)] py-12 lg:py-16">
+      <section data-dark="section" className="border-b border-[#E3ECE3] bg-[linear-gradient(180deg,#F4F8F3_0%,#FFFFFF_100%)] py-10 lg:py-12">
         <div className="reveal mx-auto grid max-w-[1440px] items-stretch gap-5 px-5 sm:px-8 md:grid-cols-3 lg:grid-cols-[1.2fr_1fr_1fr_1fr] lg:gap-6 lg:px-12">
           <div className="flex flex-col justify-center md:col-span-3 lg:col-span-1 lg:pr-2">
             <span aria-hidden="true" className="h-[5px] w-10 rounded-full bg-[#367050]" />
@@ -261,7 +261,7 @@ export default function Home() {
       </section>
 
       {/* DEMO */}
-      <section id="demo" className="scroll-mt-24 bg-[#FAFBF8] py-14 lg:py-20">
+      <section id="demo" className="scroll-mt-24 bg-[#FAFBF8] py-10 lg:py-14">
         <div className="reveal mx-auto grid max-w-[1440px] gap-6 px-5 sm:px-8 lg:grid-cols-[minmax(0,1.12fr)_minmax(0,1fr)] lg:items-stretch lg:gap-8 lg:px-12">
           {/* Video preview: stretches to the height of the copy card */}
           <DemoVideo
@@ -343,7 +343,7 @@ export default function Home() {
       </section>
 
       {/* AUDIENCE + FOUR SCREENS */}
-      <section data-dark="section-alt" className="bg-[linear-gradient(180deg,#EEF5EE_0%,#F3F8F2_100%)] py-14 lg:py-16">
+      <section data-dark="section-alt" className="bg-[linear-gradient(180deg,#EEF5EE_0%,#F3F8F2_100%)] py-10 lg:py-14">
         <div className="reveal mx-auto grid max-w-[1440px] gap-12 px-6 sm:px-8 [&>*]:min-w-0 lg:px-12 xl:grid-cols-[minmax(0,0.78fr)_minmax(0,2fr)] xl:gap-0">
           <div className="max-w-[720px] xl:max-w-none xl:border-r xl:border-[#C9DACB] xl:pr-10">
             <h2 className="text-[34px] font-bold leading-[1.12] tracking-[-0.025em] text-[#0B361F] xl:text-[40px]">
@@ -415,7 +415,7 @@ export default function Home() {
       </section>
 
       {/* RESEARCH TRAINING STORE */}
-      <section className="bg-[#F6F3EC] py-14 lg:py-16">
+      <section className="bg-[#F6F3EC] py-10 lg:py-12">
         <div className="reveal mx-auto grid max-w-[1440px] gap-6 px-5 sm:px-8 md:grid-cols-3 lg:gap-7 lg:px-12">
           {[
             {
@@ -469,7 +469,7 @@ export default function Home() {
       </section>
 
       {/* FAQ */}
-      <section data-dark="section-alt" className="bg-[linear-gradient(180deg,#FFFFFF_0%,#F7FAF6_100%)] py-14 lg:py-16">
+      <section data-dark="section-alt" className="bg-[linear-gradient(180deg,#FFFFFF_0%,#F7FAF6_100%)] py-10 lg:py-14">
         <div className="reveal mx-auto grid max-w-[1440px] gap-8 px-5 sm:px-8 lg:px-12 xl:grid-cols-[minmax(0,0.85fr)_minmax(0,2fr)] xl:gap-0">
           <div className="flex flex-col xl:border-r xl:border-[#D8E2D9] xl:pr-10">
             <h2 className="text-[34px] font-bold leading-[1.12] tracking-[-0.025em] text-[#0B361F] xl:text-[36px]">
@@ -479,15 +479,15 @@ export default function Home() {
               Quick answers to common questions about NuroTok.
             </p>
 
-            <div className="group mt-8 rounded-[20px] border border-[#E3ECE3] bg-white p-6 shadow-[0_2px_12px_rgba(11,54,31,0.05)] transition duration-300 hover:-translate-y-1 hover:border-[#B9CFBF] hover:shadow-[0_16px_34px_rgba(11,54,31,0.10)] xl:mt-auto">
-              <span className="flex h-11 w-11 items-center justify-center rounded-full bg-[#E3F4EA] text-[#1E7A4C]">
+            <div data-dark="card" className="group mt-8 rounded-[20px] border border-[#CFE3D6] bg-[linear-gradient(135deg,#E6F4EB_0%,#F3FAF5_100%)] p-6 shadow-[0_2px_12px_rgba(11,54,31,0.05)] transition duration-300 hover:-translate-y-1 hover:border-[#B9CFBF] hover:shadow-[0_16px_34px_rgba(11,54,31,0.10)] xl:mt-auto">
+              <span className="flex h-11 w-11 items-center justify-center rounded-full bg-white text-[#1E7A4C] shadow-[0_2px_8px_rgba(11,54,31,0.08)]">
                 <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="5" width="18" height="14" rx="2.5" /><path d="M3.5 6.5L12 13l8.5-6.5" /></svg>
               </span>
               <h3 className="mt-4 text-[17px] font-bold leading-snug text-[#0B361F]">Get in touch with the NuroTok team</h3>
               <p className="mt-1.5 text-[14.5px] leading-[1.55] text-[#3E5146]">
                 Email info@nurotok.co.uk. A short message is fine.
               </p>
-              <a href="mailto:info@nurotok.co.uk" className="mt-4 inline-flex items-center gap-2 rounded-full bg-[#E3F4EA] px-5 py-2.5 text-[15px] font-semibold text-[#1E5A3B] transition-all duration-300 hover:bg-[#0B361F] hover:text-white group-hover:gap-3">
+              <a href="mailto:info@nurotok.co.uk" className="mt-4 inline-flex items-center gap-2 rounded-full bg-white px-5 py-2.5 text-[15px] font-semibold text-[#1E5A3B] shadow-[0_2px_8px_rgba(11,54,31,0.08)] transition-all duration-300 hover:bg-[#0B361F] hover:text-white group-hover:gap-3">
                 Email the team
                 <svg aria-hidden="true" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.3" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
               </a>
@@ -501,7 +501,7 @@ export default function Home() {
       </section>
 
       {/* DOWNLOAD (#download) */}
-      <section id="download" className="scroll-mt-24 bg-[#F7FAF6] px-5 pb-6 pt-2 sm:px-8 lg:px-12">
+      <section id="download" className="scroll-mt-24 bg-[#F7FAF6] px-5 pb-10 pt-0 sm:px-8 lg:px-12 lg:pb-12">
         <div data-dark="download" className="reveal relative mx-auto grid max-w-[1344px] items-center overflow-hidden rounded-[24px] border border-[#D6E6DA] bg-[linear-gradient(120deg,#E3F3E8_0%,#EEF7F0_45%,#F8FBF7_100%)] px-6 pt-10 sm:px-10 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)] lg:px-14 lg:pt-0 lg:items-center">
           <span aria-hidden="true" className="pointer-events-none absolute -right-24 -top-24 h-80 w-80 rounded-full bg-[#94E7BC]/30 blur-3xl" />
           <span aria-hidden="true" className="pointer-events-none absolute -bottom-32 left-10 h-72 w-72 rounded-full bg-[#BDEED7]/40 blur-3xl" />
@@ -555,26 +555,24 @@ export default function Home() {
         </div>
       </section>
 
-      {/* NEWSLETTER */}
-      <section className="bg-[#F6F3EC] px-5 py-8 lg:px-12">
-        <div data-dark="newsletter" className="reveal relative mx-auto max-w-[1344px] overflow-hidden rounded-[22px] bg-[linear-gradient(110deg,#0E3F27_0%,#14513A_55%,#1C6447_100%)] px-6 py-8 text-white shadow-[0_16px_40px_rgba(11,54,31,0.22)] sm:px-10 lg:px-12 lg:py-7">
-          {/* decorative soft glows */}
-          <span aria-hidden="true" className="pointer-events-none absolute -right-16 -top-24 h-64 w-64 rounded-full bg-[#94E7BC]/15 blur-3xl" />
-          <span aria-hidden="true" className="pointer-events-none absolute -bottom-28 left-1/3 h-56 w-56 rounded-full bg-[#94E7BC]/10 blur-3xl" />
-
-          <div className="relative flex flex-col gap-6 lg:flex-row lg:flex-wrap lg:items-center lg:justify-between lg:gap-x-10 xl:flex-nowrap">
-            <div className="flex items-center gap-4">
-              <span className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-white/10 ring-1 ring-white/20">
-                <svg aria-hidden="true" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#C8F2DC" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="5" width="18" height="14" rx="2.5" /><path d="M3.5 6.5L12 13l8.5-6.5" /></svg>
+      {/* FOOTER */}
+      <footer data-dark="footer" className="bg-[linear-gradient(180deg,#0B3D26_0%,#062C1B_100%)] text-white">
+        {/* Newsletter: first row of the footer */}
+        <div className="mx-auto max-w-[1440px] px-6 sm:px-8 lg:px-12">
+          <div className="flex flex-col gap-6 border-b border-white/12 py-8 lg:flex-row lg:items-center lg:justify-between lg:gap-10">
+            <div className="flex items-start gap-4">
+              <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-white/10 ring-1 ring-white/15">
+                <svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#C8F2DC" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="5" width="18" height="14" rx="2.5" /><path d="M3.5 6.5L12 13l8.5-6.5" /></svg>
               </span>
-              <h2 className="whitespace-nowrap text-[28px] font-bold tracking-[-0.02em] text-white lg:text-[30px]">Stay in touch</h2>
+              <div>
+                <h2 className="text-[24px] font-bold tracking-[-0.02em] text-white sm:text-[26px]">Stay in touch</h2>
+                <p className="mt-1 max-w-[420px] text-[15px] leading-[1.55] text-[#CFE8DA]">
+                  Get updates on the app, training, research and new resources.
+                </p>
+              </div>
             </div>
 
-            <p className="max-w-[340px] text-[15.5px] leading-[1.55] text-[#D7EBDF]">
-              Get updates on the app, training, research and new resources.
-            </p>
-
-            <div className="w-full xl:max-w-[500px]">
+            <div className="w-full lg:max-w-[500px]">
               <NewsletterForm />
               <p className="mt-2.5 pl-1 text-[12.5px] text-[#BFDCCB] sm:pl-5">
                 We&rsquo;ll only use your email to send updates. Read our{" "}
@@ -583,34 +581,31 @@ export default function Home() {
             </div>
           </div>
         </div>
-      </section>
 
-      {/* FOOTER */}
-      <footer data-dark="footer" className="bg-[linear-gradient(180deg,#0B3D26_0%,#062C1B_100%)] text-white">
-        <div className="mx-auto grid max-w-[1440px] grid-cols-2 gap-x-6 gap-y-9 px-6 pb-10 pt-12 sm:px-8 md:grid-cols-4 lg:grid-cols-[1.35fr_1px_0.8fr_0.8fr_1px_1.15fr_0.9fr] lg:gap-x-10 lg:px-12">
+        <div className="mx-auto grid max-w-[1440px] grid-cols-2 gap-x-6 gap-y-8 px-6 pb-8 pt-8 sm:px-8 md:grid-cols-4 lg:grid-cols-[1.35fr_1px_0.8fr_0.8fr_1px_1.15fr_0.9fr] lg:gap-x-10 lg:px-12">
           {/* Brand */}
-          <div className="col-span-2 md:col-span-4 lg:col-span-1">
+          <div className="col-span-2 flex flex-col items-center text-center sm:items-start sm:text-left md:col-span-4 lg:col-span-1">
             <BrandLogo light />
-            <p className="mt-4 max-w-[260px] text-[14.5px] leading-[1.55] text-[#CFE8DA]">
+            <p className="mt-4 max-w-[280px] text-[14.5px] leading-[1.55] text-[#CFE8DA]">
               Creating sensory-aware digital spaces that support neurodivergent wellbeing and reduce overwhelm.
             </p>
           </div>
 
           <span aria-hidden="true" className="hidden bg-white/15 lg:block" />
 
-          <nav aria-label="Quick links">
+          <nav aria-label="Quick links" className="text-center sm:text-left">
             <h3 className="text-[15px] font-bold tracking-[0.01em] text-white">Quick links</h3>
             <ul className="mt-4 space-y-2.5">
-              {[["Home", "/"], ["Features", "/features/"], ["Research", "/research/"], ["Training", "/training/"], ["Blogs", "/blogs/"]].map(([label, href]) => (
+              {[["Home", "/"], ["Features", "/features/"], ["Research", "/research/"]].map(([label, href]) => (
                 <li key={label}><a href={href} className="text-[14.5px] text-[#CFE8DA] transition-colors hover:text-white">{label}</a></li>
               ))}
             </ul>
           </nav>
 
-          <nav aria-label="More">
+          <nav aria-label="More" className="text-center sm:text-left">
             <h3 className="text-[15px] font-bold tracking-[0.01em] text-white">More</h3>
             <ul className="mt-4 space-y-2.5">
-              {[["Store", "/store/"], ["About", "/about-us/"], ["Contact", "/contact-us/"], ["Easy Read", "/easy-read/"], ["Your account", ACCOUNT_URL]].map(([label, href]) => (
+              {[["Store", "/store/"], ["About", "/about-us/"], ["Contact", "/contact-us/"]].map(([label, href]) => (
                 <li key={label}><a href={href} className="text-[14.5px] text-[#CFE8DA] transition-colors hover:text-white">{label}</a></li>
               ))}
             </ul>
@@ -641,8 +636,8 @@ export default function Home() {
           </div>
 
           <div className="col-span-2 sm:col-span-1 rounded-2xl bg-white/[0.04] p-5 ring-1 ring-white/10 sm:rounded-none sm:bg-transparent sm:p-0 sm:ring-0">
-            <h3 className="text-[15px] font-bold tracking-[0.01em] text-white">Follow us</h3>
-            <div className="mt-4 flex gap-2.5">
+            <h3 className="text-center text-[15px] font-bold tracking-[0.01em] text-white sm:text-left">Follow us</h3>
+            <div className="mt-4 flex justify-center gap-2.5 sm:justify-start">
               {[
                 { label: "LinkedIn", href: "#", d: "M6.5 9.5v8M6.5 6.5v.01M10.5 17.5v-8M10.5 13a3 3 0 0 1 6 0v4.5" },
                 { label: "YouTube", href: "#", d: "M3.5 8.2c.1-1.4 1.2-2.5 2.6-2.6C8 5.4 10 5.3 12 5.3s4 .1 5.9.3c1.4.1 2.5 1.2 2.6 2.6.2 2.5.2 5.1 0 7.6-.1 1.4-1.2 2.5-2.6 2.6-1.9.2-3.9.3-5.9.3s-4-.1-5.9-.3c-1.4-.1-2.5-1.2-2.6-2.6-.2-2.5-.2-5.1 0-7.6zM10.3 9.3v5.4l4.6-2.7z" },
