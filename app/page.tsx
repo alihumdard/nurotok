@@ -167,10 +167,10 @@ export default function Home() {
           <div className="absolute inset-0 bg-gradient-to-t from-[#0B361F]/10 via-transparent to-transparent" />
         </div>
 
-        <div className="mx-auto flex max-w-[1440px] flex-col lg:min-h-[500px] lg:flex-row lg:items-center">
+        <div className="mx-auto flex max-w-[1440px] flex-col lg:h-[calc(100svh-124px)] lg:min-h-[440px] lg:max-h-[720px] lg:flex-row lg:items-center">
 
           {/* Copy + CTAs */}
-          <div className="px-5 pb-10 pt-12 sm:px-12 sm:pt-16 lg:w-[52%] lg:py-14 lg:pl-12 lg:pr-0">
+          <div className="px-5 pb-10 pt-12 sm:px-12 sm:pt-16 lg:w-[52%] lg:py-[clamp(24px,5vh,56px)] lg:pl-12 lg:pr-0">
             <div className="max-w-[600px]">
 
               <div className="flex items-center gap-3 text-[13px] font-bold uppercase tracking-[0.08em] text-[#0B361F]">
@@ -178,7 +178,7 @@ export default function Home() {
                 A sensory regulation app
               </div>
 
-              <h1 className="mt-5 text-[40px] font-bold leading-[1.05] tracking-[-0.03em] text-[#0B361F] sm:text-[54px] xl:text-[64px]">
+              <h1 className="mt-5 text-[40px] font-bold leading-[1.05] tracking-[-0.03em] text-[#0B361F] sm:text-[54px] lg:text-[clamp(40px,7.5vh,64px)]">
                 When your phone<br className="hidden sm:block" /> feels like{" "}
                 <span className="italic text-[#367050]">too much.</span>
               </h1>
@@ -187,7 +187,7 @@ export default function Home() {
                 NuroTok gives you simple ways to adjust what you see or hear, pause an app, or take a moment before you carry on. Choose the tool that feels right for you today.
               </p>
 
-              <div className="mt-8 flex flex-col items-stretch gap-3 sm:items-start">
+              <div className="mt-8 flex flex-col items-stretch gap-3 sm:items-start lg:mt-[clamp(16px,3.5vh,32px)]">
                 <a
                   href="#download"
                   className="inline-flex items-center justify-center gap-3 rounded-full bg-[#0B361F] px-8 py-4 text-[16px] font-bold text-white shadow-[0_8px_20px_rgba(11,54,31,0.22)] transition-colors duration-300 hover:bg-[#367050]"
@@ -229,7 +229,7 @@ export default function Home() {
           </div>
 
           {/* Floating message card, over the photo (bottom-right) */}
-          <div className="pointer-events-none absolute bottom-6 right-5 sm:bottom-8 sm:right-8 lg:bottom-12 lg:right-12">
+          <div className="pointer-events-none absolute bottom-6 right-5 sm:bottom-8 sm:right-8 lg:bottom-[clamp(20px,5vh,48px)] lg:right-12">
             <div className="flex items-center gap-4 rounded-[18px] border border-white/45 bg-[#1C4A33]/55 px-6 py-4 shadow-[0_10px_30px_rgba(11,54,31,0.25)] backdrop-blur-md lg:px-7 lg:py-5">
               <svg aria-hidden="true" width="36" height="36" viewBox="0 0 32 32" fill="none" stroke="#A8EBC8" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M27 5C15 5 7 10.5 7 19.5c0 2.2.6 4 1.6 5.3C18.5 25 26 18 27 5z" />
