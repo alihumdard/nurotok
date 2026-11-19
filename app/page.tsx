@@ -153,10 +153,10 @@ export default function Home() {
           <div className="absolute inset-0 bg-gradient-to-t from-[#0B361F]/10 via-transparent to-transparent" />
         </div>
 
-        <div className="mx-auto flex max-w-[1440px] flex-col lg:min-h-[clamp(520px,calc(100svh-124px),720px)] lg:flex-row lg:items-center">
+        <div className="mx-auto flex max-w-[1440px] flex-col lg:min-h-[clamp(440px,calc(100svh-124px),720px)] lg:flex-row lg:items-center">
 
           {/* Copy + CTAs */}
-          <div className="px-5 pb-10 pt-12 sm:px-12 sm:pt-16 lg:w-[52%] lg:py-[clamp(24px,5vh,56px)] lg:pl-12 lg:pr-0">
+          <div className="px-5 pb-10 pt-12 sm:px-12 sm:pt-16 lg:w-[52%] lg:py-[clamp(24px,5vh,56px)] lg:pl-12 lg:pr-0 short:py-6">
             <div className="max-w-[600px]">
 
               <div className="flex items-center gap-3 text-[13px] font-bold uppercase tracking-[0.08em] text-[#0B361F]">
@@ -164,32 +164,32 @@ export default function Home() {
                 A sensory regulation app
               </div>
 
-              <h1 className="mt-5 text-[36px] font-bold min-[400px]:text-[40px] leading-[1.05] tracking-[-0.03em] text-[#0B361F] sm:text-[54px] lg:text-[clamp(40px,min(7.5vh,4.6vw),64px)]">
+              <h1 className="mt-5 short:mt-3 text-[36px] font-bold min-[400px]:text-[40px] leading-[1.05] tracking-[-0.03em] text-[#0B361F] sm:text-[54px] lg:text-[clamp(40px,min(7.5vh,4.6vw),64px)] short:text-[clamp(34px,min(6.4vh,4.2vw),52px)]">
                 When your phone<br className="hidden sm:block" /> feels like{" "}
                 <span className="italic text-[#367050]">too much.</span>
               </h1>
 
-              <p className="mt-5 max-w-[540px] text-[17px] leading-[1.6] text-[#1F3A2B]">
+              <p className="mt-5 max-w-[580px] text-[17px] leading-[1.6] text-[#1F3A2B] short:mt-3 short:text-[15.5px] short:leading-[1.5]">
                 You opened your phone to reply to a friend. A video starts, the group chat lights up and suddenly it&rsquo;s hard to remember what you came to do.
               </p>
-              <p className="mt-3 max-w-[540px] text-[17px] leading-[1.6] text-[#1F3A2B]">
+              <p className="mt-3 max-w-[580px] text-[17px] leading-[1.6] text-[#1F3A2B] short:mt-2 short:text-[15.5px] short:leading-[1.5]">
                 NuroTok is a sensory regulation app from NeuroDigital Support. It gives you ways to adjust what you see or hear, pause an app, or take a moment before you carry on. Choose the tool that feels right for you today.
               </p>
 
-              <div className="mt-8 flex flex-col items-stretch gap-3 sm:items-start lg:mt-[clamp(16px,3.5vh,32px)]">
+              <div className="mt-8 flex flex-col items-stretch gap-3 sm:items-start lg:mt-[clamp(16px,3.5vh,32px)] short:mt-4 short:gap-2.5">
                 <a
                   href="#download"
-                  className="inline-flex items-center justify-center gap-2.5 whitespace-nowrap rounded-full bg-[#0B361F] px-5 py-4 text-[15px] font-bold sm:gap-3 sm:px-8 sm:text-[16px] text-white shadow-[0_8px_20px_rgba(11,54,31,0.22)] transition-colors duration-300 hover:bg-[#367050]"
+                  className="inline-flex items-center justify-center gap-2.5 whitespace-nowrap rounded-full bg-[#0B361F] px-5 py-4 short:py-3 text-[15px] font-bold sm:gap-3 sm:px-8 sm:text-[16px] text-white shadow-[0_8px_20px_rgba(11,54,31,0.22)] transition-colors duration-300 hover:bg-[#367050]"
                 >
                   <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="6" y="2" width="12" height="20" rx="2.5" /><path d="M11 18h2" /></svg>
                   <span>Get NuroTok for your device</span>
                   <span aria-hidden="true" className="ml-1">→</span>
                 </a>
 
-                <div className="flex flex-col gap-3 sm:flex-row">
+                <div className="flex flex-col gap-3 sm:flex-row short:gap-2.5">
                   <a
                     href="/features/"
-                    className="inline-flex items-center justify-center gap-2.5 whitespace-nowrap rounded-full border-2 border-[#0B361F] bg-transparent px-7 py-3 text-[15px] font-bold text-[#0B361F] transition-colors hover:bg-[#0B361F] hover:text-white"
+                    className="inline-flex items-center justify-center gap-2.5 whitespace-nowrap rounded-full border-2 border-[#0B361F] bg-transparent px-7 py-3 short:py-2.5 text-[15px] font-bold text-[#0B361F] transition-colors hover:bg-[#0B361F] hover:text-white"
                   >
                     <svg aria-hidden="true" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 3l9 4.5-9 4.5-9-4.5z" /><path d="M3 12l9 4.5 9-4.5" /><path d="M3 16.5L12 21l9-4.5" /></svg>
                     <span>Explore the features</span>
@@ -197,7 +197,7 @@ export default function Home() {
 
                   <a
                     href="/store/"
-                    className="inline-flex items-center justify-center gap-2.5 whitespace-nowrap rounded-full border-2 border-[#0B361F] bg-transparent px-7 py-3 text-[15px] font-bold text-[#0B361F] transition-colors hover:bg-[#0B361F] hover:text-white"
+                    className="inline-flex items-center justify-center gap-2.5 whitespace-nowrap rounded-full border-2 border-[#0B361F] bg-transparent px-7 py-3 short:py-2.5 text-[15px] font-bold text-[#0B361F] transition-colors hover:bg-[#0B361F] hover:text-white"
                   >
                     <svg aria-hidden="true" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 8h14l-1 13H6z" /><path d="M9 8V6a3 3 0 0 1 6 0v2" /></svg>
                     <span>Shop NuroTok merchandise</span>
@@ -476,7 +476,7 @@ export default function Home() {
 
       {/* DOWNLOAD (#download) */}
       <section id="download" className="scroll-mt-24 bg-[#F7FAF6] px-5 pb-6 pt-2 sm:px-8 lg:px-12">
-        <div className="relative mx-auto grid max-w-[1344px] items-center overflow-hidden rounded-[24px] border border-[#D6E6DA] bg-[linear-gradient(120deg,#E3F3E8_0%,#EEF7F0_45%,#F8FBF7_100%)] px-6 pt-10 sm:px-10 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)] lg:px-14 lg:pt-0">
+        <div className="relative mx-auto grid max-w-[1344px] items-center overflow-hidden rounded-[24px] border border-[#D6E6DA] bg-[linear-gradient(120deg,#E3F3E8_0%,#EEF7F0_45%,#F8FBF7_100%)] px-6 pt-10 sm:px-10 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)] lg:px-14 lg:pt-0 lg:items-center">
           <span aria-hidden="true" className="pointer-events-none absolute -right-24 -top-24 h-80 w-80 rounded-full bg-[#94E7BC]/30 blur-3xl" />
           <span aria-hidden="true" className="pointer-events-none absolute -bottom-32 left-10 h-72 w-72 rounded-full bg-[#BDEED7]/40 blur-3xl" />
 
@@ -517,9 +517,12 @@ export default function Home() {
             </div>
           </div>
 
-          {/* App preview */}
-          <div aria-hidden="true" className="relative mt-10 flex justify-center lg:mt-0 lg:self-end">
-            <div className="w-[200px] translate-y-6 sm:w-[220px] lg:translate-y-10">
+          {/* App preview: two phones, fully inside the card */}
+          <div aria-hidden="true" className="relative mx-auto mb-8 mt-8 h-[380px] w-full max-w-[400px] lg:my-10">
+            <div className="absolute left-[4%] top-8 w-[165px] -rotate-[7deg] opacity-95 sm:left-[10%]">
+              <InsightsScreen />
+            </div>
+            <div className="absolute right-[4%] top-0 w-[176px] rotate-[5deg] sm:right-[10%]">
               <HomeScreen />
             </div>
           </div>

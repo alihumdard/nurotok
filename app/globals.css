@@ -1,6 +1,13 @@
 
 @import "tailwindcss";
 
+/* Desktop screens with little height (small laptops, browser with toolbars/devtools) */
+@custom-variant short {
+  @media (min-width: 1024px) and (max-height: 820px) {
+    @slot;
+  }
+}
+
 /* ========================================
    NUROTOK - BRAND DESIGN SYSTEM
 ======================================== */
