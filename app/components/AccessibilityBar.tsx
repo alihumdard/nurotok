@@ -140,21 +140,8 @@ export default function AccessibilityBar() {
         </div>
 
         <div className="flex items-center">
-        {/* Contact details (fills the bar on wide screens) */}
-        <div className="hidden items-center gap-5 lg:flex">
-          <a href="mailto:info@nurotok.co.uk" className="flex items-center gap-2 font-medium hover:text-[#367050]">
-            <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="5" width="18" height="14" rx="2.5" /><path d="M3.5 6.5L12 13l8.5-6.5" /></svg>
-            info@nurotok.co.uk
-          </a>
-          <a href="tel:+447825354088" className="flex items-center gap-2 font-medium hover:text-[#367050]">
-            <svg aria-hidden="true" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z" /></svg>
-            +44 7825 354088
-          </a>
-          <span aria-hidden="true" className="h-4 w-px bg-[#A9B8AD]" />
-        </div>
-
         {/* Region */}
-        <div ref={region.ref} className="relative ml-5 lg:ml-5">
+        <div ref={region.ref} className="relative">
           <button
             type="button"
             aria-expanded={region.open}

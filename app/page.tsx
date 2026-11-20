@@ -2,7 +2,7 @@ import DemoVideo from "./components/DemoVideo";
 import ScreensCarousel from "./components/ScreensCarousel";
 import Image from "next/image";
 import AccessibilityBar from "./components/AccessibilityBar";
-import MobileMenu from "./components/MobileMenu";
+import SiteHeader from "./components/SiteHeader";
 import FaqAccordion from "./components/FaqAccordion";
 import NewsletterForm from "./components/NewsletterForm";
 import { HomeScreen, InsightsScreen, Icon } from "./components/AppScreens";
@@ -72,36 +72,7 @@ export default function Home() {
       <AccessibilityBar />
 
       {/* NAVIGATION */}
-      <header data-dark="header" className="sticky top-0 z-40 border-b border-[#E7EAE2] bg-white/95 backdrop-blur-md supports-[backdrop-filter]:bg-white/85">
-        <div className="mx-auto flex h-[72px] max-w-[1440px] items-center justify-between gap-4 px-5 sm:h-[78px] sm:px-8 lg:h-[84px] lg:px-12">
-          <BrandLogo />
-
-          <nav aria-label="Main" className="hidden h-full items-center gap-6 lg:flex xl:gap-9">
-            {["Home", "Features", "Research", "Training", "Blogs", "Store", "About"].map((item, i) => (
-              <a
-                key={item}
-                href={i === 0 ? "/" : item === "About" ? "/about-us/" : `/${item.toLowerCase()}/`}
-                aria-current={i === 0 ? "page" : undefined}
-                className={`relative flex h-full items-center text-[15px] font-medium transition-colors hover:text-[#367050] ${i === 0 ? "text-[#0E4A2E] after:absolute after:inset-x-0 after:bottom-[22px] after:h-[2.5px] after:rounded-full after:bg-[#2E8A57]" : "text-[#1F2E25]"}`}
-              >
-                {item}
-              </a>
-            ))}
-          </nav>
-
-          <div className="flex items-center gap-3">
-            <a
-              href="/contact-us/"
-              className="hidden items-center gap-2.5 whitespace-nowrap rounded-full bg-[#0B361F] px-6 py-3 text-[15px] font-semibold text-white transition-colors hover:bg-[#367050] sm:inline-flex lg:px-7 lg:py-3.5"
-            >
-              Contact us
-              <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 12h15M13 6l6 6-6 6" /></svg>
-            </a>
-            <MobileMenu />
-          </div>
-        </div>
-
-      </header>
+      <SiteHeader logo={<BrandLogo />} />
 
       {/* HERO: one continuous panel; the photo fades into the mint background (no column seam) */}
       <section id="main-content" className="relative isolate overflow-hidden bg-[#EAF2EA]">
@@ -123,7 +94,7 @@ export default function Home() {
           <div className="absolute inset-0 bg-gradient-to-t from-[#0B361F]/10 via-transparent to-transparent" />
         </div>
 
-        <div className="mx-auto flex max-w-[1440px] flex-col lg:min-h-[clamp(440px,calc(100svh-124px),720px)] lg:flex-row lg:items-center">
+        <div className="mx-auto flex max-w-[1440px] flex-col lg:min-h-[clamp(440px,calc(100svh-168px),720px)] lg:flex-row lg:items-center">
 
           {/* Copy + CTAs */}
           <div className="px-5 pb-10 pt-12 sm:px-12 sm:pt-16 lg:w-[52%] lg:py-[clamp(24px,5vh,56px)] lg:pl-12 lg:pr-0 short:py-6">

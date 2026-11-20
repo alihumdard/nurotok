@@ -7,12 +7,20 @@ import { Toggle, UkFlag } from "./AccessibilityBar";
 
 const LINKS: [string, string][] = [
   ["Home", "/"],
+  ["About", "/about-us/"],
   ["Features", "/features/"],
   ["Research", "/research/"],
   ["Training", "/training/"],
   ["Blogs", "/blogs/"],
   ["Store", "/store/"],
-  ["About", "/about-us/"],
+  ["Support", "/contact-us/#help"],
+];
+
+const UTILITY: [string, string][] = [
+  ["News", "/news/"],
+  ["Events", "/events/"],
+  ["Help & Support", "/contact-us/#help"],
+  ["Log in / Register", "/account/"],
 ];
 
 /** Hamburger + right-side drawer (below lg). Includes the accessibility options
@@ -106,6 +114,16 @@ export default function MobileMenu() {
               ))}
             </ul>
           </nav>
+
+          <ul className="mt-4 grid grid-cols-2 gap-2">
+            {UTILITY.map(([label, href]) => (
+              <li key={label}>
+                <a href={href} onClick={() => setOpen(false)} className="block rounded-xl bg-[#F1F6F2] px-3 py-2.5 text-[14px] font-medium text-[#0B361F]">
+                  {label}
+                </a>
+              </li>
+            ))}
+          </ul>
 
           <a
             href="/contact-us/"
