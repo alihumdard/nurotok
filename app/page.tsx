@@ -24,7 +24,7 @@ function BrandLogo({ light = false }: { light?: boolean }) {
 
 export default function Home() {
   return (
-    <main className="overflow-x-clip bg-[#94E7BC] text-[#0B361F]">
+    <main className="overflow-x-clip bg-[#F6F3EC] text-[#0B361F]">
       <a
         href="#main-content"
         className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-full focus:bg-[#0B361F] focus:px-5 focus:py-3 focus:text-[15px] focus:font-semibold focus:text-white"
@@ -73,7 +73,7 @@ export default function Home() {
                     <h2 className="text-[24px] font-bold tracking-[-0.01em] text-[#0B361F] lg:text-[28px]">{card.title}</h2>
                     <p className="mt-1.5 text-[20px] leading-[1.55] text-[#2F4538] lg:text-[22px]">{card.text}</p>
                   </div>
-                  <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#94E7BC] text-[#0B361F] transition group-hover:bg-[#0B361F] group-hover:text-white"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M13 6l6 6-6 6" /></svg></span>
+                  <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#F6F3EC] text-[#0B361F] transition group-hover:bg-[#0B361F] group-hover:text-white"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M13 6l6 6-6 6" /></svg></span>
                 </div>
               </a>
             ))}
@@ -86,7 +86,7 @@ export default function Home() {
               { title: "Research and guidance", text: "Explore the evidence, learn from studies and see how digital tools can help.", href: "/research/", img: photo.research },
             ].map(card => (
               <a key={card.title} href={card.href} className="group flex flex-col overflow-hidden rounded-[6px] border border-[#D5E2D8] bg-white lg:flex-row transition">
-                <div className="relative h-44 w-full shrink-0 overflow-hidden bg-[#94E7BC] lg:h-auto lg:w-[42%]">
+                <div className="relative h-44 w-full shrink-0 overflow-hidden bg-[#EEEAE0] lg:h-auto lg:w-[42%]">
                   {card.img ? (
                     <Image src={card.img} alt="" fill sizes="(min-width: 768px) 22vw, 42vw" quality={80} className="object-cover transition-transform duration-500 group-hover:scale-105" />
                   ) : (
@@ -100,7 +100,7 @@ export default function Home() {
                     <h2 className="text-[24px] font-bold leading-snug lg:text-[28px] tracking-[-0.01em] text-[#0B361F]">{card.title}</h2>
                     <p className="mt-1.5 text-[20px] leading-[1.55] text-[#2F4538] lg:text-[22px]">{card.text}</p>
                   </div>
-                  <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#94E7BC] text-[#0B361F] transition group-hover:bg-[#0B361F] group-hover:text-white"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M13 6l6 6-6 6" /></svg></span>
+                  <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#F6F3EC] text-[#0B361F] transition group-hover:bg-[#0B361F] group-hover:text-white"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M13 6l6 6-6 6" /></svg></span>
                 </div>
               </a>
             ))}
@@ -133,7 +133,7 @@ export default function Home() {
                   <h3 className="mt-2 text-[22px] font-bold leading-snug lg:text-[24px] text-[#0B361F]">{ev.title}</h3>
                   <span className="mt-3 flex items-center justify-between gap-3 text-[16px] text-[#2F4538]">
                     <span className="flex items-center gap-2"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><rect x="3.5" y="5" width="17" height="15.5" rx="2" /><path d="M3.5 10h17M8 3v4M16 3v4" /></svg>{ev.date}</span>
-                    <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#94E7BC] text-[#0B361F] transition group-hover:bg-[#0B361F] group-hover:text-white"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M13 6l6 6-6 6" /></svg></span>
+                    <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#F6F3EC] text-[#0B361F] transition group-hover:bg-[#0B361F] group-hover:text-white"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M13 6l6 6-6 6" /></svg></span>
                   </span>
                 </a>
               ))}
@@ -170,7 +170,7 @@ export default function Home() {
                     <h3 className="text-[22px] font-bold leading-snug lg:text-[24px] text-[#0B361F]">{n.title}</h3>
                     <span className="flex items-center justify-between gap-3 text-[16px] text-[#2F4538]">
                       <span className="flex items-center gap-2"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><rect x="3.5" y="5" width="17" height="15.5" rx="2" /><path d="M3.5 10h17M8 3v4M16 3v4" /></svg>{n.date}</span>
-                      <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#94E7BC] text-[#0B361F] transition group-hover:bg-[#0B361F] group-hover:text-white"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M13 6l6 6-6 6" /></svg></span>
+                      <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#F6F3EC] text-[#0B361F] transition group-hover:bg-[#0B361F] group-hover:text-white"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M13 6l6 6-6 6" /></svg></span>
                     </span>
                   </div>
                 </a>
@@ -202,11 +202,11 @@ export default function Home() {
                 <div className="flex flex-1 flex-col items-start justify-center p-5 sm:p-6">
                   <h3 className="text-[24px] font-bold text-[#0B361F] lg:text-[28px]">Partner with NuroTok</h3>
                   <p className="mt-1.5 text-[20px] leading-[1.55] text-[#2F4538] lg:text-[22px]">Work with us to bring sensory support to more people.</p>
-                  <a href="/contact-us/" className="mt-4 inline-flex items-center gap-2 rounded-full bg-[#94E7BC] px-6 py-3 text-[17px] font-semibold text-[#0B361F] hover:bg-[#0B361F] hover:text-white">Get in touch <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M13 6l6 6-6 6" /></svg></a>
+                  <a href="/contact-us/" className="mt-4 inline-flex items-center gap-2 rounded-full bg-[#EEEAE0] px-6 py-3 text-[17px] font-semibold text-[#0B361F] hover:bg-[#0B361F] hover:text-white">Get in touch <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M13 6l6 6-6 6" /></svg></a>
                 </div>
               </div>
               <div className="group rounded-[6px] border border-[#D5E2D8] bg-white transition flex flex-col overflow-hidden lg:flex-row">
-                <div aria-hidden="true" className="flex h-48 w-full shrink-0 lg:h-auto lg:w-[44%] items-center justify-center bg-[#94E7BC]">
+                <div aria-hidden="true" className="flex h-48 w-full shrink-0 lg:h-auto lg:w-[44%] items-center justify-center bg-[#EEEAE0]">
                   <span className="flex h-20 w-20 items-center justify-center rounded-full bg-white text-[#367050] shadow-[0_6px_18px_rgba(11,54,31,0.10)]">
                     <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M12 20s-7.5-4.6-7.5-10A4.5 4.5 0 0 1 12 7a4.5 4.5 0 0 1 7.5 3c0 5.4-7.5 10-7.5 10z" /></svg>
                   </span>
@@ -214,7 +214,7 @@ export default function Home() {
                 <div className="flex flex-1 flex-col items-start justify-center p-5 sm:p-6">
                   <h3 className="text-[24px] font-bold text-[#0B361F] lg:text-[28px]">Support our work</h3>
                   <p className="mt-1.5 text-[20px] leading-[1.55] text-[#2F4538] lg:text-[22px]">Help us continue to develop tools and resources for a more inclusive digital world.</p>
-                  <a href="/about-us/" className="mt-4 inline-flex items-center gap-2 rounded-full bg-[#94E7BC] px-6 py-3 text-[17px] font-semibold text-[#0B361F] hover:bg-[#0B361F] hover:text-white">Find out more <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M13 6l6 6-6 6" /></svg></a>
+                  <a href="/about-us/" className="mt-4 inline-flex items-center gap-2 rounded-full bg-[#EEEAE0] px-6 py-3 text-[17px] font-semibold text-[#0B361F] hover:bg-[#0B361F] hover:text-white">Find out more <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M13 6l6 6-6 6" /></svg></a>
                 </div>
               </div>
             </div>
@@ -223,15 +223,15 @@ export default function Home() {
           {/* Contact strip */}
           <div className="grid gap-6 border-t border-[#E3DED2] pt-10 text-[17px] font-semibold text-[#0B361F] sm:grid-cols-2 lg:grid-cols-4 lg:items-center">
             <div className="flex items-center gap-3">
-              <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[#94E7BC] text-[#0B361F]"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a7 7 0 0 0-7 7c0 5.3 7 13 7 13s7-7.7 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z" /></svg></span>
+              <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[#F6F3EC] text-[#0B361F]"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a7 7 0 0 0-7 7c0 5.3 7 13 7 13s7-7.7 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z" /></svg></span>
               <span className="leading-snug">NuroTok · NeuroDigital Support<span className="block text-[15px] font-normal text-[#367050]">United Kingdom</span></span>
             </div>
             <a href="tel:+447825354088" className="flex items-center gap-3 hover:text-[#367050]">
-              <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[#94E7BC] text-[#0B361F]"><svg aria-hidden="true" width="19" height="19" viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8a15 15 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1z" /></svg></span>
+              <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[#F6F3EC] text-[#0B361F]"><svg aria-hidden="true" width="19" height="19" viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8a15 15 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1z" /></svg></span>
               +44 7825 354088
             </a>
             <a href="mailto:info@nurotok.co.uk" className="flex items-center gap-3 hover:text-[#367050]">
-              <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[#94E7BC] text-[#0B361F]"><svg aria-hidden="true" width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="5" width="18" height="14" rx="2.5" /><path d="M3.5 6.5L12 13l8.5-6.5" /></svg></span>
+              <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[#F6F3EC] text-[#0B361F]"><svg aria-hidden="true" width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="5" width="18" height="14" rx="2.5" /><path d="M3.5 6.5L12 13l8.5-6.5" /></svg></span>
               info@nurotok.co.uk
             </a>
             <div className="flex items-center gap-3 lg:justify-end">

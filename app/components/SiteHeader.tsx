@@ -132,7 +132,7 @@ export default function SiteHeader({ logo }: { logo: React.ReactNode }) {
                 const active = item.href === "/";
                 const open = openKey === item.label;
                 const base = `flex items-center gap-1.5 rounded-full px-4 py-2 text-[15.5px] font-semibold transition-colors ${
-                  active ? "bg-[#94E7BC] text-[#0B361F]" : "text-[#0B361F] hover:bg-[#0B361F]/5"
+                  active ? "bg-[#367050] text-white" : "text-[#0B361F] hover:bg-[#0B361F]/5"
                 }`;
                 return (
                   <li
