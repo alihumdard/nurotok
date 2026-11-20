@@ -1,5 +1,36 @@
 import Image from "next/image";
 import SiteHeader from "./components/SiteHeader";
+import DemoVideo from "./components/DemoVideo";
+import ScreensCarousel from "./components/ScreensCarousel";
+import FaqAccordion from "./components/FaqAccordion";
+
+// Replace with the live store listings once confirmed (brief handover note).
+const APP_STORE_URL = "#";
+const GOOGLE_PLAY_URL = "#";
+const ACCOUNT_URL = "/account/";
+const linkCls = "font-semibold text-[#367050] underline underline-offset-2 hover:text-[#0B361F]";
+
+/* Copy from the client build brief, Home pages 3-4. */
+const faqs = [
+  { q: "What is NuroTok?", a: "A wellbeing app that gives you control over sensory input and helps you take a pause." },
+  { q: "Who is NuroTok for?", a: "It is designed with neurodivergent adults in mind and is open to anyone who finds screens overwhelming." },
+  { q: "Is NuroTok free?", a: "The sensory toolkit is free. Optional Premium features are listed in your device\u2019s store." },
+  { q: "Is NuroTok on iPhone and Android?", a: "Yes. Get NuroTok from the App Store or Google Play. Some tools differ by device." },
+  { q: "How does NuroTok help with sensory overload?", a: "You can choose a grounding exercise, listen to a steady sound or adjust comfort settings when you need a quieter moment." },
+  { q: "Can NuroTok help me scroll less on Instagram, TikTok and YouTube?", a: "On Android, reel counts, goals and pauses help you notice scrolling in supported apps. On iPhone, explore Screen Time settings." },
+  { q: "Does NuroTok read my messages or upload my screen?", a: "Android content filtering analyses screen frames on your phone. Linked family members cannot see private messages. Optional sharing features have separate controls." },
+  { q: "Is NuroTok a medical app?", a: "NuroTok supports everyday wellbeing. For medical advice, speak with a qualified healthcare professional." },
+  { q: "Who makes NuroTok?", a: "NeuroDigital Support, co-founded by Kofi Ofori-Mensah and Shubham Nagore." },
+  {
+    q: "How do I delete my NuroTok account?",
+    a: (
+      <>
+        Open <a href={ACCOUNT_URL} className={linkCls}>Your account</a> on the website and choose the account deletion option. If you need help, email{" "}
+        <a href="mailto:info@nurotok.co.uk" className={linkCls}>info@nurotok.co.uk</a>.
+      </>
+    ),
+  },
+];
 
 const photo = {
   hero: "/images/home/hero-workspace.jpg",
@@ -43,13 +74,20 @@ export default function Home() {
             <div className="relative z-10 p-7 sm:p-10 lg:py-12 lg:pl-12">
               <p className="text-[20px] font-bold text-[#0B361F]">News</p>
               <span aria-hidden="true" className="mt-2 block h-1 w-12 rounded-full bg-[#367050]" />
-              <h1 className="mt-5 text-[40px] font-bold leading-[1.08] tracking-[-0.03em] text-[#0B361F] sm:text-[52px] lg:text-[60px]">Introducing NuroTok</h1>
-              <p className="mt-4 max-w-[520px] text-[22px] leading-[1.5] text-[#1F3A2B]">
-                A sensory regulation app to help you create a calmer, more comfortable digital experience.
+              <h1 className="mt-5 text-[40px] font-bold leading-[1.08] tracking-[-0.03em] text-[#0B361F] sm:text-[52px] lg:text-[60px]">When your phone feels like too much</h1>
+              <p className="mt-4 max-w-[520px] text-[20px] leading-[1.5] text-[#1F3A2B]">
+                You opened your phone to reply to a friend. A video starts, the group chat lights up and suddenly it&rsquo;s hard to remember what you came to do.
               </p>
-              <a href="/news/" className="mt-6 inline-flex items-center gap-2 text-[19px] font-bold text-[#367050] hover:text-[#0B361F]">
-                Read more <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
-              </a>
+              <p className="mt-3 max-w-[520px] text-[20px] leading-[1.5] text-[#1F3A2B]">
+                NuroTok is a sensory regulation app from NeuroDigital Support. It gives you ways to adjust what you see or hear, pause an app, or take a moment before you carry on. Choose the tool that feels right for you today.
+              </p>
+              <div className="mt-6 flex flex-wrap items-center gap-x-6 gap-y-3 text-[19px] font-bold">
+                <a href="#download" className="inline-flex items-center gap-2 text-[#367050] hover:text-[#0B361F]">
+                  Get NuroTok for your device <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
+                </a>
+                <a href="/features/" className="text-[#367050] hover:text-[#0B361F]">Explore the features</a>
+                <a href="/store/" className="text-[#367050] hover:text-[#0B361F]">Shop NuroTok merchandise</a>
+              </div>
             </div>
 
             <div className="relative min-h-[280px] overflow-hidden lg:min-h-[340px]">
@@ -58,11 +96,12 @@ export default function Home() {
           </div>
 
           {/* Three quick tools */}
-          <div className="mt-20 grid gap-6 md:grid-cols-3 lg:mt-28">
+          <h2 className="mt-20 text-[32px] font-bold tracking-[-0.02em] text-[#0B361F] sm:text-[40px] lg:mt-28">What would help right now?</h2>
+          <div className="mt-8 grid gap-6 md:grid-cols-3">
             {[
-              { title: "A quieter moment.", text: "Listen to rainfall, follow a short breathing guide or put your phone down for a while.", pos: "object-center", img: "/images/home/quiet-rain.jpg" },
-              { title: "A break from an app.", text: "Choose where you want a pause. Take a moment before opening certain apps.", pos: "object-center", img: "/images/home/app-break.jpg" },
-              { title: "A screen that suits you.", text: "Explore comfort settings for your device, such as movement or brightness.", pos: "object-center", img: "/images/home/screen-comfort.jpg" },
+              { title: "A quieter moment.", text: "Listen to rainfall, follow a short breathing guide or put your phone down while a sound plays in the background.", pos: "object-center", img: "/images/home/quiet-rain.jpg" },
+              { title: "A break from an app.", text: "Choose where you want a pause. You might want a moment to think before opening social media at bedtime, while keeping the apps you use to reach people close at hand.", pos: "object-center", img: "/images/home/app-break.jpg" },
+              { title: "A screen that suits you.", text: "Explore the comfort settings for your device. Start with one thing you notice often, such as movement or brightness, and see how a change feels.", pos: "object-center", img: "/images/home/screen-comfort.jpg" },
             ].map(card => (
               <a key={card.title} href="/features/" className="group flex flex-col overflow-hidden rounded-[6px] border border-[#D5E2D8] bg-white transition">
                 <div className="relative aspect-[16/8] overflow-hidden">
@@ -104,6 +143,93 @@ export default function Home() {
                 </div>
               </a>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* DESIGNED FOR NEURODIVERGENT ADULTS + DEMO */}
+      <section className="bg-[#F6F3EC] pb-20 lg:pb-28">
+        <div className="mx-auto max-w-[1440px] px-5 sm:px-8 lg:px-12 xl:px-[88px]">
+          <div className="rounded-[6px] border border-[#D5E2D8] bg-white p-7 sm:p-10 lg:p-12">
+            <h2 className="text-[32px] font-bold tracking-[-0.02em] text-[#0B361F] sm:text-[40px]">Designed with neurodivergent adults in mind</h2>
+            <p className="mt-4 max-w-[760px] text-[20px] leading-[1.55] text-[#2F4538] lg:text-[22px]">
+              People experience the same screen differently. A sound one person enjoys can make it difficult for someone else to concentrate. Our starting point is simple. You decide what feels comfortable, and you can change your mind.
+            </p>
+            <a href="/about-us/" className="mt-6 inline-flex items-center gap-2 text-[19px] font-bold text-[#367050] hover:text-[#0B361F]">
+              Why we built NuroTok <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
+            </a>
+          </div>
+
+          {/* See NuroTok in action */}
+          <div className="mt-20 grid items-stretch gap-6 lg:mt-28 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)]">
+            <DemoVideo
+              src="https://neurodigitalsupport.com/videos/nurotok-demo-1080p.mp4"
+              className="relative block aspect-[16/10] overflow-hidden rounded-[6px] border border-[#D5E2D8] lg:aspect-auto lg:h-full lg:min-h-[380px]"
+            >
+              <Image src={photo.hero} alt="" fill sizes="(min-width: 1024px) 55vw, 100vw" quality={80} className="object-cover object-center" />
+              <span aria-hidden="true" className="absolute inset-0 bg-[#0B361F]/25" />
+              <span data-light className="absolute left-1/2 top-1/2 z-10 flex h-[72px] w-[72px] -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-white text-[#0B361F] shadow-[0_10px_28px_rgba(0,0,0,0.28)] transition-transform duration-300 group-hover:scale-110">
+                <svg aria-hidden="true" width="26" height="26" viewBox="0 0 24 24" fill="currentColor" className="ml-[3px]"><path d="M7 4.8v14.4c0 .8.9 1.3 1.6.9l11.2-7.2c.6-.4.6-1.4 0-1.8L8.6 3.9C7.9 3.5 7 4 7 4.8z" /></svg>
+              </span>
+              <span className="absolute bottom-4 right-4 rounded-md bg-[#0B361F]/90 px-2.5 py-1 text-[14px] font-bold text-white">0:37</span>
+            </DemoVideo>
+
+            <div className="flex flex-col justify-center rounded-[6px] border border-[#D5E2D8] bg-white p-7 sm:p-9 lg:p-10">
+              <h2 className="text-[32px] font-bold tracking-[-0.02em] text-[#0B361F] sm:text-[40px]">See NuroTok in action</h2>
+              <p className="mt-4 text-[20px] leading-[1.55] text-[#2F4538] lg:text-[22px]">
+                A 37-second look at the sensory profile, app protection, the sensory toolkit and Insights.
+              </p>
+              <div id="transcript" className="mt-7 flex scroll-mt-28 flex-wrap gap-3">
+                <a href="#demo-video" data-play-demo className="inline-flex items-center justify-center gap-2.5 rounded-full bg-[#0B361F] px-6 py-3 text-[17px] font-semibold text-white transition-colors hover:bg-[#367050]">
+                  <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M7 4.8v14.4c0 .8.9 1.3 1.6.9l11.2-7.2c.6-.4.6-1.4 0-1.8L8.6 3.9C7.9 3.5 7 4 7 4.8z" /></svg>
+                  Watch the demo
+                </a>
+                <a href="#transcript" className="inline-flex items-center justify-center gap-2.5 rounded-full border-2 border-[#0B361F] px-6 py-3 text-[17px] font-semibold text-[#0B361F] transition-colors hover:bg-[#0B361F] hover:text-white">
+                  Read the transcript
+                </a>
+              </div>
+            </div>
+          </div>
+
+          {/* Explore the four main screens */}
+          <div className="mt-20 lg:mt-28">
+            <h2 className="text-[32px] font-bold tracking-[-0.02em] text-[#0B361F] sm:text-[40px]">Explore the four main screens</h2>
+            <ScreensCarousel />
+          </div>
+
+          {/* NuroTok questions, answered */}
+          <div className="mt-20 lg:mt-28">
+            <h2 className="text-[32px] font-bold tracking-[-0.02em] text-[#0B361F] sm:text-[40px]">NuroTok questions, answered</h2>
+            <p className="mt-3 text-[20px] leading-[1.55] text-[#2F4538]">Quick answers to common questions about NuroTok.</p>
+            <div className="mt-8">
+              <FaqAccordion items={faqs} />
+            </div>
+          </div>
+
+          {/* Ready to manage your sensory wellbeing? */}
+          <div id="download" className="mt-20 scroll-mt-28 rounded-[6px] border border-[#D5E2D8] bg-white p-7 sm:p-10 lg:mt-28 lg:p-12">
+            <h2 className="text-[32px] font-bold tracking-[-0.02em] text-[#0B361F] sm:text-[40px]">Ready to manage your sensory wellbeing?</h2>
+            <div className="mt-6 flex flex-wrap gap-3">
+              <a href={APP_STORE_URL} className="inline-flex items-center gap-3 rounded-[8px] bg-[#0B1A12] px-5 py-3 text-white transition-transform hover:-translate-y-0.5">
+                <svg aria-hidden="true" width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M16.37 12.6c-.02-2.2 1.8-3.26 1.88-3.31-1.03-1.5-2.62-1.7-3.18-1.73-1.35-.14-2.64.8-3.33.8-.69 0-1.75-.78-2.88-.76-1.48.02-2.85.86-3.61 2.19-1.54 2.67-.39 6.62 1.11 8.79.73 1.06 1.6 2.25 2.75 2.2 1.1-.04 1.52-.71 2.85-.71 1.33 0 1.71.71 2.88.69 1.19-.02 1.94-1.08 2.67-2.14.84-1.23 1.19-2.42 1.21-2.48-.03-.01-2.32-.89-2.35-3.54zM14.2 6.13c.61-.74 1.02-1.76.91-2.78-.88.04-1.94.59-2.57 1.32-.56.65-1.06 1.69-.93 2.69.98.08 1.98-.5 2.59-1.23z" /></svg>
+                <span className="text-left leading-tight">
+                  <span className="block text-[12px] text-white/75">Download on the</span>
+                  <span className="block text-[19px] font-semibold">App Store</span>
+                </span>
+              </a>
+              <a href={GOOGLE_PLAY_URL} className="inline-flex items-center gap-3 rounded-[8px] bg-[#0B1A12] px-5 py-3 text-white transition-transform hover:-translate-y-0.5">
+                <svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24">
+                  <path d="M3.6 2.3L13.7 12 3.6 21.7c-.4-.2-.6-.6-.6-1.1V3.4c0-.5.2-.9.6-1.1z" fill="#4285F4" />
+                  <path d="M16.8 8.9L13.7 12 3.6 2.3c.3-.2.8-.2 1.2 0l12 6.6z" fill="#34A853" />
+                  <path d="M20.4 10.9c.7.4.7 1.8 0 2.2l-3.6 2L13.7 12l3.1-3.1 3.6 2z" fill="#FBBC04" />
+                  <path d="M16.8 15.1l-12 6.6c-.4.2-.9.2-1.2 0L13.7 12l3.1 3.1z" fill="#EA4335" />
+                </svg>
+                <span className="text-left leading-tight">
+                  <span className="block text-[12px] uppercase tracking-[0.04em] text-white/75">Get it on</span>
+                  <span className="block text-[19px] font-semibold">Google Play</span>
+                </span>
+              </a>
+            </div>
           </div>
         </div>
       </section>
