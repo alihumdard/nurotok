@@ -103,19 +103,44 @@ export default function Home() {
           {/* Three quick tools */}
           <div className="mt-6 grid gap-5 md:grid-cols-3">
             {[
-              { title: "A quieter moment.", text: "Listen to rainfall, follow a short breathing guide or put your phone down for a while.", pos: "object-[86%_30%]", overlay: null },
-              { title: "A break from an app.", text: "Choose where you want a pause. Take a moment before opening certain apps.", pos: "object-[52%_center]", overlay: "gear" },
-              { title: "A screen that suits you.", text: "Explore comfort settings for your device, such as movement or brightness.", pos: "object-[40%_center]", overlay: "sun" },
+              { title: "A quieter moment.", text: "Listen to rainfall, follow a short breathing guide or put your phone down for a while.", pos: "object-[86%_30%]", img: photo.hero },
+              { title: "A break from an app.", text: "Choose where you want a pause. Take a moment before opening certain apps.", pos: "object-center", img: "/images/home/app-break.jpg" },
+              { title: "A screen that suits you.", text: "Explore comfort settings for your device, such as movement or brightness.", pos: "object-center", img: "/images/home/screen-comfort.jpg" },
             ].map(card => (
               <a key={card.title} href="/features/" className="group flex flex-col overflow-hidden rounded-[18px] border border-[#D5E2D8] bg-white shadow-[0_2px_12px_rgba(11,54,31,0.06)] transition hover:-translate-y-1 hover:shadow-[0_16px_34px_rgba(11,54,31,0.12)]">
                 <div className="relative aspect-[16/8] overflow-hidden">
-                  {card.overlay ? <span aria-hidden="true" className="absolute inset-0 bg-[linear-gradient(135deg,#EAF6EC_0%,#CDEFD3_100%)]" /> : <Image src={photo.hero} alt="" fill sizes="(min-width: 768px) 33vw, 100vw" quality={75} className={`object-cover ${card.pos}`} />}
-                  {card.overlay === "gear" && <span data-light><span aria-hidden="true" className="absolute left-1/2 top-1/2 flex h-[78%] aspect-[9/16] -translate-x-1/2 -translate-y-1/2 flex-col items-center justify-center gap-3 rounded-[18px] border-4 border-[#0F1F17] bg-[#0B3D24] text-[#94E7BC] shadow-[0_12px_28px_rgba(0,0,0,0.3)]"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="3" /><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z" /></svg><span className="h-4 w-8 rounded-full bg-[#94E7BC] p-0.5"><span className="ml-auto block h-3 w-3 rounded-full bg-white" /></span></span></span>}
-                  {card.overlay === "sun" && <span data-light><span aria-hidden="true" className="absolute left-1/2 top-1/2 flex h-[78%] aspect-[9/16] -translate-x-1/2 -translate-y-1/2 flex-col items-center justify-center gap-3 rounded-[18px] border-4 border-[#0F1F17] bg-[#0B3D24] text-[#94E7BC] shadow-[0_12px_28px_rgba(0,0,0,0.3)]"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><circle cx="12" cy="12" r="4" /><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4" /></svg><span className="h-1 w-10 rounded-full bg-[#94E7BC]/60"><span className="block h-1 w-6 rounded-full bg-[#94E7BC]" /></span></span></span>}
+                  <Image src={card.img} alt="" fill sizes="(min-width: 768px) 33vw, 100vw" quality={80} className={`object-cover ${card.pos} transition-transform duration-500 group-hover:scale-105`} />
                 </div>
                 <div className="flex flex-1 items-end gap-3 p-5">
                   <div className="flex-1">
                     <h2 className="text-[20px] font-bold tracking-[-0.01em] text-[#0B361F]">{card.title}</h2>
+                    <p className="mt-1.5 text-[15px] leading-[1.5] text-[#2F4538]">{card.text}</p>
+                  </div>
+                  <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#DDF3E4] text-[#1E7A4C] transition group-hover:bg-[#0B361F] group-hover:text-white"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M13 6l6 6-6 6" /></svg></span>
+                </div>
+              </a>
+            ))}
+          </div>
+
+          {/* Resources + research */}
+          <div className="mt-6 grid gap-5 md:grid-cols-2">
+            {[
+              { title: "Downloadable resources", text: "Guides, tips and practical tools to support sensory comfort.", href: "/blogs/", img: null },
+              { title: "Research and guidance", text: "Explore the evidence, learn from studies and see how digital tools can help.", href: "/research/", img: photo.research },
+            ].map(card => (
+              <a key={card.title} href={card.href} className="group flex overflow-hidden rounded-[18px] border border-[#D5E2D8] bg-white shadow-[0_2px_12px_rgba(11,54,31,0.06)] transition hover:-translate-y-1 hover:shadow-[0_16px_34px_rgba(11,54,31,0.12)]">
+                <div className="relative w-[42%] shrink-0 overflow-hidden bg-[#DDF3E4]">
+                  {card.img ? (
+                    <Image src={card.img} alt="" fill sizes="(min-width: 768px) 22vw, 42vw" quality={80} className="object-cover transition-transform duration-500 group-hover:scale-105" />
+                  ) : (
+                    <span aria-hidden="true" className="absolute inset-0 flex items-center justify-center text-[#0B3D24]">
+                      <svg width="88" height="88" viewBox="0 0 24 24" fill="currentColor"><path d="M18.5 9.5A6.5 6.5 0 0 0 6 8a5 5 0 0 0 .5 10h12a4.25 4.25 0 0 0 0-8.5z" /><path d="M12 9v6m0 0l-2.6-2.6M12 15l2.6-2.6" stroke="#DDF3E4" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" fill="none" /></svg>
+                    </span>
+                  )}
+                </div>
+                <div className="flex flex-1 items-end gap-3 p-5 sm:p-6">
+                  <div className="flex-1">
+                    <h2 className="text-[21px] font-bold leading-snug tracking-[-0.01em] text-[#0B361F]">{card.title}</h2>
                     <p className="mt-1.5 text-[15px] leading-[1.5] text-[#2F4538]">{card.text}</p>
                   </div>
                   <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#DDF3E4] text-[#1E7A4C] transition group-hover:bg-[#0B361F] group-hover:text-white"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M13 6l6 6-6 6" /></svg></span>
