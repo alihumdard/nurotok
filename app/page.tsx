@@ -149,17 +149,17 @@ export default function Home() {
       </section>
 
       {/* LATEST NEWS (green band) */}
-      <section className="bg-[#0B3D24] py-20 lg:py-28">
+      <section className="bg-[#F3F7F2] pb-20 lg:pb-28">
         <div className="mx-auto max-w-[1440px] px-5 sm:px-8 lg:px-12 xl:px-[88px]">
           <div>
             <div className="mb-6 flex items-center justify-between gap-4">
-              <h2 className="flex items-center gap-3 text-[32px] font-bold tracking-[-0.02em] text-white sm:text-[40px]">
+              <h2 className="flex items-center gap-3 text-[32px] font-bold tracking-[-0.02em] text-[#0B361F] sm:text-[40px]">
                 <span aria-hidden="true" className="flex h-9 w-9 items-center justify-center rounded-lg text-white" style={{ background: "#3FA34D" }}>
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="4" width="18" height="16" rx="2" /><path d="M7 8h10M7 12h10M7 16h6" /></svg>
                 </span>
                 Latest news
               </h2>
-              <a href="/news/" className="inline-flex items-center gap-2 text-[18px] font-bold text-[#94E7BC] hover:text-white">View all news <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M13 6l6 6-6 6" /></svg></a>
+              <a href="/news/" className="inline-flex items-center gap-2 text-[18px] font-bold text-[#1E7A4C] hover:text-[#0B361F]">View all news <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M13 6l6 6-6 6" /></svg></a>
             </div>
             <div className="grid gap-6 md:grid-cols-3">
               {[
