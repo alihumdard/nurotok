@@ -1,5 +1,4 @@
 import Image from "next/image";
-import AccessibilityBar from "./components/AccessibilityBar";
 import SiteHeader from "./components/SiteHeader";
 import { HomeScreen, ProfileScreen } from "./components/AppScreens";
 
@@ -33,9 +32,6 @@ export default function Home() {
       >
         Skip to content
       </a>
-
-      {/* ACCESSIBILITY BAR */}
-      <AccessibilityBar />
 
       {/* NAVIGATION */}
       <SiteHeader logo={<BrandLogo />} />
