@@ -345,3 +345,4 @@ html.nt-dark [data-dark="header"] { background-color: rgba(16, 23, 20, 0.88) !im
 html.nt-dark .border-\[\#EEF2EE\]:not([data-light] *):not([data-light]) { border-color: #26322C; }
 html.nt-dark .border-\[\#CFE3D6\]:not([data-light] *):not([data-light]) { border-color: #26322C; }
 html.nt-dark .bg-\[\#F3F7F2\]:not([data-light] *):not([data-light]) { background-color: #0E1311; }
+html.nt-dark .bg-\[\#E2F1E5\]:not([data-light] *):not([data-light]) { background-color: #121916; }
