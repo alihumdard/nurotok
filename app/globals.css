@@ -50,8 +50,8 @@
   --color-pale-mint: var(--pale-mint);
   --color-ivory: var(--warm-ivory);
 
-  --font-sans: var(--font-atkinson);
-  --font-heading: var(--font-lexend);
+  --font-sans: var(--font-nunito);
+  --font-heading: var(--font-nunito);
   --font-mono: monospace;
 }
 
@@ -79,7 +79,7 @@
     padding: 0;
     background: var(--background);
     color: var(--foreground);
-    font-family: var(--font-atkinson), Arial, sans-serif;
+    font-family: var(--font-nunito), Arial, sans-serif;
     font-size: 17px;
     line-height: 1.7;
     -webkit-font-smoothing: antialiased;
@@ -98,7 +98,7 @@
   h6 {
     margin-top: 0;
     color: var(--forest);
-    font-family: var(--font-lexend), sans-serif;
+    font-family: var(--font-nunito), sans-serif;
     font-weight: 600;
     line-height: 1.2;
     letter-spacing: -0.025em;

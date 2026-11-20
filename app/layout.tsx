@@ -1,19 +1,12 @@
 
 import type { Metadata } from "next";
-import { Atkinson_Hyperlegible, Lexend } from "next/font/google";
+import { Nunito } from "next/font/google";
 import "./globals.css";
 
-const atkinson = Atkinson_Hyperlegible({
-  variable: "--font-atkinson",
+const nunito = Nunito({
+  variable: "--font-nunito",
   subsets: ["latin"],
-  weight: ["400", "700"],
-  display: "swap",
-});
-
-const lexend = Lexend({
-  variable: "--font-lexend",
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
+  weight: ["400", "500", "600", "700", "800"],
   display: "swap",
 });
 
@@ -42,7 +35,7 @@ export default function RootLayout({
     <html
       lang="en-GB"
       suppressHydrationWarning
-      className={`${atkinson.variable} ${lexend.variable} h-full antialiased`}
+      className={`${nunito.variable} h-full antialiased`}
     >
       <head>
         {/* Apply saved accessibility prefs before first paint (see components/AccessibilityBar) */}
