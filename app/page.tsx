@@ -67,7 +67,7 @@ export default function Home() {
             {[
               { title: "A quieter moment.", text: "Listen to rainfall, follow a short breathing guide or put your phone down for a while.", pos: "object-[86%_30%]", img: photo.hero },
               { title: "A break from an app.", text: "Choose where you want a pause. Take a moment before opening certain apps.", pos: "object-center", img: "/images/home/app-break.jpg" },
-              { title: "A screen that suits you.", text: "Explore comfort settings for your device, such as movement or brightness.", pos: "object-center", img: "/images/home/screen-comfort.jpg" },
+              { title: "A screen that suits you.", text: "Explore comfort settings for your device, such as movement or brightness.", pos: "object-center", img: "/images/home/screen-suits-you.jpg" },
             ].map(card => (
               <a key={card.title} href="/features/" className="group flex flex-col overflow-hidden rounded-[18px] border border-[#D5E2D8] bg-white shadow-[0_2px_12px_rgba(11,54,31,0.06)] transition hover:-translate-y-1 hover:shadow-[0_16px_34px_rgba(11,54,31,0.12)]">
                 <div className="relative aspect-[16/8] overflow-hidden">
@@ -88,7 +88,7 @@ export default function Home() {
           <div className="mt-6 grid gap-5 md:grid-cols-2">
             {[
               { title: "Downloadable resources", text: "Guides, tips and practical tools to support sensory comfort.", href: "/blogs/", img: null },
-              { title: "Research and guidance", text: "Explore the evidence, learn from studies and see how digital tools can help.", href: "/research/", img: photo.research },
+              { title: "Research and guidance", text: "Explore the evidence, learn from studies and see how digital tools can help.", href: "/research/", img: "/images/home/research-guidance.jpg" },
             ].map(card => (
               <a key={card.title} href={card.href} className="group flex flex-col overflow-hidden rounded-[18px] border border-[#D5E2D8] bg-white lg:flex-row shadow-[0_2px_12px_rgba(11,54,31,0.06)] transition hover:-translate-y-1 hover:shadow-[0_16px_34px_rgba(11,54,31,0.12)]">
                 <div className="relative h-44 w-full shrink-0 overflow-hidden bg-[#DDF3E4] lg:h-auto lg:w-[42%]">
