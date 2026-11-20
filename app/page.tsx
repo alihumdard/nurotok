@@ -5,7 +5,7 @@ import AccessibilityBar from "./components/AccessibilityBar";
 import SiteHeader from "./components/SiteHeader";
 import FaqAccordion from "./components/FaqAccordion";
 import NewsletterForm from "./components/NewsletterForm";
-import { HomeScreen, InsightsScreen, Icon } from "./components/AppScreens";
+import { HomeScreen, ProfileScreen, InsightsScreen, Icon } from "./components/AppScreens";
 
 const photo = {
   hero: "/images/image.png",
@@ -74,160 +74,55 @@ export default function Home() {
       {/* NAVIGATION */}
       <SiteHeader logo={<BrandLogo />} />
 
-      {/* HERO: one continuous panel; the photo fades into the mint background (no column seam) */}
-      <section id="main-content" className="relative isolate overflow-hidden bg-[#EAF2EA]">
+      {/* NEWS + QUICK TOOLS */}
+      <section id="main-content" className="bg-[#F3F7F2] py-8 lg:py-10">
+        <div className="mx-auto max-w-[1440px] px-5 sm:px-8 lg:px-12">
+          {/* News card */}
+          <div className="relative grid overflow-hidden rounded-[22px] border border-[#D5E2D8] bg-white shadow-[0_2px_12px_rgba(11,54,31,0.06)] lg:grid-cols-2">
+            <div className="relative z-10 p-7 sm:p-10 lg:py-12 lg:pl-12">
+              <p className="text-[18px] font-bold text-[#0B361F]">News</p>
+              <span aria-hidden="true" className="mt-2 block h-1 w-12 rounded-full bg-[#3FA34D]" />
+              <h1 className="mt-5 text-[34px] font-bold leading-[1.08] tracking-[-0.03em] text-[#0B361F] sm:text-[44px] lg:text-[48px]">Introducing NuroTok</h1>
+              <p className="mt-4 max-w-[440px] text-[17px] leading-[1.55] text-[#1F3A2B]">
+                A sensory regulation app to help you create a calmer, more comfortable digital experience.
+              </p>
+              <a href="/news/" className="mt-6 inline-flex items-center gap-2 text-[17px] font-bold text-[#1E7A4C] hover:text-[#0B361F]">
+                Read more <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
+              </a>
+            </div>
 
-        {/* Background photo (desktop: full-bleed behind everything, anchored right) */}
-        <div aria-hidden="true" className="absolute inset-0 -z-10 hidden lg:block">
-          <Image
-            src={photo.hero}
-            alt=""
-            fill
-            priority
-            sizes="100vw"
-            quality={80}
-            className="object-cover object-[right_center]"
-          />
-          {/* Mint wash: solid behind the copy, dissolving into the photo */}
-          <div data-dark="hero-wash" className="absolute inset-0 bg-[linear-gradient(90deg,#EAF2EA_0%,#EAF2EA_34%,rgba(234,242,234,0.92)_42%,rgba(234,242,234,0.55)_50%,rgba(234,242,234,0)_62%)]" />
-          {/* Gentle top/bottom softening */}
-          <div className="absolute inset-0 bg-gradient-to-t from-[#0B361F]/10 via-transparent to-transparent" />
-        </div>
-
-        <div className="mx-auto flex max-w-[1440px] flex-col lg:min-h-[clamp(440px,calc(100svh-168px),720px)] lg:flex-row lg:items-center">
-
-          {/* Copy + CTAs */}
-          <div className="px-5 pb-10 pt-12 sm:px-12 sm:pt-16 lg:w-[52%] lg:py-[clamp(24px,5vh,56px)] lg:pl-12 lg:pr-0 short:py-6">
-            <div className="max-w-[600px]">
-
-              <div className="flex items-center gap-3 text-[13px] font-bold uppercase tracking-[0.08em] text-[#0B361F]">
-                <span aria-hidden="true" className="h-[5px] w-7 rounded-full bg-[#367050]" />
-                A sensory regulation app
+            <div className="relative min-h-[320px]">
+              <div aria-hidden="true" className="absolute inset-0 bg-[linear-gradient(135deg,#E6F6E8_0%,#CDEFD3_100%)] lg:[clip-path:ellipse(95%_150%_at_100%_50%)]" />
+              <div aria-hidden="true" className="absolute inset-0 flex items-center justify-center gap-5">
+                <div className="w-[140px] -rotate-[8deg] sm:w-[150px] [&>div]:max-w-full"><HomeScreen /></div>
+                <div className="w-[140px] rotate-[8deg] sm:w-[150px] [&>div]:max-w-full"><ProfileScreen /></div>
               </div>
+            </div>
+          </div>
 
-              <h1 className="mt-5 short:mt-3 text-[36px] font-bold min-[400px]:text-[40px] leading-[1.05] tracking-[-0.03em] text-[#0B361F] sm:text-[54px] lg:text-[clamp(40px,min(7.5vh,4.6vw),64px)] short:text-[clamp(34px,min(6.4vh,4.2vw),52px)]">
-                When your phone<br className="hidden sm:block" /> feels like{" "}
-                <span className="italic text-[#367050]">too much.</span>
-              </h1>
-
-              <p className="mt-5 max-w-[580px] text-[17px] leading-[1.6] text-[#1F3A2B] short:mt-3 short:text-[15.5px] short:leading-[1.5]">
-                You opened your phone to reply to a friend. A video starts, the group chat lights up and suddenly it&rsquo;s hard to remember what you came to do.
-              </p>
-              <p className="mt-3 max-w-[580px] text-[17px] leading-[1.6] text-[#1F3A2B] short:mt-2 short:text-[15.5px] short:leading-[1.5]">
-                NuroTok is a sensory regulation app from NeuroDigital Support. It gives you ways to adjust what you see or hear, pause an app, or take a moment before you carry on. Choose the tool that feels right for you today.
-              </p>
-
-              <div className="mt-8 flex flex-col items-stretch gap-3 sm:items-start lg:mt-[clamp(16px,3.5vh,32px)] short:mt-4 short:gap-2.5">
-                <a
-                  href="#download"
-                  className="inline-flex items-center justify-center gap-2.5 whitespace-nowrap rounded-full bg-[#0B361F] px-5 py-4 short:py-3 text-[15px] font-bold sm:gap-3 sm:px-8 sm:text-[16px] text-white shadow-[0_8px_20px_rgba(11,54,31,0.22)] transition-colors duration-300 hover:bg-[#367050]"
-                >
-                  <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="6" y="2" width="12" height="20" rx="2.5" /><path d="M11 18h2" /></svg>
-                  <span>Get NuroTok for your device</span>
-                  <span aria-hidden="true" className="ml-1">→</span>
-                </a>
-
-                <div className="flex flex-col gap-3 sm:flex-row short:gap-2.5">
-                  <a
-                    href="/features/"
-                    className="inline-flex items-center justify-center gap-2.5 whitespace-nowrap rounded-full border-2 border-[#0B361F] bg-transparent px-7 py-3 short:py-2.5 text-[15px] font-bold text-[#0B361F] transition-colors hover:bg-[#0B361F] hover:text-white"
-                  >
-                    <svg aria-hidden="true" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 3l9 4.5-9 4.5-9-4.5z" /><path d="M3 12l9 4.5 9-4.5" /><path d="M3 16.5L12 21l9-4.5" /></svg>
-                    <span>Explore the features</span>
-                  </a>
-
-                  <a
-                    href="/store/"
-                    className="inline-flex items-center justify-center gap-2.5 whitespace-nowrap rounded-full border-2 border-[#0B361F] bg-transparent px-7 py-3 short:py-2.5 text-[15px] font-bold text-[#0B361F] transition-colors hover:bg-[#0B361F] hover:text-white"
-                  >
-                    <svg aria-hidden="true" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 8h14l-1 13H6z" /><path d="M9 8V6a3 3 0 0 1 6 0v2" /></svg>
-                    <span>Shop NuroTok merchandise</span>
-                  </a>
+          {/* Three quick tools */}
+          <div className="mt-6 grid gap-5 md:grid-cols-3">
+            {[
+              { title: "A quieter moment.", text: "Listen to rainfall, follow a short breathing guide or put your phone down for a while.", pos: "object-[86%_30%]", overlay: null },
+              { title: "A break from an app.", text: "Choose where you want a pause. Take a moment before opening certain apps.", pos: "object-[52%_center]", overlay: "gear" },
+              { title: "A screen that suits you.", text: "Explore comfort settings for your device, such as movement or brightness.", pos: "object-[40%_center]", overlay: "sun" },
+            ].map(card => (
+              <a key={card.title} href="/features/" className="group flex flex-col overflow-hidden rounded-[18px] border border-[#D5E2D8] bg-white shadow-[0_2px_12px_rgba(11,54,31,0.06)] transition hover:-translate-y-1 hover:shadow-[0_16px_34px_rgba(11,54,31,0.12)]">
+                <div className="relative aspect-[16/8] overflow-hidden">
+                  {card.overlay ? <span aria-hidden="true" className="absolute inset-0 bg-[linear-gradient(135deg,#EAF6EC_0%,#CDEFD3_100%)]" /> : <Image src={photo.hero} alt="" fill sizes="(min-width: 768px) 33vw, 100vw" quality={75} className={`object-cover ${card.pos}`} />}
+                  {card.overlay === "gear" && <span data-light><span aria-hidden="true" className="absolute left-1/2 top-1/2 flex h-[78%] aspect-[9/16] -translate-x-1/2 -translate-y-1/2 flex-col items-center justify-center gap-3 rounded-[18px] border-4 border-[#0F1F17] bg-[#0B3D24] text-[#94E7BC] shadow-[0_12px_28px_rgba(0,0,0,0.3)]"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="3" /><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z" /></svg><span className="h-4 w-8 rounded-full bg-[#94E7BC] p-0.5"><span className="ml-auto block h-3 w-3 rounded-full bg-white" /></span></span></span>}
+                  {card.overlay === "sun" && <span data-light><span aria-hidden="true" className="absolute left-1/2 top-1/2 flex h-[78%] aspect-[9/16] -translate-x-1/2 -translate-y-1/2 flex-col items-center justify-center gap-3 rounded-[18px] border-4 border-[#0F1F17] bg-[#0B3D24] text-[#94E7BC] shadow-[0_12px_28px_rgba(0,0,0,0.3)]"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><circle cx="12" cy="12" r="4" /><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4" /></svg><span className="h-1 w-10 rounded-full bg-[#94E7BC]/60"><span className="block h-1 w-6 rounded-full bg-[#94E7BC]" /></span></span></span>}
                 </div>
-              </div>
-            </div>
+                <div className="flex flex-1 items-end gap-3 p-5">
+                  <div className="flex-1">
+                    <h2 className="text-[20px] font-bold tracking-[-0.01em] text-[#0B361F]">{card.title}</h2>
+                    <p className="mt-1.5 text-[15px] leading-[1.5] text-[#2F4538]">{card.text}</p>
+                  </div>
+                  <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#DDF3E4] text-[#1E7A4C] transition group-hover:bg-[#0B361F] group-hover:text-white"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M13 6l6 6-6 6" /></svg></span>
+                </div>
+              </a>
+            ))}
           </div>
-
-          {/* Mobile/tablet photo: blends up into the mint panel */}
-          <div className="relative aspect-[4/3] w-full sm:aspect-[16/9] lg:hidden">
-            <Image
-              src={photo.hero}
-              alt="A woman relaxing on a sofa with headphones, eyes closed"
-              fill
-              priority
-              sizes="100vw"
-              quality={75}
-              className="object-cover object-[92%_center] sm:object-[85%_center]"
-            />
-            <div aria-hidden="true" data-dark="hero-mobile-fade" className="absolute inset-x-0 top-0 h-20 bg-gradient-to-b from-[#EAF2EA] to-transparent" />
-            {/* App home screen (brief: beside the introduction) */}
-            <div aria-hidden="true" className="pointer-events-none absolute bottom-4 left-4 w-[96px] -rotate-[6deg] drop-shadow-[0_14px_24px_rgba(11,54,31,0.35)] sm:bottom-6 sm:left-8 sm:w-[130px]">
-              <HomeScreen />
-            </div>
-          </div>
-
-          {/* App home screen beside the introduction (brief build note), large screens only */}
-          <div aria-hidden="true" className="pointer-events-none absolute bottom-[clamp(16px,4vh,40px)] left-[49%] hidden w-[158px] short:w-[128px] [&>div]:max-w-full -rotate-[7deg] drop-shadow-[0_24px_40px_rgba(11,54,31,0.35)] xl:block">
-            <HomeScreen />
-          </div>
-
-          {/* Floating message card, over the photo (bottom-right) */}
-          <div className="pointer-events-none absolute bottom-4 right-4 sm:bottom-8 sm:right-8 lg:bottom-[clamp(20px,5vh,48px)] lg:right-12">
-            <div className="flex items-center gap-3 rounded-[16px] border border-white/45 bg-[#1C4A33]/60 px-4 py-3 shadow-[0_10px_30px_rgba(11,54,31,0.25)] backdrop-blur-md sm:gap-4 sm:rounded-[18px] sm:px-6 sm:py-4 lg:px-7 lg:py-5">
-              <svg aria-hidden="true" width="36" height="36" viewBox="0 0 32 32" className="h-7 w-7 sm:h-9 sm:w-9" fill="none" stroke="#A8EBC8" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M27 5C15 5 7 10.5 7 19.5c0 2.2.6 4 1.6 5.3C18.5 25 26 18 27 5z" />
-                <path d="M5 27c4-5 9-9.5 15-13" />
-                <path d="M12.5 20.5l-.5-4.5M16.5 17l-.3-4.5M15.5 22.5l4.5-.3" />
-              </svg>
-              <p className="m-0 text-[15px] font-normal leading-[1.35] text-white sm:text-[18px] lg:text-[21px]">
-                A calmer mind,<br />a brighter you.
-              </p>
-            </div>
-          </div>
-        </div>
-        <span className="sr-only">Photo: a woman relaxing on a sofa with headphones, eyes closed.</span>
-      </section>
-
-      {/* THREE BENEFITS */}
-      <section data-dark="section" className="border-b border-[#E3ECE3] bg-[linear-gradient(180deg,#F4F8F3_0%,#FFFFFF_100%)] py-10 lg:py-12">
-        <div className="reveal mx-auto grid max-w-[1440px] items-stretch gap-5 px-5 sm:px-8 md:grid-cols-3 lg:grid-cols-[1.2fr_1fr_1fr_1fr] lg:gap-6 lg:px-12">
-          <div className="flex flex-col justify-center md:col-span-3 lg:col-span-1 lg:pr-2">
-            <span aria-hidden="true" className="h-[5px] w-10 rounded-full bg-[#367050]" />
-            <h2 className="mt-4 text-[32px] font-bold leading-[1.15] tracking-[-0.02em] text-[#0B361F] lg:text-[28px] xl:text-[34px]">
-              What would help<br className="hidden lg:block" /> right now?
-            </h2>
-          </div>
-
-          {[
-            {
-              title: "A quieter moment.",
-              text: "Listen to rainfall, follow a short breathing guide or put your phone down while a sound plays in the background.",
-              icon: <><path d="M4 15v-3a8 8 0 0 1 16 0v3" /><rect x="3" y="14" width="4.5" height="7" rx="1.6" /><rect x="16.5" y="14" width="4.5" height="7" rx="1.6" /></>,
-            },
-            {
-              title: "A break from an app.",
-              text: "Choose where you want a pause. You might want a moment to think before opening social media at bedtime, while keeping the apps you use to reach people close at hand.",
-              icon: <><path d="M12 3l9 4.5-9 4.5-9-4.5z" /><path d="M3 12l9 4.5 9-4.5" /><path d="M3 16.5L12 21l9-4.5" /></>,
-            },
-            {
-              title: "A screen that suits you.",
-              text: "Explore comfort settings for your device. Start with one thing you notice often, such as movement or brightness, and see how a change feels.",
-              icon: <><rect x="6" y="2.5" width="12" height="19" rx="2.5" /><path d="M10.5 18.5h3" /></>,
-            },
-          ].map(item => (
-            <article
-              key={item.title}
-              className="flex h-full flex-col rounded-[20px] border border-[#D5E2D8] bg-white p-6 shadow-[0_2px_12px_rgba(11,54,31,0.05)] transition duration-300 hover:-translate-y-1 hover:border-[#B9CFBF] hover:shadow-[0_16px_34px_rgba(11,54,31,0.10)] lg:p-7"
-            >
-              <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#E3F4EA] text-[#1E7A4C]">
-                <svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-                  {item.icon}
-                </svg>
-              </span>
-              <h3 className="mt-5 text-[19px] font-bold leading-snug tracking-[-0.01em] text-[#0B361F]">{item.title}</h3>
-              <p className="mt-1.5 text-[15px] leading-[1.55] text-[#3E5146]">{item.text}</p>
-            </article>
-          ))}
         </div>
       </section>
 
