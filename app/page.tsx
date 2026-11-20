@@ -37,7 +37,7 @@ export default function Home() {
       <SiteHeader logo={<BrandLogo />} />
 
       {/* NEWS + QUICK TOOLS */}
-      <section id="main-content" className="bg-[#F3F7F2] pb-16 pt-16 lg:pb-24 lg:pt-20">
+      <section id="main-content" className="bg-[#F3F7F2] pb-20 pt-20 lg:pb-32 lg:pt-28">
         <div className="mx-auto max-w-[1440px] px-5 sm:px-8 lg:px-12 xl:px-[88px]">
           {/* News card */}
           <div className="relative grid overflow-hidden rounded-[6px] border border-[#D5E2D8] bg-white lg:grid-cols-2">
@@ -63,7 +63,7 @@ export default function Home() {
           </div>
 
           {/* Three quick tools */}
-          <div className="mt-16 grid gap-6 md:grid-cols-3 lg:mt-20">
+          <div className="mt-20 grid gap-6 md:grid-cols-3 lg:mt-28">
             {[
               { title: "A quieter moment.", text: "Listen to rainfall, follow a short breathing guide or put your phone down for a while.", pos: "object-[86%_30%]", img: photo.hero },
               { title: "A break from an app.", text: "Choose where you want a pause. Take a moment before opening certain apps.", pos: "object-center", img: "/images/home/break-from-app.jpg" },
@@ -85,7 +85,7 @@ export default function Home() {
           </div>
 
           {/* Resources + research */}
-          <div className="mt-16 grid gap-6 md:grid-cols-2 lg:mt-20">
+          <div className="mt-20 grid gap-6 md:grid-cols-2 lg:mt-28">
             {[
               { title: "Downloadable resources", text: "Guides, tips and practical tools to support sensory comfort.", href: "/blogs/", img: null },
               { title: "Research and guidance", text: "Explore the evidence, learn from studies and see how digital tools can help.", href: "/research/", img: "/images/home/research-guidance.jpg" },
@@ -114,8 +114,8 @@ export default function Home() {
       </section>
 
       {/* WHAT'S ON / NEWS / SUPPORT US */}
-      <section className="bg-[#F3F7F2] pb-20 lg:pb-28">
-        <div className="mx-auto max-w-[1440px] space-y-20 px-5 lg:space-y-28 sm:px-8 lg:px-12 xl:px-[88px]">
+      <section className="bg-[#F3F7F2] pb-28 lg:pb-36">
+        <div className="mx-auto max-w-[1440px] space-y-28 px-5 lg:space-y-36 sm:px-8 lg:px-12 xl:px-[88px]">
           <div>
             <div className="mb-6 flex items-center justify-between gap-4">
               <h2 className="flex items-center gap-3 text-[28px] font-bold tracking-[-0.02em] text-[#0B361F] sm:text-[32px]">
@@ -214,7 +214,7 @@ export default function Home() {
           </div>
 
           {/* Contact strip */}
-          <div className="grid gap-5 border-t border-[#D5E2D8] pt-10 text-[14.5px] text-[#0B361F] sm:grid-cols-2 lg:grid-cols-4 lg:items-center">
+          <div className="grid gap-5 border-t border-[#D5E2D8] pt-12 text-[14.5px] text-[#0B361F] sm:grid-cols-2 lg:grid-cols-4 lg:items-center">
             <p className="flex items-center gap-3"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="#0B361F"><path d="M12 2a7 7 0 0 0-7 7c0 5.3 7 13 7 13s7-7.7 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z" /></svg>NuroTok · NeuroDigital Support<br className="hidden lg:block" /> United Kingdom</p>
             <a href="tel:+447825354088" className="flex items-center gap-3 hover:text-[#367050]"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="#0B361F"><path d="M6.6 10.8a15 15 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1z" /></svg>+44 7825 354088</a>
             <a href="mailto:info@nurotok.co.uk" className="flex items-center gap-3 hover:text-[#367050]"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="#0B361F"><path d="M3 5h18v14H3z" /><path d="M3.5 6l8.5 6.5L20.5 6" stroke="#F3F7F2" strokeWidth="1.6" fill="none" /></svg>info@nurotok.co.uk</a>
