@@ -125,7 +125,7 @@ export default function SiteHeader({ logo }: { logo: React.ReactNode }) {
 
       {/* Green bar: main navigation (lg and up) */}
       <div ref={navRef} data-light className="relative hidden bg-[#0B3D24] lg:block">
-        <div className="mx-auto flex h-[64px] max-w-[1440px] items-center justify-between gap-4 px-12 xl:px-[88px]">
+        <div className="mx-auto flex h-[72px] max-w-[1440px] items-center justify-between gap-4 px-12 xl:px-[88px]">
           <nav aria-label="Main">
             <ul className="flex items-center gap-1 xl:gap-2">
               {NAV.map(item => {

@@ -37,7 +37,7 @@ export default function Home() {
       <SiteHeader logo={<BrandLogo />} />
 
       {/* NEWS + QUICK TOOLS */}
-      <section id="main-content" className="bg-[#F3F7F2] pb-20 pt-20 lg:pb-32 lg:pt-28">
+      <section id="main-content" className="bg-[#F3F7F2] pb-20 pt-8 lg:pb-32 lg:pt-10">
         <div className="mx-auto max-w-[1440px] px-5 sm:px-8 lg:px-12 xl:px-[88px]">
           {/* News card */}
           <div className="relative grid overflow-hidden rounded-[6px] border border-[#D5E2D8] bg-white lg:grid-cols-2">
