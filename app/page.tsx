@@ -193,18 +193,22 @@ export default function Home() {
             </div>
             <div className="grid gap-4 md:grid-cols-2">
               <div className="group rounded-[16px] border border-[#D5E2D8] bg-white shadow-[0_2px_10px_rgba(11,54,31,0.05)] transition hover:-translate-y-0.5 hover:shadow-[0_12px_28px_rgba(11,54,31,0.10)] flex overflow-hidden">
-                <div className="relative w-[44%] shrink-0">
-                  <Image src={photo.training} alt="" fill sizes="(min-width: 768px) 20vw, 44vw" quality={75} className="object-cover" />
+                <div className="relative min-h-[200px] w-[44%] shrink-0">
+                  <Image src={photo.training} alt="" fill sizes="(min-width: 768px) 20vw, 44vw" quality={80} className="object-cover object-[40%_center]" />
                 </div>
-                <div className="flex flex-1 flex-col items-start p-5">
+                <div className="flex flex-1 flex-col items-start justify-center p-5 sm:p-6">
                   <h3 className="text-[19px] font-bold text-[#0B361F]">Partner with NuroTok</h3>
                   <p className="mt-1.5 text-[15px] leading-[1.5] text-[#2F4538]">Work with us to bring sensory support to more people.</p>
                   <a href="/contact-us/" className="mt-4 inline-flex items-center gap-2 rounded-full bg-[#DDF3E4] px-5 py-2.5 text-[15px] font-semibold text-[#0B361F] hover:bg-[#0B361F] hover:text-white">Get in touch <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M13 6l6 6-6 6" /></svg></a>
                 </div>
               </div>
-              <div className="group rounded-[16px] border border-[#D5E2D8] bg-white shadow-[0_2px_10px_rgba(11,54,31,0.05)] transition hover:-translate-y-0.5 hover:shadow-[0_12px_28px_rgba(11,54,31,0.10)] flex items-start gap-5 p-5 sm:p-6">
-                <svg aria-hidden="true" width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#3FA34D" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className="shrink-0"><path d="M12 20s-7.5-4.6-7.5-10A4.5 4.5 0 0 1 12 7a4.5 4.5 0 0 1 7.5 3c0 5.4-7.5 10-7.5 10z" /></svg>
-                <div className="flex flex-col items-start">
+              <div className="group rounded-[16px] border border-[#D5E2D8] bg-white shadow-[0_2px_10px_rgba(11,54,31,0.05)] transition hover:-translate-y-0.5 hover:shadow-[0_12px_28px_rgba(11,54,31,0.10)] flex overflow-hidden">
+                <div aria-hidden="true" className="flex w-[44%] shrink-0 items-center justify-center bg-[linear-gradient(135deg,#E6F6E8_0%,#CDEFD3_100%)]">
+                  <span className="flex h-20 w-20 items-center justify-center rounded-full bg-white text-[#3FA34D] shadow-[0_6px_18px_rgba(11,54,31,0.10)]">
+                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M12 20s-7.5-4.6-7.5-10A4.5 4.5 0 0 1 12 7a4.5 4.5 0 0 1 7.5 3c0 5.4-7.5 10-7.5 10z" /></svg>
+                  </span>
+                </div>
+                <div className="flex flex-1 flex-col items-start justify-center p-5 sm:p-6">
                   <h3 className="text-[19px] font-bold text-[#0B361F]">Support our work</h3>
                   <p className="mt-1.5 text-[15px] leading-[1.5] text-[#2F4538]">Help us continue to develop tools and resources for a more inclusive digital world.</p>
                   <a href="/about-us/" className="mt-4 inline-flex items-center gap-2 rounded-full bg-[#DDF3E4] px-5 py-2.5 text-[15px] font-semibold text-[#0B361F] hover:bg-[#0B361F] hover:text-white">Find out more <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M13 6l6 6-6 6" /></svg></a>
