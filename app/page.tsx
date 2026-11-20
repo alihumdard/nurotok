@@ -255,7 +255,7 @@ export default function Home() {
       </section>
 
       {/* FOOTER */}
-      <footer data-dark="footer" className="bg-[#94E7BC] text-[#0B361F]">
+      <footer data-dark="footer" className="bg-[#BDEED7] text-[#0B361F]">
         <div className="mx-auto grid max-w-[1440px] grid-cols-2 gap-8 px-6 py-8 sm:px-8 md:grid-cols-3 lg:grid-cols-[1.4fr_1fr_1fr_1fr_1.2fr] lg:gap-0 lg:px-12 xl:px-[88px]">
           <div className="col-span-2 md:col-span-3 lg:col-span-1 lg:pr-8">
             <BrandLogo />
