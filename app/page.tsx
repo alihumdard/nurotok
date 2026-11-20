@@ -2,7 +2,7 @@ import Image from "next/image";
 import SiteHeader from "./components/SiteHeader";
 
 const photo = {
-  hero: "/images/image.png",
+  hero: "/images/home/hero-workspace.jpg",
   research: "/images/home/research.jpg",
   training: "/images/home/training.jpg",
 };
@@ -53,7 +53,7 @@ export default function Home() {
             </div>
 
             <div className="relative min-h-[280px] overflow-hidden lg:min-h-[340px]">
-              <Image src={photo.hero} alt="A woman relaxing on a sofa with headphones" fill priority sizes="(min-width: 1024px) 50vw, 100vw" quality={80} className="object-cover object-[80%_center] lg:[clip-path:ellipse(95%_150%_at_100%_50%)]" />
+              <Image src={photo.hero} alt="A hand holding a phone showing the NuroTok app, in a calm workspace" fill priority sizes="(min-width: 1024px) 50vw, 100vw" quality={80} className="object-cover object-center lg:[clip-path:ellipse(95%_150%_at_100%_50%)]" />
             </div>
           </div>
 
@@ -159,7 +159,7 @@ export default function Home() {
             <div className="grid gap-6 md:grid-cols-3">
               {[
                 { title: "NuroTok: New app features now available", date: "7 November 2026", img: "/images/home/news-app-features.jpg" },
-                { title: "How sensory tools can support focus", date: "5 November 2026", img: photo.hero, pos: "object-[85%_30%]" },
+                { title: "How sensory tools can support focus", date: "5 November 2026", img: photo.hero, pos: "object-center" },
                 { title: "Our latest research update", date: "23 October 2026", img: photo.research },
               ].map(n => (
                 <a key={n.title} href="/news/" className="group rounded-[6px] border border-[#D5E2D8] bg-white transition flex flex-col overflow-hidden">
