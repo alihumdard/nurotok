@@ -16,7 +16,7 @@ function BrandLogo({ light = false }: { light?: boolean }) {
       <span
         className={`font-heading text-[26px] font-bold leading-none tracking-[-0.03em] sm:text-[30px] lg:text-[34px] ${light ? "text-white" : "text-[#0E4A2E]"}`}
       >
-        NuroTok
+        NuroTok<sup className="text-[0.45em] font-semibold align-super">TM</sup>
       </span>
     </a>
   );
@@ -260,6 +260,12 @@ export default function Home() {
           <div className="col-span-2 md:col-span-3 lg:col-span-1 lg:pr-8">
             <BrandLogo />
             <p className="mt-3 max-w-[280px] text-[16px] leading-[1.45] text-[#3E5146]">A sensory regulation app from NeuroDigital Support.</p>
+            <p className="mt-2 text-[15px] font-semibold text-[#0B361F]">
+              Powered by{" "}
+              <a href="https://neurodigitalsupport.com/" className="underline underline-offset-2 hover:text-[#367050]">
+                NeuroDigital Support
+              </a>
+            </p>
           </div>
 
           <nav aria-label="Quick links" className="lg:border-l lg:border-[#0B361F]/15 lg:pl-10">
