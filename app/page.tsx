@@ -162,15 +162,15 @@ export default function Home() {
             <div className="grid gap-4 md:grid-cols-3">
               {[
                 { title: "NuroTok: New app features now available", date: "7 November 2026", img: "/images/home/app-break.jpg" },
-                { title: "How sensory tools can support focus", date: "5 November 2026", img: photo.hero, pos: "object-[78%_30%]" },
+                { title: "How sensory tools can support focus", date: "5 November 2026", img: photo.hero, pos: "object-[85%_30%]" },
                 { title: "Our latest research update", date: "23 October 2026", img: photo.research },
               ].map(n => (
-                <a key={n.title} href="/news/" className="group rounded-[16px] border border-[#D5E2D8] bg-white shadow-[0_2px_10px_rgba(11,54,31,0.05)] transition hover:-translate-y-0.5 hover:shadow-[0_12px_28px_rgba(11,54,31,0.10)] flex overflow-hidden">
-                  <div className="relative w-[38%] shrink-0">
-                    <Image src={n.img} alt="" fill sizes="(min-width: 768px) 14vw, 38vw" quality={75} className={`object-cover ${"pos" in n ? n.pos : ""}`} />
+                <a key={n.title} href="/news/" className="group rounded-[16px] border border-[#D5E2D8] bg-white shadow-[0_2px_10px_rgba(11,54,31,0.05)] transition hover:-translate-y-0.5 hover:shadow-[0_12px_28px_rgba(11,54,31,0.10)] flex flex-col overflow-hidden">
+                  <div className="relative aspect-[16/9] overflow-hidden">
+                    <Image src={n.img} alt="" fill sizes="(min-width: 768px) 33vw, 100vw" quality={80} className={`object-cover transition-transform duration-500 group-hover:scale-105 ${"pos" in n ? n.pos : ""}`} />
                   </div>
-                  <div className="flex flex-1 flex-col justify-between gap-3 p-4">
-                    <h3 className="text-[16px] font-bold leading-snug text-[#0B361F]">{n.title}</h3>
+                  <div className="flex flex-1 flex-col justify-between gap-4 p-5">
+                    <h3 className="text-[17px] font-bold leading-snug text-[#0B361F]">{n.title}</h3>
                     <span className="flex items-center justify-between gap-3 text-[13.5px] text-[#2F4538]">
                       <span className="flex items-center gap-2"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><rect x="3.5" y="5" width="17" height="15.5" rx="2" /><path d="M3.5 10h17M8 3v4M16 3v4" /></svg>{n.date}</span>
                       <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#DDF3E4] text-[#1E7A4C] transition group-hover:bg-[#0B361F] group-hover:text-white"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M13 6l6 6-6 6" /></svg></span>
