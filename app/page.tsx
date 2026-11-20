@@ -157,7 +157,7 @@ export default function Home() {
             </div>
             <div className="grid gap-4 md:grid-cols-3">
               {[
-                { title: "NuroTok: New app features now available", date: "7 November 2026", img: "/images/home/app-break.jpg" },
+                { title: "NuroTok: New app features now available", date: "7 November 2026", img: "/images/home/news-app-features.jpg" },
                 { title: "How sensory tools can support focus", date: "5 November 2026", img: photo.hero, pos: "object-[85%_30%]" },
                 { title: "Our latest research update", date: "23 October 2026", img: photo.research },
               ].map(n => (
