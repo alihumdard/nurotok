@@ -124,7 +124,7 @@ export default function SiteHeader({ logo }: { logo: React.ReactNode }) {
       </div>
 
       {/* Green bar: main navigation (lg and up) */}
-      <div ref={navRef} data-light className="relative hidden bg-[#0B361F] lg:block">
+      <div ref={navRef} className="relative hidden border-b border-[#E3DED2] bg-[#F6F3EC] lg:block">
         <div className="mx-auto flex h-[72px] max-w-[1440px] items-center justify-between gap-4 px-12 xl:px-[88px]">
           <nav aria-label="Main">
             <ul className="flex items-center gap-1 xl:gap-2">
@@ -132,7 +132,7 @@ export default function SiteHeader({ logo }: { logo: React.ReactNode }) {
                 const active = item.href === "/";
                 const open = openKey === item.label;
                 const base = `flex items-center gap-1.5 rounded-full px-4 py-2 text-[15.5px] font-semibold transition-colors ${
-                  active ? "bg-[#94E7BC] text-[#0B361F]" : "text-white hover:bg-white/10"
+                  active ? "bg-[#94E7BC] text-[#0B361F]" : "text-[#0B361F] hover:bg-[#0B361F]/5"
                 }`;
                 return (
                   <li
@@ -190,7 +190,7 @@ export default function SiteHeader({ logo }: { logo: React.ReactNode }) {
                     setOpenKey(null);
                     setSearchOpen(o => !o);
                   }}
-                  className="ml-1 flex h-9 w-9 items-center justify-center rounded-full text-white transition-colors hover:bg-white/10"
+                  className="ml-1 flex h-9 w-9 items-center justify-center rounded-full text-[#0B361F] transition-colors hover:bg-[#0B361F]/5"
                 >
                   <svg aria-hidden="true" width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.3" strokeLinecap="round"><circle cx="11" cy="11" r="7" /><path d="M20 20l-3.5-3.5" /></svg>
                 </button>
@@ -214,7 +214,7 @@ export default function SiteHeader({ logo }: { logo: React.ReactNode }) {
 
           <a
             href="/contact-us/"
-            className="inline-flex items-center gap-2.5 whitespace-nowrap rounded-full bg-[#367050] px-6 py-2.5 text-[15.5px] font-semibold text-white ring-1 ring-white/25 transition-colors hover:bg-[#2B5E42]"
+            className="inline-flex items-center gap-2.5 whitespace-nowrap rounded-full bg-[#367050] px-6 py-2.5 text-[15.5px] font-semibold text-white transition-colors hover:bg-[#2B5E42]"
           >
             Contact us
             <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.3" strokeLinecap="round" strokeLinejoin="round"><path d="M4 12h15M13 6l6 6-6 6" /></svg>

@@ -1,6 +1,5 @@
 import Image from "next/image";
 import SiteHeader from "./components/SiteHeader";
-import { HomeScreen, ProfileScreen } from "./components/AppScreens";
 
 const photo = {
   hero: "/images/image.png",
@@ -53,19 +52,15 @@ export default function Home() {
               </a>
             </div>
 
-            <div className="relative min-h-[320px]">
-              <div aria-hidden="true" className="absolute inset-0 bg-[#94E7BC] lg:[clip-path:ellipse(95%_150%_at_100%_50%)]" />
-              <div aria-hidden="true" className="absolute inset-0 flex items-center justify-center gap-5">
-                <div className="w-[140px] -rotate-[8deg] sm:w-[150px] [&>div]:max-w-full"><HomeScreen /></div>
-                <div className="w-[140px] rotate-[8deg] sm:w-[150px] [&>div]:max-w-full"><ProfileScreen /></div>
-              </div>
+            <div className="relative min-h-[280px] overflow-hidden lg:min-h-[340px]">
+              <Image src={photo.hero} alt="A woman relaxing on a sofa with headphones" fill priority sizes="(min-width: 1024px) 50vw, 100vw" quality={80} className="object-cover object-[80%_center] lg:[clip-path:ellipse(95%_150%_at_100%_50%)]" />
             </div>
           </div>
 
           {/* Three quick tools */}
           <div className="mt-20 grid gap-6 md:grid-cols-3 lg:mt-28">
             {[
-              { title: "A quieter moment.", text: "Listen to rainfall, follow a short breathing guide or put your phone down for a while.", pos: "object-[86%_30%]", img: photo.hero },
+              { title: "A quieter moment.", text: "Listen to rainfall, follow a short breathing guide or put your phone down for a while.", pos: "object-center", img: "/images/home/quiet-rain.jpg" },
               { title: "A break from an app.", text: "Choose where you want a pause. Take a moment before opening certain apps.", pos: "object-center", img: "/images/home/app-break.jpg" },
               { title: "A screen that suits you.", text: "Explore comfort settings for your device, such as movement or brightness.", pos: "object-center", img: "/images/home/screen-comfort.jpg" },
             ].map(card => (
@@ -226,15 +221,30 @@ export default function Home() {
           </div>
 
           {/* Contact strip */}
-          <div className="grid gap-5 border-t border-[#D5E2D8] pt-12 text-[16px] text-[#0B361F] sm:grid-cols-2 lg:grid-cols-4 lg:items-center">
-            <p className="flex items-center gap-3"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="#0B361F"><path d="M12 2a7 7 0 0 0-7 7c0 5.3 7 13 7 13s7-7.7 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z" /></svg>NuroTok · NeuroDigital Support<br className="hidden lg:block" /> United Kingdom</p>
-            <a href="tel:+447825354088" className="flex items-center gap-3 hover:text-[#367050]"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="#0B361F"><path d="M6.6 10.8a15 15 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1z" /></svg>+44 7825 354088</a>
-            <a href="mailto:info@nurotok.co.uk" className="flex items-center gap-3 hover:text-[#367050]"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="#0B361F"><path d="M3 5h18v14H3z" /><path d="M3.5 6l8.5 6.5L20.5 6" stroke="#F6F3EC" strokeWidth="1.6" fill="none" /></svg>info@nurotok.co.uk</a>
-            <div className="flex items-center gap-4 lg:justify-end">
-              <a href="#" aria-label="LinkedIn" className="text-[#0B361F] hover:opacity-70"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.5h4V21H3zM9.5 9.5h3.8v1.6h.1c.5-1 1.8-2 3.8-2 4 0 4.8 2.6 4.8 6V21h-4v-5.2c0-1.2 0-2.8-1.7-2.8s-2 1.3-2 2.7V21h-4z" /></svg></a>
-              <a href="#" aria-label="YouTube" className="text-[#E62117] hover:opacity-70"><svg width="28" height="24" viewBox="0 0 28 20" fill="currentColor"><path d="M27.4 3.1A3.5 3.5 0 0 0 25 .6C22.8 0 14 0 14 0S5.2 0 3 .6A3.5 3.5 0 0 0 .6 3.1 37 37 0 0 0 0 10a37 37 0 0 0 .6 6.9A3.5 3.5 0 0 0 3 19.4c2.2.6 11 .6 11 .6s8.8 0 11-.6a3.5 3.5 0 0 0 2.4-2.5A37 37 0 0 0 28 10a37 37 0 0 0-.6-6.9zM11.2 14.3V5.7L18.5 10z" /></svg></a>
-              <a href="#" aria-label="Instagram" className="text-[#C13584] hover:opacity-70"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="3" y="3" width="18" height="18" rx="5" /><circle cx="12" cy="12" r="4" /><circle cx="17.5" cy="6.5" r="1" fill="currentColor" /></svg></a>
-              <a href="#" aria-label="X" className="text-[#0B361F] hover:opacity-70"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M18.2 2.5h3.3l-7.2 8.2 8.5 10.8h-6.6l-5.2-6.6-5.9 6.6H1.8l7.7-8.8L1.4 2.5h6.8l4.7 6.1zm-1.2 17h1.8L7.1 4.4H5.1z" /></svg></a>
+          <div className="grid gap-6 border-t border-[#E3DED2] pt-10 text-[17px] font-semibold text-[#0B361F] sm:grid-cols-2 lg:grid-cols-4 lg:items-center">
+            <div className="flex items-center gap-3">
+              <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[#94E7BC] text-[#0B361F]"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a7 7 0 0 0-7 7c0 5.3 7 13 7 13s7-7.7 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z" /></svg></span>
+              <span className="leading-snug">NuroTok · NeuroDigital Support<span className="block text-[15px] font-normal text-[#367050]">United Kingdom</span></span>
+            </div>
+            <a href="tel:+447825354088" className="flex items-center gap-3 hover:text-[#367050]">
+              <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[#94E7BC] text-[#0B361F]"><svg aria-hidden="true" width="19" height="19" viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8a15 15 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1z" /></svg></span>
+              +44 7825 354088
+            </a>
+            <a href="mailto:info@nurotok.co.uk" className="flex items-center gap-3 hover:text-[#367050]">
+              <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[#94E7BC] text-[#0B361F]"><svg aria-hidden="true" width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="5" width="18" height="14" rx="2.5" /><path d="M3.5 6.5L12 13l8.5-6.5" /></svg></span>
+              info@nurotok.co.uk
+            </a>
+            <div className="flex items-center gap-3 lg:justify-end">
+              {[
+                { label: "LinkedIn", d: "M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.5h4V21H3zM9.5 9.5h3.8v1.6h.1c.5-1 1.8-2 3.8-2 4 0 4.8 2.6 4.8 6V21h-4v-5.2c0-1.2 0-2.8-1.7-2.8s-2 1.3-2 2.7V21h-4z" },
+                { label: "YouTube", d: "M21.6 7.2a2.5 2.5 0 0 0-1.8-1.8C18.2 5 12 5 12 5s-6.2 0-7.8.4A2.5 2.5 0 0 0 2.4 7.2 26 26 0 0 0 2 12a26 26 0 0 0 .4 4.8 2.5 2.5 0 0 0 1.8 1.8c1.6.4 7.8.4 7.8.4s6.2 0 7.8-.4a2.5 2.5 0 0 0 1.8-1.8A26 26 0 0 0 22 12a26 26 0 0 0-.4-4.8zM10 15V9l5.2 3z" },
+                { label: "Instagram", d: "M12 7.4a4.6 4.6 0 1 0 0 9.2 4.6 4.6 0 0 0 0-9.2zm0 7.6a3 3 0 1 1 0-6 3 3 0 0 1 0 6zm5.9-7.8a1.1 1.1 0 1 1-2.2 0 1.1 1.1 0 0 1 2.2 0zM12 3.6c2.7 0 3 0 4.1.1 2.8.1 4.1 1.4 4.2 4.2.1 1.1.1 1.4.1 4.1s0 3-.1 4.1c-.1 2.8-1.4 4.1-4.2 4.2-1.1.1-1.4.1-4.1.1s-3 0-4.1-.1c-2.8-.1-4.1-1.4-4.2-4.2C3.6 15 3.6 14.7 3.6 12s0-3 .1-4.1c.1-2.8 1.4-4.1 4.2-4.2C9 3.6 9.3 3.6 12 3.6z" },
+                { label: "X", d: "M18.2 2.5h3.3l-7.2 8.2 8.5 10.8h-6.6l-5.2-6.6-5.9 6.6H1.8l7.7-8.8L1.4 2.5h6.8l4.7 6.1zm-1.2 17h1.8L7.1 4.4H5.1z" },
+              ].map(sn => (
+                <a key={sn.label} href="#" aria-label={`NuroTok on ${sn.label}`} className="flex h-11 w-11 items-center justify-center rounded-full border border-[#D5E2D8] bg-white text-[#0B361F] transition-colors hover:bg-[#0B361F] hover:text-white">
+                  <svg aria-hidden="true" width="19" height="19" viewBox="0 0 24 24" fill="currentColor"><path d={sn.d} /></svg>
+                </a>
+              ))}
             </div>
           </div>
         </div>
