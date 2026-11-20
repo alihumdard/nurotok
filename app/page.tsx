@@ -10,7 +10,6 @@ const photo = {
   hero: "/images/image.png",
   research: "/images/home/research.jpg",
   training: "/images/home/training.jpg",
-  store: "/images/home/store.jpg",
 };
 
 // Store links: replace with the live listings when confirmed.
@@ -371,101 +370,6 @@ export default function Home() {
             </h2>
             <ScreensCarousel />
           </div>
-        </div>
-      </section>
-
-      {/* TRUST STRIP */}
-      <section className="border-y border-[#E4EAE2] bg-white">
-        <div className="reveal mx-auto grid max-w-[1440px] gap-x-8 gap-y-6 px-6 py-7 sm:grid-cols-2 sm:px-8 lg:px-12 xl:grid-cols-4 xl:gap-x-0">
-          {[
-            {
-              title: "Works across devices",
-              text: "Use on iOS and Android.",
-              icon: <><rect x="6.5" y="2.5" width="11" height="19" rx="2.5" /><path d="M10.5 18.5h3" /></>,
-            },
-            {
-              title: "Your privacy matters",
-              text: "Your data stays private.",
-              icon: <><path d="M12 2.8l7.5 3v5.7c0 4.6-3.2 8.3-7.5 9.7-4.3-1.4-7.5-5.1-7.5-9.7V5.8z" /><path d="M8.6 12.2l2.4 2.4 4.5-4.6" /></>,
-            },
-            {
-              title: "Backed by research",
-              text: "Evidence, evaluation and real-world learning.",
-              icon: <><rect x="4.5" y="3" width="15" height="18" rx="2" /><path d="M8 8h8M8 12h8M8 16h5" /></>,
-            },
-            {
-              title: "Training and support",
-              text: "Workshops and guidance for organisations.",
-              icon: <><circle cx="12" cy="7.5" r="2.6" /><circle cx="5.2" cy="9.3" r="2.1" /><circle cx="18.8" cy="9.3" r="2.1" /><path d="M7.2 19.5v-1.2a4.8 4.8 0 0 1 9.6 0v1.2M1.8 18.5v-.6a3.4 3.4 0 0 1 4.6-3.2M22.2 18.5v-.6a3.4 3.4 0 0 0-4.6-3.2" /></>,
-            },
-          ].map((item, i) => (
-            <div
-              key={item.title}
-              className={`flex items-start gap-4 xl:px-8 ${i === 0 ? "xl:pl-0" : "xl:border-l xl:border-[#D8E2D9]"}`}
-            >
-              <svg aria-hidden="true" width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#2E7D50" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" className="shrink-0">
-                {item.icon}
-              </svg>
-              <div>
-                <h3 className="text-[17px] font-bold leading-snug tracking-[-0.01em] text-[#0B361F]">{item.title}</h3>
-                <p className="mt-0.5 text-[14px] leading-[1.45] text-[#3E5146]">{item.text}</p>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* RESEARCH TRAINING STORE */}
-      <section className="bg-[#F6F3EC] py-10 lg:py-12">
-        <div className="reveal mx-auto grid max-w-[1440px] gap-6 px-5 sm:px-8 md:grid-cols-3 lg:gap-7 lg:px-12">
-          {[
-            {
-              title: "Research", text: "Explore the evidence and propose a study.", cta: "Read the research",
-              image: photo.research, href: "/research/", pos: "object-center",
-              icon: <><rect x="4.5" y="3" width="15" height="18" rx="2" /><path d="M8 8h8M8 12h8M8 16h5" /></>,
-            },
-            {
-              title: "Training", text: "Workshops and guidance for teams and organisations.", cta: "Ask about a workshop",
-              image: photo.training, href: "/training/", pos: "object-[50%_35%]",
-              icon: <><circle cx="12" cy="7.5" r="2.6" /><circle cx="5.2" cy="9.3" r="2.1" /><circle cx="18.8" cy="9.3" r="2.1" /><path d="M7.2 19.5v-1.2a4.8 4.8 0 0 1 9.6 0v1.2M1.8 18.5v-.6a3.4 3.4 0 0 1 4.6-3.2M22.2 18.5v-.6a3.4 3.4 0 0 0-4.6-3.2" /></>,
-            },
-            {
-              title: "Store", text: "Everyday items that support focus, comfort and calm.", cta: "Shop NuroTok merchandise",
-              image: photo.store, href: "/store/", pos: "object-center",
-              icon: <><path d="M5 8h14l-1 13H6z" /><path d="M9 8V6a3 3 0 0 1 6 0v2" /></>,
-            },
-          ].map(card => (
-            <a
-              key={card.title}
-              href={card.href}
-              className="group flex flex-col overflow-hidden rounded-[22px] border border-[#ECE5D8] bg-white shadow-[0_2px_12px_rgba(11,54,31,0.06)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_18px_40px_rgba(11,54,31,0.14)]"
-            >
-              <div className="relative aspect-[16/10] overflow-hidden">
-                <Image
-                  src={card.image}
-                  alt=""
-                  fill
-                  sizes="(min-width: 1440px) 440px, (min-width: 768px) 33vw, 100vw"
-                  quality={85}
-                  className={`object-cover ${card.pos} transition-transform duration-700 group-hover:scale-[1.05]`}
-                />
-                <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-t from-[#0B361F]/25 via-transparent to-transparent" />
-                <span data-light className="absolute left-4 top-4 flex h-11 w-11 items-center justify-center rounded-full bg-white/95 text-[#1E7A4C] shadow-[0_6px_16px_rgba(11,54,31,0.18)]">
-                  <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round">{card.icon}</svg>
-                </span>
-              </div>
-              <div className="flex flex-1 flex-col p-6 lg:p-7">
-                <h3 className="text-[22px] font-bold tracking-[-0.02em] text-[#0B361F]">{card.title}</h3>
-                <p className="mb-5 mt-2 text-[15px] leading-[1.55] text-[#3E5146]">{card.text}</p>
-                <span className="mt-auto flex items-center justify-between gap-3 border-t border-[#EDF2EE] pt-4 text-[15px] font-semibold text-[#367050]">
-                  {card.cta}
-                  <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#0B361F] text-white transition-transform duration-300 group-hover:translate-x-1">
-                    <svg aria-hidden="true" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.3" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
-                  </span>
-                </span>
-              </div>
-            </a>
-          ))}
         </div>
       </section>
 
