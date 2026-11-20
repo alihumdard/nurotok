@@ -255,52 +255,52 @@ export default function Home() {
       </section>
 
       {/* FOOTER */}
-      <footer data-dark="footer" className="bg-[#0B361F] text-white">
+      <footer data-dark="footer" className="bg-[#F6F3EC] text-[#0B361F]">
         <div className="mx-auto grid max-w-[1440px] grid-cols-2 gap-8 px-6 py-8 sm:px-8 md:grid-cols-3 lg:grid-cols-[1.4fr_1fr_1fr_1fr_1.2fr] lg:gap-0 lg:px-12 xl:px-[88px]">
           <div className="col-span-2 md:col-span-3 lg:col-span-1 lg:pr-8">
-            <BrandLogo light />
-            <p className="mt-3 max-w-[280px] text-[16px] leading-[1.45] text-[#CFE8DA]">A sensory regulation app from NeuroDigital Support.</p>
+            <BrandLogo />
+            <p className="mt-3 max-w-[280px] text-[16px] leading-[1.45] text-[#3E5146]">A sensory regulation app from NeuroDigital Support.</p>
           </div>
 
-          <nav aria-label="Quick links" className="lg:border-l lg:border-white/15 lg:pl-10">
-            <h3 className="text-[17px] font-bold text-white">Quick links</h3>
+          <nav aria-label="Quick links" className="lg:border-l lg:border-[#D5E2D8] lg:pl-10">
+            <h3 className="text-[17px] font-bold text-[#0B361F]">Quick links</h3>
             <ul className="mt-2 space-y-0.5">
               {[["Home", "/"], ["About", "/about-us/"], ["Features", "/features/"], ["Research", "/research/"], ["Training", "/training/"]].map(([label, href]) => (
-                <li key={label}><a href={href} className="text-[16px] text-[#CFE8DA] hover:text-white">{label}</a></li>
+                <li key={label}><a href={href} className="text-[16px] text-[#3E5146] hover:text-[#0B361F]">{label}</a></li>
               ))}
             </ul>
           </nav>
-          <nav aria-label="More" className="lg:border-l lg:border-white/15 lg:pl-10">
-            <h3 className="text-[17px] font-bold text-white">More</h3>
+          <nav aria-label="More" className="lg:border-l lg:border-[#D5E2D8] lg:pl-10">
+            <h3 className="text-[17px] font-bold text-[#0B361F]">More</h3>
             <ul className="mt-2 space-y-0.5">
               {[["Blogs", "/blogs/"], ["Store", "/store/"], ["Events", "/events/"], ["News", "/news/"], ["Contact", "/contact-us/"]].map(([label, href]) => (
-                <li key={label}><a href={href} className="text-[16px] text-[#CFE8DA] hover:text-white">{label}</a></li>
+                <li key={label}><a href={href} className="text-[16px] text-[#3E5146] hover:text-[#0B361F]">{label}</a></li>
               ))}
             </ul>
           </nav>
-          <nav aria-label="Information" className="lg:border-l lg:border-white/15 lg:pl-10">
-            <h3 className="text-[17px] font-bold text-white">Information</h3>
+          <nav aria-label="Information" className="lg:border-l lg:border-[#D5E2D8] lg:pl-10">
+            <h3 className="text-[17px] font-bold text-[#0B361F]">Information</h3>
             <ul className="mt-2 space-y-0.5">
               {[["Accessibility", "/accessibility/"], ["Privacy Policy", "/privacy-policy/"], ["Terms of Use", "/terms/"], ["Cookies", "/cookie-policy/"]].map(([label, href]) => (
-                <li key={label}><a href={href} className="text-[16px] text-[#CFE8DA] hover:text-white">{label}</a></li>
+                <li key={label}><a href={href} className="text-[16px] text-[#3E5146] hover:text-[#0B361F]">{label}</a></li>
               ))}
             </ul>
           </nav>
 
-          <div className="flex items-center gap-3 md:col-span-2 lg:col-span-1 lg:gap-4 lg:border-l lg:border-white/15 lg:pl-10">
-            <svg aria-hidden="true" width="40" height="40" viewBox="0 0 32 32" fill="none" stroke="#94E7BC" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" className="h-8 w-8 shrink-0 lg:h-10 lg:w-10"><path d="M27 5C15 5 7 10.5 7 19.5c0 2.2.6 4 1.6 5.3C18.5 25 26 18 27 5z" /><path d="M5 27c4-5 9-9.5 15-13" /></svg>
-            <p className="text-[16px] font-bold leading-[1.3] text-white lg:text-[19px]">A calmer mind,<br />a brighter you.</p>
+          <div className="flex items-center gap-3 md:col-span-2 lg:col-span-1 lg:gap-4 lg:border-l lg:border-[#D5E2D8] lg:pl-10">
+            <svg aria-hidden="true" width="40" height="40" viewBox="0 0 32 32" fill="none" stroke="#367050" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" className="h-8 w-8 shrink-0 lg:h-10 lg:w-10"><path d="M27 5C15 5 7 10.5 7 19.5c0 2.2.6 4 1.6 5.3C18.5 25 26 18 27 5z" /><path d="M5 27c4-5 9-9.5 15-13" /></svg>
+            <p className="text-[16px] font-bold leading-[1.3] text-[#0B361F] lg:text-[19px]">A calmer mind,<br />a brighter you.</p>
           </div>
         </div>
 
-        <div className="border-t border-white/15">
-          <div className="mx-auto flex max-w-[1440px] flex-col gap-3 px-6 py-4 text-[15px] sm:flex-row sm:items-center sm:justify-between sm:px-8 lg:px-12 xl:px-[88px]">
-            <p className="m-0 text-[#CFE8DA]">© 2026 NeuroDigital Support. All rights reserved.</p>
-            <ul className="flex flex-wrap items-center gap-y-2 text-[#CFE8DA]">
+        <div className="border-t border-[#D5E2D8]">
+          <div className="mx-auto flex max-w-[1440px] flex-col gap-3 px-6 py-4 text-[15px] text-[#3E5146] sm:flex-row sm:items-center sm:justify-between sm:px-8 lg:px-12 xl:px-[88px]">
+            <p className="m-0 text-[#3E5146]">© 2026 NeuroDigital Support. All rights reserved.</p>
+            <ul className="flex flex-wrap items-center gap-y-2 text-[#3E5146]">
               {[["Accessibility", "/accessibility/"], ["Privacy Policy", "/privacy-policy/"], ["Terms of Use", "/terms/"], ["Cookies", "/cookie-policy/"]].map(([label, href], i) => (
                 <li key={label} className="flex items-center">
-                  {i > 0 && <span aria-hidden="true" className="mx-4 h-3.5 w-px bg-white/30" />}
-                  <a href={href} className="hover:text-white">{label}</a>
+                  {i > 0 && <span aria-hidden="true" className="mx-4 h-3.5 w-px bg-[#D5E2D8]" />}
+                  <a href={href} className="hover:text-[#0B361F]">{label}</a>
                 </li>
               ))}
             </ul>
