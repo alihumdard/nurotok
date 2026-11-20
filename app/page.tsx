@@ -66,7 +66,7 @@ export default function Home() {
           <div className="mt-6 grid gap-5 md:grid-cols-3">
             {[
               { title: "A quieter moment.", text: "Listen to rainfall, follow a short breathing guide or put your phone down for a while.", pos: "object-[86%_30%]", img: photo.hero },
-              { title: "A break from an app.", text: "Choose where you want a pause. Take a moment before opening certain apps.", pos: "object-center", img: "/images/home/app-break.jpg" },
+              { title: "A break from an app.", text: "Choose where you want a pause. Take a moment before opening certain apps.", pos: "object-center", img: "/images/home/break-from-app.jpg" },
               { title: "A screen that suits you.", text: "Explore comfort settings for your device, such as movement or brightness.", pos: "object-center", img: "/images/home/screen-suits-you.jpg" },
             ].map(card => (
               <a key={card.title} href="/features/" className="group flex flex-col overflow-hidden rounded-[18px] border border-[#D5E2D8] bg-white shadow-[0_2px_12px_rgba(11,54,31,0.06)] transition hover:-translate-y-1 hover:shadow-[0_16px_34px_rgba(11,54,31,0.12)]">
