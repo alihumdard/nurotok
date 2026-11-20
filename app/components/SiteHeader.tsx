@@ -108,7 +108,7 @@ export default function SiteHeader({ logo }: { logo: React.ReactNode }) {
     <header data-dark="header" className="sticky top-0 z-40 bg-white">
       {/* White bar: logo + utility links */}
       <div className="border-b border-[#E7EAE2]">
-        <div className="mx-auto flex h-[72px] max-w-[1440px] items-center justify-between gap-4 px-5 sm:px-8 lg:h-[76px] lg:px-12">
+        <div className="mx-auto flex h-[72px] max-w-[1440px] items-center justify-between gap-4 px-5 sm:px-8 lg:h-[76px] lg:px-12 xl:px-[88px]">
           {logo}
 
           <nav aria-label="Utility" className="hidden items-center gap-7 lg:flex xl:gap-9">
@@ -125,7 +125,7 @@ export default function SiteHeader({ logo }: { logo: React.ReactNode }) {
 
       {/* Green bar: main navigation (lg and up) */}
       <div ref={navRef} data-light className="relative hidden bg-[#0B3D24] lg:block">
-        <div className="mx-auto flex h-[64px] max-w-[1440px] items-center justify-between gap-4 px-12">
+        <div className="mx-auto flex h-[64px] max-w-[1440px] items-center justify-between gap-4 px-12 xl:px-[88px]">
           <nav aria-label="Main">
             <ul className="flex items-center gap-1 xl:gap-2">
               {NAV.map(item => {

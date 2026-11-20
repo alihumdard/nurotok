@@ -38,14 +38,14 @@ export default function Home() {
 
       {/* NEWS + QUICK TOOLS */}
       <section id="main-content" className="bg-[#F3F7F2] py-8 lg:py-10">
-        <div className="mx-auto max-w-[1440px] px-5 sm:px-8 lg:px-12">
+        <div className="mx-auto max-w-[1440px] px-5 sm:px-8 lg:px-12 xl:px-[88px]">
           {/* News card */}
           <div className="relative grid overflow-hidden rounded-[22px] border border-[#D5E2D8] bg-white shadow-[0_2px_12px_rgba(11,54,31,0.06)] lg:grid-cols-2">
             <div className="relative z-10 p-7 sm:p-10 lg:py-12 lg:pl-12">
               <p className="text-[18px] font-bold text-[#0B361F]">News</p>
               <span aria-hidden="true" className="mt-2 block h-1 w-12 rounded-full bg-[#3FA34D]" />
               <h1 className="mt-5 text-[34px] font-bold leading-[1.08] tracking-[-0.03em] text-[#0B361F] sm:text-[44px] lg:text-[48px]">Introducing NuroTok</h1>
-              <p className="mt-4 max-w-[440px] text-[17px] leading-[1.55] text-[#1F3A2B]">
+              <p className="mt-4 max-w-[460px] text-[20px] leading-[1.5] text-[#1F3A2B]">
                 A sensory regulation app to help you create a calmer, more comfortable digital experience.
               </p>
               <a href="/news/" className="mt-6 inline-flex items-center gap-2 text-[17px] font-bold text-[#1E7A4C] hover:text-[#0B361F]">
@@ -75,8 +75,8 @@ export default function Home() {
                 </div>
                 <div className="flex flex-1 items-end gap-3 p-5">
                   <div className="flex-1">
-                    <h2 className="text-[20px] font-bold tracking-[-0.01em] text-[#0B361F]">{card.title}</h2>
-                    <p className="mt-1.5 text-[15px] leading-[1.5] text-[#2F4538]">{card.text}</p>
+                    <h2 className="text-[22px] font-bold tracking-[-0.01em] text-[#0B361F] lg:text-[24px]">{card.title}</h2>
+                    <p className="mt-1.5 text-[18px] leading-[1.5] text-[#2F4538] lg:text-[19px]">{card.text}</p>
                   </div>
                   <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#DDF3E4] text-[#1E7A4C] transition group-hover:bg-[#0B361F] group-hover:text-white"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M13 6l6 6-6 6" /></svg></span>
                 </div>
@@ -102,8 +102,8 @@ export default function Home() {
                 </div>
                 <div className="flex flex-1 items-end gap-3 p-5 sm:p-6">
                   <div className="flex-1">
-                    <h2 className="text-[21px] font-bold leading-snug tracking-[-0.01em] text-[#0B361F]">{card.title}</h2>
-                    <p className="mt-1.5 text-[15px] leading-[1.5] text-[#2F4538]">{card.text}</p>
+                    <h2 className="text-[22px] font-bold leading-snug lg:text-[24px] tracking-[-0.01em] text-[#0B361F]">{card.title}</h2>
+                    <p className="mt-1.5 text-[18px] leading-[1.5] text-[#2F4538] lg:text-[19px]">{card.text}</p>
                   </div>
                   <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#DDF3E4] text-[#1E7A4C] transition group-hover:bg-[#0B361F] group-hover:text-white"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M13 6l6 6-6 6" /></svg></span>
                 </div>
@@ -115,16 +115,16 @@ export default function Home() {
 
       {/* WHAT'S ON / NEWS / SUPPORT US */}
       <section className="bg-[#F3F7F2] pb-10 lg:pb-12">
-        <div className="mx-auto max-w-[1440px] space-y-10 px-5 sm:px-8 lg:px-12">
+        <div className="mx-auto max-w-[1440px] space-y-10 px-5 sm:px-8 lg:px-12 xl:px-[88px]">
           <div>
             <div className="mb-4 flex items-center justify-between gap-4">
-              <h2 className="flex items-center gap-3 text-[24px] font-bold tracking-[-0.02em] text-[#0B361F] sm:text-[28px]">
+              <h2 className="flex items-center gap-3 text-[28px] font-bold tracking-[-0.02em] text-[#0B361F] sm:text-[32px]">
                 <span aria-hidden="true" className="flex h-9 w-9 items-center justify-center rounded-lg text-white" style={{ background: "#3FA34D" }}>
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="3.5" y="5" width="17" height="15.5" rx="2" /><path d="M3.5 10h17M8 3v4M16 3v4" /></svg>
                 </span>
                 What&rsquo;s on
               </h2>
-              <a href="/events/" className="inline-flex items-center gap-2 text-[15px] font-bold text-[#1E7A4C] hover:text-[#0B361F]">View more events <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M13 6l6 6-6 6" /></svg></a>
+              <a href="/events/" className="inline-flex items-center gap-2 text-[16px] font-bold text-[#1E7A4C] hover:text-[#0B361F]">View more events <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M13 6l6 6-6 6" /></svg></a>
             </div>
             <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
               {[
@@ -135,8 +135,8 @@ export default function Home() {
               ].map(ev => (
                 <a key={ev.title} href="/events/" className="group rounded-[16px] border border-[#D5E2D8] bg-white shadow-[0_2px_10px_rgba(11,54,31,0.05)] transition hover:-translate-y-0.5 hover:shadow-[0_12px_28px_rgba(11,54,31,0.10)] flex flex-col p-5">
                   <svg aria-hidden="true" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#2E7D50" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">{ev.icon}</svg>
-                  <h3 className="mt-2 text-[17px] font-bold leading-snug text-[#0B361F]">{ev.title}</h3>
-                  <span className="mt-3 flex items-center justify-between gap-3 text-[13.5px] text-[#2F4538]">
+                  <h3 className="mt-2 text-[20px] font-bold leading-snug text-[#0B361F]">{ev.title}</h3>
+                  <span className="mt-3 flex items-center justify-between gap-3 text-[14px] text-[#2F4538]">
                     <span className="flex items-center gap-2"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><rect x="3.5" y="5" width="17" height="15.5" rx="2" /><path d="M3.5 10h17M8 3v4M16 3v4" /></svg>{ev.date}</span>
                     <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#DDF3E4] text-[#1E7A4C] transition group-hover:bg-[#0B361F] group-hover:text-white"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M13 6l6 6-6 6" /></svg></span>
                   </span>
@@ -147,13 +147,13 @@ export default function Home() {
 
           <div>
             <div className="mb-4 flex items-center justify-between gap-4">
-              <h2 className="flex items-center gap-3 text-[24px] font-bold tracking-[-0.02em] text-[#0B361F] sm:text-[28px]">
+              <h2 className="flex items-center gap-3 text-[28px] font-bold tracking-[-0.02em] text-[#0B361F] sm:text-[32px]">
                 <span aria-hidden="true" className="flex h-9 w-9 items-center justify-center rounded-lg text-white" style={{ background: "#3FA34D" }}>
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="4" width="18" height="16" rx="2" /><path d="M7 8h10M7 12h10M7 16h6" /></svg>
                 </span>
                 Latest news
               </h2>
-              <a href="/news/" className="inline-flex items-center gap-2 text-[15px] font-bold text-[#1E7A4C] hover:text-[#0B361F]">View all news <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M13 6l6 6-6 6" /></svg></a>
+              <a href="/news/" className="inline-flex items-center gap-2 text-[16px] font-bold text-[#1E7A4C] hover:text-[#0B361F]">View all news <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M13 6l6 6-6 6" /></svg></a>
             </div>
             <div className="grid gap-4 md:grid-cols-3">
               {[
@@ -166,8 +166,8 @@ export default function Home() {
                     <Image src={n.img} alt="" fill sizes="(min-width: 768px) 33vw, 100vw" quality={80} className={`object-cover transition-transform duration-500 group-hover:scale-105 ${"pos" in n ? n.pos : ""}`} />
                   </div>
                   <div className="flex flex-1 flex-col justify-between gap-4 p-5">
-                    <h3 className="text-[17px] font-bold leading-snug text-[#0B361F]">{n.title}</h3>
-                    <span className="flex items-center justify-between gap-3 text-[13.5px] text-[#2F4538]">
+                    <h3 className="text-[20px] font-bold leading-snug text-[#0B361F]">{n.title}</h3>
+                    <span className="flex items-center justify-between gap-3 text-[14px] text-[#2F4538]">
                       <span className="flex items-center gap-2"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><rect x="3.5" y="5" width="17" height="15.5" rx="2" /><path d="M3.5 10h17M8 3v4M16 3v4" /></svg>{n.date}</span>
                       <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#DDF3E4] text-[#1E7A4C] transition group-hover:bg-[#0B361F] group-hover:text-white"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M13 6l6 6-6 6" /></svg></span>
                     </span>
@@ -179,7 +179,7 @@ export default function Home() {
 
           <div>
             <div className="mb-4 flex items-center justify-between gap-4">
-              <h2 className="flex items-center gap-3 text-[24px] font-bold tracking-[-0.02em] text-[#0B361F] sm:text-[28px]">
+              <h2 className="flex items-center gap-3 text-[28px] font-bold tracking-[-0.02em] text-[#0B361F] sm:text-[32px]">
                 <span aria-hidden="true" className="flex h-9 w-9 items-center justify-center rounded-lg text-white" style={{ background: "#7B4FC9" }}>
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="7.5" r="2.6" /><circle cx="5.2" cy="9.3" r="2.1" /><circle cx="18.8" cy="9.3" r="2.1" /><path d="M7.2 19.5v-1.2a4.8 4.8 0 0 1 9.6 0v1.2" /></svg>
                 </span>
@@ -193,8 +193,8 @@ export default function Home() {
                   <Image src="/images/home/partner.jpg" alt="" fill sizes="(min-width: 1024px) 22vw, 100vw" quality={80} className="object-cover" />
                 </div>
                 <div className="flex flex-1 flex-col items-start justify-center p-5 sm:p-6">
-                  <h3 className="text-[19px] font-bold text-[#0B361F]">Partner with NuroTok</h3>
-                  <p className="mt-1.5 text-[15px] leading-[1.5] text-[#2F4538]">Work with us to bring sensory support to more people.</p>
+                  <h3 className="text-[22px] font-bold text-[#0B361F] lg:text-[24px]">Partner with NuroTok</h3>
+                  <p className="mt-1.5 text-[18px] leading-[1.5] text-[#2F4538] lg:text-[19px]">Work with us to bring sensory support to more people.</p>
                   <a href="/contact-us/" className="mt-4 inline-flex items-center gap-2 rounded-full bg-[#DDF3E4] px-5 py-2.5 text-[15px] font-semibold text-[#0B361F] hover:bg-[#0B361F] hover:text-white">Get in touch <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M13 6l6 6-6 6" /></svg></a>
                 </div>
               </div>
@@ -205,8 +205,8 @@ export default function Home() {
                   </span>
                 </div>
                 <div className="flex flex-1 flex-col items-start justify-center p-5 sm:p-6">
-                  <h3 className="text-[19px] font-bold text-[#0B361F]">Support our work</h3>
-                  <p className="mt-1.5 text-[15px] leading-[1.5] text-[#2F4538]">Help us continue to develop tools and resources for a more inclusive digital world.</p>
+                  <h3 className="text-[22px] font-bold text-[#0B361F] lg:text-[24px]">Support our work</h3>
+                  <p className="mt-1.5 text-[18px] leading-[1.5] text-[#2F4538] lg:text-[19px]">Help us continue to develop tools and resources for a more inclusive digital world.</p>
                   <a href="/about-us/" className="mt-4 inline-flex items-center gap-2 rounded-full bg-[#DDF3E4] px-5 py-2.5 text-[15px] font-semibold text-[#0B361F] hover:bg-[#0B361F] hover:text-white">Find out more <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M13 6l6 6-6 6" /></svg></a>
                 </div>
               </div>
@@ -230,7 +230,7 @@ export default function Home() {
 
       {/* FOOTER */}
       <footer data-dark="footer" className="bg-[#0B3D24] text-white">
-        <div className="mx-auto grid max-w-[1440px] grid-cols-2 gap-8 px-6 py-8 sm:px-8 md:grid-cols-3 lg:grid-cols-[1.4fr_1fr_1fr_1fr_1.2fr] lg:gap-0 lg:px-12">
+        <div className="mx-auto grid max-w-[1440px] grid-cols-2 gap-8 px-6 py-8 sm:px-8 md:grid-cols-3 lg:grid-cols-[1.4fr_1fr_1fr_1fr_1.2fr] lg:gap-0 lg:px-12 xl:px-[88px]">
           <div className="col-span-2 md:col-span-3 lg:col-span-1 lg:pr-8">
             <BrandLogo light />
             <p className="mt-3 max-w-[260px] text-[14.5px] leading-[1.45] text-[#CFE8DA]">A sensory regulation app from NeuroDigital Support.</p>
@@ -268,7 +268,7 @@ export default function Home() {
         </div>
 
         <div className="border-t border-white/15">
-          <div className="mx-auto flex max-w-[1440px] flex-col gap-3 px-6 py-4 text-[13.5px] sm:flex-row sm:items-center sm:justify-between sm:px-8 lg:px-12">
+          <div className="mx-auto flex max-w-[1440px] flex-col gap-3 px-6 py-4 text-[13.5px] sm:flex-row sm:items-center sm:justify-between sm:px-8 lg:px-12 xl:px-[88px]">
             <p className="m-0 text-[#CFE8DA]">© 2026 NeuroDigital Support. All rights reserved.</p>
             <ul className="flex flex-wrap items-center gap-y-2 text-[#CFE8DA]">
               {[["Accessibility", "/accessibility/"], ["Privacy Policy", "/privacy-policy/"], ["Terms of Use", "/terms/"], ["Cookies", "/cookie-policy/"]].map(([label, href], i) => (
