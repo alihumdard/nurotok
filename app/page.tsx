@@ -190,7 +190,7 @@ export default function Home() {
             <div className="grid gap-4 md:grid-cols-2">
               <div className="group rounded-[16px] border border-[#D5E2D8] bg-white shadow-[0_2px_10px_rgba(11,54,31,0.05)] transition hover:-translate-y-0.5 hover:shadow-[0_12px_28px_rgba(11,54,31,0.10)] flex flex-col overflow-hidden lg:flex-row">
                 <div className="relative h-48 w-full shrink-0 lg:h-auto lg:min-h-[200px] lg:w-[44%]">
-                  <Image src={photo.training} alt="" fill sizes="(min-width: 768px) 20vw, 44vw" quality={80} className="object-cover object-[40%_center]" />
+                  <Image src="/images/home/partner.jpg" alt="" fill sizes="(min-width: 1024px) 22vw, 100vw" quality={80} className="object-cover" />
                 </div>
                 <div className="flex flex-1 flex-col items-start justify-center p-5 sm:p-6">
                   <h3 className="text-[19px] font-bold text-[#0B361F]">Partner with NuroTok</h3>
