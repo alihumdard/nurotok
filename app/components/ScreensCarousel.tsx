@@ -1,13 +1,14 @@
 "use client";
 
+import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
-import { HomeScreen, ProfileScreen, ToolkitScreen, InsightsScreen, Icon } from "./AppScreens";
+import { Icon } from "./AppScreens";
 
 const SCREENS = [
-  { name: "Home", subtitle: "Distraction-free daily navigation.", icon: "home" as const, Screen: HomeScreen },
-  { name: "Profile", subtitle: "Personal sensory preferences.", icon: "profile" as const, Screen: ProfileScreen },
-  { name: "Toolkit", subtitle: "Calming tools within easy reach.", icon: "toolkit" as const, Screen: ToolkitScreen },
-  { name: "Insights", subtitle: "Weekly wellbeing patterns.", icon: "insights" as const, Screen: InsightsScreen },
+  { name: "Home", subtitle: "Distraction-free daily navigation.", icon: "home" as const, img: "/images/screens/home.webp" },
+  { name: "Profile", subtitle: "Personal sensory preferences.", icon: "profile" as const, img: "/images/screens/profile.webp" },
+  { name: "Toolkit", subtitle: "Calming tools within easy reach.", icon: "toolkit" as const, img: "/images/screens/toolkit.webp" },
+  { name: "Insights", subtitle: "Weekly wellbeing patterns.", icon: "insights" as const, img: "/images/screens/insights.webp" },
 ];
 
 /** Phones: one full slide at a time with arrows + dots. md and up: 4-column grid. */
@@ -43,15 +44,23 @@ export default function ScreensCarousel() {
         aria-label="NuroTok app screens"
         className="flex snap-x snap-mandatory overflow-x-auto [scrollbar-width:none] md:grid md:grid-cols-4 md:gap-x-5 md:overflow-visible [&::-webkit-scrollbar]:hidden"
       >
-        {SCREENS.map(({ name, subtitle, icon, Screen }, i) => (
+        {SCREENS.map(({ name, subtitle, icon, img }, i) => (
           <article
             key={name}
             aria-roledescription="slide"
             aria-label={`${i + 1} of ${SCREENS.length}: ${name}`}
             className="w-full shrink-0 snap-center px-10 text-center md:w-auto md:px-0"
           >
-            <div className="mx-auto w-[230px] max-w-full md:w-auto [&>div]:max-w-[230px] md:[&>div]:max-w-[176px]">
-              <Screen />
+            <div className="mx-auto w-[230px] max-w-full md:w-[200px] lg:w-[220px]">
+              <Image
+                src={img}
+                alt={`The NuroTok ${name} screen on a phone`}
+                width={900}
+                height={1844}
+                sizes="(min-width: 1024px) 220px, (min-width: 768px) 200px, 230px"
+                quality={90}
+                className="h-auto w-full"
+              />
             </div>
             <h3 className="mt-5 flex items-center justify-center gap-2 text-[17px] font-bold text-[#0B361F]">
               <Icon name={icon} size={18} strokeWidth={2} className="text-[#1E7A4C]" />

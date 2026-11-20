@@ -166,8 +166,8 @@ export default function Home() {
               src="https://neurodigitalsupport.com/videos/nurotok-demo-1080p.mp4"
               className="relative block aspect-[16/10] overflow-hidden rounded-[6px] border border-[#D5E2D8] lg:aspect-auto lg:h-full lg:min-h-[380px]"
             >
-              <Image src={photo.hero} alt="" fill sizes="(min-width: 1024px) 55vw, 100vw" quality={80} className="object-cover object-center" />
-              <span aria-hidden="true" className="absolute inset-0 bg-[#0B361F]/25" />
+              <Image src="/images/screens/demo-poster.jpg" alt="" fill sizes="(min-width: 1024px) 55vw, 100vw" quality={85} className="object-cover object-center" />
+              <span aria-hidden="true" className="absolute inset-0 bg-[#0B361F]/10" />
               <span data-light className="absolute left-1/2 top-1/2 z-10 flex h-[72px] w-[72px] -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-white text-[#0B361F] shadow-[0_10px_28px_rgba(0,0,0,0.28)] transition-transform duration-300 group-hover:scale-110">
                 <svg aria-hidden="true" width="26" height="26" viewBox="0 0 24 24" fill="currentColor" className="ml-[3px]"><path d="M7 4.8v14.4c0 .8.9 1.3 1.6.9l11.2-7.2c.6-.4.6-1.4 0-1.8L8.6 3.9C7.9 3.5 7 4 7 4.8z" /></svg>
               </span>
@@ -197,17 +197,8 @@ export default function Home() {
             <ScreensCarousel />
           </div>
 
-          {/* NuroTok questions, answered */}
-          <div className="mt-20 lg:mt-28">
-            <h2 className="text-[32px] font-bold tracking-[-0.02em] text-[#0B361F] sm:text-[40px]">NuroTok questions, answered</h2>
-            <p className="mt-3 text-[20px] leading-[1.55] text-[#2F4538]">Quick answers to common questions about NuroTok.</p>
-            <div className="mt-8">
-              <FaqAccordion items={faqs} />
-            </div>
-          </div>
-
           {/* Ready to manage your sensory wellbeing? */}
-          <div id="download" className="mt-20 scroll-mt-28 rounded-[6px] border border-[#D5E2D8] bg-white p-7 sm:p-10 lg:mt-28 lg:p-12">
+          <div id="download" className="mt-12 scroll-mt-28 rounded-[6px] border border-[#D5E2D8] bg-white p-7 sm:p-10 lg:mt-16 lg:p-12">
             <h2 className="text-[32px] font-bold tracking-[-0.02em] text-[#0B361F] sm:text-[40px]">Ready to manage your sensory wellbeing?</h2>
             <div className="mt-6 flex flex-wrap gap-3">
               <a href={APP_STORE_URL} className="inline-flex items-center gap-3 rounded-[8px] bg-[#0B1A12] px-5 py-3 text-white transition-transform hover:-translate-y-0.5">
@@ -231,6 +222,16 @@ export default function Home() {
               </a>
             </div>
           </div>
+
+          {/* NuroTok questions, answered */}
+          <div className="mt-20 lg:mt-28">
+            <h2 className="text-[32px] font-bold tracking-[-0.02em] text-[#0B361F] sm:text-[40px]">NuroTok questions, answered</h2>
+            <p className="mt-3 text-[20px] leading-[1.55] text-[#2F4538]">Quick answers to common questions about NuroTok.</p>
+            <div className="mt-8">
+              <FaqAccordion items={faqs} />
+            </div>
+          </div>
+
         </div>
       </section>
 
