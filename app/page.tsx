@@ -261,9 +261,9 @@ export default function Home() {
             </ul>
           </nav>
 
-          <div className="col-span-2 flex items-center gap-4 md:col-span-3 lg:col-span-1 lg:border-l lg:border-white/15 lg:pl-10">
-            <svg aria-hidden="true" width="40" height="40" viewBox="0 0 32 32" fill="none" stroke="#94E7BC" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" className="shrink-0"><path d="M27 5C15 5 7 10.5 7 19.5c0 2.2.6 4 1.6 5.3C18.5 25 26 18 27 5z" /><path d="M5 27c4-5 9-9.5 15-13" /></svg>
-            <p className="text-[19px] font-bold leading-[1.3] text-white">A calmer mind,<br />a brighter you.</p>
+          <div className="flex items-center gap-3 md:col-span-2 lg:col-span-1 lg:gap-4 lg:border-l lg:border-white/15 lg:pl-10">
+            <svg aria-hidden="true" width="40" height="40" viewBox="0 0 32 32" fill="none" stroke="#94E7BC" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" className="h-8 w-8 shrink-0 lg:h-10 lg:w-10"><path d="M27 5C15 5 7 10.5 7 19.5c0 2.2.6 4 1.6 5.3C18.5 25 26 18 27 5z" /><path d="M5 27c4-5 9-9.5 15-13" /></svg>
+            <p className="text-[16px] font-bold leading-[1.3] text-white lg:text-[19px]">A calmer mind,<br />a brighter you.</p>
           </div>
         </div>
 
