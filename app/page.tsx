@@ -151,6 +151,117 @@ export default function Home() {
         </div>
       </section>
 
+      {/* WHAT'S ON / NEWS / SUPPORT US */}
+      <section className="bg-[#F3F7F2] pb-10 lg:pb-12">
+        <div className="mx-auto max-w-[1440px] space-y-10 px-5 sm:px-8 lg:px-12">
+          <div>
+            <div className="mb-4 flex items-center justify-between gap-4">
+              <h2 className="flex items-center gap-3 text-[24px] font-bold tracking-[-0.02em] text-[#0B361F] sm:text-[28px]">
+                <span aria-hidden="true" className="flex h-9 w-9 items-center justify-center rounded-lg text-white" style={{ background: "#3FA34D" }}>
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="3.5" y="5" width="17" height="15.5" rx="2" /><path d="M3.5 10h17M8 3v4M16 3v4" /></svg>
+                </span>
+                What&rsquo;s on
+              </h2>
+              <a href="/events/" className="inline-flex items-center gap-2 text-[15px] font-bold text-[#1E7A4C] hover:text-[#0B361F]">View more events <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M13 6l6 6-6 6" /></svg></a>
+            </div>
+            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+              {[
+                { title: "NuroTok Webinar: Digital Wellbeing", date: "Thu 14 January 2027", icon: <><rect x="3.5" y="5" width="17" height="15.5" rx="2" /><path d="M3.5 10h17M8 3v4M16 3v4" /></> },
+                { title: "Sensory Support Workshop", date: "Tue 9 February 2027", icon: <><circle cx="12" cy="7.5" r="2.6" /><circle cx="5.2" cy="9.3" r="2.1" /><circle cx="18.8" cy="9.3" r="2.1" /><path d="M7.2 19.5v-1.2a4.8 4.8 0 0 1 9.6 0v1.2M1.8 18.5v-.6a3.4 3.4 0 0 1 4.6-3.2M22.2 18.5v-.6a3.4 3.4 0 0 0-4.6-3.2" /></> },
+                { title: "Using NuroTok in Daily Life", date: "Thu 25 February 2027", icon: <><rect x="3" y="5" width="18" height="12" rx="1.5" /><path d="M1.5 19.5h21" /></> },
+                { title: "Calmer Screens for Focus", date: "Tue 9 March 2027", icon: <><path d="M20 4C11 4 5 9 5 16c0 1.5.3 2.6.8 3.5" /><path d="M20 4c0 9-5 15-12 15" /></> },
+              ].map(ev => (
+                <a key={ev.title} href="/events/" className="group rounded-[16px] border border-[#D5E2D8] bg-white shadow-[0_2px_10px_rgba(11,54,31,0.05)] transition hover:-translate-y-0.5 hover:shadow-[0_12px_28px_rgba(11,54,31,0.10)] flex flex-col p-5">
+                  <svg aria-hidden="true" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#2E7D50" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">{ev.icon}</svg>
+                  <h3 className="mt-2 text-[17px] font-bold leading-snug text-[#0B361F]">{ev.title}</h3>
+                  <span className="mt-3 flex items-center justify-between gap-3 text-[13.5px] text-[#2F4538]">
+                    <span className="flex items-center gap-2"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><rect x="3.5" y="5" width="17" height="15.5" rx="2" /><path d="M3.5 10h17M8 3v4M16 3v4" /></svg>{ev.date}</span>
+                    <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#DDF3E4] text-[#1E7A4C] transition group-hover:bg-[#0B361F] group-hover:text-white"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M13 6l6 6-6 6" /></svg></span>
+                  </span>
+                </a>
+              ))}
+            </div>
+          </div>
+
+          <div>
+            <div className="mb-4 flex items-center justify-between gap-4">
+              <h2 className="flex items-center gap-3 text-[24px] font-bold tracking-[-0.02em] text-[#0B361F] sm:text-[28px]">
+                <span aria-hidden="true" className="flex h-9 w-9 items-center justify-center rounded-lg text-white" style={{ background: "#3FA34D" }}>
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="4" width="18" height="16" rx="2" /><path d="M7 8h10M7 12h10M7 16h6" /></svg>
+                </span>
+                Latest news
+              </h2>
+              <a href="/news/" className="inline-flex items-center gap-2 text-[15px] font-bold text-[#1E7A4C] hover:text-[#0B361F]">View all news <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M13 6l6 6-6 6" /></svg></a>
+            </div>
+            <div className="grid gap-4 md:grid-cols-3">
+              {[
+                { title: "NuroTok: New app features now available", date: "7 November 2026", img: "/images/home/app-break.jpg" },
+                { title: "How sensory tools can support focus", date: "5 November 2026", img: photo.hero, pos: "object-[78%_30%]" },
+                { title: "Our latest research update", date: "23 October 2026", img: photo.research },
+              ].map(n => (
+                <a key={n.title} href="/news/" className="group rounded-[16px] border border-[#D5E2D8] bg-white shadow-[0_2px_10px_rgba(11,54,31,0.05)] transition hover:-translate-y-0.5 hover:shadow-[0_12px_28px_rgba(11,54,31,0.10)] flex overflow-hidden">
+                  <div className="relative w-[38%] shrink-0">
+                    <Image src={n.img} alt="" fill sizes="(min-width: 768px) 14vw, 38vw" quality={75} className={`object-cover ${"pos" in n ? n.pos : ""}`} />
+                  </div>
+                  <div className="flex flex-1 flex-col justify-between gap-3 p-4">
+                    <h3 className="text-[16px] font-bold leading-snug text-[#0B361F]">{n.title}</h3>
+                    <span className="flex items-center justify-between gap-3 text-[13.5px] text-[#2F4538]">
+                      <span className="flex items-center gap-2"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><rect x="3.5" y="5" width="17" height="15.5" rx="2" /><path d="M3.5 10h17M8 3v4M16 3v4" /></svg>{n.date}</span>
+                      <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#DDF3E4] text-[#1E7A4C] transition group-hover:bg-[#0B361F] group-hover:text-white"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M13 6l6 6-6 6" /></svg></span>
+                    </span>
+                  </div>
+                </a>
+              ))}
+            </div>
+          </div>
+
+          <div>
+            <div className="mb-4 flex items-center justify-between gap-4">
+              <h2 className="flex items-center gap-3 text-[24px] font-bold tracking-[-0.02em] text-[#0B361F] sm:text-[28px]">
+                <span aria-hidden="true" className="flex h-9 w-9 items-center justify-center rounded-lg text-white" style={{ background: "#7B4FC9" }}>
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="7.5" r="2.6" /><circle cx="5.2" cy="9.3" r="2.1" /><circle cx="18.8" cy="9.3" r="2.1" /><path d="M7.2 19.5v-1.2a4.8 4.8 0 0 1 9.6 0v1.2" /></svg>
+                </span>
+                Support us
+              </h2>
+              
+            </div>
+            <div className="grid gap-4 md:grid-cols-2">
+              <div className="group rounded-[16px] border border-[#D5E2D8] bg-white shadow-[0_2px_10px_rgba(11,54,31,0.05)] transition hover:-translate-y-0.5 hover:shadow-[0_12px_28px_rgba(11,54,31,0.10)] flex overflow-hidden">
+                <div className="relative w-[44%] shrink-0">
+                  <Image src={photo.training} alt="" fill sizes="(min-width: 768px) 20vw, 44vw" quality={75} className="object-cover" />
+                </div>
+                <div className="flex flex-1 flex-col items-start p-5">
+                  <h3 className="text-[19px] font-bold text-[#0B361F]">Partner with NuroTok</h3>
+                  <p className="mt-1.5 text-[15px] leading-[1.5] text-[#2F4538]">Work with us to bring sensory support to more people.</p>
+                  <a href="/contact-us/" className="mt-4 inline-flex items-center gap-2 rounded-full bg-[#DDF3E4] px-5 py-2.5 text-[15px] font-semibold text-[#0B361F] hover:bg-[#0B361F] hover:text-white">Get in touch <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M13 6l6 6-6 6" /></svg></a>
+                </div>
+              </div>
+              <div className="group rounded-[16px] border border-[#D5E2D8] bg-white shadow-[0_2px_10px_rgba(11,54,31,0.05)] transition hover:-translate-y-0.5 hover:shadow-[0_12px_28px_rgba(11,54,31,0.10)] flex items-start gap-5 p-5 sm:p-6">
+                <svg aria-hidden="true" width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#3FA34D" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className="shrink-0"><path d="M12 20s-7.5-4.6-7.5-10A4.5 4.5 0 0 1 12 7a4.5 4.5 0 0 1 7.5 3c0 5.4-7.5 10-7.5 10z" /></svg>
+                <div className="flex flex-col items-start">
+                  <h3 className="text-[19px] font-bold text-[#0B361F]">Support our work</h3>
+                  <p className="mt-1.5 text-[15px] leading-[1.5] text-[#2F4538]">Help us continue to develop tools and resources for a more inclusive digital world.</p>
+                  <a href="/about-us/" className="mt-4 inline-flex items-center gap-2 rounded-full bg-[#DDF3E4] px-5 py-2.5 text-[15px] font-semibold text-[#0B361F] hover:bg-[#0B361F] hover:text-white">Find out more <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M13 6l6 6-6 6" /></svg></a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Contact strip */}
+          <div className="grid gap-5 border-t border-[#D5E2D8] pt-6 text-[14.5px] text-[#0B361F] sm:grid-cols-2 lg:grid-cols-4 lg:items-center">
+            <p className="flex items-center gap-3"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="#0B361F"><path d="M12 2a7 7 0 0 0-7 7c0 5.3 7 13 7 13s7-7.7 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z" /></svg>NuroTok · NeuroDigital Support<br className="hidden lg:block" /> United Kingdom</p>
+            <a href="tel:+447825354088" className="flex items-center gap-3 hover:text-[#367050]"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="#0B361F"><path d="M6.6 10.8a15 15 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1z" /></svg>+44 7825 354088</a>
+            <a href="mailto:info@nurotok.co.uk" className="flex items-center gap-3 hover:text-[#367050]"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="#0B361F"><path d="M3 5h18v14H3z" /><path d="M3.5 6l8.5 6.5L20.5 6" stroke="#F3F7F2" strokeWidth="1.6" fill="none" /></svg>info@nurotok.co.uk</a>
+            <div className="flex items-center gap-4 lg:justify-end">
+              <a href="#" aria-label="LinkedIn" className="text-[#0B361F] hover:opacity-70"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.5h4V21H3zM9.5 9.5h3.8v1.6h.1c.5-1 1.8-2 3.8-2 4 0 4.8 2.6 4.8 6V21h-4v-5.2c0-1.2 0-2.8-1.7-2.8s-2 1.3-2 2.7V21h-4z" /></svg></a>
+              <a href="#" aria-label="YouTube" className="text-[#E62117] hover:opacity-70"><svg width="28" height="24" viewBox="0 0 28 20" fill="currentColor"><path d="M27.4 3.1A3.5 3.5 0 0 0 25 .6C22.8 0 14 0 14 0S5.2 0 3 .6A3.5 3.5 0 0 0 .6 3.1 37 37 0 0 0 0 10a37 37 0 0 0 .6 6.9A3.5 3.5 0 0 0 3 19.4c2.2.6 11 .6 11 .6s8.8 0 11-.6a3.5 3.5 0 0 0 2.4-2.5A37 37 0 0 0 28 10a37 37 0 0 0-.6-6.9zM11.2 14.3V5.7L18.5 10z" /></svg></a>
+              <a href="#" aria-label="Instagram" className="text-[#C13584] hover:opacity-70"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="3" y="3" width="18" height="18" rx="5" /><circle cx="12" cy="12" r="4" /><circle cx="17.5" cy="6.5" r="1" fill="currentColor" /></svg></a>
+              <a href="#" aria-label="X" className="text-[#0B361F] hover:opacity-70"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M18.2 2.5h3.3l-7.2 8.2 8.5 10.8h-6.6l-5.2-6.6-5.9 6.6H1.8l7.7-8.8L1.4 2.5h6.8l4.7 6.1zm-1.2 17h1.8L7.1 4.4H5.1z" /></svg></a>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* DEMO */}
       <section id="demo" className="scroll-mt-24 bg-[#FAFBF8] py-10 lg:py-14">
         <div className="reveal mx-auto grid max-w-[1440px] gap-6 px-5 sm:px-8 lg:grid-cols-[minmax(0,1.12fr)_minmax(0,1fr)] lg:items-stretch lg:gap-8 lg:px-12">
