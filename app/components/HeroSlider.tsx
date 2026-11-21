@@ -116,7 +116,7 @@ export default function HeroSlider({ slides }: { slides: Slide[] }) {
       )}
 
       {/* Media */}
-      <div className={`relative order-1 min-h-0 overflow-hidden lg:order-2 ${solo ? "h-[58vw] max-h-[560px] min-h-[240px] bg-[#EDF7F1] lg:h-[calc(100svh-230px)]" : "min-h-[280px] lg:min-h-[380px]"}`}>
+      <div className={`relative order-1 min-h-0 overflow-hidden lg:order-2 ${solo ? "h-[56vw] max-h-[calc(100svh-230px)] min-h-[240px] w-full" : "min-h-[280px] lg:min-h-[460px]"}`}>
         {slide.kind === "video" && playing ? (
           <video
             ref={video}
@@ -154,7 +154,7 @@ export default function HeroSlider({ slides }: { slides: Slide[] }) {
                 priority={active === 0}
                 sizes="(min-width: 1024px) 50vw, 100vw"
                 quality={82}
-                className={solo ? "bg-[#EDF7F1] object-contain object-center" : "object-cover object-center lg:[clip-path:ellipse(95%_150%_at_100%_50%)]"}
+                className={solo ? "object-cover object-center" : "object-cover object-center lg:[clip-path:ellipse(95%_150%_at_100%_50%)]"}
               />
             )}
             {slide.kind === "video" && (
