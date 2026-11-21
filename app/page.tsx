@@ -2,11 +2,11 @@ import Image from "next/image";
 import SiteHeader from "./components/SiteHeader";
 import DemoVideo from "./components/DemoVideo";
 import ScreensCarousel from "./components/ScreensCarousel";
+import HeroSlider, { type Slide } from "./components/HeroSlider";
 import FaqAccordion from "./components/FaqAccordion";
 
-// Replace with the live store listings once confirmed (brief handover note).
-const APP_STORE_URL = "#";
-const GOOGLE_PLAY_URL = "#";
+const APP_STORE_URL = "https://apps.apple.com/app/nurotok/id6822251386";
+const GOOGLE_PLAY_URL = "https://play.google.com/store/apps/details?id=com.nurotok.app";
 const ACCOUNT_URL = "/account/";
 const linkCls = "font-semibold text-[#367050] underline underline-offset-2 hover:text-[#0B361F]";
 
@@ -38,6 +38,49 @@ const photo = {
   training: "/images/home/training.jpg",
 };
 
+/* Top-of-page slider: images and the demo video (client request). */
+const heroSlides: Slide[] = [
+  {
+    kind: "image",
+    src: photo.hero,
+    alt: "A hand holding a phone showing the NuroTok app, in a calm workspace",
+    eyebrow: "NuroTok",
+    title: "When your phone feels like too much",
+    text: "NuroTok is a sensory regulation app from NeuroDigital Support. It gives you ways to adjust what you see or hear, pause an app, or take a moment before you carry on.",
+    cta: { label: "Get NuroTok for your device", href: "#download" },
+  },
+  {
+    kind: "video",
+    src: "https://neurodigitalsupport.com/videos/nurotok-demo-1080p.mp4",
+    poster: "/images/screens/demo-poster.jpg",
+    alt: "A 37-second tour of the NuroTok app",
+    eyebrow: "Watch",
+    title: "See NuroTok in action",
+    text: "A 37-second look at the sensory profile, app protection, the sensory toolkit and Insights.",
+    cta: { label: "Explore the features", href: "/features/" },
+  },
+  {
+    kind: "image",
+    src: "/images/screens/toolkit.webp",
+    alt: "The NuroTok sensory toolkit on a phone",
+    fit: "screen",
+    eyebrow: "Sensory toolkit",
+    title: "Calming tools within easy reach",
+    text: "Breathing guides, sounds, comfort settings and check-ins, all in one place. Choose the tool that feels right for you today.",
+    cta: { label: "Explore the features", href: "/features/" },
+  },
+  {
+    kind: "image",
+    src: "/images/screens/insights.webp",
+    alt: "The NuroTok Insights screen on a phone",
+    fit: "screen",
+    eyebrow: "Insights",
+    title: "Small steps. Real change.",
+    text: "See your calmer, safer days in numbers. NuroTok counts only what it stepped in on, and never keeps what it saw.",
+    cta: { label: "Read the research", href: "/research/" },
+  },
+];
+
 function BrandLogo({ light = false }: { light?: boolean }) {
   return (
     <a href="/" aria-label="NuroTok home" className="flex items-center gap-2.5">
@@ -66,34 +109,11 @@ export default function Home() {
       {/* NAVIGATION */}
       <SiteHeader logo={<BrandLogo />} />
 
-      {/* NEWS + QUICK TOOLS */}
+      {/* HERO SLIDER + QUICK TOOLS */}
       <section id="main-content" className="bg-[#F6F3EC] pb-20 pt-8 lg:pb-32 lg:pt-10">
         <div className="mx-auto max-w-[1440px] px-5 sm:px-8 lg:px-12 xl:px-[88px]">
-          {/* News card */}
-          <div className="relative grid overflow-hidden rounded-[6px] border border-[#D5E2D8] bg-white lg:grid-cols-2">
-            <div className="relative z-10 p-7 sm:p-10 lg:py-12 lg:pl-12">
-              <p className="text-[20px] font-bold text-[#0B361F]">News</p>
-              <span aria-hidden="true" className="mt-2 block h-1 w-12 rounded-full bg-[#367050]" />
-              <h1 className="mt-5 text-[40px] font-bold leading-[1.08] tracking-[-0.03em] text-[#0B361F] sm:text-[52px] lg:text-[60px]">When your phone feels like too much</h1>
-              <p className="mt-4 max-w-[520px] text-[20px] leading-[1.5] text-[#1F3A2B]">
-                You opened your phone to reply to a friend. A video starts, the group chat lights up and suddenly it&rsquo;s hard to remember what you came to do.
-              </p>
-              <p className="mt-3 max-w-[520px] text-[20px] leading-[1.5] text-[#1F3A2B]">
-                NuroTok is a sensory regulation app from NeuroDigital Support. It gives you ways to adjust what you see or hear, pause an app, or take a moment before you carry on. Choose the tool that feels right for you today.
-              </p>
-              <div className="mt-6 flex flex-wrap items-center gap-x-6 gap-y-3 text-[19px] font-bold">
-                <a href="#download" className="inline-flex items-center gap-2 text-[#367050] hover:text-[#0B361F]">
-                  Get NuroTok for your device <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
-                </a>
-                <a href="/features/" className="text-[#367050] hover:text-[#0B361F]">Explore the features</a>
-                <a href="/store/" className="text-[#367050] hover:text-[#0B361F]">Shop NuroTok merchandise</a>
-              </div>
-            </div>
-
-            <div className="relative min-h-[280px] overflow-hidden lg:min-h-[340px]">
-              <Image src={photo.hero} alt="A hand holding a phone showing the NuroTok app, in a calm workspace" fill priority sizes="(min-width: 1024px) 50vw, 100vw" quality={80} className="object-cover object-center lg:[clip-path:ellipse(95%_150%_at_100%_50%)]" />
-            </div>
-          </div>
+          {/* Slider of images and videos */}
+          <HeroSlider slides={heroSlides} />
 
           {/* Three quick tools */}
           <h2 className="mt-20 text-[32px] font-bold tracking-[-0.02em] text-[#0B361F] sm:text-[40px] lg:mt-28">What would help right now?</h2>
