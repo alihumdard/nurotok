@@ -53,9 +53,34 @@ export default function HeroSlider({ slides }: { slides: Slide[] }) {
   }, [playing]);
 
   const slide = slides[active];
+  // A video slide fills the panel on its own, with no copy beside it (client request).
+  const solo = slide.kind === "video";
 
   const arrow =
     "flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-[#C9DACB] bg-white text-[#0B361F] shadow-sm transition hover:bg-[#0B361F] hover:text-white";
+
+  const controls = (
+    <div className="flex items-center gap-4">
+      <button type="button" aria-label="Previous slide" onClick={() => go(active - 1)} className={arrow}>
+        <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><path d="M15 6l-6 6 6 6" /></svg>
+      </button>
+      <div className="flex items-center gap-2">
+        {slides.map((s, i) => (
+          <button
+            key={s.title}
+            type="button"
+            aria-label={`Show slide ${i + 1}: ${s.title}`}
+            aria-current={active === i}
+            onClick={() => go(i)}
+            className={`h-2.5 rounded-full transition-all ${active === i ? "w-7 bg-[#0B361F]" : "w-2.5 bg-[#B9CFBF]"}`}
+          />
+        ))}
+      </div>
+      <button type="button" aria-label="Next slide" onClick={() => go(active + 1)} className={arrow}>
+        <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><path d="M9 6l6 6-6 6" /></svg>
+      </button>
+    </div>
+  );
 
   return (
     <div
@@ -66,9 +91,10 @@ export default function HeroSlider({ slides }: { slides: Slide[] }) {
       onMouseLeave={() => setPaused(false)}
       onFocusCapture={() => setPaused(true)}
       onBlurCapture={() => setPaused(false)}
-      className="relative grid overflow-hidden rounded-[6px] border border-[#D5E2D8] bg-white lg:grid-cols-2"
+      className={`relative grid overflow-hidden rounded-[6px] border border-[#D5E2D8] bg-white${solo ? "" : " lg:grid-cols-2"}`}
     >
-      {/* Copy */}
+      {/* Copy — hidden while a video slide is showing */}
+      {!solo && (
       <div className="relative z-10 order-2 p-7 sm:p-10 lg:order-1 lg:py-12 lg:pl-12">
         <p className="text-[20px] font-bold text-[#0B361F]">{slide.eyebrow}</p>
         <span aria-hidden="true" className="mt-2 block h-1 w-12 rounded-full bg-[#367050]" />
@@ -85,30 +111,12 @@ export default function HeroSlider({ slides }: { slides: Slide[] }) {
         </div>
 
         {/* Controls */}
-        <div className="mt-8 flex items-center gap-4">
-          <button type="button" aria-label="Previous slide" onClick={() => go(active - 1)} className={arrow}>
-            <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><path d="M15 6l-6 6 6 6" /></svg>
-          </button>
-          <div className="flex items-center gap-2">
-            {slides.map((s, i) => (
-              <button
-                key={s.title}
-                type="button"
-                aria-label={`Show slide ${i + 1}: ${s.title}`}
-                aria-current={active === i}
-                onClick={() => go(i)}
-                className={`h-2.5 rounded-full transition-all ${active === i ? "w-7 bg-[#0B361F]" : "w-2.5 bg-[#B9CFBF]"}`}
-              />
-            ))}
-          </div>
-          <button type="button" aria-label="Next slide" onClick={() => go(active + 1)} className={arrow}>
-            <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><path d="M9 6l6 6-6 6" /></svg>
-          </button>
-        </div>
+        <div className="mt-8">{controls}</div>
       </div>
+      )}
 
       {/* Media */}
-      <div className="relative order-1 min-h-[280px] overflow-hidden lg:order-2 lg:min-h-[420px]">
+      <div className={`relative order-1 overflow-hidden lg:order-2 ${solo ? "aspect-[16/9] min-h-[260px] lg:aspect-[21/9]" : "min-h-[280px] lg:min-h-[420px]"}`}>
         {slide.kind === "video" && playing ? (
           <video
             ref={video}
@@ -146,7 +154,7 @@ export default function HeroSlider({ slides }: { slides: Slide[] }) {
                 priority={active === 0}
                 sizes="(min-width: 1024px) 50vw, 100vw"
                 quality={82}
-                className="object-cover object-center lg:[clip-path:ellipse(95%_150%_at_100%_50%)]"
+                className={`object-cover object-center${solo ? "" : " lg:[clip-path:ellipse(95%_150%_at_100%_50%)]"}`}
               />
             )}
             {slide.kind === "video" && (
@@ -165,6 +173,13 @@ export default function HeroSlider({ slides }: { slides: Slide[] }) {
               </button>
             )}
           </>
+        )}
+
+        {/* On a video slide the copy is hidden, so the controls sit over the media */}
+        {solo && !playing && (
+          <div className="absolute bottom-5 left-1/2 z-10 -translate-x-1/2 rounded-full bg-white/85 p-2 shadow-[0_8px_24px_rgba(11,54,31,0.18)] backdrop-blur-sm">
+            {controls}
+          </div>
         )}
       </div>
     </div>
