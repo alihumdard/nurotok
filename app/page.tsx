@@ -4,6 +4,8 @@ import DemoVideo from "./components/DemoVideo";
 import ScreensCarousel from "./components/ScreensCarousel";
 import HeroSlider, { type Slide } from "./components/HeroSlider";
 import FaqAccordion from "./components/FaqAccordion";
+import BrandLogo from "./components/BrandLogo";
+import SiteFooter from "./components/SiteFooter";
 
 const APP_STORE_URL = "https://apps.apple.com/app/nurotok/id6822251386";
 const GOOGLE_PLAY_URL = "https://play.google.com/store/apps/details?id=com.nurotok.app";
@@ -41,15 +43,6 @@ const photo = {
 /* Top-of-page slider: images and the demo video (client request). */
 const heroSlides: Slide[] = [
   {
-    kind: "image",
-    src: photo.hero,
-    alt: "A hand holding a phone showing the NuroTok app, in a calm workspace",
-    eyebrow: "NuroTok",
-    title: "When your phone feels like too much",
-    text: "NuroTok is a sensory regulation app from NeuroDigital Support. It gives you ways to adjust what you see or hear, pause an app, or take a moment before you carry on.",
-    cta: { label: "Get NuroTok for your device", href: "#download" },
-  },
-  {
     kind: "video",
     src: "https://neurodigitalsupport.com/videos/nurotok-demo-1080p.mp4",
     poster: "/images/screens/demo-poster.jpg",
@@ -81,20 +74,6 @@ const heroSlides: Slide[] = [
   },
 ];
 
-function BrandLogo({ light = false }: { light?: boolean }) {
-  return (
-    <a href="/" aria-label="NuroTok home" className="flex items-center gap-2.5">
-      <span {...(light ? { "data-light": true } : {})} className={`shrink-0 ${light ? "rounded-full bg-[#F6F3EC] p-1" : ""}`}>
-        <img src="/images/nurotok-logo.png" alt="" width={56} height={56} className={`${light ? "" : "nt-logo-img "}h-[44px] w-[44px] sm:h-[52px] sm:w-[52px] lg:h-[56px] lg:w-[56px]`} />
-      </span>
-      <span
-        className={`font-heading text-[26px] font-bold leading-none tracking-[-0.03em] sm:text-[30px] lg:text-[34px] ${light ? "text-white" : "text-[#0E4A2E]"}`}
-      >
-        NuroTok<sup className="text-[0.45em] font-semibold align-super">TM</sup>
-      </span>
-    </a>
-  );
-}
 
 export default function Home() {
   return (
@@ -401,78 +380,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* FOOTER */}
-      <footer data-dark="footer" className="bg-[#BDEED7] text-[#0B361F]">
-        <div className="mx-auto grid max-w-[1440px] grid-cols-2 gap-8 px-6 py-8 sm:px-8 md:grid-cols-3 lg:grid-cols-[1.4fr_1fr_1fr_1fr_1.2fr] lg:gap-0 lg:px-12 xl:px-[88px]">
-          <div className="col-span-2 md:col-span-3 lg:col-span-1 lg:pr-8">
-            <BrandLogo />
-            <p className="mt-3 max-w-[280px] text-[16px] leading-[1.45] text-[#3E5146]">A sensory regulation app from NeuroDigital Support.</p>
-            <p className="mt-2 text-[15px] font-semibold text-[#0B361F]">
-              Supported by{" "}
-              <a href="https://neurodigitalsupport.com/" className="underline underline-offset-2 hover:text-[#367050]">
-                NeuroDigital Support
-              </a>
-            </p>
-          </div>
-
-          <nav aria-label="Quick links" className="lg:border-l lg:border-[#0B361F]/15 lg:pl-10">
-            <h3 className="text-[17px] font-bold text-[#0B361F]">Quick links</h3>
-            <ul className="mt-2 space-y-0.5">
-              {[["Home", "/"], ["About", "/about-us/"], ["Features", "/features/"], ["Research", "/research/"], ["Training", "/training/"]].map(([label, href]) => (
-                <li key={label}><a href={href} className="text-[16px] text-[#3E5146] hover:text-[#0B361F]">{label}</a></li>
-              ))}
-            </ul>
-          </nav>
-          <nav aria-label="More" className="lg:border-l lg:border-[#0B361F]/15 lg:pl-10">
-            <h3 className="text-[17px] font-bold text-[#0B361F]">More</h3>
-            <ul className="mt-2 space-y-0.5">
-              {[["Blogs", "/blogs/"], ["Store", "/store/"], ["Events", "/events/"], ["News", "/news/"], ["Contact", "/contact-us/"]].map(([label, href]) => (
-                <li key={label}><a href={href} className="text-[16px] text-[#3E5146] hover:text-[#0B361F]">{label}</a></li>
-              ))}
-            </ul>
-          </nav>
-          <nav aria-label="Information" className="lg:border-l lg:border-[#0B361F]/15 lg:pl-10">
-            <h3 className="text-[17px] font-bold text-[#0B361F]">Information</h3>
-            <ul className="mt-2 space-y-0.5">
-              {[["Accessibility", "/accessibility/"], ["Privacy Policy", "/privacy-policy/"], ["Terms of Use", "/terms/"], ["Cookies", "/cookie-policy/"]].map(([label, href]) => (
-                <li key={label}><a href={href} className="text-[16px] text-[#3E5146] hover:text-[#0B361F]">{label}</a></li>
-              ))}
-            </ul>
-          </nav>
-
-          <div className="flex items-start md:col-span-2 lg:col-span-1 lg:border-l lg:border-[#0B361F]/15 lg:pl-10">
-            <a
-              href="https://neurodigitalsupport.com/"
-              aria-label="NeuroDigital Support"
-              className="inline-flex max-w-full rounded-lg bg-white p-2 transition-transform hover:-translate-y-0.5"
-            >
-              <Image
-                src="/images/nd-support-logo.png"
-                alt="NeuroDigital Support"
-                width={886}
-                height={755}
-                sizes="100px"
-                quality={90}
-                className="h-auto w-full max-w-[92px] lg:max-w-[100px]"
-              />
-            </a>
-          </div>
-        </div>
-
-        <div className="border-t border-[#0B361F]/15">
-          <div className="mx-auto flex max-w-[1440px] flex-col gap-3 px-6 py-4 text-[15px] text-[#3E5146] sm:flex-row sm:items-center sm:justify-between sm:px-8 lg:px-12 xl:px-[88px]">
-            <p className="m-0 text-[#3E5146]">© 2026 NeuroDigital Support. All rights reserved.</p>
-            <ul className="flex flex-wrap items-center gap-y-2 text-[#3E5146]">
-              {[["Accessibility", "/accessibility/"], ["Privacy Policy", "/privacy-policy/"], ["Terms of Use", "/terms/"], ["Cookies", "/cookie-policy/"]].map(([label, href], i) => (
-                <li key={label} className="flex items-center">
-                  {i > 0 && <span aria-hidden="true" className="mx-4 h-3.5 w-px bg-[#D5E2D8]" />}
-                  <a href={href} className="hover:text-[#0B361F]">{label}</a>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-      </footer>
+      <SiteFooter />
 
     </main>
   );
