@@ -112,7 +112,7 @@ export default function Home() {
               { title: "A screen that suits you.", text: "Explore the comfort settings for your device. Start with one thing you notice often, such as movement or brightness, and see how a change feels.", pos: "object-center", img: "/images/home/screen-comfort.jpg" },
             ].map(card => (
               <a key={card.title} href="/features/" className="group flex flex-col overflow-hidden rounded-[6px] border border-[#D5E2D8] bg-white transition">
-                <div className="relative aspect-[16/8] overflow-hidden">
+                <div className="relative aspect-[16/10] overflow-hidden">
                   <Image src={card.img} alt="" fill sizes="(min-width: 768px) 33vw, 100vw" quality={80} className={`object-cover ${card.pos} transition-transform duration-500 group-hover:scale-105`} />
                 </div>
                 <div className="flex flex-1 items-end gap-3 p-5">
@@ -298,7 +298,7 @@ export default function Home() {
                 { title: "Our latest research update", date: "23 October 2026", img: "/images/home/research-insights.jpg" },
               ].map(n => (
                 <a key={n.title} href="/news/" className="group rounded-[6px] border border-[#D5E2D8] bg-white transition flex flex-col overflow-hidden">
-                  <div className="relative aspect-[16/9] overflow-hidden">
+                  <div className="relative aspect-[16/10] overflow-hidden">
                     <Image src={n.img} alt="" fill sizes="(min-width: 768px) 33vw, 100vw" quality={80} className={`object-cover transition-transform duration-500 group-hover:scale-105 ${"pos" in n ? n.pos : ""}`} />
                   </div>
                   <div className="flex flex-1 flex-col justify-between gap-4 p-5">
