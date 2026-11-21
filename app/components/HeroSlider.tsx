@@ -91,11 +91,11 @@ export default function HeroSlider({ slides }: { slides: Slide[] }) {
       onMouseLeave={() => setPaused(false)}
       onFocusCapture={() => setPaused(true)}
       onBlurCapture={() => setPaused(false)}
-      className={`relative grid overflow-hidden rounded-[6px] border border-[#D5E2D8] bg-white${solo ? "" : " lg:grid-cols-2"}`}
+      className={`relative grid overflow-hidden rounded-[6px] border border-[#D5E2D8] bg-white lg:max-h-[calc(100svh-210px)]${solo ? "" : " lg:grid-cols-2"}`}
     >
       {/* Copy — hidden while a video slide is showing */}
       {!solo && (
-      <div className="relative z-10 order-2 p-7 sm:p-10 lg:order-1 lg:py-12 lg:pl-12">
+      <div className="relative z-10 order-2 min-h-0 p-7 sm:p-10 lg:order-1 lg:overflow-y-auto lg:py-10 lg:pl-12">
         <p className="text-[20px] font-bold text-[#0B361F]">{slide.eyebrow}</p>
         <span aria-hidden="true" className="mt-2 block h-1 w-12 rounded-full bg-[#367050]" />
         <h1 className="mt-5 text-[40px] font-bold leading-[1.08] tracking-[-0.03em] text-[#0B361F] sm:text-[52px] lg:text-[60px]">
@@ -116,7 +116,7 @@ export default function HeroSlider({ slides }: { slides: Slide[] }) {
       )}
 
       {/* Media */}
-      <div className={`relative order-1 overflow-hidden lg:order-2 ${solo ? "aspect-[16/9] min-h-[260px] lg:aspect-[21/9]" : "min-h-[280px] lg:min-h-[420px]"}`}>
+      <div className={`relative order-1 min-h-0 overflow-hidden lg:order-2 ${solo ? "h-[58vw] max-h-[560px] min-h-[240px] bg-[#EDF7F1] lg:h-[calc(100svh-230px)]" : "min-h-[280px] lg:min-h-[380px]"}`}>
         {slide.kind === "video" && playing ? (
           <video
             ref={video}
@@ -132,7 +132,7 @@ export default function HeroSlider({ slides }: { slides: Slide[] }) {
           <>
             {slide.fit === "screen" ? (
               <div className="absolute inset-0 flex items-center justify-center bg-[#EDF7F1] p-6 lg:p-8">
-                <PhoneFrame className="h-full w-auto max-w-full [aspect-ratio:900/1844]">
+                <PhoneFrame className="h-full max-h-full w-auto max-w-full [aspect-ratio:900/1844]">
                   <Image
                     key={slide.src}
                     src={slide.src}
@@ -154,7 +154,7 @@ export default function HeroSlider({ slides }: { slides: Slide[] }) {
                 priority={active === 0}
                 sizes="(min-width: 1024px) 50vw, 100vw"
                 quality={82}
-                className={`object-cover object-center${solo ? "" : " lg:[clip-path:ellipse(95%_150%_at_100%_50%)]"}`}
+                className={solo ? "bg-[#EDF7F1] object-contain object-center" : "object-cover object-center lg:[clip-path:ellipse(95%_150%_at_100%_50%)]"}
               />
             )}
             {slide.kind === "video" && (
