@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useCallback, useEffect, useRef, useState } from "react";
+import PhoneFrame from "./PhoneFrame";
 
 export type Slide = {
   /** "image" slides show a photo; "video" slides play the file when opened. */
@@ -121,20 +122,33 @@ export default function HeroSlider({ slides }: { slides: Slide[] }) {
           />
         ) : (
           <>
-            <Image
-              key={slide.src}
-              src={slide.kind === "video" ? (slide.poster as string) : slide.src}
-              alt={slide.alt}
-              fill
-              priority={active === 0}
-              sizes="(min-width: 1024px) 50vw, 100vw"
-              quality={82}
-              className={
-                slide.fit === "screen"
-                  ? "bg-[#EDF7F1] object-contain object-center p-6 lg:p-10"
-                  : "object-cover object-center lg:[clip-path:ellipse(95%_150%_at_100%_50%)]"
-              }
-            />
+            {slide.fit === "screen" ? (
+              <div className="absolute inset-0 flex items-center justify-center bg-[#EDF7F1] p-6 lg:p-8">
+                <PhoneFrame className="h-full w-auto max-w-full [aspect-ratio:900/1844]">
+                  <Image
+                    key={slide.src}
+                    src={slide.src}
+                    alt={slide.alt}
+                    width={900}
+                    height={1844}
+                    sizes="240px"
+                    quality={90}
+                    className="h-auto w-full"
+                  />
+                </PhoneFrame>
+              </div>
+            ) : (
+              <Image
+                key={slide.src}
+                src={slide.kind === "video" ? (slide.poster as string) : slide.src}
+                alt={slide.alt}
+                fill
+                priority={active === 0}
+                sizes="(min-width: 1024px) 50vw, 100vw"
+                quality={82}
+                className="object-cover object-center lg:[clip-path:ellipse(95%_150%_at_100%_50%)]"
+              />
+            )}
             {slide.kind === "video" && (
               <button
                 type="button"
