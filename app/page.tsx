@@ -444,16 +444,16 @@ export default function Home() {
             <a
               href="https://neurodigitalsupport.com/"
               aria-label="NeuroDigital Support"
-              className="inline-flex max-w-full rounded-[10px] bg-white p-3 transition-transform hover:-translate-y-0.5"
+              className="inline-flex max-w-full rounded-lg bg-white p-2 transition-transform hover:-translate-y-0.5"
             >
               <Image
                 src="/images/nd-support-logo.png"
                 alt="NeuroDigital Support"
                 width={886}
                 height={755}
-                sizes="150px"
+                sizes="100px"
                 quality={90}
-                className="h-auto w-full max-w-[130px] lg:max-w-[150px]"
+                className="h-auto w-full max-w-[92px] lg:max-w-[100px]"
               />
             </a>
           </div>
