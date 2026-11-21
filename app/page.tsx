@@ -408,7 +408,7 @@ export default function Home() {
             <BrandLogo />
             <p className="mt-3 max-w-[280px] text-[16px] leading-[1.45] text-[#3E5146]">A sensory regulation app from NeuroDigital Support.</p>
             <p className="mt-2 text-[15px] font-semibold text-[#0B361F]">
-              Powered by{" "}
+              Supported by{" "}
               <a href="https://neurodigitalsupport.com/" className="underline underline-offset-2 hover:text-[#367050]">
                 NeuroDigital Support
               </a>
@@ -440,9 +440,22 @@ export default function Home() {
             </ul>
           </nav>
 
-          <div className="flex items-center gap-3 md:col-span-2 lg:col-span-1 lg:gap-4 lg:border-l lg:border-[#0B361F]/15 lg:pl-10">
-            <svg aria-hidden="true" width="40" height="40" viewBox="0 0 32 32" fill="none" stroke="#367050" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" className="h-8 w-8 shrink-0 lg:h-10 lg:w-10"><path d="M27 5C15 5 7 10.5 7 19.5c0 2.2.6 4 1.6 5.3C18.5 25 26 18 27 5z" /><path d="M5 27c4-5 9-9.5 15-13" /></svg>
-            <p className="text-[16px] font-bold leading-[1.3] text-[#0B361F] lg:text-[19px]">A calmer mind,<br />a brighter you.</p>
+          <div className="col-span-2 md:col-span-2 lg:col-span-1 lg:border-l lg:border-[#0B361F]/15 lg:pl-10">
+            <a
+              href="https://neurodigitalsupport.com/"
+              aria-label="NeuroDigital Support"
+              className="inline-flex max-w-full rounded-[10px] bg-white p-3 transition-transform hover:-translate-y-0.5"
+            >
+              <Image
+                src="/images/nd-support-logo.png"
+                alt="NeuroDigital Support"
+                width={886}
+                height={755}
+                sizes="150px"
+                quality={90}
+                className="h-auto w-full max-w-[130px] lg:max-w-[150px]"
+              />
+            </a>
           </div>
         </div>
 
