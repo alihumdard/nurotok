@@ -1,6 +1,5 @@
 import Image from "next/image";
 import SiteHeader from "./components/SiteHeader";
-import DemoVideo from "./components/DemoVideo";
 import ScreensCarousel from "./components/ScreensCarousel";
 import HeroSlider, { type Slide } from "./components/HeroSlider";
 import FaqAccordion from "./components/FaqAccordion";
@@ -39,6 +38,16 @@ const photo = {
   research: "/images/home/research.jpg",
   training: "/images/home/training.jpg",
 };
+
+/* Media coverage, as listed on neurodigitalsupport.com */
+const press = [
+  { outlet: "News Ghana", logo: "/images/press/news-ghana.webp", title: "Ghanaian researcher takes neurodivergent users’ case to app design", href: "https://newsghana.com.gh/ghanaian-researcher-takes-neurodivergent-users-case-to-app-design/", tag: "Press" },
+  { outlet: "MyJoyOnline", logo: "/images/press/myjoyonline.webp", title: "The Ghanaian researcher challenging how social media platforms treat neurodivergent users", href: "https://www.myjoyonline.com/kofi-ofori-mensah-the-ghanaian-researcher-challenging-how-social-media-platforms-treat-neurodivergent-users/", tag: "Press" },
+  { outlet: "Adom Online", logo: "/images/press/adom-online.webp", title: "Kofi Ofori-Mensah: the Ghanaian researcher challenging how social media platforms treat neurodivergent users", href: "https://www.adomonline.com/kofi-ofori-mensah-the-ghanaian-researcher-challenging-how-social-media-platforms-treat-neurodivergent-users/", tag: "Press" },
+  { outlet: "GhanaWebbers", logo: "/images/press/ghanawebbers.webp", dark: true, title: "Ghanaian researcher advocates for neurodivergent users on social media", href: "https://www.ghanawebbers.com/GhanaHomePage/entertainment/Ghanaian-Researcher-Advocates-for-Neurodivergent-Users-on-Social-Media-2164525", tag: "Press" },
+  { outlet: "The Ghana Report", logo: "/images/press/the-ghana-report.webp", title: "The Ghanaian researcher challenging how social media platforms treat neurodivergent users", href: "https://theghanareport.com/opinion/the-ghanaian-researcher-challenging-how-social-media-platforms-treat-neurodivergent-users/", tag: "Opinion" },
+  { outlet: "The Hub Web", logo: "/images/press/the-hub-web.webp", title: "Rethinking diaspora parenting and youth crime in the UK: a case of the Ghanaian community", href: "https://www.thehubweb.com/rethinking-diaspora-parenting-youth-crime-uk-ghanaian-community", tag: "Social Impact" },
+];
 
 /* Top-of-page slider: images and the demo video (client request). */
 const heroSlides: Slide[] = [
@@ -159,41 +168,37 @@ export default function Home() {
             </a>
           </div>
 
-          {/* See NuroTok in action */}
-          <div className="mt-12 grid items-stretch gap-6 lg:mt-28 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)]">
-            <DemoVideo
-              src="https://neurodigitalsupport.com/videos/nurotok-demo-1080p.mp4"
-              className="relative block aspect-[16/10] overflow-hidden rounded-[6px] border border-[#D5E2D8] lg:aspect-auto lg:h-full lg:min-h-[380px]"
-            >
-              <Image src="/images/screens/demo-poster.jpg" alt="" fill sizes="(min-width: 1024px) 55vw, 100vw" quality={85} className="object-cover object-center" />
-              <span aria-hidden="true" className="absolute inset-0 bg-[#0B361F]/10" />
-              <span data-light className="absolute left-1/2 top-1/2 z-10 flex h-[72px] w-[72px] -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-white text-[#0B361F] shadow-[0_10px_28px_rgba(0,0,0,0.28)] transition-transform duration-300 group-hover:scale-110">
-                <svg aria-hidden="true" width="26" height="26" viewBox="0 0 24 24" fill="currentColor" className="ml-[3px]"><path d="M7 4.8v14.4c0 .8.9 1.3 1.6.9l11.2-7.2c.6-.4.6-1.4 0-1.8L8.6 3.9C7.9 3.5 7 4 7 4.8z" /></svg>
-              </span>
-              <span className="absolute bottom-4 right-4 rounded-md bg-[#0B361F]/90 px-2.5 py-1 text-[14px] font-bold text-white">0:37</span>
-            </DemoVideo>
-
-            <div className="flex flex-col justify-center rounded-[6px] border border-[#D5E2D8] bg-white p-7 sm:p-9 lg:p-10">
-              <h2 className="text-[32px] font-bold tracking-[-0.02em] text-[#0B361F] sm:text-[40px]">See NuroTok in action</h2>
-              <p className="mt-4 text-[20px] leading-[1.55] text-[#2F4538] lg:text-[22px]">
-                A 37-second look at the sensory profile, app protection, the sensory toolkit and Insights.
-              </p>
-              <div id="transcript" className="mt-7 flex scroll-mt-28 flex-wrap gap-3">
-                <a href="#demo-video" data-play-demo className="inline-flex items-center justify-center gap-2.5 rounded-full bg-[#0B361F] px-6 py-3 text-[17px] font-semibold text-white transition-colors hover:bg-[#367050]">
-                  <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M7 4.8v14.4c0 .8.9 1.3 1.6.9l11.2-7.2c.6-.4.6-1.4 0-1.8L8.6 3.9C7.9 3.5 7 4 7 4.8z" /></svg>
-                  Watch the demo
-                </a>
-                <a href="#transcript" className="inline-flex items-center justify-center gap-2.5 rounded-full border-2 border-[#0B361F] px-6 py-3 text-[17px] font-semibold text-[#0B361F] transition-colors hover:bg-[#0B361F] hover:text-white">
-                  Read the transcript
-                </a>
-              </div>
-            </div>
-          </div>
-
           {/* Explore the four main screens */}
           <div className="mt-12 lg:mt-28">
             <h2 className="text-[32px] font-bold tracking-[-0.02em] text-[#0B361F] sm:text-[40px]">Explore the four main screens</h2>
             <ScreensCarousel />
+          </div>
+
+          {/* In the media */}
+          <div className="mt-12 lg:mt-28">
+            <h2 className="text-[32px] font-bold tracking-[-0.02em] text-[#0B361F] sm:text-[40px]">In the media</h2>
+            <p className="mt-3 text-[20px] leading-[1.55] text-[#2F4538]">Coverage of the research and thinking behind NuroTok.</p>
+            <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+              {press.map(item => (
+                <a
+                  key={item.href}
+                  href={item.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group flex flex-col rounded-[6px] border border-[#D5E2D8] bg-white p-6 transition hover:border-[#367050]"
+                >
+                  <span className={`flex h-[52px] items-center${"dark" in item ? " rounded-md bg-[#0B361F] px-3" : ""}`}>
+                    <Image src={item.logo} alt={item.outlet} width={180} height={60} sizes="180px" quality={90} className="h-auto max-h-[44px] w-auto max-w-[150px] object-contain object-left" />
+                  </span>
+                  <span className="mt-4 inline-flex w-fit rounded-full bg-[#BDEED7] px-3 py-1 text-[13px] font-bold uppercase tracking-[0.06em] text-[#0B361F]">{item.tag}</span>
+                  <h3 className="mt-3 flex-1 text-[19px] font-bold leading-[1.35] text-[#0B361F]">{item.title}</h3>
+                  <span className="mt-4 inline-flex items-center gap-2 text-[17px] font-bold text-[#367050] group-hover:text-[#0B361F]">
+                    Read the article
+                    <svg aria-hidden="true" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
+                  </span>
+                </a>
+              ))}
+            </div>
           </div>
 
           {/* Ready to manage your sensory wellbeing? */}
