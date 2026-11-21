@@ -91,7 +91,7 @@ export default function HeroSlider({ slides }: { slides: Slide[] }) {
       onMouseLeave={() => setPaused(false)}
       onFocusCapture={() => setPaused(true)}
       onBlurCapture={() => setPaused(false)}
-      className={`relative grid overflow-hidden rounded-[6px] border border-[#D5E2D8] bg-white${solo ? "" : " lg:max-h-[calc(100svh-210px)] lg:grid-cols-2"}`}
+      className={`relative grid overflow-hidden rounded-[6px] border border-[#D5E2D8]${solo ? " bg-[#E8E4D8]" : " bg-white lg:grid-cols-2"}`}
     >
       {/* Copy — hidden while a video slide is showing */}
       {!solo && (
@@ -116,7 +116,7 @@ export default function HeroSlider({ slides }: { slides: Slide[] }) {
       )}
 
       {/* Media */}
-      <div className={`relative order-1 min-h-0 overflow-hidden lg:order-2 ${solo ? "aspect-[16/9] w-full" : "min-h-[280px] lg:min-h-[460px]"}`}>
+      <div className={`relative order-1 min-h-0 overflow-hidden lg:order-2 ${solo ? "mx-auto aspect-[16/9] w-full max-w-[calc((100svh-210px)*16/9)]" : "h-[70vw] max-h-[520px] min-h-[280px] lg:h-auto lg:max-h-none lg:min-h-[520px]"}`}>
         {slide.kind === "video" && playing ? (
           <video
             ref={video}
