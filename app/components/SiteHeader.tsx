@@ -1,5 +1,6 @@
 "use client";
 
+import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import MobileMenu from "./MobileMenu";
 
@@ -75,6 +76,9 @@ function Chevron({ open }: { open: boolean }) {
 export default function SiteHeader({ logo }: { logo: React.ReactNode }) {
   const [openKey, setOpenKey] = useState<string | null>(null);
   const [searchOpen, setSearchOpen] = useState(false);
+  const pathname = usePathname();
+  // Routes are served without a trailing slash; NAV hrefs carry one.
+  const here = pathname.replace(/\/$/, "") || "/";
   const navRef = useRef<HTMLDivElement>(null);
   const searchInput = useRef<HTMLInputElement>(null);
 
@@ -129,7 +133,7 @@ export default function SiteHeader({ logo }: { logo: React.ReactNode }) {
           <nav aria-label="Main">
             <ul className="flex items-center gap-1 xl:gap-2">
               {NAV.map(item => {
-                const active = item.href === "/";
+                const active = item.href === "/" ? here === "/" : here === item.href.replace(/\/$/, "");
                 const open = openKey === item.label;
                 const base = `flex items-center gap-1.5 rounded-full px-4 py-2 text-[15.5px] font-semibold transition-colors ${
                   active ? "bg-[#367050] text-white" : "text-[#0B361F] hover:bg-[#0B361F]/5"
