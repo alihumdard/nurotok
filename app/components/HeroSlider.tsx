@@ -51,7 +51,7 @@ export default function HeroSlider({ slides }: { slides: Slide[] }) {
     if (typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     const t = setTimeout(() => go(active + 1), AUTO_MS);
     return () => clearTimeout(t);
-  }, [active, paused, playing, go, slides.length]);
+  }, [active, paused, slide.kind, go, slides.length]);
 
   // A video slide plays as soon as it comes round (client request). Autoplay is
   // only permitted while muted, so the video starts muted and the viewer can
@@ -124,7 +124,7 @@ export default function HeroSlider({ slides }: { slides: Slide[] }) {
         ) : (
           <>
             {slide.fit === "screen" ? (
-              <div className="absolute inset-0 flex items-center justify-center bg-[#EDF7F1] p-6 lg:p-8">
+              <div className="absolute inset-0 flex items-center justify-center bg-[#EDF7F1] p-8 sm:p-10 lg:p-14">
                 <PhoneFrame className="h-full max-h-full w-auto max-w-full [aspect-ratio:900/1844]">
                   <Image
                     key={slide.src}
