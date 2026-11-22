@@ -19,7 +19,7 @@ export type Slide = {
   cta: { label: string; href: string };
 };
 
-const AUTO_MS = 7000;
+const AUTO_MS = 4500;
 /** Longest a video slide may hold the slider, even if it never reports ending. */
 const VIDEO_MAX_MS = 45000;
 
