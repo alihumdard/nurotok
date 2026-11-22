@@ -30,8 +30,42 @@ export default function BlogList() {
 
   return (
     <>
-      {/* Category filters */}
-      <div className="-mx-5 flex gap-3 overflow-x-auto px-5 pb-1 [scrollbar-width:none] sm:mx-0 sm:flex-wrap sm:overflow-visible sm:px-0 [&::-webkit-scrollbar]:hidden">
+      {/* Category filters: a select on phones, pills from sm */}
+      <div className="sm:hidden">
+        <label htmlFor="blog-category" className="block text-[15px] font-bold text-[#0B361F]">
+          Browse by category
+        </label>
+        <div className="relative mt-2">
+          <select
+            id="blog-category"
+            value={active}
+            onChange={e => pick(e.target.value)}
+            className="w-full appearance-none rounded-full border border-[#D5E2D8] bg-white py-3.5 pl-5 pr-12 text-[17px] font-semibold text-[#0B361F] outline-none focus:border-[#367050]"
+          >
+            {categories.map(c => (
+              <option key={c} value={c}>
+                {c}
+              </option>
+            ))}
+          </select>
+          <svg
+            aria-hidden="true"
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2.4"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            className="pointer-events-none absolute right-5 top-1/2 -translate-y-1/2 text-[#0B361F]"
+          >
+            <path d="M6 9l6 6 6-6" />
+          </svg>
+        </div>
+      </div>
+
+      <div className="hidden flex-wrap gap-3 sm:flex">
         {categories.map(c => {
           const on = c === active;
           return (
@@ -40,7 +74,7 @@ export default function BlogList() {
               type="button"
               aria-pressed={on}
               onClick={() => pick(c)}
-              className={`shrink-0 whitespace-nowrap rounded-full border px-5 py-2.5 text-[16px] font-semibold transition-colors ${
+              className={`rounded-full border px-5 py-2.5 text-[16px] font-semibold transition-colors ${
                 on
                   ? "border-[#0B361F] bg-[#0B361F] text-white"
                   : "border-[#D5E2D8] bg-white text-[#0B361F] hover:border-[#367050] hover:text-[#367050]"
