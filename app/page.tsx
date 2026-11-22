@@ -129,6 +129,12 @@ export default function Home() {
           </div>
 
 
+          {/* Explore the four main screens */}
+          <div className="mt-12 lg:mt-28">
+            <h2 className="text-[32px] font-bold tracking-[-0.02em] text-[#0B361F] sm:text-[40px]">Explore the four main screens</h2>
+            <ScreensCarousel />
+          </div>
+
           {/* Three quick tools */}
           <h2 className="mt-12 text-[32px] font-bold tracking-[-0.02em] text-[#0B361F] sm:text-[40px] lg:mt-28">What would help right now?</h2>
           <div className="mt-8 grid gap-6 md:grid-cols-3">
@@ -190,12 +196,6 @@ export default function Home() {
             <a href="/about-us/" className="mt-6 inline-flex items-center gap-2 text-[19px] font-bold text-[#367050] hover:text-[#0B361F]">
               Why we built NuroTok <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
             </a>
-          </div>
-
-          {/* Explore the four main screens */}
-          <div className="mt-12 lg:mt-28">
-            <h2 className="text-[32px] font-bold tracking-[-0.02em] text-[#0B361F] sm:text-[40px]">Explore the four main screens</h2>
-            <ScreensCarousel />
           </div>
 
           {/* In the media */}
