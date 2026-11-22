@@ -41,7 +41,7 @@ export default function SiteFooter() {
           </ul>
         </nav>
 
-        <div className="flex min-w-0 flex-col items-center justify-center text-center md:col-span-2 lg:col-span-1 lg:border-l lg:border-[#0B361F]/15 lg:pl-10">
+        <div className="flex min-w-0 flex-col items-start justify-center text-left md:col-span-2 lg:col-span-1 lg:items-center lg:border-l lg:border-[#0B361F]/15 lg:pl-10 lg:text-center">
           <a
             href="https://neurodigitalsupport.com/"
             aria-label="NeuroDigital Support"
