@@ -31,7 +31,7 @@ export default function BlogList() {
   return (
     <>
       {/* Category filters */}
-      <div className="flex flex-wrap gap-3">
+      <div className="-mx-5 flex gap-3 overflow-x-auto px-5 pb-1 [scrollbar-width:none] sm:mx-0 sm:flex-wrap sm:overflow-visible sm:px-0 [&::-webkit-scrollbar]:hidden">
         {categories.map(c => {
           const on = c === active;
           return (
@@ -40,7 +40,7 @@ export default function BlogList() {
               type="button"
               aria-pressed={on}
               onClick={() => pick(c)}
-              className={`rounded-full border px-5 py-2.5 text-[16px] font-semibold transition-colors ${
+              className={`shrink-0 whitespace-nowrap rounded-full border px-5 py-2.5 text-[16px] font-semibold transition-colors ${
                 on
                   ? "border-[#0B361F] bg-[#0B361F] text-white"
                   : "border-[#D5E2D8] bg-white text-[#0B361F] hover:border-[#367050] hover:text-[#367050]"
