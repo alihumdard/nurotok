@@ -23,8 +23,9 @@ const AUTO_MS = 7000;
 
 /**
  * Top-of-page slider of images and videos (client request).
- * Auto-advances, pauses on hover/focus and whenever a video is playing,
- * and stops entirely for visitors who prefer reduced motion.
+ * Advances on its own with no visible controls: an image slide holds for
+ * AUTO_MS, a video slide plays muted and moves on when it ends. It pauses
+ * on hover or focus, and stops for visitors who prefer reduced motion.
  */
 export default function HeroSlider({ slides }: { slides: Slide[] }) {
   const [active, setActive] = useState(0);
@@ -40,47 +41,39 @@ export default function HeroSlider({ slides }: { slides: Slide[] }) {
     [slides.length],
   );
 
+  const slide = slides[active];
+  // A video slide fills the panel on its own, with no copy beside it (client request).
+  const solo = slide.kind === "video";
+
   // Auto-advance
   useEffect(() => {
-    if (paused || playing || slides.length < 2) return;
+    if (paused || slide.kind === "video" || slides.length < 2) return;
     if (typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     const t = setTimeout(() => go(active + 1), AUTO_MS);
     return () => clearTimeout(t);
   }, [active, paused, playing, go, slides.length]);
 
+  // A video slide plays as soon as it comes round (client request). Autoplay is
+  // only permitted while muted, so the video starts muted and the viewer can
+  // unmute from the controls.
+  useEffect(() => {
+    setPlaying(slides[active].kind === "video");
+  }, [active, slides]);
+
   useEffect(() => {
     if (playing) video.current?.play().catch(() => {});
   }, [playing]);
 
-  const slide = slides[active];
-  // A video slide fills the panel on its own, with no copy beside it (client request).
-  const solo = slide.kind === "video";
+  // If the video cannot load or play, move on rather than stranding the slider.
+  useEffect(() => {
+    if (slide.kind !== "video" || slides.length < 2) return;
+    const t = setTimeout(() => {
+      const v = video.current;
+      if (!v || v.paused || !v.currentTime) go(active + 1);
+    }, 6000);
+    return () => clearTimeout(t);
+  }, [active, slide.kind, go, slides.length]);
 
-  const arrow =
-    "flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-[#C9DACB] bg-white text-[#0B361F] shadow-sm transition hover:bg-[#0B361F] hover:text-white";
-
-  const controls = (
-    <div className="flex items-center gap-4">
-      <button type="button" aria-label="Previous slide" onClick={() => go(active - 1)} className={arrow}>
-        <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><path d="M15 6l-6 6 6 6" /></svg>
-      </button>
-      <div className="flex items-center gap-2">
-        {slides.map((s, i) => (
-          <button
-            key={s.title}
-            type="button"
-            aria-label={`Show slide ${i + 1}: ${s.title}`}
-            aria-current={active === i}
-            onClick={() => go(i)}
-            className={`h-2.5 rounded-full transition-all ${active === i ? "w-7 bg-[#0B361F]" : "w-2.5 bg-[#B9CFBF]"}`}
-          />
-        ))}
-      </div>
-      <button type="button" aria-label="Next slide" onClick={() => go(active + 1)} className={arrow}>
-        <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><path d="M9 6l6 6-6 6" /></svg>
-      </button>
-    </div>
-  );
 
   return (
     <div
@@ -110,8 +103,6 @@ export default function HeroSlider({ slides }: { slides: Slide[] }) {
           </a>
         </div>
 
-        {/* Controls */}
-        <div className="mt-8">{controls}</div>
       </div>
       )}
 
@@ -122,10 +113,12 @@ export default function HeroSlider({ slides }: { slides: Slide[] }) {
             ref={video}
             src={slide.src}
             controls
+            autoPlay
+            muted
             playsInline
-            preload="metadata"
+            preload="auto"
             aria-label={slide.alt}
-            onEnded={() => setPlaying(false)}
+            onEnded={() => go(active + 1)}
             className="absolute inset-0 h-full w-full bg-[#06150D] object-contain"
           />
         ) : (
@@ -173,13 +166,6 @@ export default function HeroSlider({ slides }: { slides: Slide[] }) {
               </button>
             )}
           </>
-        )}
-
-        {/* On a video slide the copy is hidden, so the controls sit over the media */}
-        {solo && !playing && (
-          <div className="absolute bottom-5 left-1/2 z-10 -translate-x-1/2 rounded-full bg-white/85 p-2 shadow-[0_8px_24px_rgba(11,54,31,0.18)] backdrop-blur-sm">
-            {controls}
-          </div>
         )}
       </div>
     </div>
