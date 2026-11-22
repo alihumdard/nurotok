@@ -20,17 +20,18 @@ export type Slide = {
 };
 
 const AUTO_MS = 7000;
+/** Longest a video slide may hold the slider, even if it never reports ending. */
+const VIDEO_MAX_MS = 45000;
 
 /**
  * Top-of-page slider of images and videos (client request).
  * Advances on its own with no visible controls: an image slide holds for
- * AUTO_MS, a video slide plays muted and moves on when it ends. It pauses
- * on hover or focus, and stops for visitors who prefer reduced motion.
+ * AUTO_MS, a video slide plays muted and moves on when it ends. It runs
+ * unattended and stops only for visitors who prefer reduced motion.
  */
 export default function HeroSlider({ slides }: { slides: Slide[] }) {
   const [active, setActive] = useState(0);
   const [playing, setPlaying] = useState(false);
-  const [paused, setPaused] = useState(false);
   const video = useRef<HTMLVideoElement>(null);
 
   const go = useCallback(
@@ -47,11 +48,11 @@ export default function HeroSlider({ slides }: { slides: Slide[] }) {
 
   // Auto-advance
   useEffect(() => {
-    if (paused || slide.kind === "video" || slides.length < 2) return;
+    if (slide.kind === "video" || slides.length < 2) return;
     if (typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     const t = setTimeout(() => go(active + 1), AUTO_MS);
     return () => clearTimeout(t);
-  }, [active, paused, slide.kind, go, slides.length]);
+  }, [active, slide.kind, go, slides.length]);
 
   // A video slide plays as soon as it comes round (client request). Autoplay is
   // only permitted while muted, so the video starts muted and the viewer can
@@ -64,14 +65,18 @@ export default function HeroSlider({ slides }: { slides: Slide[] }) {
     if (playing) video.current?.play().catch(() => {});
   }, [playing]);
 
-  // If the video cannot load or play, move on rather than stranding the slider.
+  // A video hands over when it ends. This is the backstop: if playback never
+  // starts, is paused, or stalls, the slide moves on anyway.
   useEffect(() => {
     if (slide.kind !== "video" || slides.length < 2) return;
-    const t = setTimeout(() => {
+    const started = Date.now();
+    const id = setInterval(() => {
       const v = video.current;
-      if (!v || v.paused || !v.currentTime) go(active + 1);
-    }, 6000);
-    return () => clearTimeout(t);
+      const stalled = !v || v.paused || !v.currentTime;
+      const overran = Date.now() - started > VIDEO_MAX_MS;
+      if (stalled ? Date.now() - started > 6000 : overran) go(active + 1);
+    }, 1000);
+    return () => clearInterval(id);
   }, [active, slide.kind, go, slides.length]);
 
 
@@ -80,10 +85,6 @@ export default function HeroSlider({ slides }: { slides: Slide[] }) {
       role="region"
       aria-roledescription="carousel"
       aria-label="NuroTok highlights"
-      onMouseEnter={() => setPaused(true)}
-      onMouseLeave={() => setPaused(false)}
-      onFocusCapture={() => setPaused(true)}
-      onBlurCapture={() => setPaused(false)}
       className={`relative grid overflow-hidden rounded-[6px] border border-[#D5E2D8]${solo ? " bg-[#E8E4D8]" : " bg-white lg:grid-cols-2"}`}
     >
       {/* Copy — hidden while a video slide is showing */}
