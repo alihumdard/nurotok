@@ -102,6 +102,33 @@ export default function Home() {
           {/* Slider of images and videos */}
           <HeroSlider slides={heroSlides} />
 
+          {/* Ready to manage your sensory wellbeing? */}
+          <div id="download" className="mt-8 scroll-mt-28 rounded-[6px] border border-[#D5E2D8] bg-white p-7 text-center sm:p-10 lg:mt-10 lg:p-12">
+            <h2 className="text-[32px] font-bold tracking-[-0.02em] text-[#0B361F] sm:text-[40px]">Ready to manage your sensory wellbeing?</h2>
+            <div className="mt-6 flex flex-wrap justify-center gap-3">
+              <a href={APP_STORE_URL} className="inline-flex items-center gap-3 rounded-[8px] bg-[#0B1A12] px-5 py-3 text-white transition-transform hover:-translate-y-0.5">
+                <svg aria-hidden="true" width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M16.37 12.6c-.02-2.2 1.8-3.26 1.88-3.31-1.03-1.5-2.62-1.7-3.18-1.73-1.35-.14-2.64.8-3.33.8-.69 0-1.75-.78-2.88-.76-1.48.02-2.85.86-3.61 2.19-1.54 2.67-.39 6.62 1.11 8.79.73 1.06 1.6 2.25 2.75 2.2 1.1-.04 1.52-.71 2.85-.71 1.33 0 1.71.71 2.88.69 1.19-.02 1.94-1.08 2.67-2.14.84-1.23 1.19-2.42 1.21-2.48-.03-.01-2.32-.89-2.35-3.54zM14.2 6.13c.61-.74 1.02-1.76.91-2.78-.88.04-1.94.59-2.57 1.32-.56.65-1.06 1.69-.93 2.69.98.08 1.98-.5 2.59-1.23z" /></svg>
+                <span className="text-left leading-tight">
+                  <span className="block text-[12px] text-white/75">Download on the</span>
+                  <span className="block text-[19px] font-semibold">App Store</span>
+                </span>
+              </a>
+              <a href={GOOGLE_PLAY_URL} className="inline-flex items-center gap-3 rounded-[8px] bg-[#0B1A12] px-5 py-3 text-white transition-transform hover:-translate-y-0.5">
+                <svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24">
+                  <path d="M3.6 2.3L13.7 12 3.6 21.7c-.4-.2-.6-.6-.6-1.1V3.4c0-.5.2-.9.6-1.1z" fill="#4285F4" />
+                  <path d="M16.8 8.9L13.7 12 3.6 2.3c.3-.2.8-.2 1.2 0l12 6.6z" fill="#34A853" />
+                  <path d="M20.4 10.9c.7.4.7 1.8 0 2.2l-3.6 2L13.7 12l3.1-3.1 3.6 2z" fill="#FBBC04" />
+                  <path d="M16.8 15.1l-12 6.6c-.4.2-.9.2-1.2 0L13.7 12l3.1 3.1z" fill="#EA4335" />
+                </svg>
+                <span className="text-left leading-tight">
+                  <span className="block text-[12px] uppercase tracking-[0.04em] text-white/75">Get it on</span>
+                  <span className="block text-[19px] font-semibold">Google Play</span>
+                </span>
+              </a>
+            </div>
+          </div>
+
+
           {/* Three quick tools */}
           <h2 className="mt-12 text-[32px] font-bold tracking-[-0.02em] text-[#0B361F] sm:text-[40px] lg:mt-28">What would help right now?</h2>
           <div className="mt-8 grid gap-6 md:grid-cols-3">
@@ -197,32 +224,6 @@ export default function Home() {
                   </span>
                 </a>
               ))}
-            </div>
-          </div>
-
-          {/* Ready to manage your sensory wellbeing? */}
-          <div id="download" className="mt-12 scroll-mt-28 rounded-[6px] border border-[#D5E2D8] bg-white p-7 sm:p-10 lg:mt-16 lg:p-12">
-            <h2 className="text-[32px] font-bold tracking-[-0.02em] text-[#0B361F] sm:text-[40px]">Ready to manage your sensory wellbeing?</h2>
-            <div className="mt-6 flex flex-wrap gap-3">
-              <a href={APP_STORE_URL} className="inline-flex items-center gap-3 rounded-[8px] bg-[#0B1A12] px-5 py-3 text-white transition-transform hover:-translate-y-0.5">
-                <svg aria-hidden="true" width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M16.37 12.6c-.02-2.2 1.8-3.26 1.88-3.31-1.03-1.5-2.62-1.7-3.18-1.73-1.35-.14-2.64.8-3.33.8-.69 0-1.75-.78-2.88-.76-1.48.02-2.85.86-3.61 2.19-1.54 2.67-.39 6.62 1.11 8.79.73 1.06 1.6 2.25 2.75 2.2 1.1-.04 1.52-.71 2.85-.71 1.33 0 1.71.71 2.88.69 1.19-.02 1.94-1.08 2.67-2.14.84-1.23 1.19-2.42 1.21-2.48-.03-.01-2.32-.89-2.35-3.54zM14.2 6.13c.61-.74 1.02-1.76.91-2.78-.88.04-1.94.59-2.57 1.32-.56.65-1.06 1.69-.93 2.69.98.08 1.98-.5 2.59-1.23z" /></svg>
-                <span className="text-left leading-tight">
-                  <span className="block text-[12px] text-white/75">Download on the</span>
-                  <span className="block text-[19px] font-semibold">App Store</span>
-                </span>
-              </a>
-              <a href={GOOGLE_PLAY_URL} className="inline-flex items-center gap-3 rounded-[8px] bg-[#0B1A12] px-5 py-3 text-white transition-transform hover:-translate-y-0.5">
-                <svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24">
-                  <path d="M3.6 2.3L13.7 12 3.6 21.7c-.4-.2-.6-.6-.6-1.1V3.4c0-.5.2-.9.6-1.1z" fill="#4285F4" />
-                  <path d="M16.8 8.9L13.7 12 3.6 2.3c.3-.2.8-.2 1.2 0l12 6.6z" fill="#34A853" />
-                  <path d="M20.4 10.9c.7.4.7 1.8 0 2.2l-3.6 2L13.7 12l3.1-3.1 3.6 2z" fill="#FBBC04" />
-                  <path d="M16.8 15.1l-12 6.6c-.4.2-.9.2-1.2 0L13.7 12l3.1 3.1z" fill="#EA4335" />
-                </svg>
-                <span className="text-left leading-tight">
-                  <span className="block text-[12px] uppercase tracking-[0.04em] text-white/75">Get it on</span>
-                  <span className="block text-[19px] font-semibold">Google Play</span>
-                </span>
-              </a>
             </div>
           </div>
 
