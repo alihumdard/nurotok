@@ -141,12 +141,10 @@ export default function Home() {
                 <div className="relative aspect-[16/10] overflow-hidden">
                   <Image src={card.img} alt="" fill sizes="(min-width: 768px) 33vw, 100vw" quality={80} className={`object-cover ${card.pos} transition-transform duration-500 group-hover:scale-105`} />
                 </div>
-                <div className="flex flex-1 items-end gap-3 p-5">
-                  <div className="flex-1">
-                    <h2 className="text-[24px] font-bold tracking-[-0.01em] text-[#0B361F] lg:text-[28px]">{card.title}</h2>
-                    <p className="mt-1.5 text-[20px] leading-[1.55] text-[#2F4538] lg:text-[22px]">{card.text}</p>
-                  </div>
-                  <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#F6F3EC] text-[#0B361F] transition group-hover:bg-[#0B361F] group-hover:text-white"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M13 6l6 6-6 6" /></svg></span>
+                <div className="flex flex-1 flex-col p-5">
+                  <h2 className="text-[24px] font-bold tracking-[-0.01em] text-[#0B361F] lg:text-[28px]">{card.title}</h2>
+                  <p className="mt-1.5 text-[20px] leading-[1.55] text-[#2F4538] lg:text-[22px]">{card.text}</p>
+                  <span className="mt-4 flex h-9 w-9 shrink-0 items-center justify-center self-end rounded-full lg:mt-auto bg-[#F6F3EC] text-[#0B361F] transition group-hover:bg-[#0B361F] group-hover:text-white"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M13 6l6 6-6 6" /></svg></span>
                 </div>
               </a>
             ))}
