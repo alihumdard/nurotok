@@ -36,7 +36,6 @@ const faqs = [
 const photo = {
   hero: "/images/home/hero-workspace.jpg",
   research: "/images/home/research.jpg",
-  training: "/images/home/training.jpg",
 };
 
 /* Media coverage, as listed on neurodigitalsupport.com */
