@@ -41,7 +41,7 @@ export default function SiteFooter() {
           </ul>
         </nav>
 
-        <div className="flex items-start md:col-span-2 lg:col-span-1 lg:border-l lg:border-[#0B361F]/15 lg:pl-10">
+        <div className="col-span-2 flex flex-col items-center justify-center text-center md:col-span-2 lg:col-span-1 lg:border-l lg:border-[#0B361F]/15 lg:pl-10">
           <a
             href="https://neurodigitalsupport.com/"
             aria-label="NeuroDigital Support"
@@ -57,6 +57,12 @@ export default function SiteFooter() {
               className="h-auto w-full max-w-[92px] lg:max-w-[100px]"
             />
           </a>
+          <p className="mt-3 w-max max-w-full text-[14.5px] font-semibold leading-snug text-[#0B361F]">
+            Powered by{" "}
+            <a href="https://neurodigitalsupport.com/" className="underline underline-offset-2 hover:text-[#367050]">
+              NeuroDigital Support
+            </a>
+          </p>
         </div>
       </div>
 
