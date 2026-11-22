@@ -32,7 +32,7 @@ export default function SiteFooter() {
             ))}
           </ul>
         </nav>
-        <nav aria-label="Information" className="lg:border-l lg:border-[#0B361F]/15 lg:pl-10">
+        <nav aria-label="Information" className="col-span-2 md:col-span-1 lg:border-l lg:border-[#0B361F]/15 lg:pl-10">
           <h3 className="text-[17px] font-bold text-[#0B361F]">Information</h3>
           <ul className="mt-2 space-y-0.5">
             {[["Accessibility", "/accessibility/"], ["Privacy Policy", "/privacy-policy/"], ["Terms of Use", "/terms/"], ["Cookies", "/cookie-policy/"]].map(([label, href]) => (

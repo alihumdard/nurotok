@@ -97,7 +97,7 @@ export default function Home() {
       <SiteHeader logo={<BrandLogo />} />
 
       {/* HERO SLIDER + QUICK TOOLS */}
-      <section id="main-content" className="bg-[#F6F3EC] pb-12 pt-6 lg:pb-32 lg:pt-10">
+      <section id="main-content" className="bg-[#F6F3EC] pb-8 pt-5 lg:pb-32 lg:pt-10">
         <div className="mx-auto max-w-[1440px] px-5 sm:px-8 lg:px-12 xl:px-[88px]">
           {/* Slider of images and videos */}
           <HeroSlider slides={heroSlides} />
@@ -130,13 +130,13 @@ export default function Home() {
 
 
           {/* Explore the four main screens */}
-          <div className="mt-12 lg:mt-28">
+          <div className="mt-9 lg:mt-28">
             <h2 className="text-[32px] font-bold tracking-[-0.02em] text-[#0B361F] sm:text-[40px]">Explore the four main screens</h2>
             <ScreensCarousel />
           </div>
 
           {/* Three quick tools */}
-          <h2 className="mt-12 text-[32px] font-bold tracking-[-0.02em] text-[#0B361F] sm:text-[40px] lg:mt-28">What would help right now?</h2>
+          <h2 className="mt-9 text-[32px] font-bold tracking-[-0.02em] text-[#0B361F] sm:text-[40px] lg:mt-28">What would help right now?</h2>
           <div className="mt-8 grid gap-6 md:grid-cols-3">
             {[
               { title: "A quieter moment.", text: "Listen to rainfall, follow a short breathing guide or put your phone down while a sound plays in the background.", pos: "object-center", img: "/images/home/quiet-rain.jpg" },
@@ -186,7 +186,7 @@ export default function Home() {
       </section>
 
       {/* DESIGNED FOR NEURODIVERGENT ADULTS + DEMO */}
-      <section className="bg-[#F6F3EC] pb-12 lg:pb-28">
+      <section className="bg-[#F6F3EC] pb-8 lg:pb-28">
         <div className="mx-auto max-w-[1440px] px-5 sm:px-8 lg:px-12 xl:px-[88px]">
           <div className="rounded-[6px] border border-[#D5E2D8] bg-white p-7 sm:p-10 lg:p-12">
             <h2 className="text-[32px] font-bold tracking-[-0.02em] text-[#0B361F] sm:text-[40px]">Designed with neurodivergent adults in mind</h2>
@@ -199,7 +199,7 @@ export default function Home() {
           </div>
 
           {/* In the media */}
-          <div className="mt-12 lg:mt-28">
+          <div className="mt-9 lg:mt-28">
             <h2 className="text-[32px] font-bold tracking-[-0.02em] text-[#0B361F] sm:text-[40px]">In the media</h2>
             <p className="mt-3 text-[20px] leading-[1.55] text-[#2F4538]">Coverage of the research and thinking behind NuroTok.</p>
             <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
@@ -226,7 +226,7 @@ export default function Home() {
           </div>
 
           {/* NuroTok questions, answered */}
-          <div className="mt-12 lg:mt-28">
+          <div className="mt-9 lg:mt-28">
             <h2 className="text-[32px] font-bold tracking-[-0.02em] text-[#0B361F] sm:text-[40px]">NuroTok questions, answered</h2>
             <p className="mt-3 text-[20px] leading-[1.55] text-[#2F4538]">Quick answers to common questions about NuroTok.</p>
             <div className="mt-8">
@@ -238,8 +238,8 @@ export default function Home() {
       </section>
 
       {/* WHAT'S ON / NEWS / SUPPORT US */}
-      <section className="bg-[#F6F3EC] pb-12 lg:pb-28">
-        <div className="mx-auto max-w-[1440px] space-y-14 px-5 lg:space-y-36 sm:px-8 lg:px-12 xl:px-[88px]">
+      <section className="bg-[#F6F3EC] pb-8 lg:pb-28">
+        <div className="mx-auto max-w-[1440px] space-y-10 px-5 lg:space-y-36 sm:px-8 lg:px-12 xl:px-[88px]">
           <div>
             <div className="mb-6 flex flex-col items-start gap-2 sm:flex-row sm:items-center sm:justify-between sm:gap-4">
               <h2 className="flex items-center gap-3 text-[32px] font-bold tracking-[-0.02em] text-[#0B361F] sm:text-[40px]">
@@ -277,7 +277,7 @@ export default function Home() {
       </section>
 
       {/* LATEST NEWS (green band) */}
-      <section className="bg-[#F6F3EC] pb-12 lg:pb-28">
+      <section className="bg-[#F6F3EC] pb-8 lg:pb-28">
         <div className="mx-auto max-w-[1440px] px-5 sm:px-8 lg:px-12 xl:px-[88px]">
           <div>
             <div className="mb-6 flex flex-col items-start gap-2 sm:flex-row sm:items-center sm:justify-between sm:gap-4">
@@ -316,7 +316,7 @@ export default function Home() {
 
       {/* SUPPORT US */}
       <section className="bg-[#F6F3EC] pb-20 pt-20 lg:pb-28 lg:pt-28">
-        <div className="mx-auto max-w-[1440px] space-y-14 px-5 sm:px-8 lg:px-12 lg:space-y-36 xl:px-[88px]">
+        <div className="mx-auto max-w-[1440px] space-y-10 px-5 sm:px-8 lg:px-12 lg:space-y-36 xl:px-[88px]">
           <div>
             <div className="mb-6 flex flex-col items-start gap-2 sm:flex-row sm:items-center sm:justify-between sm:gap-4">
               <h2 className="flex items-center gap-3 text-[32px] font-bold tracking-[-0.02em] text-[#0B361F] sm:text-[40px]">

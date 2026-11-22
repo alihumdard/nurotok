@@ -26,8 +26,9 @@ const VIDEO_MAX_MS = 45000;
 /**
  * Top-of-page slider of images and videos (client request).
  * Advances on its own with no visible controls: an image slide holds for
- * AUTO_MS, a video slide plays muted and moves on when it ends. It runs
- * unattended and stops only for visitors who prefer reduced motion.
+ * AUTO_MS, a video slide plays muted and moves on when it ends or when the
+ * viewer pauses it. It runs unattended and stops only for visitors who
+ * prefer reduced motion.
  */
 export default function HeroSlider({ slides }: { slides: Slide[] }) {
   const [active, setActive] = useState(0);
@@ -120,6 +121,12 @@ export default function HeroSlider({ slides }: { slides: Slide[] }) {
             preload="auto"
             aria-label={slide.alt}
             onEnded={() => go(active + 1)}
+            onPause={e => {
+              // Move on when the viewer pauses, but ignore the pause the
+              // browser fires as the clip ends or before playback has begun.
+              const v = e.currentTarget;
+              if (!v.ended && v.currentTime > 0.2) go(active + 1);
+            }}
             className="absolute inset-0 h-full w-full bg-[#06150D] object-contain"
           />
         ) : (
