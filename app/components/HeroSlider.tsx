@@ -22,6 +22,8 @@ export type Slide = {
 const AUTO_MS = 4500;
 /** Longest a video slide may hold the slider, even if it never reports ending. */
 const VIDEO_MAX_MS = 45000;
+/** Grace period after the viewer pauses, in case they mean to resume. */
+const PAUSE_GRACE_MS = 3500;
 
 /**
  * Top-of-page slider of images and videos (client request).
@@ -34,6 +36,7 @@ export default function HeroSlider({ slides }: { slides: Slide[] }) {
   const [active, setActive] = useState(0);
   const [playing, setPlaying] = useState(false);
   const video = useRef<HTMLVideoElement>(null);
+  const pauseTimer = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
 
   const go = useCallback(
     (i: number) => {
@@ -65,6 +68,9 @@ export default function HeroSlider({ slides }: { slides: Slide[] }) {
   useEffect(() => {
     if (playing) video.current?.play().catch(() => {});
   }, [playing]);
+
+  // Drop any pending pause timer when the slide changes.
+  useEffect(() => () => clearTimeout(pauseTimer.current), [active]);
 
   // A video hands over when it ends. This is the backstop: if playback never
   // starts, is paused, or stalls, the slide moves on anyway.
@@ -122,11 +128,17 @@ export default function HeroSlider({ slides }: { slides: Slide[] }) {
             aria-label={slide.alt}
             onEnded={() => go(active + 1)}
             onPause={e => {
-              // Move on when the viewer pauses, but ignore the pause the
-              // browser fires as the clip ends or before playback has begun.
+              // Move on a few seconds after the viewer pauses, so a brief
+              // pause-and-resume does not skip the slide. Ignore the pause
+              // the browser fires as the clip ends or before it has begun.
               const v = e.currentTarget;
-              if (!v.ended && v.currentTime > 0.2) go(active + 1);
+              if (v.ended || v.currentTime <= 0.2) return;
+              clearTimeout(pauseTimer.current);
+              pauseTimer.current = setTimeout(() => {
+                if (video.current?.paused) go(active + 1);
+              }, PAUSE_GRACE_MS);
             }}
+            onPlay={() => clearTimeout(pauseTimer.current)}
             className="absolute inset-0 h-full w-full bg-[#06150D] object-contain"
           />
         ) : (
