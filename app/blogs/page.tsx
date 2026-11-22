@@ -28,8 +28,7 @@ export default function BlogsPage() {
         <div className="mx-auto max-w-[1440px] px-5 sm:px-8 lg:px-12 xl:px-[88px]">
           <div className="grid overflow-hidden rounded-[6px] border border-[#D5E2D8] bg-white lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)]">
             <div className="order-2 p-7 sm:p-10 lg:order-1 lg:py-14 lg:pl-12">
-              <p className="inline-flex rounded-full bg-[#BDEED7] px-4 py-1.5 text-[15px] font-bold text-[#0B361F]">Our blog</p>
-              <h1 className="mt-5 text-[38px] font-bold leading-[1.1] tracking-[-0.03em] text-[#0B361F] sm:text-[48px] lg:text-[54px]">
+              <h1 className="text-[38px] font-bold leading-[1.1] tracking-[-0.03em] text-[#0B361F] sm:text-[48px] lg:text-[54px]">
                 Insights for a <span className="text-[#367050]">healthier digital life</span>
               </h1>
               <p className="mt-4 max-w-[520px] text-[20px] leading-[1.5] text-[#1F3A2B] lg:text-[22px]">

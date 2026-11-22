@@ -27,7 +27,7 @@ export default async function BlogPostPage({ params }: PageProps<"/blogs/[slug]"
   if (!post) notFound();
 
   const index = posts.findIndex(p => p.slug === slug);
-  const more = [...posts.slice(index + 1), ...posts.slice(0, index)].slice(0, 3);
+  const more = [...posts.slice(index + 1), ...posts.slice(0, index)].slice(0, 2);
 
   return (
     <main className="overflow-x-clip bg-[#F6F3EC] text-[#0B361F]">
@@ -41,7 +41,7 @@ export default async function BlogPostPage({ params }: PageProps<"/blogs/[slug]"
       <SiteHeader logo={<BrandLogo />} />
 
       <article id="main-content" className="bg-[#F6F3EC] pb-12 pt-5 lg:pb-16 lg:pt-10">
-        <div className="mx-auto max-w-[1440px] px-5 sm:px-8 lg:px-12 xl:px-[88px]">
+        <div className="mx-auto max-w-[1120px] px-5 sm:px-8 lg:px-12">
           {/* Back */}
           <a href="/blogs/" className="inline-flex items-center gap-2 text-[17px] font-bold text-[#367050] hover:text-[#0B361F]">
             <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"><path d="M19 12H5M11 6l-6 6 6 6" /></svg>
@@ -49,7 +49,7 @@ export default async function BlogPostPage({ params }: PageProps<"/blogs/[slug]"
           </a>
 
           {/* Header */}
-          <header className="mt-6 max-w-[860px]">
+          <header className="mt-6">
             <div className="flex flex-wrap items-center gap-3">
               <span className="inline-flex rounded-full bg-[#BDEED7] px-3.5 py-1.5 text-[13px] font-bold uppercase tracking-[0.06em] text-[#0B361F]">
                 {post.category}
@@ -65,7 +65,7 @@ export default async function BlogPostPage({ params }: PageProps<"/blogs/[slug]"
           </header>
 
           {/* Cover */}
-          <div className="relative mt-8 aspect-[16/9] overflow-hidden rounded-[6px] border border-[#D5E2D8] lg:aspect-[21/9]">
+          <div className="relative mt-8 aspect-[16/10] overflow-hidden rounded-[6px] border border-[#D5E2D8]">
             <Image
               src={post.image}
               alt=""
@@ -79,7 +79,7 @@ export default async function BlogPostPage({ params }: PageProps<"/blogs/[slug]"
           <p className="mt-2 text-[14px] text-[#5B6D62]">AI-generated illustration.</p>
 
           {/* Body */}
-          <div className="mt-8 max-w-[800px] rounded-[6px] border border-[#D5E2D8] bg-white p-7 sm:p-10 lg:p-12">
+          <div className="mt-8 rounded-[6px] border border-[#D5E2D8] bg-white p-7 sm:p-10 lg:p-12">
             {post.intro.map(t => (
               <p key={t.slice(0, 40)} className="mt-0 text-[20px] leading-[1.6] text-[#1F3A2B] [&:not(:first-child)]:mt-4 lg:text-[21px]">
                 {t}
@@ -124,7 +124,7 @@ export default async function BlogPostPage({ params }: PageProps<"/blogs/[slug]"
           </div>
 
           {/* Download */}
-          <div className="mt-8 max-w-[800px] rounded-[6px] border border-[#D5E2D8] bg-white p-7 text-center sm:p-10">
+          <div className="mt-8 rounded-[6px] border border-[#D5E2D8] bg-white p-7 text-center sm:p-10">
             <h2 className="text-[26px] font-bold tracking-[-0.02em] text-[#0B361F] sm:text-[30px]">Ready to try NuroTok?</h2>
             <p className="mx-auto mt-2 max-w-[520px] text-[19px] leading-[1.55] text-[#2F4538]">
               Sensory preferences, wellbeing tools and insights in one app.
@@ -140,7 +140,7 @@ export default async function BlogPostPage({ params }: PageProps<"/blogs/[slug]"
           {/* More posts */}
           <div className="mt-14">
             <h2 className="text-[28px] font-bold tracking-[-0.02em] text-[#0B361F] sm:text-[34px]">More from the blog</h2>
-            <div className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            <div className="mt-6 grid gap-6 sm:grid-cols-2">
               {more.map(p => (
                 <a
                   key={p.slug}

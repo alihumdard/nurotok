@@ -47,31 +47,7 @@ const steps = [
   },
 ];
 
-const affiliations = [
-  {
-    name: "University of Roehampton London",
-    logo: "/images/about/roehampton.jpg",
-    tag: "Academic partner",
-    text: "Project coordinator, research assistant and MSc digital marketing researcher.",
-    href: "https://blog.roehampton.ac.uk/2026/07/13/from-support-worker-to-digital-inclusion-advocate-how-my-extended-masters-at-roehampton-helped-me-find-my-purpose/",
-  },
-  {
-    name: "Business Insider Africa",
-    logo: "/images/about/business-insider.jpg",
-    tag: "Media feature",
-    text: "Expert commentary on digital marketing, inclusion and ethics.",
-    href: "https://africa.businessinsider.com/local/careers/exclusive-interview-with-kofi-ofori-mensah-head-of-sales-and-marketing-at-prabon/qp58m6n",
-  },
-];
 
-const press = [
-  { outlet: "News Ghana", logo: "/images/press/news-ghana.webp", title: "Ghanaian researcher takes neurodivergent users’ case to app design", href: "https://newsghana.com.gh/ghanaian-researcher-takes-neurodivergent-users-case-to-app-design/", tag: "Press" },
-  { outlet: "MyJoyOnline", logo: "/images/press/myjoyonline.webp", title: "The Ghanaian researcher challenging how social media platforms treat neurodivergent users", href: "https://www.myjoyonline.com/kofi-ofori-mensah-the-ghanaian-researcher-challenging-how-social-media-platforms-treat-neurodivergent-users/", tag: "Press" },
-  { outlet: "Adom Online", logo: "/images/press/adom-online.webp", title: "Kofi Ofori-Mensah: the Ghanaian researcher challenging how social media platforms treat neurodivergent users", href: "https://www.adomonline.com/kofi-ofori-mensah-the-ghanaian-researcher-challenging-how-social-media-platforms-treat-neurodivergent-users/", tag: "Press" },
-  { outlet: "GhanaWebbers", logo: "/images/press/ghanawebbers.webp", dark: true, title: "Ghanaian researcher advocates for neurodivergent users on social media", href: "https://www.ghanawebbers.com/GhanaHomePage/entertainment/Ghanaian-Researcher-Advocates-for-Neurodivergent-Users-on-Social-Media-2164525", tag: "Press" },
-  { outlet: "The Ghana Report", logo: "/images/press/the-ghana-report.webp", title: "The Ghanaian researcher challenging how social media platforms treat neurodivergent users", href: "https://theghanareport.com/opinion/the-ghanaian-researcher-challenging-how-social-media-platforms-treat-neurodivergent-users/", tag: "Opinion" },
-  { outlet: "The Hub Web", logo: "/images/press/the-hub-web.webp", title: "Rethinking diaspora parenting and youth crime in the UK: a case of the Ghanaian community", href: "https://www.thehubweb.com/rethinking-diaspora-parenting-youth-crime-uk-ghanaian-community", tag: "Social impact" },
-];
 
 const h2 = "text-[32px] font-bold tracking-[-0.02em] text-[#0B361F] sm:text-[40px]";
 const card = "rounded-[6px] border border-[#D5E2D8] bg-white";
@@ -97,8 +73,7 @@ export default function AboutPage() {
         <div className="mx-auto max-w-[1440px] px-5 sm:px-8 lg:px-12 xl:px-[88px]">
           <div className={`grid overflow-hidden lg:grid-cols-2 ${card}`}>
             <div className="order-2 p-7 sm:p-10 lg:order-1 lg:py-14 lg:pl-12">
-              <p className="inline-flex rounded-full bg-[#BDEED7] px-4 py-1.5 text-[15px] font-bold text-[#0B361F]">About us</p>
-              <h1 className="mt-5 text-[40px] font-bold leading-[1.08] tracking-[-0.03em] text-[#0B361F] sm:text-[52px] lg:text-[58px]">
+              <h1 className="text-[40px] font-bold leading-[1.08] tracking-[-0.03em] text-[#0B361F] sm:text-[52px] lg:text-[58px]">
                 About <span className="text-[#367050]">NuroTok</span>
               </h1>
               <p className="mt-4 max-w-[520px] text-[20px] leading-[1.5] text-[#1F3A2B] lg:text-[22px]">
@@ -223,67 +198,6 @@ export default function AboutPage() {
                   Read more about Kofi <Arrow />
                 </a>
               </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* AFFILIATIONS */}
-      <section className="bg-[#F6F3EC] pb-12 lg:pb-20">
-        <div className="mx-auto max-w-[1440px] px-5 sm:px-8 lg:px-12 xl:px-[88px]">
-          <div id="affiliations" className="scroll-mt-28">
-            <h2 className={h2}>Research and commentary</h2>
-            <p className="mt-3 text-[20px] leading-[1.55] text-[#2F4538]">The partners and platforms our research work sits alongside.</p>
-            <div className="mt-8 grid gap-6 md:grid-cols-2">
-              {affiliations.map(a => (
-                <a
-                  key={a.name}
-                  href={a.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={`group flex flex-col p-7 transition hover:border-[#367050] ${card}`}
-                >
-                  <span className="flex h-[56px] items-center">
-                    <Image src={a.logo} alt={a.name} width={200} height={90} sizes="200px" quality={90} className="h-auto max-h-[48px] w-auto max-w-[170px] object-contain object-left" />
-                  </span>
-                  <span className="mt-4 inline-flex w-fit rounded-full bg-[#BDEED7] px-3 py-1 text-[13px] font-bold uppercase tracking-[0.06em] text-[#0B361F]">{a.tag}</span>
-                  <h3 className="mt-3 text-[22px] font-bold leading-[1.3] text-[#0B361F] lg:text-[24px]">{a.name}</h3>
-                  <p className="mt-2 flex-1 text-[19px] leading-[1.55] text-[#2F4538]">{a.text}</p>
-                  <span className="mt-4 inline-flex items-center gap-2 text-[17px] font-bold text-[#367050] group-hover:text-[#0B361F]">
-                    Read more <Arrow />
-                  </span>
-                </a>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* IN THE PRESS */}
-      <section className="bg-[#F6F3EC] pb-12 lg:pb-20">
-        <div className="mx-auto max-w-[1440px] px-5 sm:px-8 lg:px-12 xl:px-[88px]">
-          <div id="press" className="scroll-mt-28">
-            <h2 className={h2}>In the press</h2>
-            <p className="mt-3 text-[20px] leading-[1.55] text-[#2F4538]">Coverage of the research and thinking behind NuroTok.</p>
-            <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-              {press.map(item => (
-                <a
-                  key={item.href}
-                  href={item.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={`group flex flex-col p-6 transition hover:border-[#367050] ${card}`}
-                >
-                  <span className={`flex h-[52px] items-center${item.dark ? " rounded-md bg-[#0B361F] px-3" : ""}`}>
-                    <Image src={item.logo} alt={item.outlet} width={180} height={60} sizes="180px" quality={90} className="h-auto max-h-[44px] w-auto max-w-[150px] object-contain object-left" />
-                  </span>
-                  <span className="mt-4 inline-flex w-fit rounded-full bg-[#BDEED7] px-3 py-1 text-[13px] font-bold uppercase tracking-[0.06em] text-[#0B361F]">{item.tag}</span>
-                  <h3 className="mt-3 flex-1 text-[19px] font-bold leading-[1.35] text-[#0B361F]">{item.title}</h3>
-                  <span className="mt-4 inline-flex items-center gap-2 text-[17px] font-bold text-[#367050] group-hover:text-[#0B361F]">
-                    Read the article <Arrow />
-                  </span>
-                </a>
-              ))}
             </div>
           </div>
         </div>
