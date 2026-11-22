@@ -76,7 +76,6 @@ export default async function BlogPostPage({ params }: PageProps<"/blogs/[slug]"
               className="object-cover object-center"
             />
           </div>
-          <p className="mt-2 text-[14px] text-[#5B6D62]">AI-generated illustration.</p>
 
           {/* Body */}
           <div className="mt-8 rounded-[6px] border border-[#D5E2D8] bg-white p-7 sm:p-10 lg:p-12">
