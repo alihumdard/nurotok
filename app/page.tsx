@@ -38,15 +38,6 @@ const photo = {
   research: "/images/home/research.jpg",
 };
 
-/* Media coverage, as listed on neurodigitalsupport.com */
-const press = [
-  { outlet: "News Ghana", logo: "/images/press/news-ghana.webp", title: "Ghanaian researcher takes neurodivergent users’ case to app design", href: "https://newsghana.com.gh/ghanaian-researcher-takes-neurodivergent-users-case-to-app-design/", tag: "Press" },
-  { outlet: "MyJoyOnline", logo: "/images/press/myjoyonline.webp", title: "The Ghanaian researcher challenging how social media platforms treat neurodivergent users", href: "https://www.myjoyonline.com/kofi-ofori-mensah-the-ghanaian-researcher-challenging-how-social-media-platforms-treat-neurodivergent-users/", tag: "Press" },
-  { outlet: "Adom Online", logo: "/images/press/adom-online.webp", title: "Kofi Ofori-Mensah: the Ghanaian researcher challenging how social media platforms treat neurodivergent users", href: "https://www.adomonline.com/kofi-ofori-mensah-the-ghanaian-researcher-challenging-how-social-media-platforms-treat-neurodivergent-users/", tag: "Press" },
-  { outlet: "GhanaWebbers", logo: "/images/press/ghanawebbers.webp", dark: true, title: "Ghanaian researcher advocates for neurodivergent users on social media", href: "https://www.ghanawebbers.com/GhanaHomePage/entertainment/Ghanaian-Researcher-Advocates-for-Neurodivergent-Users-on-Social-Media-2164525", tag: "Press" },
-  { outlet: "The Ghana Report", logo: "/images/press/the-ghana-report.webp", title: "The Ghanaian researcher challenging how social media platforms treat neurodivergent users", href: "https://theghanareport.com/opinion/the-ghanaian-researcher-challenging-how-social-media-platforms-treat-neurodivergent-users/", tag: "Opinion" },
-  { outlet: "The Hub Web", logo: "/images/press/the-hub-web.webp", title: "Rethinking diaspora parenting and youth crime in the UK: a case of the Ghanaian community", href: "https://www.thehubweb.com/rethinking-diaspora-parenting-youth-crime-uk-ghanaian-community", tag: "Social Impact" },
-];
 
 /* Top-of-page slider: images and the demo video (client request). */
 const heroSlides: Slide[] = [
@@ -196,33 +187,6 @@ export default function Home() {
             <a href="/about-us/" className="mt-6 inline-flex items-center gap-2 text-[19px] font-bold text-[#367050] hover:text-[#0B361F]">
               Why we built NuroTok <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
             </a>
-          </div>
-
-          {/* In the media */}
-          <div className="mt-9 lg:mt-28">
-            <h2 className="text-[32px] font-bold tracking-[-0.02em] text-[#0B361F] sm:text-[40px]">In the media</h2>
-            <p className="mt-3 text-[20px] leading-[1.55] text-[#2F4538]">Coverage of the research and thinking behind NuroTok.</p>
-            <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-              {press.map(item => (
-                <a
-                  key={item.href}
-                  href={item.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group flex flex-col rounded-[6px] border border-[#D5E2D8] bg-white p-6 transition hover:border-[#367050]"
-                >
-                  <span className={`flex h-[52px] items-center${"dark" in item ? " rounded-md bg-[#0B361F] px-3" : ""}`}>
-                    <Image src={item.logo} alt={item.outlet} width={180} height={60} sizes="180px" quality={90} className="h-auto max-h-[44px] w-auto max-w-[150px] object-contain object-left" />
-                  </span>
-                  <span className="mt-4 inline-flex w-fit rounded-full bg-[#BDEED7] px-3 py-1 text-[13px] font-bold uppercase tracking-[0.06em] text-[#0B361F]">{item.tag}</span>
-                  <h3 className="mt-3 flex-1 text-[19px] font-bold leading-[1.35] text-[#0B361F]">{item.title}</h3>
-                  <span className="mt-4 inline-flex items-center gap-2 text-[17px] font-bold text-[#367050] group-hover:text-[#0B361F]">
-                    Read the article
-                    <svg aria-hidden="true" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
-                  </span>
-                </a>
-              ))}
-            </div>
           </div>
 
           {/* NuroTok questions, answered */}

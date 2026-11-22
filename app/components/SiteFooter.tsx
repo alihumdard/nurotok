@@ -32,7 +32,7 @@ export default function SiteFooter() {
             ))}
           </ul>
         </nav>
-        <nav aria-label="Information" className="col-span-2 md:col-span-1 lg:border-l lg:border-[#0B361F]/15 lg:pl-10">
+        <nav aria-label="Information" className="lg:border-l lg:border-[#0B361F]/15 lg:pl-10">
           <h3 className="text-[17px] font-bold text-[#0B361F]">Information</h3>
           <ul className="mt-2 space-y-0.5">
             {[["Accessibility", "/accessibility/"], ["Privacy Policy", "/privacy-policy/"], ["Terms of Use", "/terms/"], ["Cookies", "/cookie-policy/"]].map(([label, href]) => (
@@ -41,11 +41,11 @@ export default function SiteFooter() {
           </ul>
         </nav>
 
-        <div className="col-span-2 flex flex-col items-center justify-center text-center md:col-span-2 lg:col-span-1 lg:border-l lg:border-[#0B361F]/15 lg:pl-10">
+        <div className="flex min-w-0 flex-col items-center justify-center text-center md:col-span-2 lg:col-span-1 lg:border-l lg:border-[#0B361F]/15 lg:pl-10">
           <a
             href="https://neurodigitalsupport.com/"
             aria-label="NeuroDigital Support"
-            className="inline-flex max-w-full rounded-lg bg-white p-2 transition-transform hover:-translate-y-0.5"
+            className="flex w-full max-w-[96px] justify-center rounded-lg bg-white p-2 transition-transform hover:-translate-y-0.5 lg:max-w-[116px]"
           >
             <Image
               src="/images/nd-support-logo.png"
@@ -54,10 +54,10 @@ export default function SiteFooter() {
               height={755}
               sizes="100px"
               quality={90}
-              className="h-auto w-full max-w-[92px] lg:max-w-[100px]"
+              className="h-auto w-full"
             />
           </a>
-          <p className="mt-3 w-max max-w-full text-[14.5px] font-semibold leading-snug text-[#0B361F]">
+          <p className="mt-3 max-w-full text-[13px] font-semibold leading-snug text-[#0B361F] lg:w-max lg:text-[14.5px]">
             Powered by{" "}
             <a href="https://neurodigitalsupport.com/" className="underline underline-offset-2 hover:text-[#367050]">
               NeuroDigital Support
