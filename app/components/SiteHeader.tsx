@@ -220,10 +220,10 @@ export default function SiteHeader({ logo }: { logo: React.ReactNode }) {
           </nav>
 
           <div className="flex shrink-0 items-center gap-1 xl:gap-2">
-          <div className="hidden 2xl:block">
+          <div className="hidden xl:block">
             <AccessibilityControls />
           </div>
-          <div className="2xl:hidden">
+          <div className="xl:hidden">
             <AccessibilityControls compact />
           </div>
 
