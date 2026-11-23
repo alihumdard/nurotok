@@ -98,7 +98,7 @@ export default function NewsPage() {
 
           {/* The rest */}
           {rest.length > 0 && (
-            <div className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            <div className={`mt-6 grid gap-6 sm:grid-cols-2 ${rest.length > 2 ? "lg:grid-cols-3" : ""}`}>
               {rest.map(n => (
                 <a
                   key={n.slug}
