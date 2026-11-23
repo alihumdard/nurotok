@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { ND_TRAINING_URL, ND_STORE_URL } from "./links";
+import AccessibilityControls from "./AccessibilityControls";
 import { createPortal } from "react-dom";
 
 const LINKS: [string, string][] = [
@@ -108,6 +109,11 @@ export default function MobileMenu() {
               ))}
             </ul>
           </nav>
+
+          <div className="mt-5 rounded-2xl border border-[#E3ECE6] bg-[#F6F3EC] p-3">
+            <p className="px-1 pb-2 text-[12px] font-bold uppercase tracking-[0.06em] text-[#53675C]">Accessibility</p>
+            <AccessibilityControls />
+          </div>
 
           <ul className="mt-4 grid grid-cols-2 gap-2">
             {UTILITY.map(([label, href]) => (
