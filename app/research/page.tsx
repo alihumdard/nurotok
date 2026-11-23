@@ -33,7 +33,7 @@ export default function ResearchPage() {
       {/* HERO */}
       <section id="main-content" className="bg-[#F6F3EC] pb-12 pt-5 lg:pb-16 lg:pt-10">
         <div className="mx-auto max-w-[1440px] px-5 sm:px-8 lg:px-12 xl:px-[88px]">
-          <div className="grid items-center overflow-hidden rounded-[6px] border border-[#D5E2D8] bg-white lg:grid-cols-2">
+          <div className="grid overflow-hidden rounded-[6px] border border-[#D5E2D8] bg-white lg:grid-cols-2">
             <div className="order-2 flex flex-col justify-center p-7 sm:p-10 lg:order-1 lg:py-14 lg:pl-12">
               <h1 className="text-[36px] font-bold leading-[1.1] tracking-[-0.03em] text-[#0B361F] sm:text-[44px] lg:text-[50px]">
                 How does a digital space feel to <span className="text-[#367050]">the person using it?</span>
@@ -45,7 +45,7 @@ export default function ResearchPage() {
               </p>
             </div>
 
-            <div className="relative order-1 aspect-[3/2] self-center overflow-hidden lg:order-2">
+            <div className="relative order-1 aspect-[3/2] overflow-hidden lg:order-2 lg:aspect-auto lg:h-full lg:min-h-[420px]">
               <Image
                 src="/images/home/research.jpg"
                 alt=""
