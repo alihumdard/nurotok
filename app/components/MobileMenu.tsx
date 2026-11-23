@@ -51,7 +51,7 @@ export default function MobileMenu() {
   }, [open]);
 
   const drawer = (
-    <div className={`fixed inset-0 z-[90] lg:hidden ${open ? "visible" : "invisible"}`} aria-hidden={!open}>
+    <div className={`fixed inset-0 z-[90] ${open ? "visible" : "invisible"}`} aria-hidden={!open}>
       {/* Backdrop */}
       <button
         type="button"
@@ -139,7 +139,7 @@ export default function MobileMenu() {
   );
 
   return (
-    <div className="lg:hidden">
+    <div>
       <button
         ref={triggerRef}
         type="button"

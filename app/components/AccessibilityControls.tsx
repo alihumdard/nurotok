@@ -87,7 +87,7 @@ export default function AccessibilityControls({ compact = false }: { compact?: b
 
   return (
     <div data-dark="a11y" className="flex items-center gap-1">
-      {/* Quick switches stay in the desktop navbar; mobile uses the options button */}
+      {/* Quick switches on wide desktop navbar; compact option icon on narrower layouts */}
       {!compact && (
         <div className="flex items-center gap-1 rounded-full border border-[#E3ECE6] bg-white px-2 py-1">
           <IconSwitch label="Dark mode" on={prefs.dark} onChange={v => update({ dark: v })} off={Sun} onIcon={Moon} />
