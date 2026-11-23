@@ -231,6 +231,11 @@ html.nt-reduce-motion *::after {
   animation: none !important;
   transition: none !important;
 }
+html.nt-reduce-motion .reveal {
+  animation: none !important;
+  transform: none !important;
+  opacity: 1 !important;
+}
 
 /* Highlight links */
 html.nt-links a {

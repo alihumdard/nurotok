@@ -28,7 +28,7 @@ const founders = [
     name: "Shubham Nagore",
     heading: "Shubham Nagore",
     role: "Full-stack technologist, AI specialist, and market strategist.",
-    photo: null,
+    photo: "/images/Shubham Nagore.png",
     href: null,
     bio: "Shubham is an AI specialist, full-stack technologist, and market strategist who co-founded NeuroDigital Support. He leads our go-to-market strategy, technology partnerships, and brand positioning, drawing on deep expertise in agentic AI, product engineering, and digital transformation across the hospitality and events sectors. He empowers teams and leaders to navigate emerging AI architectures, transform complex concepts into practical strategies, and drive the adoption of scalable, AI-powered solutions.",
   },

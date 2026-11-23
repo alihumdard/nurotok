@@ -16,6 +16,14 @@ const SCREENS = [
 export default function ScreensCarousel() {
   const track = useRef<HTMLDivElement>(null);
   const [active, setActive] = useState(0);
+  const [reduceMotion, setReduceMotion] = useState(false);
+
+  useEffect(() => {
+    const sync = () => setReduceMotion(document.documentElement.classList.contains("nt-reduce-motion"));
+    sync();
+    window.addEventListener("nt-a11y-change", sync);
+    return () => window.removeEventListener("nt-a11y-change", sync);
+  }, []);
 
   // Keep the dots in sync with manual swiping
   useEffect(() => {
@@ -30,7 +38,7 @@ export default function ScreensCarousel() {
     const el = track.current;
     if (!el) return;
     const n = Math.max(0, Math.min(SCREENS.length - 1, i));
-    el.scrollTo({ left: n * el.clientWidth, behavior: "smooth" });
+    el.scrollTo({ left: n * el.clientWidth, behavior: reduceMotion ? "auto" : "smooth" });
     setActive(n);
   };
 

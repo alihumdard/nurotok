@@ -35,6 +35,7 @@ const PAUSE_GRACE_MS = 3500;
 export default function HeroSlider({ slides }: { slides: Slide[] }) {
   const [active, setActive] = useState(0);
   const [playing, setPlaying] = useState(false);
+  const [reduceMotion, setReduceMotion] = useState(false);
   const video = useRef<HTMLVideoElement>(null);
   const pauseTimer = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
 
@@ -50,24 +51,32 @@ export default function HeroSlider({ slides }: { slides: Slide[] }) {
   // A video slide fills the panel on its own, with no copy beside it (client request).
   const solo = slide.kind === "video";
 
+  useEffect(() => {
+    const sync = () => setReduceMotion(document.documentElement.classList.contains("nt-reduce-motion"));
+    sync();
+    window.addEventListener("nt-a11y-change", sync);
+    return () => window.removeEventListener("nt-a11y-change", sync);
+  }, []);
+
   // Auto-advance
   useEffect(() => {
-    if (slide.kind === "video" || slides.length < 2) return;
+    if (slide.kind === "video" || slides.length < 2 || reduceMotion) return;
     if (typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     const t = setTimeout(() => go(active + 1), AUTO_MS);
     return () => clearTimeout(t);
-  }, [active, slide.kind, go, slides.length]);
+  }, [active, slide.kind, go, slides.length, reduceMotion]);
 
   // A video slide plays as soon as it comes round (client request). Autoplay is
   // only permitted while muted, so the video starts muted and the viewer can
   // unmute from the controls.
   useEffect(() => {
-    setPlaying(slides[active].kind === "video");
-  }, [active, slides]);
+    setPlaying(slides[active].kind === "video" && !reduceMotion);
+  }, [active, slides, reduceMotion]);
 
   useEffect(() => {
-    if (playing) video.current?.play().catch(() => {});
-  }, [playing]);
+    if (playing && !reduceMotion) video.current?.play().catch(() => {});
+    else video.current?.pause();
+  }, [playing, reduceMotion]);
 
   // Drop any pending pause timer when the slide changes.
   useEffect(() => () => clearTimeout(pauseTimer.current), [active]);
@@ -75,7 +84,7 @@ export default function HeroSlider({ slides }: { slides: Slide[] }) {
   // A video hands over when it ends. This is the backstop: if playback never
   // starts, is paused, or stalls, the slide moves on anyway.
   useEffect(() => {
-    if (slide.kind !== "video" || slides.length < 2) return;
+    if (slide.kind !== "video" || slides.length < 2 || reduceMotion) return;
     const started = Date.now();
     const id = setInterval(() => {
       const v = video.current;
@@ -84,7 +93,7 @@ export default function HeroSlider({ slides }: { slides: Slide[] }) {
       if (stalled ? Date.now() - started > 6000 : overran) go(active + 1);
     }, 1000);
     return () => clearInterval(id);
-  }, [active, slide.kind, go, slides.length]);
+  }, [active, slide.kind, go, slides.length, reduceMotion]);
 
 
   return (
