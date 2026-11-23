@@ -116,15 +116,13 @@ export default function SiteHeader({ logo }: { logo: React.ReactNode }) {
             ))}
           </nav>
 
-          <div className="lg:hidden">
-            <MobileMenu />
-          </div>
+          <MobileMenu />
         </div>
       </div>
 
       {/* Green bar: main navigation (lg and up) */}
       <div ref={navRef} className="relative hidden border-b border-[#E3DED2] bg-[#F6F3EC] lg:block">
-        <div className="mx-auto flex h-[72px] max-w-[1440px] items-center justify-between gap-3 px-6 xl:gap-4 xl:px-12 2xl:px-[88px]">
+        <div className="mx-auto flex h-[72px] max-w-[1440px] items-center justify-between gap-3 px-6 xl:gap-4 xl:px-[88px]">
           <nav aria-label="Main">
             <ul className="flex items-center gap-1 xl:gap-2">
               {NAV.map(item => {
@@ -223,8 +221,6 @@ export default function SiteHeader({ logo }: { logo: React.ReactNode }) {
           <div className="xl:hidden">
             <AccessibilityControls compact />
           </div>
-
-          <MobileMenu />
 
           <a
             href="/contact-us/"

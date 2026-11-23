@@ -139,7 +139,7 @@ export default function MobileMenu() {
   );
 
   return (
-    <div>
+    <div className="lg:hidden">
       <button
         ref={triggerRef}
         type="button"
