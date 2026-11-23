@@ -122,7 +122,7 @@ export default function AccessibilityControls() {
               Apply comfortable viewing settings across the whole website.
             </p>
 
-            <div className="mt-4 max-h-[min(60vh,380px)] overflow-y-auto pr-1">
+            <div className="mt-4 max-h-[min(60vh,380px)] overflow-y-auto pb-3 pr-1">
               {/* Bigger text */}
               <p className="flex items-center gap-2 text-[14px] font-semibold text-[#0B361F]">
                 <svg aria-hidden="true" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M2 12s3.6-6.5 10-6.5S22 12 22 12s-3.6 6.5-10 6.5S2 12 2 12z" /><circle cx="12" cy="12" r="2.7" /></svg>
