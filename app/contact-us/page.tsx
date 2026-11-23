@@ -74,16 +74,16 @@ export default function ContactPage() {
                 Need help with the app, want to ask about a merchandise order, suggest a change, or have a question
                 about working with us? Email {EMAIL}. A short message is fine.
               </p>
-              <div className="mt-7 flex flex-wrap gap-3">
+              <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
                 <a
                   href={`mailto:${EMAIL}`}
-                  className="inline-flex items-center gap-2.5 rounded-full bg-[#0B361F] px-6 py-3 text-[17px] font-semibold text-white transition-colors hover:bg-[#367050]"
+                  className="inline-flex w-full items-center justify-center gap-2.5 rounded-full bg-[#0B361F] px-6 py-3.5 text-[17px] font-semibold text-white transition-colors hover:bg-[#367050] sm:w-auto sm:py-3"
                 >
                   Email the team <Arrow />
                 </a>
                 <a
                   href={`tel:${PHONE_HREF}`}
-                  className="inline-flex items-center gap-2.5 rounded-full border-2 border-[#0B361F] px-6 py-3 text-[17px] font-semibold text-[#0B361F] transition-colors hover:bg-[#0B361F] hover:text-white"
+                  className="inline-flex w-full items-center justify-center gap-2.5 rounded-full border-2 border-[#0B361F] px-6 py-3.5 text-[17px] font-semibold text-[#0B361F] transition-colors hover:bg-[#0B361F] hover:text-white sm:w-auto sm:py-3"
                 >
                   {PHONE_DISPLAY}
                 </a>
