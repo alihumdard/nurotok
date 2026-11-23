@@ -111,82 +111,106 @@ export default function AccessibilityControls() {
         </button>
 
         {open && (
-          <div
-            role="dialog"
-            aria-label="Accessibility"
-            data-light
-            className="absolute right-0 top-full z-50 mt-2 w-[330px] max-w-[calc(100vw-2rem)] rounded-2xl border border-[#E3ECE6] bg-white p-4 shadow-[0_18px_44px_rgba(11,54,31,0.2)]"
-          >
-            <h2 className="text-[22px] font-bold tracking-[-0.01em] text-[#0B361F]">Accessibility</h2>
-            <p className="mt-1 text-[14px] leading-[1.45] text-[#53675C]">
-              Apply comfortable viewing settings across the whole website.
-            </p>
+          <>
+            {/* Overlay */}
+            <div
+              aria-hidden="true"
+              onClick={() => setOpen(false)}
+              className="fixed inset-0 z-[60] bg-black/80 motion-safe:animate-[nt-fade_200ms_ease-out]"
+            />
 
-            <div className="mt-4 max-h-[min(60vh,380px)] overflow-y-auto pb-3 pr-1">
-              {/* Bigger text */}
-              <p className="flex items-center gap-2 text-[14px] font-semibold text-[#0B361F]">
-                <svg aria-hidden="true" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M2 12s3.6-6.5 10-6.5S22 12 22 12s-3.6 6.5-10 6.5S2 12 2 12z" /><circle cx="12" cy="12" r="2.7" /></svg>
-                Bigger Text
-              </p>
-              <div className="mt-2 grid grid-cols-3 gap-1 rounded-xl border border-[#E3ECE6] p-1" role="group" aria-label="Text size">
-                {FONT_SIZES.map(f => {
-                  const on = prefs.fontSize === f.value;
-                  return (
-                    <button
-                      key={f.value}
-                      type="button"
-                      aria-pressed={on}
-                      onClick={() => update({ fontSize: f.value })}
-                      className={`rounded-lg py-2 text-[14px] font-semibold transition-colors ${
-                        on ? "bg-[#367050] text-white" : "text-[#0B361F] hover:bg-[#F1F6F2]"
-                      }`}
-                    >
-                      {f.label}
-                    </button>
-                  );
-                })}
+            {/* Sheet, sliding in from the right */}
+            <div
+              role="dialog"
+              aria-modal="true"
+              aria-label="Accessibility"
+              data-light
+              className="fixed inset-y-0 right-0 z-[70] flex w-3/4 flex-col border-l border-[#E3ECE6] bg-white shadow-[0_0_60px_rgba(11,54,31,0.25)] sm:max-w-sm motion-safe:animate-[nt-slide-in_300ms_cubic-bezier(0.32,0.72,0,1)]"
+            >
+              <button
+                type="button"
+                onClick={() => setOpen(false)}
+                className="absolute right-4 top-4 flex h-9 w-9 items-center justify-center rounded-lg text-[#0B361F] transition-colors hover:bg-[#F1F6F2]"
+              >
+                <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round"><path d="M18 6L6 18M6 6l12 12" /></svg>
+                <span className="sr-only">Close</span>
+              </button>
+
+              <div className="px-6 pb-5 pt-6">
+                <h2 className="text-[26px] font-bold tracking-[-0.01em] text-[#0B361F]">Accessibility</h2>
+                <p className="mt-1.5 max-w-[280px] text-[15px] leading-[1.45] text-[#53675C]">
+                  Apply comfortable viewing settings across the whole website.
+                </p>
               </div>
 
-              {/* Toggle grid */}
-              <div className="mt-3 grid grid-cols-2 gap-2">
-                {TOGGLES.map(t => {
-                  const on = prefs[t.key] as boolean;
-                  return (
-                    <button
-                      key={t.key}
-                      type="button"
-                      role="switch"
-                      aria-checked={on}
-                      onClick={() => toggle(t.key)}
-                      className={`flex flex-col items-start gap-2.5 rounded-xl border p-3 text-left transition-colors ${
-                        on ? "border-[#367050] bg-[#EDF7F1]" : "border-[#E3ECE6] bg-white hover:border-[#9CC5AE]"
-                      }`}
-                    >
-                      <span
-                        aria-hidden="true"
-                        className={`flex h-9 w-9 items-center justify-center rounded-lg text-[14px] font-bold text-[#367050] ${
-                          on ? "bg-white" : "bg-[#F1F6F2]"
+              <div className="flex-1 overflow-y-auto overscroll-contain border-t border-[#EDF2EE] px-6 py-5">
+                {/* Bigger text */}
+                <p className="flex items-center gap-2 text-[15px] font-semibold text-[#0B361F]">
+                  <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M2 12s3.6-6.5 10-6.5S22 12 22 12s-3.6 6.5-10 6.5S2 12 2 12z" /><circle cx="12" cy="12" r="2.7" /></svg>
+                  Bigger Text
+                </p>
+                <div className="mt-2.5 grid grid-cols-3 gap-1 rounded-xl border border-[#E3ECE6] p-1" role="group" aria-label="Text size">
+                  {FONT_SIZES.map(f => {
+                    const on = prefs.fontSize === f.value;
+                    return (
+                      <button
+                        key={f.value}
+                        type="button"
+                        aria-pressed={on}
+                        onClick={() => update({ fontSize: f.value })}
+                        className={`rounded-lg py-2.5 text-[15px] font-semibold transition-colors ${
+                          on ? "bg-[#367050] text-white" : "text-[#0B361F] hover:bg-[#F1F6F2]"
                         }`}
                       >
-                        {t.key === "dyslexia" ? "Df" : ICONS[t.key]}
-                      </span>
-                      <span className="text-[14px] font-semibold leading-tight text-[#0B361F]">{t.label}</span>
-                      {on && <span aria-hidden="true" className="h-[3px] w-10 rounded-full bg-[#367050]" />}
-                    </button>
-                  );
-                })}
+                        {f.label}
+                      </button>
+                    );
+                  })}
+                </div>
+
+                {/* Toggle grid */}
+                <div className="mt-4 grid grid-cols-2 gap-3">
+                  {TOGGLES.map(t => {
+                    const on = prefs[t.key] as boolean;
+                    return (
+                      <button
+                        key={t.key}
+                        type="button"
+                        role="switch"
+                        aria-checked={on}
+                        onClick={() => toggle(t.key)}
+                        className={`flex flex-col items-start gap-3 rounded-xl border p-3.5 text-left transition-colors ${
+                          on ? "border-[#367050] bg-[#EDF7F1]" : "border-[#E3ECE6] bg-white hover:border-[#9CC5AE]"
+                        }`}
+                      >
+                        <span
+                          aria-hidden="true"
+                          className={`flex h-10 w-10 items-center justify-center rounded-lg text-[15px] font-bold text-[#367050] ${
+                            on ? "bg-white" : "bg-[#F1F6F2]"
+                          }`}
+                        >
+                          {t.key === "dyslexia" ? "Df" : ICONS[t.key]}
+                        </span>
+                        <span className="text-[15px] font-semibold leading-tight text-[#0B361F]">{t.label}</span>
+                        {on && <span aria-hidden="true" className="h-[3px] w-10 rounded-full bg-[#367050]" />}
+                      </button>
+                    );
+                  })}
+                </div>
+              </div>
+
+              <div className="border-t border-[#EDF2EE] px-6 py-5">
+                <button
+                  type="button"
+                  onClick={reset}
+                  className="flex w-full items-center justify-center gap-2.5 rounded-full bg-[#367050] px-5 py-3.5 text-[16px] font-semibold text-white transition-colors hover:bg-[#0B361F]"
+                >
+                  <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><path d="M3 12a9 9 0 1 0 2.6-6.4M3 4.5V10h5.5" /></svg>
+                  Reset Settings
+                </button>
               </div>
             </div>
-
-            <button
-              type="button"
-              onClick={reset}
-              className="mt-4 flex w-full items-center justify-center gap-2.5 rounded-full bg-[#367050] px-5 py-3 text-[16px] font-semibold text-white transition-colors hover:bg-[#0B361F]"
-            >
-              <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><path d="M3 12a9 9 0 1 0 2.6-6.4M3 4.5V10h5.5" /></svg>
-              Reset Settings
-            </button>
-          </div>
+          </>
         )}
       </div>
     </div>

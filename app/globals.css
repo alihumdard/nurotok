@@ -390,6 +390,16 @@ html.nt-dark [data-dark="download"] > span[aria-hidden="true"] { display: none; 
    CSS scroll-driven animation: no JS, content is always visible in
    browsers without support, and it is off for reduced motion.
 ======================================== */
+/* Accessibility sheet */
+@keyframes nt-fade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes nt-slide-in {
+  from { transform: translateX(100%); }
+  to { transform: translateX(0); }
+}
+
 @keyframes nt-reveal {
   from { opacity: 0; transform: translateY(28px); }
   to { opacity: 1; transform: none; }
