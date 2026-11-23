@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { ZOOM_STEPS, usePrefs } from "./a11yPrefs";
+import { FONT_SIZES, TOGGLES, usePrefs } from "./a11yPrefs";
 
 /** A pill-shaped switch with an icon either side, as on the ND Support site. */
 function IconSwitch({
@@ -53,14 +53,23 @@ const Pause = (
   <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><rect x="7" y="5" width="3.6" height="14" rx="1.1" /><rect x="13.4" y="5" width="3.6" height="14" rx="1.1" /></svg>
 );
 
+/** One icon per toggle, keyed to match TOGGLES. Dyslexia uses a "Df" mark. */
+const ICONS: Record<string, React.ReactNode> = {
+  contrast: <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9"><circle cx="12" cy="12" r="9" /><path d="M12 3v18a9 9 0 0 0 0-18z" fill="currentColor" stroke="none" /></svg>,
+  hideImages: <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="4.5" width="18" height="15" rx="2.5" /><path d="M3.5 16l4.5-4.5 3.5 3.5M4 4l16 16" /><circle cx="15.5" cy="9" r="1.4" /></svg>,
+  links: <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round"><path d="M10 13.5a4 4 0 0 0 5.7 0l2.8-2.8a4 4 0 0 0-5.7-5.7L11.5 6" /><path d="M14 10.5a4 4 0 0 0-5.7 0l-2.8 2.8a4 4 0 0 0 5.7 5.7l1.3-1.3" /></svg>,
+  bigCursor: <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round"><path d="M5 3l13 9.2-5.6 1.1 2.9 5.9-2.4 1.2-2.9-5.9L5 18z" /></svg>,
+  textSpacing: <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round"><path d="M3 5v14M21 5v14M8 15l4-9 4 9M9.4 12.2h5.2" /></svg>,
+  lineHeight: <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round"><path d="M4 6h16M4 12h16M4 18h16" /></svg>,
+};
+
 /**
- * Compact accessibility controls for the header: dark mode, reduce motion,
- * and a small panel with text size and link highlighting.
- * Preferences live in localStorage and are re-applied before first paint
- * by the script in app/layout.tsx.
+ * Accessibility controls: dark mode and reduce motion as pill switches, with
+ * the full panel behind a button. The panel mirrors the NeuroDigital Support
+ * site's options, in NuroTok's colours.
  */
 export default function AccessibilityControls() {
-  const { prefs, update, reset, step } = usePrefs();
+  const { prefs, update, toggle, reset } = usePrefs();
   const [open, setOpen] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
 
@@ -76,33 +85,16 @@ export default function AccessibilityControls() {
     };
   }, [open]);
 
-  const sizeBtn = (active: boolean) =>
-    `flex h-8 min-w-8 items-center justify-center rounded-lg border px-2 text-[14px] font-bold transition-colors disabled:cursor-not-allowed disabled:opacity-40 ${
-      active ? "border-[#0B361F] bg-[#0B361F] text-white" : "border-[#D5E2D8] bg-white text-[#0B361F] hover:border-[#367050]"
-    }`;
-
   return (
     <div data-dark="a11y" className="flex items-center gap-1">
-      {/* Dark mode and reduce motion, always visible */}
+      {/* Always visible */}
       <div className="flex items-center gap-1 rounded-full border border-[#E3ECE6] bg-white px-2 py-1">
-        <IconSwitch
-          label="Dark mode"
-          on={prefs.dark}
-          onChange={v => update({ dark: v })}
-          off={Sun}
-          onIcon={Moon}
-        />
+        <IconSwitch label="Dark mode" on={prefs.dark} onChange={v => update({ dark: v })} off={Sun} onIcon={Moon} />
         <span aria-hidden="true" className="h-4 w-px bg-[#DCE6DF]" />
-        <IconSwitch
-          label="Reduce motion"
-          on={prefs.motion}
-          onChange={v => update({ motion: v })}
-          off={Play}
-          onIcon={Pause}
-        />
+        <IconSwitch label="Reduce motion" on={prefs.motion} onChange={v => update({ motion: v })} off={Play} onIcon={Pause} />
       </div>
 
-      {/* More options */}
+      {/* Full panel */}
       <div ref={ref} className="relative">
         <button
           type="button"
@@ -121,52 +113,79 @@ export default function AccessibilityControls() {
         {open && (
           <div
             role="dialog"
-            aria-label="Accessibility options"
+            aria-label="Accessibility"
             data-light
-            className="absolute right-0 top-full z-50 mt-2 w-[280px] rounded-2xl border border-[#E3ECE6] bg-white p-3 shadow-[0_18px_40px_rgba(11,54,31,0.18)]"
+            className="absolute right-0 top-full z-50 mt-2 w-[330px] max-w-[calc(100vw-2rem)] rounded-2xl border border-[#E3ECE6] bg-white p-4 shadow-[0_18px_44px_rgba(11,54,31,0.2)]"
           >
-            <p className="px-1 pb-2 text-[12px] font-bold uppercase tracking-[0.06em] text-[#53675C]">Accessibility</p>
+            <h2 className="text-[22px] font-bold tracking-[-0.01em] text-[#0B361F]">Accessibility</h2>
+            <p className="mt-1 text-[14px] leading-[1.45] text-[#53675C]">
+              Apply comfortable viewing settings across the whole website.
+            </p>
 
-            <div className="rounded-xl bg-[#F6F3EC] p-3">
-              <p className="text-[14px] font-semibold text-[#0B361F]">Text size</p>
-              <div className="mt-2 flex items-center gap-2" role="group" aria-label="Text size">
-                <button type="button" aria-label="Decrease text size" disabled={prefs.zoom <= ZOOM_STEPS[0]} onClick={() => step(-1)} className={sizeBtn(false)}>A&minus;</button>
-                <button type="button" aria-label="Default text size" aria-pressed={prefs.zoom === 1} onClick={() => update({ zoom: 1 })} className={sizeBtn(prefs.zoom === 1)}>A</button>
-                <button type="button" aria-label="Increase text size" disabled={prefs.zoom >= ZOOM_STEPS[ZOOM_STEPS.length - 1]} onClick={() => step(1)} className={sizeBtn(false)}>A+</button>
-                <span className="ml-auto text-[13px] font-semibold text-[#53675C]" aria-live="polite">
-                  {Math.round(prefs.zoom * 100)}%
-                </span>
+            <div className="mt-4 max-h-[min(60vh,380px)] overflow-y-auto pr-1">
+              {/* Bigger text */}
+              <p className="flex items-center gap-2 text-[14px] font-semibold text-[#0B361F]">
+                <svg aria-hidden="true" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M2 12s3.6-6.5 10-6.5S22 12 22 12s-3.6 6.5-10 6.5S2 12 2 12z" /><circle cx="12" cy="12" r="2.7" /></svg>
+                Bigger Text
+              </p>
+              <div className="mt-2 grid grid-cols-3 gap-1 rounded-xl border border-[#E3ECE6] p-1" role="group" aria-label="Text size">
+                {FONT_SIZES.map(f => {
+                  const on = prefs.fontSize === f.value;
+                  return (
+                    <button
+                      key={f.value}
+                      type="button"
+                      aria-pressed={on}
+                      onClick={() => update({ fontSize: f.value })}
+                      className={`rounded-lg py-2 text-[14px] font-semibold transition-colors ${
+                        on ? "bg-[#367050] text-white" : "text-[#0B361F] hover:bg-[#F1F6F2]"
+                      }`}
+                    >
+                      {f.label}
+                    </button>
+                  );
+                })}
+              </div>
+
+              {/* Toggle grid */}
+              <div className="mt-3 grid grid-cols-2 gap-2">
+                {TOGGLES.map(t => {
+                  const on = prefs[t.key] as boolean;
+                  return (
+                    <button
+                      key={t.key}
+                      type="button"
+                      role="switch"
+                      aria-checked={on}
+                      onClick={() => toggle(t.key)}
+                      className={`flex flex-col items-start gap-2.5 rounded-xl border p-3 text-left transition-colors ${
+                        on ? "border-[#367050] bg-[#EDF7F1]" : "border-[#E3ECE6] bg-white hover:border-[#9CC5AE]"
+                      }`}
+                    >
+                      <span
+                        aria-hidden="true"
+                        className={`flex h-9 w-9 items-center justify-center rounded-lg text-[14px] font-bold text-[#367050] ${
+                          on ? "bg-white" : "bg-[#F1F6F2]"
+                        }`}
+                      >
+                        {t.key === "dyslexia" ? "Df" : ICONS[t.key]}
+                      </span>
+                      <span className="text-[14px] font-semibold leading-tight text-[#0B361F]">{t.label}</span>
+                      {on && <span aria-hidden="true" className="h-[3px] w-10 rounded-full bg-[#367050]" />}
+                    </button>
+                  );
+                })}
               </div>
             </div>
 
             <button
               type="button"
-              role="switch"
-              aria-checked={prefs.links}
-              onClick={() => update({ links: !prefs.links })}
-              className="mt-2 flex w-full items-center justify-between gap-4 rounded-xl px-3 py-2.5 text-left transition-colors hover:bg-[#F1F6F2]"
+              onClick={reset}
+              className="mt-4 flex w-full items-center justify-center gap-2.5 rounded-full bg-[#367050] px-5 py-3 text-[16px] font-semibold text-white transition-colors hover:bg-[#0B361F]"
             >
-              <span>
-                <span className="block text-[14px] font-semibold text-[#0B361F]">Highlight links</span>
-                <span className="block text-[12.5px] text-[#53675C]">Underline every link</span>
-              </span>
-              <span
-                className={`inline-flex h-5 w-9 shrink-0 items-center rounded-full border-2 border-transparent transition-colors ${
-                  prefs.links ? "bg-[#367050]" : "bg-[#C9D6CD]"
-                }`}
-              >
-                <span className={`block h-4 w-4 rounded-full bg-white shadow-lg transition-transform ${prefs.links ? "translate-x-4" : "translate-x-0"}`} />
-              </span>
+              <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><path d="M3 12a9 9 0 1 0 2.6-6.4M3 4.5V10h5.5" /></svg>
+              Reset Settings
             </button>
-
-            <div className="mt-1 flex items-center justify-between border-t border-[#EDF2EE] px-3 pb-1 pt-2.5">
-              <button type="button" onClick={reset} className="text-[13px] font-semibold text-[#367050] hover:text-[#0B361F]">
-                Reset all
-              </button>
-              <a href="/accessibility/" className="text-[13px] font-semibold text-[#367050] underline underline-offset-2 hover:text-[#0B361F]">
-                Accessibility statement
-              </a>
-            </div>
           </div>
         )}
       </div>

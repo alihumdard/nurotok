@@ -220,14 +220,7 @@
    (toggled on <html> by components/AccessibilityBar)
 ======================================== */
 
-/* Text size: scales the whole page proportionally */
-:root {
-  --nt-zoom: 1;
-}
-
-body {
-  zoom: var(--nt-zoom);
-}
+/* Text size is set as a percentage on <html> by components/a11yPrefs. */
 
 /* Reduce motion */
 html.nt-reduce-motion,
@@ -244,6 +237,76 @@ html.nt-links a {
   text-decoration: underline !important;
   text-decoration-thickness: 2px !important;
   text-underline-offset: 3px !important;
+}
+
+/* Increased contrast */
+html.nt-contrast {
+  filter: contrast(1.35);
+}
+html.nt-contrast img,
+html.nt-contrast video {
+  filter: contrast(0.85);
+}
+
+/* Hide images: keeps layout, drops the picture */
+html.nt-hide-images img,
+html.nt-hide-images video {
+  visibility: hidden !important;
+}
+html.nt-hide-images [style*="background-image"] {
+  background-image: none !important;
+}
+
+/* Big cursor */
+html.nt-big-cursor,
+html.nt-big-cursor * {
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='48' viewBox='0 0 24 24'%3E%3Cpath d='M5 2l14 10-6 1.2 3.2 6.4-2.6 1.3L10.4 14 5 18z' fill='%230B361F' stroke='%23fff' stroke-width='1.3'/%3E%3C/svg%3E") 4 2, auto !important;
+}
+html.nt-big-cursor a,
+html.nt-big-cursor button,
+html.nt-big-cursor [role="switch"],
+html.nt-big-cursor [role="button"],
+html.nt-big-cursor input,
+html.nt-big-cursor select,
+html.nt-big-cursor textarea {
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='48' viewBox='0 0 24 24'%3E%3Cpath d='M9 11V4.6a1.6 1.6 0 0 1 3.2 0V10m0 0V8.2a1.6 1.6 0 0 1 3.2 0V11m0-1.2a1.6 1.6 0 0 1 3.2 0V15a6 6 0 0 1-6 6h-1a6 6 0 0 1-5.2-3L4 14.6a1.6 1.6 0 0 1 2.6-1.8L9 15' fill='none' stroke='%230B361F' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round' paint-order='stroke' style='paint-order:stroke'/%3E%3C/svg%3E") 10 2, pointer !important;
+}
+
+/* Dyslexia-friendly type */
+html.nt-dyslexia,
+html.nt-dyslexia body,
+html.nt-dyslexia button,
+html.nt-dyslexia input,
+html.nt-dyslexia select,
+html.nt-dyslexia textarea {
+  font-family: "Comic Sans MS", "Trebuchet MS", Verdana, sans-serif !important;
+}
+html.nt-dyslexia * {
+  letter-spacing: 0.03em;
+  word-spacing: 0.1em;
+}
+
+/* Text spacing */
+html.nt-text-spacing p,
+html.nt-text-spacing li,
+html.nt-text-spacing h1,
+html.nt-text-spacing h2,
+html.nt-text-spacing h3,
+html.nt-text-spacing h4,
+html.nt-text-spacing a,
+html.nt-text-spacing span {
+  letter-spacing: 0.12em !important;
+  word-spacing: 0.18em !important;
+}
+
+/* Line height */
+html.nt-line-height p,
+html.nt-line-height li,
+html.nt-line-height h1,
+html.nt-line-height h2,
+html.nt-line-height h3,
+html.nt-line-height h4 {
+  line-height: 2 !important;
 }
 
 /* ========================================
