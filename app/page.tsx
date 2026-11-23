@@ -2,6 +2,7 @@ import Image from "next/image";
 import SiteHeader from "./components/SiteHeader";
 import ScreensCarousel from "./components/ScreensCarousel";
 import HeroSlider, { type Slide } from "./components/HeroSlider";
+import { news } from "./news/items";
 import FaqAccordion from "./components/FaqAccordion";
 import BrandLogo from "./components/BrandLogo";
 import SiteFooter from "./components/SiteFooter";
@@ -254,14 +255,10 @@ export default function Home() {
               <a href="/news/" className="inline-flex shrink-0 items-center gap-2 whitespace-nowrap text-[18px] font-bold text-[#367050] hover:text-[#0B361F]">View all news <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M13 6l6 6-6 6" /></svg></a>
             </div>
             <div className="grid gap-6 md:grid-cols-3">
-              {[
-                { title: "NuroTok: New app features now available", date: "7 November 2026", img: "/images/home/news-app-features.jpg" },
-                { title: "How sensory tools can support focus", date: "5 November 2026", img: "/images/home/focus-mode.jpg" },
-                { title: "Our latest research update", date: "23 October 2026", img: "/images/home/research-insights.jpg" },
-              ].map(n => (
-                <a key={n.title} href="/news/" className="group rounded-[6px] border border-[#D5E2D8] bg-white transition flex flex-col overflow-hidden">
+              {news.slice(0, 3).map(n => (
+                <a key={n.slug} href={`/news/${n.slug}/`} className="group rounded-[6px] border border-[#D5E2D8] bg-white transition flex flex-col overflow-hidden">
                   <div className="relative aspect-[16/10] overflow-hidden">
-                    <Image src={n.img} alt="" fill sizes="(min-width: 768px) 33vw, 100vw" quality={80} className={`object-cover transition-transform duration-500 group-hover:scale-105 ${"pos" in n ? n.pos : ""}`} />
+                    <Image src={n.image} alt="" fill sizes="(min-width: 768px) 33vw, 100vw" quality={80} className="object-cover transition-transform duration-500 group-hover:scale-105" />
                   </div>
                   <div className="flex flex-1 flex-col justify-between gap-4 p-5">
                     <h3 className="text-[22px] font-bold leading-snug lg:text-[24px] text-[#0B361F]">{n.title}</h3>
