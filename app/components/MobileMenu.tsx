@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { ND_TRAINING_URL, ND_STORE_URL } from "./links";
 import { createPortal } from "react-dom";
 
 const LINKS: [string, string][] = [
@@ -8,9 +9,9 @@ const LINKS: [string, string][] = [
   ["About", "/about-us/"],
   ["Features", "/features/"],
   ["Research", "/research/"],
-  ["Training", "/training/"],
+  ["Training", ND_TRAINING_URL],
   ["Blogs", "/blogs/"],
-  ["Store", "/store/"],
+  ["Store", ND_STORE_URL],
   ["Support", "/contact-us/#help"],
 ];
 
@@ -93,6 +94,7 @@ export default function MobileMenu() {
                   <a
                     href={href}
                     aria-current={i === 0 ? "page" : undefined}
+                    {...(href.startsWith("http") ? { target: "_blank", rel: "noopener noreferrer" } : {})}
                     onClick={() => setOpen(false)}
                     className={`flex items-center justify-between py-3.5 text-[16px] font-medium ${i === 0 ? "text-[#1E7A4C]" : "text-[#0B361F]"}`}
                   >

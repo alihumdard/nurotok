@@ -1,5 +1,6 @@
 import Image from "next/image";
 import BrandLogo from "./BrandLogo";
+import { ND_TRAINING_URL, ND_STORE_URL } from "./links";
 
 export default function SiteFooter() {
   return (
@@ -19,16 +20,16 @@ export default function SiteFooter() {
         <nav aria-label="Quick links" className="lg:border-l lg:border-[#0B361F]/15 lg:pl-10">
           <h3 className="text-[17px] font-bold text-[#0B361F]">Quick links</h3>
           <ul className="mt-2 space-y-0.5">
-            {[["Home", "/"], ["About", "/about-us/"], ["Features", "/features/"], ["Research", "/research/"], ["Training", "/training/"]].map(([label, href]) => (
-              <li key={label}><a href={href} className="text-[16px] text-[#3E5146] hover:text-[#0B361F]">{label}</a></li>
+            {[["Home", "/"], ["About", "/about-us/"], ["Features", "/features/"], ["Research", "/research/"], ["Training", ND_TRAINING_URL]].map(([label, href]) => (
+              <li key={label}><a href={href} {...(href.startsWith("http") ? { target: "_blank", rel: "noopener noreferrer" } : {})} className="text-[16px] text-[#3E5146] hover:text-[#0B361F]">{label}</a></li>
             ))}
           </ul>
         </nav>
         <nav aria-label="More" className="lg:border-l lg:border-[#0B361F]/15 lg:pl-10">
           <h3 className="text-[17px] font-bold text-[#0B361F]">More</h3>
           <ul className="mt-2 space-y-0.5">
-            {[["Blogs", "/blogs/"], ["Store", "/store/"], ["Events", "/events/"], ["News", "/news/"], ["Contact", "/contact-us/"]].map(([label, href]) => (
-              <li key={label}><a href={href} className="text-[16px] text-[#3E5146] hover:text-[#0B361F]">{label}</a></li>
+            {[["Blogs", "/blogs/"], ["Store", ND_STORE_URL], ["Events", "/events/"], ["News", "/news/"], ["Contact", "/contact-us/"]].map(([label, href]) => (
+              <li key={label}><a href={href} {...(href.startsWith("http") ? { target: "_blank", rel: "noopener noreferrer" } : {})} className="text-[16px] text-[#3E5146] hover:text-[#0B361F]">{label}</a></li>
             ))}
           </ul>
         </nav>
@@ -36,7 +37,7 @@ export default function SiteFooter() {
           <h3 className="text-[17px] font-bold text-[#0B361F]">Information</h3>
           <ul className="mt-2 space-y-0.5">
             {[["Accessibility", "/accessibility/"], ["Privacy Policy", "/privacy-policy/"], ["Terms of Use", "/terms/"], ["Cookies", "/cookie-policy/"]].map(([label, href]) => (
-              <li key={label}><a href={href} className="text-[16px] text-[#3E5146] hover:text-[#0B361F]">{label}</a></li>
+              <li key={label}><a href={href} {...(href.startsWith("http") ? { target: "_blank", rel: "noopener noreferrer" } : {})} className="text-[16px] text-[#3E5146] hover:text-[#0B361F]">{label}</a></li>
             ))}
           </ul>
         </nav>

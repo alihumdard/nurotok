@@ -3,6 +3,7 @@
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import MobileMenu from "./MobileMenu";
+import { ND_TRAINING_URL, ND_STORE_URL } from "./links";
 
 /* Utility links (white bar, right) */
 const UTILITY: [string, string][] = [
@@ -13,7 +14,8 @@ const UTILITY: [string, string][] = [
   ["Log in / Register", "/account/"],
 ];
 
-type NavItem = { label: string; href: string; children?: [string, string][] };
+type NavItem = { label: string; href: string; children?: [string, string][]; external?: boolean };
+
 
 /* Main navigation (green bar). Sub-links follow the sections in the content brief. */
 export const NAV: NavItem[] = [
@@ -41,17 +43,9 @@ export const NAV: NavItem[] = [
     ],
   },
   { label: "Research", href: "/research/" },
-  {
-    label: "Training",
-    href: "/training/",
-    children: [
-      ["For care and support teams", "/training/#care"],
-      ["For communications and digital teams", "/training/#digital"],
-      ["Enquire about a session", "/training/#enquire"],
-    ],
-  },
+  { label: "Training", href: ND_TRAINING_URL, external: true },
   { label: "Blogs", href: "/blogs/" },
-  { label: "Store", href: "/store/" },
+  { label: "Store", href: ND_STORE_URL, external: true },
   {
     label: "Support",
     href: "/contact-us/#help",
@@ -156,7 +150,12 @@ export default function SiteHeader({ logo }: { logo: React.ReactNode }) {
                         <Chevron open={open} />
                       </button>
                     ) : (
-                      <a href={item.href} aria-current={active ? "page" : undefined} className={base}>
+                      <a
+                        href={item.href}
+                        aria-current={active ? "page" : undefined}
+                        {...(item.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                        className={base}
+                      >
                         {item.label}
                       </a>
                     )}
