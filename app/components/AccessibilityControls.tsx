@@ -42,11 +42,11 @@ const Sun = (
 const Moon = (
   <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M20.5 14.6A8.5 8.5 0 0 1 9.4 3.5a8.5 8.5 0 1 0 11.1 11.1z" /></svg>
 );
-const EyeOpen = (
-  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M2 12s3.6-6.5 10-6.5S22 12 22 12s-3.6 6.5-10 6.5S2 12 2 12z" /><circle cx="12" cy="12" r="2.7" /></svg>
+const Play = (
+  <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.2v13.6c0 .8.9 1.3 1.5.8l10-6.8c.6-.4.6-1.2 0-1.6l-10-6.8c-.6-.5-1.5 0-1.5.8z" /></svg>
 );
-const EyeQuiet = (
-  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 8.5c2.3 2.3 5 3.5 8 3.5s5.7-1.2 8-3.5" /><path d="M4.5 15l2-3M19.5 15l-2-3M9.5 17.5l.8-3.4M14.5 17.5l-.8-3.4" /></svg>
+const Pause = (
+  <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><rect x="7" y="5" width="3.6" height="14" rx="1.1" /><rect x="13.4" y="5" width="3.6" height="14" rx="1.1" /></svg>
 );
 
 /**
@@ -93,8 +93,8 @@ export default function AccessibilityControls() {
           label="Reduce motion"
           on={prefs.motion}
           onChange={v => update({ motion: v })}
-          off={EyeOpen}
-          onIcon={EyeQuiet}
+          off={Play}
+          onIcon={Pause}
         />
       </div>
 
