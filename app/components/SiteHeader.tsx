@@ -127,9 +127,9 @@ export default function SiteHeader({ logo }: { logo: React.ReactNode }) {
 
       {/* Green bar: main navigation (lg and up) */}
       <div ref={navRef} className="relative hidden border-b border-[#E3DED2] bg-[#F6F3EC] lg:block">
-        <div className="mx-auto flex h-[72px] max-w-[1440px] items-center justify-between gap-2 px-8 xl:gap-3 xl:px-12 2xl:px-[88px]">
+        <div className="mx-auto flex h-[72px] max-w-[1440px] items-center justify-between gap-3 px-6 xl:gap-4 xl:px-[88px]">
           <nav aria-label="Main">
-            <ul className="flex items-center gap-1 xl:gap-2 2xl:gap-2">
+            <ul className="flex items-center gap-1 xl:gap-1 2xl:gap-2">
               {NAV.map(item => {
                 const active = item.href === "/" ? here === "/" : here === item.href.replace(/\/$/, "");
                 const open = openKey === item.label;
@@ -220,10 +220,10 @@ export default function SiteHeader({ logo }: { logo: React.ReactNode }) {
           </nav>
 
           <div className="flex shrink-0 items-center gap-1 xl:gap-2">
-          <div className="hidden xl:block">
+          <div className="hidden 2xl:block">
             <AccessibilityControls />
           </div>
-          <div className="xl:hidden">
+          <div className="2xl:hidden">
             <AccessibilityControls compact />
           </div>
 
