@@ -24,7 +24,6 @@ export const NAV: NavItem[] = [
     label: "About",
     href: "/about-us/",
     children: [
-      ["Our mission", "/about-us/#mission"],
       ["Why we built NuroTok", "/about-us/#why"],
       ["Our founders", "/about-us/#founders"],
     ],
