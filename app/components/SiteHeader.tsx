@@ -127,13 +127,13 @@ export default function SiteHeader({ logo }: { logo: React.ReactNode }) {
 
       {/* Green bar: main navigation (lg and up) */}
       <div ref={navRef} className="relative hidden border-b border-[#E3DED2] bg-[#F6F3EC] lg:block">
-        <div className="mx-auto flex h-[72px] max-w-[1440px] items-center justify-between gap-3 px-6 xl:gap-4 xl:px-[88px]">
+        <div className="mx-auto flex h-[72px] max-w-[1440px] items-center justify-between gap-2 px-8 xl:gap-3 xl:px-12 2xl:px-[88px]">
           <nav aria-label="Main">
-            <ul className="flex items-center gap-0 xl:gap-1 2xl:gap-2">
+            <ul className="flex items-center gap-1 xl:gap-2 2xl:gap-2">
               {NAV.map(item => {
                 const active = item.href === "/" ? here === "/" : here === item.href.replace(/\/$/, "");
                 const open = openKey === item.label;
-                const base = `flex items-center gap-1 whitespace-nowrap rounded-full px-2 py-2 text-[15.5px] font-semibold transition-colors xl:px-2 2xl:px-4 ${
+                const base = `flex items-center gap-1 whitespace-nowrap rounded-full px-3 py-2 text-[15.5px] font-semibold transition-colors xl:px-3 2xl:px-4 ${
                   active ? "bg-[#367050] text-white" : "text-[#0B361F] hover:bg-[#0B361F]/5"
                 }`;
                 return (
@@ -197,7 +197,7 @@ export default function SiteHeader({ logo }: { logo: React.ReactNode }) {
                     setOpenKey(null);
                     setSearchOpen(o => !o);
                   }}
-                  className="ml-1 flex h-9 w-9 items-center justify-center rounded-full text-[#0B361F] transition-colors hover:bg-[#0B361F]/5"
+                  className="ml-0 flex h-9 w-9 items-center justify-center rounded-full text-[#0B361F] transition-colors hover:bg-[#0B361F]/5"
                 >
                   <svg aria-hidden="true" width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.3" strokeLinecap="round"><circle cx="11" cy="11" r="7" /><path d="M20 20l-3.5-3.5" /></svg>
                 </button>
@@ -219,7 +219,7 @@ export default function SiteHeader({ logo }: { logo: React.ReactNode }) {
             </ul>
           </nav>
 
-          <div className="flex shrink-0 items-center gap-2 xl:gap-4">
+          <div className="flex shrink-0 items-center gap-1 xl:gap-2">
           <div className="hidden xl:block">
             <AccessibilityControls />
           </div>
