@@ -116,10 +116,7 @@ export default function SiteHeader({ logo }: { logo: React.ReactNode }) {
             ))}
           </nav>
 
-          <div className="flex items-center gap-2 lg:hidden">
-            <div>
-              <AccessibilityControls compact />
-            </div>
+          <div className="lg:hidden">
             <MobileMenu />
           </div>
         </div>
