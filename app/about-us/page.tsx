@@ -110,8 +110,8 @@ export default function AboutPage() {
       {/* MISSION */}
       <section className="bg-[#F6F3EC] pb-12 lg:pb-20">
         <div className="mx-auto max-w-[1440px] px-5 sm:px-8 lg:px-12 xl:px-[88px]">
-          <div id="mission" className="grid scroll-mt-28 items-center gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.1fr)]">
-            <div className="relative aspect-[16/10] overflow-hidden rounded-[6px] border border-[#D5E2D8]">
+          <div id="mission" className="grid scroll-mt-28 items-stretch gap-6 lg:grid-cols-2">
+            <div className="relative aspect-[16/10] overflow-hidden rounded-[6px] border border-[#D5E2D8] lg:aspect-auto lg:min-h-[400px]">
               <Image src="/images/home/hero-workspace.jpg" alt="A phone showing NuroTok on a desk in a calm workspace" fill sizes="(min-width: 1024px) 45vw, 100vw" quality={82} className="object-cover object-center" />
             </div>
             <div className={`p-7 sm:p-10 lg:p-12 ${card}`}>
@@ -206,12 +206,12 @@ export default function AboutPage() {
       {/* DOWNLOAD */}
       <section className="bg-[#F6F3EC] pb-12 lg:pb-20">
         <div className="mx-auto max-w-[1440px] px-5 sm:px-8 lg:px-12 xl:px-[88px]">
-          <div id="download" className={`scroll-mt-28 p-7 sm:p-10 lg:p-12 ${card}`}>
+          <div id="download" className={`scroll-mt-28 p-7 text-center sm:p-10 lg:p-12 ${card}`}>
             <h2 className={h2}>Try NuroTok today</h2>
-            <p className="mt-3 max-w-[640px] text-[20px] leading-[1.55] text-[#2F4538] lg:text-[22px]">
+            <p className="mx-auto mt-3 max-w-[640px] text-[20px] leading-[1.55] text-[#2F4538] lg:text-[22px]">
               Take a moment, quieten a screen, and feel more in control of your time.
             </p>
-            <div className="mt-6 flex flex-wrap gap-3">
+            <div className="mt-6 flex flex-wrap justify-center gap-3">
               <a href={APP_STORE_URL} className="inline-flex items-center gap-3 rounded-[8px] bg-[#0B1A12] px-5 py-3 text-white transition-transform hover:-translate-y-0.5">
                 <svg aria-hidden="true" width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M16.37 12.6c-.02-2.2 1.8-3.26 1.88-3.31-1.03-1.5-2.62-1.7-3.18-1.73-1.35-.14-2.64.8-3.33.8-.69 0-1.75-.78-2.88-.76-1.48.02-2.85.86-3.61 2.19-1.54 2.67-.39 6.62 1.11 8.79.73 1.06 1.6 2.25 2.75 2.2 1.1-.04 1.52-.71 2.85-.71 1.33 0 1.71.71 2.88.69 1.19-.02 1.94-1.08 2.67-2.14.84-1.23 1.19-2.42 1.21-2.48-.03-.01-2.32-.89-2.35-3.54zM14.2 6.13c.61-.74 1.02-1.76.91-2.78-.88.04-1.94.59-2.57 1.32-.56.65-1.06 1.69-.93 2.69.98.08 1.98-.5 2.59-1.23z" /></svg>
                 <span className="text-left leading-tight">
