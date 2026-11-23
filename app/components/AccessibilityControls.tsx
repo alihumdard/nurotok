@@ -28,8 +28,12 @@ function IconSwitch({
       className="flex items-center gap-2 rounded-full px-1 py-1 text-[#0B361F] transition-colors hover:text-[#367050]"
     >
       <span aria-hidden="true" className={on ? "opacity-45" : ""}>{off}</span>
-      <span className={`relative h-[22px] w-[40px] shrink-0 rounded-full transition-colors ${on ? "bg-[#2E7D50]" : "bg-[#C9D6CD]"}`}>
-        <span className={`absolute top-[3px] h-4 w-4 rounded-full bg-white shadow transition-transform ${on ? "translate-x-[21px]" : "translate-x-[3px]"}`} />
+      <span
+        className={`inline-flex h-5 w-9 shrink-0 items-center rounded-full border-2 border-transparent transition-colors ${
+          on ? "bg-[#367050]" : "bg-[#C9D6CD]"
+        }`}
+      >
+        <span className={`block h-4 w-4 rounded-full bg-white shadow-lg transition-transform ${on ? "translate-x-4" : "translate-x-0"}`} />
       </span>
       <span aria-hidden="true" className={on ? "" : "opacity-45"}>{onIcon}</span>
     </button>
@@ -146,8 +150,12 @@ export default function AccessibilityControls() {
                 <span className="block text-[14px] font-semibold text-[#0B361F]">Highlight links</span>
                 <span className="block text-[12.5px] text-[#53675C]">Underline every link</span>
               </span>
-              <span className={`relative h-6 w-11 shrink-0 rounded-full transition-colors ${prefs.links ? "bg-[#2E7D50]" : "bg-[#C9D6CD]"}`}>
-                <span className={`absolute top-0.5 h-5 w-5 rounded-full bg-white shadow transition-transform ${prefs.links ? "translate-x-[22px]" : "translate-x-0.5"}`} />
+              <span
+                className={`inline-flex h-5 w-9 shrink-0 items-center rounded-full border-2 border-transparent transition-colors ${
+                  prefs.links ? "bg-[#367050]" : "bg-[#C9D6CD]"
+                }`}
+              >
+                <span className={`block h-4 w-4 rounded-full bg-white shadow-lg transition-transform ${prefs.links ? "translate-x-4" : "translate-x-0"}`} />
               </span>
             </button>
 
