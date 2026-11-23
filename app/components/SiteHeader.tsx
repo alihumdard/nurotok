@@ -108,15 +108,25 @@ export default function SiteHeader({ logo }: { logo: React.ReactNode }) {
         <div className="mx-auto flex h-[72px] max-w-[1440px] items-center justify-between gap-4 px-5 sm:px-8 lg:h-[76px] lg:px-12 xl:px-[88px]">
           {logo}
 
-          <nav aria-label="Utility" className="hidden items-center gap-7 lg:flex xl:gap-9">
-            {UTILITY.map(([label, href]) => (
-              <a key={label} href={href} className="text-[15px] font-medium text-[#0B361F] transition-colors hover:text-[#367050]">
-                {label}
-              </a>
-            ))}
-          </nav>
+          <div className="flex items-center gap-2">
+            <nav aria-label="Utility" className="hidden items-center gap-5 xl:flex xl:gap-8">
+              {UTILITY.map(([label, href]) => (
+                <a key={label} href={href} className="text-[15px] font-medium text-[#0B361F] transition-colors hover:text-[#367050]">
+                  {label}
+                </a>
+              ))}
+            </nav>
 
-          <MobileMenu />
+            {/* Desktop quick switches; compact icon remains visible on every screen */}
+            <div className="hidden lg:block">
+              <AccessibilityControls />
+            </div>
+            <div className="lg:hidden">
+              <AccessibilityControls compact />
+            </div>
+
+            <MobileMenu />
+          </div>
         </div>
       </div>
 
@@ -215,9 +225,6 @@ export default function SiteHeader({ logo }: { logo: React.ReactNode }) {
           </nav>
 
           <div className="flex shrink-0 items-center gap-2 xl:gap-4">
-          <div className="hidden [@media(min-width:1400px)]:block">
-            <AccessibilityControls />
-          </div>
 
           <a
             href="/contact-us/"

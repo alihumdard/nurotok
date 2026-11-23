@@ -68,7 +68,7 @@ const ICONS: Record<string, React.ReactNode> = {
  * the full panel behind a button. The panel mirrors the NeuroDigital Support
  * site's options, in NuroTok's colours.
  */
-export default function AccessibilityControls() {
+export default function AccessibilityControls({ compact = false }: { compact?: boolean }) {
   const { prefs, update, toggle, reset } = usePrefs();
   const [open, setOpen] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
@@ -87,12 +87,14 @@ export default function AccessibilityControls() {
 
   return (
     <div data-dark="a11y" className="flex items-center gap-1">
-      {/* Always visible */}
-      <div className="flex items-center gap-1 rounded-full border border-[#E3ECE6] bg-white px-2 py-1">
-        <IconSwitch label="Dark mode" on={prefs.dark} onChange={v => update({ dark: v })} off={Sun} onIcon={Moon} />
-        <span aria-hidden="true" className="h-4 w-px bg-[#DCE6DF]" />
-        <IconSwitch label="Reduce motion" on={prefs.motion} onChange={v => update({ motion: v })} off={Play} onIcon={Pause} />
-      </div>
+      {/* Quick switches stay in the desktop navbar; mobile uses the options button */}
+      {!compact && (
+        <div className="flex items-center gap-1 rounded-full border border-[#E3ECE6] bg-white px-2 py-1">
+          <IconSwitch label="Dark mode" on={prefs.dark} onChange={v => update({ dark: v })} off={Sun} onIcon={Moon} />
+          <span aria-hidden="true" className="h-4 w-px bg-[#DCE6DF]" />
+          <IconSwitch label="Reduce motion" on={prefs.motion} onChange={v => update({ motion: v })} off={Play} onIcon={Pause} />
+        </div>
+      )}
 
       {/* Full panel */}
       <div ref={ref} className="relative">
