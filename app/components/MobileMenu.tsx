@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { usePathname } from "next/navigation";
 import { ND_TRAINING_URL, ND_STORE_URL } from "./links";
 import AccessibilityControls from "./AccessibilityControls";
 import { createPortal } from "react-dom";
@@ -16,6 +17,13 @@ const LINKS: [string, string][] = [
   ["Support", "/contact-us/#help"],
 ];
 
+/** "/features/" and "/contact-us/#help" both normalise to "/features", "/contact-us". */
+function pathOf(href: string) {
+  if (href.startsWith("http")) return null;
+  const path = href.split("#")[0];
+  return path.length > 1 && path.endsWith("/") ? path.slice(0, -1) : path;
+}
+
 const UTILITY: [string, string][] = [
   ["News", "/news/"],
   ["Help & Support", "/contact-us/#help"],
@@ -27,6 +35,8 @@ const UTILITY: [string, string][] = [
     blurred header doesn't clip the fixed drawer. */
 export default function MobileMenu() {
   const [open, setOpen] = useState(false);
+  const raw = usePathname();
+  const here = raw.length > 1 && raw.endsWith("/") ? raw.slice(0, -1) : raw;
   const [mounted, setMounted] = useState(false);
   const closeRef = useRef<HTMLButtonElement>(null);
   const triggerRef = useRef<HTMLButtonElement>(null);
@@ -89,23 +99,26 @@ export default function MobileMenu() {
         <div className="flex-1 overflow-y-auto overscroll-contain px-5 pb-8">
           <nav aria-label="Mobile">
             <ul className="divide-y divide-[#EEF2EE]">
-              {LINKS.map(([label, href], i) => (
+              {LINKS.map(([label, href]) => {
+                const active = pathOf(href) === here;
+                return (
                 <li key={label}>
                   <a
                     href={href}
-                    aria-current={i === 0 ? "page" : undefined}
+                    aria-current={active ? "page" : undefined}
                     {...(href.startsWith("http") ? { target: "_blank", rel: "noopener noreferrer" } : {})}
                     onClick={() => setOpen(false)}
-                    className={`flex items-center justify-between py-3.5 text-[16px] font-medium ${i === 0 ? "text-[#1E7A4C]" : "text-[#0B361F]"}`}
+                    className={`flex items-center justify-between py-3.5 text-[16px] font-medium ${active ? "text-[#1E7A4C]" : "text-[#0B361F]"}`}
                   >
                     <span className="flex items-center gap-3">
-                      {i === 0 && <span aria-hidden="true" className="h-5 w-1 rounded-full bg-[#2E8A57]" />}
+                      {active && <span aria-hidden="true" className="h-5 w-1 rounded-full bg-[#2E8A57]" />}
                       {label}
                     </span>
                     <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-[#9AB0A2]"><path d="M9 6l6 6-6 6" /></svg>
                   </a>
                 </li>
-              ))}
+                );
+              })}
             </ul>
           </nav>
 
