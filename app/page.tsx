@@ -2,7 +2,7 @@ import Image from "next/image";
 import SiteHeader from "./components/SiteHeader";
 import ScreensCarousel from "./components/ScreensCarousel";
 import HeroSlider, { type Slide } from "./components/HeroSlider";
-import { news } from "./news/items";
+import { press } from "./news/items";
 import FaqAccordion from "./components/FaqAccordion";
 import BrandLogo from "./components/BrandLogo";
 import SiteFooter from "./components/SiteFooter";
@@ -210,23 +210,28 @@ export default function Home() {
                 <span aria-hidden="true" className="flex h-9 w-9 items-center justify-center rounded-lg text-white" style={{ background: "#367050" }}>
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="4" width="18" height="16" rx="2" /><path d="M7 8h10M7 12h10M7 16h6" /></svg>
                 </span>
-                Latest news
+                In the media
               </h2>
-              <a href="/news/" className="inline-flex shrink-0 items-center gap-2 whitespace-nowrap text-[18px] font-bold text-[#367050] hover:text-[#0B361F]">View all news <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M13 6l6 6-6 6" /></svg></a>
+              <a href="/news/" className="inline-flex shrink-0 items-center gap-2 whitespace-nowrap text-[18px] font-bold text-[#367050] hover:text-[#0B361F]">See all coverage <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M13 6l6 6-6 6" /></svg></a>
             </div>
             <div className="grid gap-6 md:grid-cols-3">
-              {news.slice(0, 3).map(n => (
-                <a key={n.slug} href={`/news/${n.slug}/`} className="group rounded-[6px] border border-[#D5E2D8] bg-white transition flex flex-col overflow-hidden">
-                  <div className="relative aspect-[16/10] overflow-hidden">
-                    <Image src={n.image} alt="" fill sizes="(min-width: 768px) 33vw, 100vw" quality={80} className="object-cover transition-transform duration-500 group-hover:scale-105" />
-                  </div>
-                  <div className="flex flex-1 flex-col justify-between gap-4 p-5">
-                    <h3 className="text-[22px] font-bold leading-snug lg:text-[24px] text-[#0B361F]">{n.title}</h3>
-                    <span className="flex items-center justify-between gap-3 text-[16px] text-[#2F4538]">
-                      <span className="flex items-center gap-2"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><rect x="3.5" y="5" width="17" height="15.5" rx="2" /><path d="M3.5 10h17M8 3v4M16 3v4" /></svg>{n.date}</span>
-                      <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#F6F3EC] text-[#0B361F] transition group-hover:bg-[#0B361F] group-hover:text-white"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M13 6l6 6-6 6" /></svg></span>
-                    </span>
-                  </div>
+              {press.slice(0, 3).map(item => (
+                <a
+                  key={item.href}
+                  href={item.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group flex flex-col rounded-[6px] border border-[#D5E2D8] bg-white p-6 transition hover:border-[#367050]"
+                >
+                  <span className={`flex h-[52px] items-center${item.dark ? " w-fit rounded-md bg-[#0B361F] px-3" : ""}`}>
+                    <Image src={item.logo} alt={item.outlet} width={180} height={60} sizes="180px" quality={90} className="h-auto max-h-[44px] w-auto max-w-[150px] object-contain object-left" />
+                  </span>
+                  <span className="mt-4 inline-flex w-fit rounded-full bg-[#BDEED7] px-3 py-1 text-[13px] font-bold uppercase tracking-[0.06em] text-[#0B361F]">{item.tag}</span>
+                  <h3 className="mt-3 flex-1 text-[19px] font-bold leading-[1.35] text-[#0B361F]">{item.title}</h3>
+                  <span className="mt-4 inline-flex items-center gap-2 text-[17px] font-bold text-[#367050] group-hover:text-[#0B361F]">
+                    Read the article
+                    <svg aria-hidden="true" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
+                  </span>
                 </a>
               ))}
             </div>
