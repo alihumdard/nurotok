@@ -15,7 +15,8 @@ function IconSwitch({
   on: boolean;
   onChange: (v: boolean) => void;
   off: React.ReactNode;
-  onIcon: React.ReactNode;
+  /** Omit for a switch with a single icon on its left. */
+  onIcon?: React.ReactNode;
 }) {
   return (
     <button
@@ -27,7 +28,7 @@ function IconSwitch({
       onClick={() => onChange(!on)}
       className="flex items-center gap-2 rounded-full px-1 py-1 text-[#0B361F] transition-colors hover:text-[#367050]"
     >
-      <span aria-hidden="true" className={on ? "opacity-45" : ""}>{off}</span>
+      <span aria-hidden="true" className={onIcon && on ? "opacity-45" : ""}>{off}</span>
       <span
         className={`inline-flex h-5 w-9 shrink-0 items-center rounded-full border-2 border-transparent transition-colors ${
           on ? "bg-[#367050]" : "bg-[#C9D6CD]"
@@ -35,7 +36,7 @@ function IconSwitch({
       >
         <span className={`block h-4 w-4 rounded-full bg-white shadow-lg transition-transform ${on ? "translate-x-4" : "translate-x-0"}`} />
       </span>
-      <span aria-hidden="true" className={on ? "" : "opacity-45"}>{onIcon}</span>
+      {onIcon && <span aria-hidden="true" className={on ? "" : "opacity-45"}>{onIcon}</span>}
     </button>
   );
 }
@@ -48,9 +49,6 @@ const Moon = (
 );
 const EyeOpen = (
   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M2 12s3.6-6.5 10-6.5S22 12 22 12s-3.6 6.5-10 6.5S2 12 2 12z" /><circle cx="12" cy="12" r="2.7" /></svg>
-);
-const EyeQuiet = (
-  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 8.5c2.3 2.3 5 3.5 8 3.5s5.7-1.2 8-3.5" /><path d="M4.5 15l2-3M19.5 15l-2-3M9.5 17.5l.8-3.4M14.5 17.5l-.8-3.4" /></svg>
 );
 
 /** One icon per toggle, keyed to match TOGGLES. Dyslexia uses a "Df" mark. */
@@ -93,7 +91,7 @@ export default function AccessibilityControls({ compact = false }: { compact?: b
         <div className="flex items-center gap-1 rounded-full border border-[#E3ECE6] bg-white px-2 py-1">
           <IconSwitch label="Dark mode" on={prefs.dark} onChange={v => update({ dark: v })} off={Sun} onIcon={Moon} />
           <span aria-hidden="true" className="h-4 w-px bg-[#DCE6DF]" />
-          <IconSwitch label="Focus mode" on={prefs.focus} onChange={v => update({ focus: v })} off={EyeOpen} onIcon={EyeQuiet} />
+          <IconSwitch label="Focus mode" on={prefs.focus} onChange={v => update({ focus: v })} off={EyeOpen} />
         </div>
       )}
 
