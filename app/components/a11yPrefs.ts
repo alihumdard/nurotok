@@ -21,6 +21,7 @@ export const FONT_SIZES: { label: string; value: FontSize }[] = [
 export type Prefs = {
   fontSize: FontSize;
   dark: boolean;
+  focus: boolean;
   motion: boolean;
   contrast: boolean;
   hideImages: boolean;
@@ -34,6 +35,7 @@ export type Prefs = {
 export const DEFAULT_PREFS: Prefs = {
   fontSize: "medium",
   dark: false,
+  focus: false,
   motion: false,
   contrast: false,
   hideImages: false,
@@ -46,6 +48,7 @@ export const DEFAULT_PREFS: Prefs = {
 
 /** The toggles shown as a grid in the panel, in the order ND Support uses. */
 export const TOGGLES: { key: keyof Prefs; label: string }[] = [
+  { key: "motion", label: "Reduce Motion" },
   { key: "contrast", label: "Contrast" },
   { key: "hideImages", label: "Hide Images" },
   { key: "links", label: "Highlight Links" },
@@ -67,6 +70,7 @@ function readPrefs(): Prefs {
 function applyPrefs(p: Prefs) {
   const el = document.documentElement;
   el.classList.toggle("nt-dark", p.dark);
+  el.classList.toggle("nt-focus", p.focus);
   el.classList.toggle("nt-reduce-motion", p.motion);
   el.classList.toggle("nt-contrast", p.contrast);
   el.classList.toggle("nt-hide-images", p.hideImages);

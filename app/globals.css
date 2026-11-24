@@ -245,6 +245,54 @@ html.nt-links a {
   text-underline-offset: 3px !important;
 }
 
+/* Focus mode: quietens the page so one thing is in front of you at a time.
+   Modelled on the NeuroDigital Support stylesheet. */
+html.nt-focus {
+  scroll-behavior: smooth;
+}
+html.nt-focus body {
+  background: #FBFFFD !important;
+}
+html.nt-focus main section {
+  background-image: none !important;
+}
+html.nt-focus main section:not(:first-child) {
+  background-color: #FBFFFD !important;
+}
+html.nt-focus [data-focus-distraction] {
+  display: none !important;
+}
+html.nt-focus header {
+  background: rgba(255, 255, 255, 0.96) !important;
+  box-shadow: 0 8px 24px rgba(15, 61, 50, 0.06) !important;
+}
+html.nt-focus.nt-dark header {
+  background: rgba(8, 16, 14, 0.96) !important;
+}
+html.nt-focus main {
+  max-width: 1040px;
+  margin-inline: auto;
+}
+html.nt-focus main > section {
+  border-inline: 1px solid rgba(22, 113, 88, 0.08);
+}
+html.nt-focus img,
+html.nt-focus picture,
+html.nt-focus video {
+  filter: saturate(0.6) contrast(0.92) brightness(1.04) !important;
+}
+html.nt-focus article,
+html.nt-focus aside,
+html.nt-focus form,
+html.nt-focus [class*="shadow-"] {
+  box-shadow: 0 12px 36px rgba(15, 61, 50, 0.08) !important;
+}
+html.nt-focus * {
+  text-shadow: none !important;
+  transition-duration: 0.15s !important;
+  animation-duration: 0.15s !important;
+}
+
 /* Increased contrast */
 html.nt-contrast {
   filter: contrast(1.35);

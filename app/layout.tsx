@@ -41,7 +41,7 @@ export default function RootLayout({
         {/* Apply saved accessibility prefs before first paint (see components/a11yPrefs) */}
         <script
           dangerouslySetInnerHTML={{
-            __html: `try{var p=JSON.parse(localStorage.getItem("nt-a11y")||"{}"),e=document.documentElement,m={dark:"nt-dark",motion:"nt-reduce-motion",contrast:"nt-contrast",hideImages:"nt-hide-images",links:"nt-links",bigCursor:"nt-big-cursor",dyslexia:"nt-dyslexia",textSpacing:"nt-text-spacing",lineHeight:"nt-line-height"};for(var k in m)if(p[k])e.classList.add(m[k]);if(p.fontSize)e.style.fontSize=p.fontSize==="xlarge"?"150%":p.fontSize==="large"?"120%":"100%"}catch(_){}`,
+            __html: `try{var p=JSON.parse(localStorage.getItem("nt-a11y")||"{}"),e=document.documentElement,m={dark:"nt-dark",focus:"nt-focus",motion:"nt-reduce-motion",contrast:"nt-contrast",hideImages:"nt-hide-images",links:"nt-links",bigCursor:"nt-big-cursor",dyslexia:"nt-dyslexia",textSpacing:"nt-text-spacing",lineHeight:"nt-line-height"};for(var k in m)if(p[k])e.classList.add(m[k]);if(p.fontSize)e.style.fontSize=p.fontSize==="xlarge"?"150%":p.fontSize==="large"?"120%":"100%"}catch(_){}`,
           }}
         />
       </head>

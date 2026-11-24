@@ -46,15 +46,16 @@ const Sun = (
 const Moon = (
   <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M20.5 14.6A8.5 8.5 0 0 1 9.4 3.5a8.5 8.5 0 1 0 11.1 11.1z" /></svg>
 );
-const Play = (
-  <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.2v13.6c0 .8.9 1.3 1.5.8l10-6.8c.6-.4.6-1.2 0-1.6l-10-6.8c-.6-.5-1.5 0-1.5.8z" /></svg>
+const EyeOpen = (
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M2 12s3.6-6.5 10-6.5S22 12 22 12s-3.6 6.5-10 6.5S2 12 2 12z" /><circle cx="12" cy="12" r="2.7" /></svg>
 );
-const Pause = (
-  <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><rect x="7" y="5" width="3.6" height="14" rx="1.1" /><rect x="13.4" y="5" width="3.6" height="14" rx="1.1" /></svg>
+const EyeQuiet = (
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 8.5c2.3 2.3 5 3.5 8 3.5s5.7-1.2 8-3.5" /><path d="M4.5 15l2-3M19.5 15l-2-3M9.5 17.5l.8-3.4M14.5 17.5l-.8-3.4" /></svg>
 );
 
 /** One icon per toggle, keyed to match TOGGLES. Dyslexia uses a "Df" mark. */
 const ICONS: Record<string, React.ReactNode> = {
+  motion: <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round"><rect x="4.5" y="4.5" width="5" height="15" rx="1.4" /><rect x="14.5" y="4.5" width="5" height="15" rx="1.4" /></svg>,
   contrast: <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9"><circle cx="12" cy="12" r="9" /><path d="M12 3v18a9 9 0 0 0 0-18z" fill="currentColor" stroke="none" /></svg>,
   hideImages: <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="4.5" width="18" height="15" rx="2.5" /><path d="M3.5 16l4.5-4.5 3.5 3.5M4 4l16 16" /><circle cx="15.5" cy="9" r="1.4" /></svg>,
   links: <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round"><path d="M10 13.5a4 4 0 0 0 5.7 0l2.8-2.8a4 4 0 0 0-5.7-5.7L11.5 6" /><path d="M14 10.5a4 4 0 0 0-5.7 0l-2.8 2.8a4 4 0 0 0 5.7 5.7l1.3-1.3" /></svg>,
@@ -92,7 +93,7 @@ export default function AccessibilityControls({ compact = false }: { compact?: b
         <div className="flex items-center gap-1 rounded-full border border-[#E3ECE6] bg-white px-2 py-1">
           <IconSwitch label="Dark mode" on={prefs.dark} onChange={v => update({ dark: v })} off={Sun} onIcon={Moon} />
           <span aria-hidden="true" className="h-4 w-px bg-[#DCE6DF]" />
-          <IconSwitch label="Reduce motion" on={prefs.motion} onChange={v => update({ motion: v })} off={Play} onIcon={Pause} />
+          <IconSwitch label="Focus mode" on={prefs.focus} onChange={v => update({ focus: v })} off={EyeOpen} onIcon={EyeQuiet} />
         </div>
       )}
 
