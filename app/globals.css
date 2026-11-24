@@ -263,18 +263,17 @@ html.nt-focus [data-focus-distraction] {
   display: none !important;
 }
 html.nt-focus header {
+  width: 100% !important;
+  max-width: none !important;
   background: rgba(255, 255, 255, 0.96) !important;
   box-shadow: 0 8px 24px rgba(15, 61, 50, 0.06) !important;
 }
-html.nt-focus.nt-dark header {
+html.nt-focus.nt-dark header,
+html.nt-focus.nt-dark header > div {
   background: rgba(8, 16, 14, 0.96) !important;
 }
-html.nt-focus main {
-  max-width: 1040px;
-  margin-inline: auto;
-}
-html.nt-focus main > section {
-  border-inline: 1px solid rgba(22, 113, 88, 0.08);
+html.nt-focus main > section > div {
+  max-width: 1040px !important;
 }
 html.nt-focus img,
 html.nt-focus picture,
