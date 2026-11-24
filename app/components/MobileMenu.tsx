@@ -17,10 +17,8 @@ const LINKS: [string, string][] = [
 ];
 
 const UTILITY: [string, string][] = [
-  ["News", "/news/"],
-  ["Events", "/events/"],
   ["Help & Support", "/contact-us/#help"],
-  ["Log in / Register", "/account/"],
+  ["Contact", "/contact-us/"],
 ];
 
 /** Hamburger + right-side drawer (below lg). Includes the accessibility options

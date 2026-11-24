@@ -28,7 +28,7 @@ export default function SiteFooter() {
         <nav aria-label="More" className="lg:border-l lg:border-[#0B361F]/15 lg:pl-10">
           <h3 className="text-[17px] font-bold text-[#0B361F]">More</h3>
           <ul className="mt-2 space-y-0.5">
-            {[["Blogs", "/blogs/"], ["Store", ND_STORE_URL], ["Events", "/events/"], ["News", "/news/"], ["Contact", "/contact-us/"]].map(([label, href]) => (
+            {[["Blogs", "/blogs/"], ["Store", ND_STORE_URL], ["Contact", "/contact-us/"]].map(([label, href]) => (
               <li key={label}><a href={href} {...(href.startsWith("http") ? { target: "_blank", rel: "noopener noreferrer" } : {})} className="text-[16px] text-[#3E5146] hover:text-[#0B361F]">{label}</a></li>
             ))}
           </ul>
