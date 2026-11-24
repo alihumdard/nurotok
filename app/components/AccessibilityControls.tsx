@@ -117,7 +117,7 @@ export default function AccessibilityControls({ compact = false }: { compact?: b
             <div
               aria-hidden="true"
               onClick={() => setOpen(false)}
-              className="fixed inset-0 z-[60] bg-black/80 motion-safe:animate-[nt-fade_200ms_ease-out]"
+              className="fixed inset-0 z-[100] bg-black/80 motion-safe:animate-[nt-fade_200ms_ease-out]"
             />
 
             {/* Sheet, sliding in from the right */}
@@ -126,7 +126,7 @@ export default function AccessibilityControls({ compact = false }: { compact?: b
               aria-modal="true"
               aria-label="Accessibility"
               data-light
-              className="fixed inset-y-0 right-0 z-[70] flex w-3/4 flex-col border-l border-[#E3ECE6] bg-white shadow-[0_0_60px_rgba(11,54,31,0.25)] sm:max-w-sm motion-safe:animate-[nt-slide-in_300ms_cubic-bezier(0.32,0.72,0,1)]"
+              className="fixed inset-y-0 right-0 z-[110] flex w-[88%] max-w-[420px] flex-col border-l border-[#E3ECE6] bg-white shadow-[0_0_60px_rgba(11,54,31,0.25)] sm:w-3/4 sm:max-w-sm motion-safe:animate-[nt-slide-in_300ms_cubic-bezier(0.32,0.72,0,1)]"
             >
               <button
                 type="button"
