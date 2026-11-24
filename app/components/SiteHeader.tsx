@@ -8,8 +8,11 @@ import AccessibilityControls from "./AccessibilityControls";
 
 /* Utility links (white bar, right) */
 const UTILITY: [string, string][] = [
+  ["News", "/news/"],
+  ["Events", "/events/"],
   ["Help & Support", "/contact-us/#help"],
   ["Contact", "/contact-us/"],
+  ["Log in / Register", "/account/"],
 ];
 
 type NavItem = { label: string; href: string; children?: [string, string][]; external?: boolean };
@@ -50,6 +53,7 @@ export const NAV: NavItem[] = [
       ["Help with the app", "/contact-us/#help"],
       ["Feedback and accessibility", "/contact-us/#feedback"],
       ["Easy Read", "/easy-read/"],
+      ["Your account", "/account/"],
     ],
   },
 ];

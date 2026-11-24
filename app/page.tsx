@@ -2,6 +2,7 @@ import Image from "next/image";
 import SiteHeader from "./components/SiteHeader";
 import ScreensCarousel from "./components/ScreensCarousel";
 import HeroSlider, { type Slide } from "./components/HeroSlider";
+import { news } from "./news/items";
 import FaqAccordion from "./components/FaqAccordion";
 import BrandLogo from "./components/BrandLogo";
 import SiteFooter from "./components/SiteFooter";
@@ -195,6 +196,79 @@ export default function Home() {
             <p className="mt-3 text-[20px] leading-[1.55] text-[#2F4538]">Quick answers to common questions about NuroTok.</p>
             <div className="mt-8">
               <FaqAccordion items={faqs} />
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      {/* WHAT'S ON / NEWS / SUPPORT US */}
+      <section className="bg-[#F6F3EC] pb-12 lg:pb-28">
+        <div className="mx-auto max-w-[1440px] space-y-14 px-5 lg:space-y-36 sm:px-8 lg:px-12 xl:px-[88px]">
+          <div>
+            <div className="mb-6 flex flex-col items-start gap-2 sm:flex-row sm:items-center sm:justify-between sm:gap-4">
+              <h2 className="flex items-center gap-3 text-[32px] font-bold tracking-[-0.02em] text-[#0B361F] sm:text-[40px]">
+                <span aria-hidden="true" className="flex h-9 w-9 items-center justify-center rounded-lg text-white" style={{ background: "#367050" }}>
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="3.5" y="5" width="17" height="15.5" rx="2" /><path d="M3.5 10h17M8 3v4M16 3v4" /></svg>
+                </span>
+                What&rsquo;s on
+              </h2>
+              <a href="/events/" className="inline-flex items-center gap-2 text-[18px] font-bold text-[#367050] hover:text-[#0B361F]">View more events <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M13 6l6 6-6 6" /></svg></a>
+            </div>
+            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+              {[
+                { title: "NuroTok Webinar: Digital Wellbeing", date: "Thu 14 January 2027", img: "/images/home/break-from-app.jpg" },
+                { title: "Sensory Support Workshop", date: "Tue 9 February 2027", img: "/images/home/research-guidance.jpg" },
+                { title: "Using NuroTok in Daily Life", date: "Thu 25 February 2027", img: "/images/home/screen-suits-you.jpg" },
+                { title: "Calmer Screens for Focus", date: "Tue 9 March 2027", img: "/images/home/store.jpg" },
+              ].map(ev => (
+                <a key={ev.title} href="/events/" className="group rounded-[6px] border border-[#D5E2D8] bg-white transition flex flex-col overflow-hidden">
+                  <div className="relative aspect-[16/9] overflow-hidden">
+                    <Image src={ev.img} alt="" fill sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw" quality={80} className="object-cover transition-transform duration-500 group-hover:scale-105" />
+                  </div>
+                  <div className="flex flex-1 flex-col p-5">
+                    <h3 className="text-[22px] font-bold leading-snug lg:text-[24px] text-[#0B361F]">{ev.title}</h3>
+                    <span className="mt-3 flex items-center justify-between gap-3 text-[16px] text-[#2F4538]">
+                      <span className="flex items-center gap-2"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><rect x="3.5" y="5" width="17" height="15.5" rx="2" /><path d="M3.5 10h17M8 3v4M16 3v4" /></svg>{ev.date}</span>
+                      <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#F6F3EC] text-[#0B361F] transition group-hover:bg-[#0B361F] group-hover:text-white"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M13 6l6 6-6 6" /></svg></span>
+                    </span>
+                  </div>
+                </a>
+              ))}
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      {/* LATEST NEWS (green band) */}
+      <section className="bg-[#F6F3EC] pb-12 lg:pb-28">
+        <div className="mx-auto max-w-[1440px] px-5 sm:px-8 lg:px-12 xl:px-[88px]">
+          <div>
+            <div className="mb-6 flex flex-col items-start gap-2 sm:flex-row sm:items-center sm:justify-between sm:gap-4">
+              <h2 className="flex items-center gap-3 text-[32px] font-bold tracking-[-0.02em] text-[#0B361F] sm:text-[40px]">
+                <span aria-hidden="true" className="flex h-9 w-9 items-center justify-center rounded-lg text-white" style={{ background: "#367050" }}>
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="4" width="18" height="16" rx="2" /><path d="M7 8h10M7 12h10M7 16h6" /></svg>
+                </span>
+                Latest news
+              </h2>
+              <a href="/news/" className="inline-flex shrink-0 items-center gap-2 whitespace-nowrap text-[18px] font-bold text-[#367050] hover:text-[#0B361F]">View all news <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M13 6l6 6-6 6" /></svg></a>
+            </div>
+            <div className="grid gap-6 md:grid-cols-3">
+              {news.slice(0, 3).map(n => (
+                <a key={n.slug} href={`/news/${n.slug}/`} className="group rounded-[6px] border border-[#D5E2D8] bg-white transition flex flex-col overflow-hidden">
+                  <div className="relative aspect-[16/10] overflow-hidden">
+                    <Image src={n.image} alt="" fill sizes="(min-width: 768px) 33vw, 100vw" quality={80} className="object-cover transition-transform duration-500 group-hover:scale-105" />
+                  </div>
+                  <div className="flex flex-1 flex-col justify-between gap-4 p-5">
+                    <h3 className="text-[22px] font-bold leading-snug lg:text-[24px] text-[#0B361F]">{n.title}</h3>
+                    <span className="flex items-center justify-between gap-3 text-[16px] text-[#2F4538]">
+                      <span className="flex items-center gap-2"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><rect x="3.5" y="5" width="17" height="15.5" rx="2" /><path d="M3.5 10h17M8 3v4M16 3v4" /></svg>{n.date}</span>
+                      <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#F6F3EC] text-[#0B361F] transition group-hover:bg-[#0B361F] group-hover:text-white"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M13 6l6 6-6 6" /></svg></span>
+                    </span>
+                  </div>
+                </a>
+              ))}
             </div>
           </div>
 
