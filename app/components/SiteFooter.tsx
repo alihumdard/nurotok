@@ -36,7 +36,7 @@ export default function SiteFooter() {
         <nav aria-label="Information" className="lg:border-l lg:border-[#0B361F]/15 lg:pl-10">
           <h3 className="text-[17px] font-bold text-[#0B361F]">Information</h3>
           <ul className="mt-2 space-y-0.5">
-            {[["Accessibility", "/accessibility/"], ["Privacy Policy", "/privacy-policy/"], ["Terms of Use", "/terms/"], ["Cookies", "/cookie-policy/"]].map(([label, href]) => (
+            {[["Accessibility", "/accessibility/"], ["Privacy Policy", "/privacy-policy/"], ["Terms of Use", "/terms/"]].map(([label, href]) => (
               <li key={label}><a href={href} {...(href.startsWith("http") ? { target: "_blank", rel: "noopener noreferrer" } : {})} className="text-[16px] text-[#3E5146] hover:text-[#0B361F]">{label}</a></li>
             ))}
           </ul>
@@ -71,7 +71,7 @@ export default function SiteFooter() {
         <div className="mx-auto flex max-w-[1440px] flex-col gap-3 px-6 py-4 text-[15px] text-[#3E5146] sm:flex-row sm:items-center sm:justify-between sm:px-8 lg:px-12 xl:px-[88px]">
           <p className="m-0 text-[#3E5146]">© 2026 NeuroDigital Support. All rights reserved.</p>
           <ul className="flex flex-wrap items-center gap-y-2 text-[#3E5146]">
-            {[["Accessibility", "/accessibility/"], ["Privacy Policy", "/privacy-policy/"], ["Terms of Use", "/terms/"], ["Cookies", "/cookie-policy/"]].map(([label, href], i) => (
+            {[["Accessibility", "/accessibility/"], ["Privacy Policy", "/privacy-policy/"], ["Terms of Use", "/terms/"]].map(([label, href], i) => (
               <li key={label} className="flex items-center">
                 {i > 0 && <span aria-hidden="true" className="mx-4 h-3.5 w-px bg-[#D5E2D8]" />}
                 <a href={href} className="hover:text-[#0B361F]">{label}</a>
