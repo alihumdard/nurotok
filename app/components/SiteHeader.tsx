@@ -50,7 +50,6 @@ export const NAV: NavItem[] = [
     children: [
       ["Help with the app", "/contact-us/#help"],
       ["Feedback and accessibility", "/contact-us/#feedback"],
-      ["Easy Read", "/easy-read/"],
     ],
   },
 ];
