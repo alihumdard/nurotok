@@ -302,11 +302,12 @@ export default function FeaturesPage() {
               an account. If you choose to link devices or share a summary, review the sharing settings for that
               feature.
             </p>
+            {/* TODO: link the privacy policy page once the client supplies its text. */}
             <a
-              href="/privacy-policy/"
+              href={`mailto:${EMAIL}?subject=NuroTok%20privacy`}
               className="mt-6 inline-flex items-center gap-2 text-[18px] font-bold text-[#367050] hover:text-[#0B361F]"
             >
-              Read the privacy policy <Arrow />
+              Ask about privacy <Arrow />
             </a>
           </div>
         </div>
